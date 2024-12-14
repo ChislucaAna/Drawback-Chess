@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\anach\\Desktop\\DrawbackChess\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\square.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\square.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\components\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\components\\pages\\game.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\piece.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Piece.cs",
+              "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Piece.cs",
+              "RelativeDocumentMoniker": "DrawbackChess\\Piece.cs",
+              "ToolTip": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Piece.cs",
+              "RelativeToolTip": "DrawbackChess\\Piece.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:58:22.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Square.cs",
+              "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Square.cs",
+              "RelativeDocumentMoniker": "DrawbackChess\\Square.cs",
+              "ToolTip": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Square.cs",
+              "RelativeToolTip": "DrawbackChess\\Square.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:52:14.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Board.cs",
+              "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Board.cs",
+              "RelativeDocumentMoniker": "DrawbackChess\\Board.cs",
+              "ToolTip": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Board.cs",
+              "RelativeToolTip": "DrawbackChess\\Board.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T16:46:49.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Game.razor",
+              "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\Pages\\Game.razor",
+              "RelativeDocumentMoniker": "DrawbackChess\\Components\\Pages\\Game.razor",
+              "ToolTip": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\Pages\\Game.razor",
+              "RelativeToolTip": "DrawbackChess\\Components\\Pages\\Game.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-13T16:44:29.1Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
