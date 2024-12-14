@@ -9,17 +9,21 @@ namespace DrawbackChess
     public class Square
     {
         //chess specific coordinates for move history
-        public string column; //A->H
+        public char col; //A->H
         public int row; //1->8
         public Piece? piece; //nullable for empty square
-        public Square(string column, int row)
+        public Square(char column, int row)
         {
-            this.column = column;
+            this.col = column;
             this.row = row;
         }
         public bool is_occupied()
         {
             return piece != null;
+        }
+        public bool IsBlackSquare()
+        {
+            return (row + col) % 2 != 0;
         }
     }
 }

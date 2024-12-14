@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DrawbackChess.styles.css"
     },
     {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css",
+      "PackagePath": "staticwebassets\\css\\Board.css"
+    },
+    {
       "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

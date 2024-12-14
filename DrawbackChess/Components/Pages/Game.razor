@@ -1,7 +1,37 @@
 ﻿@page "/game"
-<h3>Game</h3>
-<h1>@b.grid[1, 1].is_occupied()</h1>
+<head>
+    <link href="css/Board.css" rel="stylesheet" />
+</head>
+<body>
+    <h3>Game</h3>
+
+    <h3>Chessboardj</h3>
+
+    <div class="chessboard">
+        @for (int row = 1; row <= 8; row++)
+        {
+            @for (int col = 1; col <= 8; col++)
+            {
+                <div class="square @(board.grid[row,col].IsBlackSquare() ? "black" : "white")">
+                    @if (board.grid[row, col].piece != null)
+                    {
+                        <span class="piece">@board.grid[row, col].piece.type[0]</span>
+                    }
+                </div>
+            }
+        }
+        <label>uwu</label>
+    </div>
+</body>
+
 
 @code {
-	Board b = new Board();
+    Board board;
+
+    protected override void OnInitialized()
+    {
+        board = new Board();
+        board.SetupPieces();
+    }
 }
+

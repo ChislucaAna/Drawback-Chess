@@ -8,5 +8,12 @@ namespace DrawbackChess
 {
     public class Piece
     {
+        public string color;
+        public string type;
+        public Piece(string color, string type)
+        {
+            this.color = color;
+            this.type = type;
+        }
     }
 }
