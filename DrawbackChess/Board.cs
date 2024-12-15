@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Pipelines;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
@@ -52,6 +53,20 @@ namespace DrawbackChess
             for (int col = 1; col <= 8; col++)
             {
                 grid[7, col].piece = new Pawn("Black");
+            }
+        }
+
+        public void ShowCurrentState()
+        {
+            for (int row = 1; row <= 8; row++)
+            {
+                for (int col = 1; col <= 8; col++)
+                {
+                    if (grid[row, col].piece != null)
+                    {
+                        Console.WriteLine(grid[row, col].piece.color.ToLower()+"_"+ grid[row, col].piece.type.ToLower());
+                    }
+                }
             }
         }
     }

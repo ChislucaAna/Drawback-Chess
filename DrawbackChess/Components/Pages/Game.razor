@@ -3,27 +3,24 @@
     <link href="css/Board.css" rel="stylesheet" />
 </head>
 <body>
-    <h3>Game</h3>
-
-    <h3>Chessboardj</h3>
-
     <div class="chessboard">
         @for (int row = 1; row <= 8; row++)
         {
             @for (int col = 1; col <= 8; col++)
             {
-                <div class="square @(board.grid[row,col].IsBlackSquare() ? "black" : "white")">
+                <div class="square @(board.grid[row, col].IsBlackSquare() ? "black" : "white")"
+                     @onclick="() => OnSquareClick(row, col)">
                     @if (board.grid[row, col].piece != null)
                     {
-                        <span class="piece">@board.grid[row, col].piece.type[0]</span>
+                        <img src="\images\@(board.grid[row, col].piece.color.ToLower())_@(board.grid[row, col].piece.type.ToLower()).png"
+                        alt="@board.grid[row, col].piece.type"
+                        class="piece" />
                     }
                 </div>
             }
         }
-        <label>uwu</label>
     </div>
 </body>
-
 
 @code {
     Board board;
@@ -32,6 +29,12 @@
     {
         board = new Board();
         board.SetupPieces();
+        board.ShowCurrentState();
+    }
+
+    private void OnSquareClick(int row, int col)
+    {
+        Console.WriteLine("click");
     }
 }
 

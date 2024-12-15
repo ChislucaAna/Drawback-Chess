@@ -1,3 +1,4 @@
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\images\dotnet_bot.svg
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\index.html
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\bootstrap\bootstrap.min.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\bootstrap\bootstrap.min.css.map
@@ -7,4 +8,17 @@ wwwroot\css\app.css
 wwwroot\css\Board.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\images\black_bishop.png
+wwwroot\images\black_king.png
+wwwroot\images\black_knight.png
+wwwroot\images\black_pawn.png
+wwwroot\images\black_queen.png
+wwwroot\images\black_rook.png
+wwwroot\images\dotnet_bot.svg
+wwwroot\images\white_bishop.png
+wwwroot\images\white_king.png
+wwwroot\images\white_knight.png
+wwwroot\images\white_pawn.png
+wwwroot\images\white_queen.png
+wwwroot\images\white_rook.png
 wwwroot\index.html

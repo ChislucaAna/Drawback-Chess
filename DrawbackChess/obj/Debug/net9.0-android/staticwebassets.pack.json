@@ -21,6 +21,58 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_bishop.png",
+      "PackagePath": "staticwebassets\\images\\black_bishop.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_king.png",
+      "PackagePath": "staticwebassets\\images\\black_king.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_knight.png",
+      "PackagePath": "staticwebassets\\images\\black_knight.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_pawn.png",
+      "PackagePath": "staticwebassets\\images\\black_pawn.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_queen.png",
+      "PackagePath": "staticwebassets\\images\\black_queen.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_rook.png",
+      "PackagePath": "staticwebassets\\images\\black_rook.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\dotnet_bot.svg",
+      "PackagePath": "staticwebassets\\images\\dotnet_bot.svg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_bishop.png",
+      "PackagePath": "staticwebassets\\images\\white_bishop.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_king.png",
+      "PackagePath": "staticwebassets\\images\\white_king.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_knight.png",
+      "PackagePath": "staticwebassets\\images\\white_knight.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_pawn.png",
+      "PackagePath": "staticwebassets\\images\\white_pawn.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_queen.png",
+      "PackagePath": "staticwebassets\\images\\white_queen.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_rook.png",
+      "PackagePath": "staticwebassets\\images\\white_rook.png"
+    },
+    {
       "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
