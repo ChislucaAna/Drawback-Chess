@@ -1437,5 +1437,5 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\asse
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\white_pawn.png
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\white_queen.png
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\white_rook.png
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-myt8rrlo5q.gz
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-myt8rrlo5q.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-3t9epphh0n.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-3t9epphh0n.br

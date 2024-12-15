@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrawbackChess
 {
-    public class Piece
+    public abstract class Piece
     {
         public string color;
         public string type;
@@ -15,5 +15,6 @@ namespace DrawbackChess
             this.color = color;
             this.type = type;
         }
+        public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
     }
 }

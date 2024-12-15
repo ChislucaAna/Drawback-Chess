@@ -8,12 +8,17 @@
         {
             @for (int col = 1; col <= 8; col++)
             {
-                <div class="square @(board.grid[row, col].IsBlackSquare() ? "black" : "white")"
-                     @onclick="() => OnSquareClick(row, col)">
-                    @if (board.grid[row, col].piece != null)
+                var square = board.grid[row, col];
+                var isHighlighted = PossibleMoves.Contains(square); // Check if the square is a possible move
+
+                <div class="square @(square.IsBlackSquare() ? "black" : "white") 
+                @(square == StartSquare ? "selected" : "")
+                @(isHighlighted ? "highlight" : "")"
+                @onclick="() => OnSquareClick(square)">
+                    @if (square.piece != null)
                     {
-                        <img src="\images\@(board.grid[row, col].piece.color.ToLower())_@(board.grid[row, col].piece.type.ToLower()).png"
-                        alt="@board.grid[row, col].piece.type"
+                        <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                        alt="@square.piece.type"
                         class="piece" />
                     }
                 </div>
@@ -24,17 +29,42 @@
 
 @code {
     Board board;
+    Square? StartSquare; //only one piece can be moved at a time. This is the starting square of that piece
+    Square? EndSquare;
+    HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
 
     protected override void OnInitialized()
     {
         board = new Board();
         board.SetupPieces();
-        board.ShowCurrentState();
+        board.PrintCurrentState();
     }
 
-    private void OnSquareClick(int row, int col)
+    private void OnSquareClick(Square clicked)
     {
-        Console.WriteLine("click");
+        if (StartSquare == clicked) //Deselect Piece
+        {   
+            StartSquare = null;
+            PossibleMoves.Clear();
+        }
+        else
+        {
+            if (StartSquare == null) //Select Piece
+                if (clicked.piece != null)
+                { 
+                    StartSquare = clicked;
+                    PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare,board);
+                }
+            else //A piece has already been Selected. try to move it.
+            {    
+                //if (PossibleMoves.Contains(clicked))
+                    //board.MovePiece(StartSquare, clicked);
+
+                StartSquare = null;
+                PossibleMoves.Clear();
+            }
+        }
+        StateHasChanged();
     }
 }
 

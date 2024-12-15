@@ -15,12 +15,11 @@ namespace DrawbackChess
         public Board()
         {
             grid = new Square[9, 9];
-            for (int row = 0; row < 9; row++)
+            for (int row = 1; row <= 8; row++)
             {
-                for (int col = 0; col < 9; col++)
+                for (int col = 1; col <= 8; col++)
                 {
-                    char columnLetter = (char)('A' + col);
-                    grid[row, col] = new Square(columnLetter, row + 1);
+                    grid[row, col] = new Square(col, row);
                 }
             }
         }
@@ -56,18 +55,30 @@ namespace DrawbackChess
             }
         }
 
-        public void ShowCurrentState()
+        public void PrintCurrentState()
         {
             for (int row = 1; row <= 8; row++)
             {
                 for (int col = 1; col <= 8; col++)
                 {
                     if (grid[row, col].piece != null)
-                    {
-                        Console.WriteLine(grid[row, col].piece.color.ToLower()+"_"+ grid[row, col].piece.type.ToLower());
-                    }
+                        Console.Write(grid[row, col].piece.type.ToString() + " ");
+                    else
+                        Console.Write(" ");
                 }
+                Console.WriteLine(Environment.NewLine);
             }
         }
+
+        public Square? GetSquareAt(int row, int col)
+        {
+            return IsWithinBounds(row, col) ? grid[row, col] : null;
+        }
+
+        public bool IsWithinBounds(int row, int col)
+        {
+            return row >= 0 && row < 8 && col >= 0 && col < 8;
+        }
     }
+
 }

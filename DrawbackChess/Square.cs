@@ -8,11 +8,11 @@ namespace DrawbackChess
 {
     public class Square
     {
-        //chess specific coordinates for move history
-        public char col; //A->H
+        //chess specific position coordinates for move history
+        public int col; //1->8, will be stringified to A->H
         public int row; //1->8
         public Piece? piece; //nullable for empty square
-        public Square(char column, int row)
+        public Square(int column, int row)
         {
             this.col = column;
             this.row = row;
