@@ -12,6 +12,11 @@ namespace DrawbackChess
     public class Board
     {
         public Square[,] grid;
+        public string current_turn = "White"; //each player makes one move at a time, alternatively
+        //for piece movement:
+        public Square? StartSquare=null;
+        public Square? EndSquare=null;
+        public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
         public Board()
         {
             grid = new Square[9, 9];
@@ -77,7 +82,45 @@ namespace DrawbackChess
 
         public bool IsWithinBounds(int row, int col)
         {
-            return row >= 0 && row < 8 && col >= 0 && col < 8;
+            return row >= 1 && row <= 8 && col >= 1 && col <= 8;
+        }
+
+        public bool CanSelect(Square s)
+        {
+            if (s.piece == null)
+                return false; //there is no piece to select on this square
+            if (current_turn != s.get_piece_color())
+                return false; //it s not this player's turn yet
+            return true; //all is good
+        }
+        public void TrySelectPieceOn(Square s)
+        {
+            if (CanSelect(s))
+            {
+                StartSquare = s;
+                PossibleMoves = s.piece.GetPossibleMoves(s,this);
+            }
+        }
+        public void DeselectPiece()
+        {
+            StartSquare = null;
+            PossibleMoves.Clear();
+        }
+
+        public void MovePiece()
+        {
+            EndSquare.piece = StartSquare.piece;
+            StartSquare.piece = null;
+
+            //Finish Movement
+            StartSquare = null;
+            EndSquare = null;
+            PossibleMoves.Clear();
+            //Next Turrn
+            if (current_turn == "White")
+                current_turn = "Black";
+            else
+                current_turn = "White";
         }
     }
 

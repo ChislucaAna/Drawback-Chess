@@ -23,6 +23,16 @@ namespace DrawbackChess
             if (forwardSquare != null && forwardSquare.piece == null)
             {
                 possibleMoves.Add(forwardSquare);
+
+                bool isFirstMove = (color == "White" && row == 2) || (color == "Black" && row == 7); //first move of the pawn is 2 squares
+                if (isFirstMove)
+                {
+                    var twoSquareForward = board.GetSquareAt(row + 2 * direction, col);
+                    if (twoSquareForward != null && twoSquareForward.piece == null)
+                    {
+                        possibleMoves.Add(twoSquareForward);
+                    }
+                }
             }
 
             // Diagonal capture
@@ -37,5 +47,6 @@ namespace DrawbackChess
 
             return possibleMoves;
         }
+
     }
 }

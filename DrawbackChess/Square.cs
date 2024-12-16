@@ -25,5 +25,13 @@ namespace DrawbackChess
         {
             return (row + col) % 2 != 0;
         }
+
+        public string get_piece_color()
+        {
+            if (piece == null)
+                return "no piece here";
+            else
+                return piece.color.ToString();
+        }
     }
 }
