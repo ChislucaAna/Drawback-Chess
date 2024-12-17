@@ -1,8 +1,15 @@
-﻿@page "/game"
+﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
 <head>
     <link href="css/Board.css" rel="stylesheet" />
 </head>
 <body>
+
+    <div class="session_info">
+        <p>Player: @Player1Name</p>
+        <p>Player: @Player2Name</p>
+        <p>Play Time: @PlayTime minutes</p>
+    </div>
+
     <div class="chessboard">
         @for (int row = 1; row <= 8; row++)
         {
@@ -28,14 +35,57 @@
 </body>
 
 @code {
-
+    [Parameter] public string Player1Name { get; set; }
+    [Parameter] public string Player2Name { get; set; }
+    [Parameter] public int PlayTime { get; set; }
     Board board;
+
+    private bool isTimerRunning = false;
+
+    /*private System.Threading.Timer timer;
+
+    private void StartTimer()
+    {
+        if (!isTimerRunning)
+        {
+            isTimerRunning = true;
+
+            // Start a timer that ticks every 1 second
+            timer = new System.Threading.Timer(UpdateTimer, null, 1000, 1000);
+        }
+    }
+
+    private void StopTimer()
+    {
+        isTimerRunning = false;
+
+        // Dispose of the timer to stop it
+        timer?.Dispose();
+    }
+
+    private void UpdateTimer(object state)
+    {
+        if (PlayTime > 0)
+        {
+            PlayTime--;
+            InvokeAsync(StateHasChanged); // Trigger UI refresh
+        }
+        else
+        {
+            StopTimer();
+            Console.WriteLine("Timer Completed!");
+        }
+    }*/
 
     protected override void OnInitialized()
     {
-        board = new Board();
-        board.SetupPieces();
-        board.PrintCurrentState();
+        if (Home.is_new_game)
+        {
+            board = new Board();
+            board.SetupPieces();
+            board.PrintCurrentState();
+            //StartTimer(); 
+        }
     }
 
     private void OnSquareClick(Square clicked)

@@ -1,3 +1,84 @@
 ﻿@page "/"
+<head>
+    <link href="css/Home.css" rel="stylesheet" />
+</head>
+    
+<div>
+     <button @onclick="OpenNewGamePopup" class="menu-button">New Game</button>
+     <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+</div>
 
-<h1>Hello</h1>
+@if (showNewGamePopup)
+{
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <h3>New Game Setup</h3>
+
+            <!-- Player Name Input -->
+            <div>
+                <label>Player Name:</label>
+                <input @bind="player1Name" placeholder="Enter player name" />
+            </div>
+
+            <div>
+                <label>Player Name:</label>
+                <input @bind="player2Name" placeholder="Enter player name" />
+            </div>
+
+            <!-- Play Time Dropdown -->
+            <div>
+                <label>Select Play Time (minutes):</label>
+                <select @bind="playTime">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="modal-buttons">
+                <button @onclick="StartGame" class="menu-button">Start</button>
+                <button @onclick="CloseNewGamePopup" class="menu-button cancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+
+    [Inject] private NavigationManager Navigation { get; set; }
+    [Inject] private IJSRuntime JS { get; set; }
+
+    private bool showNewGamePopup = false;
+    private string player1Name = "";
+    private string player2Name = "";
+    private int playTime = 5;
+    public static bool is_new_game = false;
+
+    // Open the New Game popup
+    private void OpenNewGamePopup()
+    {
+        showNewGamePopup = true;
+    }
+
+    // Close the popup without starting
+    private void CloseNewGamePopup()
+    {
+        showNewGamePopup = false;
+    }
+
+    // Start the game logic
+    private void StartGame()
+    {
+        is_new_game = true;
+        showNewGamePopup = false;
+        Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}"); ;
+    }
+
+
+    private async void ContinueGame()
+    {
+        await JS.InvokeVoidAsync("alert", "This feature is currently not available.");
+    }
+}
