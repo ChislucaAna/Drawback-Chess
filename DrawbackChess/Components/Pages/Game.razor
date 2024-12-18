@@ -5,9 +5,8 @@
 <body>
 
     <div class="session_info">
-        <p>Player: @Player1Name</p>
-        <p>Player: @Player2Name</p>
-        <p>Play Time: @PlayTime minutes</p>
+        <p>Player: @current_session.player1.name</p>
+        <p>Time Left: @current_session.player1.TimeLeft</p>
     </div>
 
     <div class="chessboard">
@@ -15,11 +14,11 @@
         {
             @for (int col = 1; col <= 8; col++)
             {
-                var square = board.grid[row, col];
-                var isHighlighted = board.PossibleMoves.Contains(square); // Check if the square is a possible move
+                var square = current_session.board.grid[row, col];
+                var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
 
                 <div class="square @(square.IsBlackSquare() ? "black" : "white") 
-                @(square == board.StartSquare ? "selected" : "")
+                @(square == current_session.board.StartSquare ? "selected" : "")
                 @(isHighlighted ? "highlight" : "")"
                 @onclick="() => OnSquareClick(square)">
                     @if (square.piece != null)
@@ -32,84 +31,51 @@
             }
         }
     </div>
+
+    <div class="session_info">
+        <p>Player: @current_session.player2.name</p>
+        <p>Player: @current_session.player2.TimeLeft</p>
+    </div>
 </body>
 
 @code {
     [Parameter] public string Player1Name { get; set; }
     [Parameter] public string Player2Name { get; set; }
     [Parameter] public int PlayTime { get; set; }
-    Board board;
-
-    private bool isTimerRunning = false;
-
-    /*private System.Threading.Timer timer;
-
-    private void StartTimer()
-    {
-        if (!isTimerRunning)
-        {
-            isTimerRunning = true;
-
-            // Start a timer that ticks every 1 second
-            timer = new System.Threading.Timer(UpdateTimer, null, 1000, 1000);
-        }
-    }
-
-    private void StopTimer()
-    {
-        isTimerRunning = false;
-
-        // Dispose of the timer to stop it
-        timer?.Dispose();
-    }
-
-    private void UpdateTimer(object state)
-    {
-        if (PlayTime > 0)
-        {
-            PlayTime--;
-            InvokeAsync(StateHasChanged); // Trigger UI refresh
-        }
-        else
-        {
-            StopTimer();
-            Console.WriteLine("Timer Completed!");
-        }
-    }*/
+    public Session current_session;
 
     protected override void OnInitialized()
     {
         if (Home.is_new_game)
         {
-            board = new Board();
-            board.SetupPieces();
-            board.PrintCurrentState();
-            //StartTimer(); 
+            TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
+            current_session = new Session(Player1Name,Player2Name, timeSpan);
         }
     }
 
     private void OnSquareClick(Square clicked)
     {
-        if (board.StartSquare == clicked)   
+        if (current_session.board.StartSquare == clicked)   
         {
-            board.DeselectPiece();
+            current_session.board.DeselectPiece();
         }
         else
         {
-            if (board.StartSquare == null) 
+            if (current_session.board.StartSquare == null) 
             {
-                board.TrySelectPieceOn(clicked);
+                current_session.board.TrySelectPieceOn(clicked);
             }
             else //A piece has already been Selected. try to move it.
             {    
-                if (board.PossibleMoves.Contains(clicked))
+                if (current_session.board.PossibleMoves.Contains(clicked))
                 {
-                   board.EndSquare = clicked;
-                   board.MovePiece();
+                   current_session.board.EndSquare = clicked;
+                   current_session.board.MovePiece();
                 }
             }
         }
         StateHasChanged();
     }
 }
+
 
