@@ -66,12 +66,9 @@
                 current_session.board.TrySelectPieceOn(clicked);
             }
             else //A piece has already been Selected. try to move it.
-            {    
-                if (current_session.board.PossibleMoves.Contains(clicked))
-                {
-                   current_session.board.EndSquare = clicked;
-                   current_session.board.MovePiece();
-                }
+            {
+                current_session.board.Try_Execute_Move(clicked);
+                current_session.board.PrintMoveHistory();
             }
         }
         StateHasChanged();

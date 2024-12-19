@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Classes;
 
 namespace DrawbackChess
 {
@@ -17,6 +18,8 @@ namespace DrawbackChess
         public Square? StartSquare=null;
         public Square? EndSquare=null;
         public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
+        //MOVEHISTORY
+        List<Move> MoveHistory = new List<Move>();
         public Board()
         {
             grid = new Square[9, 9];
@@ -122,6 +125,51 @@ namespace DrawbackChess
                 current_turn = "Black";
             else
                 current_turn = "White";
+        }
+
+        public void Try_Execute_Move(Square clicked)
+        {
+            EndSquare = clicked;
+            if (Move_Is_Possible())
+            {
+                AddMoveToHistory(StartSquare.piece, EndSquare);
+                MovePiece();
+            }
+            else
+            {
+                EndSquare = null;
+            }
+        }
+
+        public bool Move_Is_Possible()
+        {
+            if (PossibleMoves.Contains(EndSquare))
+                return true;
+            return false;
+        }
+
+        public void AddMoveToHistory(Piece piece, Square endpoint)
+        {
+            MoveHistory.Add(new Move(piece, endpoint));
+        }
+
+        public void PrintMoveHistory()
+        {
+            if (MoveHistory.Count == 0)
+            {
+                Console.WriteLine("No moves have been made yet.");
+                return;
+            }
+
+            Console.WriteLine("Move History:");
+            for (int i = 0; i < MoveHistory.Count; i++)
+            {
+                Console.WriteLine(String.Format("{0}. {1} {2} was moved to {3}.",
+                i + 1,
+                MoveHistory[i].piece.color,
+                MoveHistory[i].piece.type,
+                MoveHistory[i].endpoint.ToString()));
+            }
         }
     }
 

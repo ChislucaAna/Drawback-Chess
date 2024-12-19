@@ -33,5 +33,10 @@ namespace DrawbackChess
             else
                 return piece.color.ToString();
         }
+        public override string ToString()
+        {
+            char colLetter = (char)('A' + (col - 1));
+            return $"{colLetter}{row}";
+        }
     }
 }
