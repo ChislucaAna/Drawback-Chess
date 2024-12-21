@@ -18,6 +18,7 @@
 
                     <div class="square @(square.IsBlackSquare() ? "black" : "white") 
                 @(square == current_session.board.StartSquare ? "selected" : "")
+                @(square == current_session.board.ChessHere ? "red" : "")
                 @(isHighlighted ? "highlight" : "")"
                     @onclick="() => OnSquareClick(square)">
                         @if (square.piece != null)
@@ -76,7 +77,9 @@
             else
             {
                 if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
+                {    
                     current_session.SwitchTimer();
+                }
             }
         }
         StateHasChanged();

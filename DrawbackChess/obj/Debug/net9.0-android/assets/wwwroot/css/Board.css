@@ -38,6 +38,11 @@
         z-index: 1;
     }
 
+    .square.red {
+        outline: 3px solid red;
+        z-index: 1;
+    }
+
     .square.highlight {
         background-color: rgba(0, 255, 0, 0.5); 
         border: 2px solid #00cc00; 

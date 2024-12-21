@@ -1440,7 +1440,7 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\andr
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\yi7o05yv65-ppselzjuzz.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\yi7o05yv65-ppselzjuzz.br
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-psuznnrg41.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\pp2tk5bxih-n9gv610kzd.gz
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-psuznnrg41.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\pp2tk5bxih-n9gv610kzd.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-o24eherreq.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-o24eherreq.br

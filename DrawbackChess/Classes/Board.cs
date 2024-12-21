@@ -17,6 +17,7 @@ namespace DrawbackChess
         //for piece movement:
         public Square? StartSquare=null;
         public Square? EndSquare=null;
+        public Square? ChessHere = null; //if a king is in chess his square will be highlighted
         public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
         //MOVEHISTORY
         List<Move> MoveHistory = new List<Move>();
@@ -134,6 +135,7 @@ namespace DrawbackChess
             {
                 AddMoveToHistory(StartSquare.piece, EndSquare);
                 MovePiece();
+                checkChess();
                 return true;
             }
             else
@@ -173,6 +175,44 @@ namespace DrawbackChess
                 MoveHistory[i].endpoint.ToString()));
             }
         }
+        public Move GetLastMove()
+        {
+            return MoveHistory[MoveHistory.Count - 1];
+        }
+
+        public Square GetKingPosition()
+        {
+            for (int row = 1; row <= 8; row++)
+            {
+                for (int col = 1; col <= 8; col++)
+                {
+                    if (grid[row,col].piece!=null)
+                        if (grid[row, col].piece.type=="King" && grid[row, col].piece.color == current_turn)
+                            return grid[row, col];
+                }
+            }
+            return null;
+        }
+        public void checkChess()
+        {
+            Move last = GetLastMove();
+            HashSet<Square> PossibleMoves = last.endpoint.piece.GetChessRange(last.endpoint,this);
+            Square kingposition = GetKingPosition();
+            if (kingposition != null)
+            {
+                if(PossibleMoves.Contains(kingposition))
+                {
+                    Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
+                    ChessHere = kingposition;
+                }
+                else //no chess is given currently
+                {
+                    ChessHere=null; 
+                }
+            }
+            else
+                Console.WriteLine("Exception: king doesnt seem to be found on the board");
+    }
     }
 
 }
