@@ -127,17 +127,19 @@ namespace DrawbackChess
                 current_turn = "White";
         }
 
-        public void Try_Execute_Move(Square clicked)
+        public bool Try_Execute_Move(Square clicked)
         {
             EndSquare = clicked;
             if (Move_Is_Possible())
             {
                 AddMoveToHistory(StartSquare.piece, EndSquare);
                 MovePiece();
+                return true;
             }
             else
             {
                 EndSquare = null;
+                return false;
             }
         }
 

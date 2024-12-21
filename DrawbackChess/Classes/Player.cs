@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 namespace DrawbackChess.Classes
 {
     public class Player
     {
         public string name;
         public TimeSpan TimeLeft;
-        public Timer timer;
+        public Timer? timer;
         private bool isPaused = false;
-
-        public Player(string name,TimeSpan initialtime)
+        private Action? _refreshUI;
+        public Player(string name,TimeSpan initialtime, Action refreshUI)
         {
             this.name = name;
             this.TimeLeft = initialtime;
+            _refreshUI = refreshUI;
         }
         public void StartTimer()
         {
@@ -39,20 +42,19 @@ namespace DrawbackChess.Classes
         {
             timer?.Dispose();
             timer = null; 
-            isPaused = false; 
+            isPaused = false;
+            TimeLeft = TimeSpan.Zero; 
         }
-        private void UpdateTimer(object state)
+        private async void UpdateTimer(object? state)
         {
-            if (!isPaused && TimeLeft > TimeSpan.Zero)
+            if (TimeLeft > TimeSpan.Zero && !isPaused)
             {
                 TimeLeft = TimeLeft.Subtract(TimeSpan.FromSeconds(1));
-                Console.WriteLine($"{name} Time Left: {TimeLeft.Minutes:D2}:{TimeLeft.Seconds:D2}");
-
-                if (TimeLeft <= TimeSpan.Zero)
-                {
-                    EndTimer();
-                    Console.WriteLine($"{name} has run out of time!");
-                }
+                _refreshUI.Invoke();
+            }
+            else if (TimeLeft <= TimeSpan.Zero)
+            {
+                EndTimer(); // Stop the timer when time is up
             }
         }
     }

@@ -1,39 +1,40 @@
 ﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
+@using DrawbackChess.Classes
 <link href="css/Board.css" rel="stylesheet" />
 <div class="content">
     <div class="gamearea">
-            <div class="session_info">
-        <p>Player: @current_session.player1.name</p>
-        <p>Time Left: @current_session.player1.TimeLeft</p>
-    </div>
+        <div class="session_info">
+            <p>Player: @current_session.player1.name</p>
+            <p>Time Left: @current_session.player1.TimeLeft</p>
+        </div>
 
-    <div class="chessboard">
-        @for (int row = 1; row <= 8; row++)
-        {
-            @for (int col = 1; col <= 8; col++)
+        <div class="chessboard">
+            @for (int row = 1; row <= 8; row++)
             {
-                var square = current_session.board.grid[row, col];
-                var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
+                @for (int col = 1; col <= 8; col++)
+                {
+                    var square = current_session.board.grid[row, col];
+                    var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
 
-                <div class="square @(square.IsBlackSquare() ? "black" : "white") 
+                    <div class="square @(square.IsBlackSquare() ? "black" : "white") 
                 @(square == current_session.board.StartSquare ? "selected" : "")
                 @(isHighlighted ? "highlight" : "")"
-                @onclick="() => OnSquareClick(square)">
-                    @if (square.piece != null)
-                    {
-                        <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                        alt="@square.piece.type"
-                        class="piece" />
-                    }
-                </div>
+                    @onclick="() => OnSquareClick(square)">
+                        @if (square.piece != null)
+                        {
+                            <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                            alt="@square.piece.type"
+                            class="piece" />
+                        }
+                    </div>
+                }
             }
-        }
-    </div>
+        </div>
 
-    <div class="session_info">
-        <p>Player: @current_session.player2.name</p>
-        <p>Player: @current_session.player2.TimeLeft</p>
-    </div>
+        <div class="session_info">
+            <p>Player: @current_session.player2.name</p>
+            <p>Player: @current_session.player2.TimeLeft</p>
+        </div>
     </div>
 </div>
 
@@ -48,7 +49,15 @@
         if (Home.is_new_game)
         {
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            current_session = new Session(Player1Name,Player2Name, timeSpan);
+            Player player1 = new Player(Player1Name, timeSpan, () =>
+            {
+                InvokeAsync(StateHasChanged);
+            });
+            Player player2 = new Player(Player1Name, timeSpan, () =>
+            {
+                InvokeAsync(StateHasChanged);
+            });
+            current_session = new Session(player1, player2);
         }
     }
 
@@ -64,10 +73,10 @@
             {
                 current_session.board.TrySelectPieceOn(clicked);
             }
-            else //A piece has already been Selected. try to move it.
+            else
             {
-                current_session.board.Try_Execute_Move(clicked);
-                current_session.board.PrintMoveHistory();
+                if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
+                    current_session.SwitchTimer();
             }
         }
         StateHasChanged();
