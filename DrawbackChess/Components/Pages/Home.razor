@@ -1,32 +1,29 @@
 ﻿@page "/"
-<head>
-    <link href="css/Home.css" rel="stylesheet" />
-</head>
-    
-<div>
-     <button @onclick="OpenNewGamePopup" class="menu-button">New Game</button>
-     <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
-</div>
+<link href="css/Home.css" rel="stylesheet" />
+<div class="content">
+    <div class="buttons_container">
+        <button @onclick="OpenNewGamePopup" class="menu-button">New Game</button>
+        <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+    </div>
 
-@if (showNewGamePopup)
-{
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <h3>New Game Setup</h3>
+    @if (showNewGamePopup)
+    {
+        <div class="modal-overlay">
+            <h3>Game Options:</h3>
 
             <!-- Player Name Input -->
-            <div>
+            <div class="form_field">
                 <label>Player Name:</label>
                 <input @bind="player1Name" placeholder="Enter player name" />
             </div>
 
-            <div>
+            <div class="form_field">
                 <label>Player Name:</label>
                 <input @bind="player2Name" placeholder="Enter player name" />
             </div>
 
             <!-- Play Time Dropdown -->
-            <div>
+            <div class="form_field">
                 <label>Select Play Time (minutes):</label>
                 <select @bind="playTime">
                     <option value="5">5</option>
@@ -42,15 +39,15 @@
                 <button @onclick="CloseNewGamePopup" class="menu-button cancel">Cancel</button>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
 
 @code {
 
     [Inject] private NavigationManager Navigation { get; set; }
     [Inject] private IJSRuntime JS { get; set; }
 
-    private bool showNewGamePopup = false;
+    private bool showNewGamePopup = true;
     private string player1Name = "";
     private string player2Name = "";
     private int playTime = 5;
@@ -59,7 +56,7 @@
     // Open the New Game popup
     private void OpenNewGamePopup()
     {
-        showNewGamePopup = true;
+        showNewGamePopup = !showNewGamePopup;
     }
 
     // Close the popup without starting
@@ -73,7 +70,10 @@
     {
         is_new_game = true;
         showNewGamePopup = false;
-        Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}"); ;
+        if (player1Name.Length>=1 && player2Name.Length>=1)
+            Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
+        else
+            Console.WriteLine("INVALID NAMES");
     }
 
 

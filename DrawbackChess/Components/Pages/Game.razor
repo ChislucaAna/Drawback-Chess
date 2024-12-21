@@ -1,10 +1,8 @@
 ﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
-<head>
-    <link href="css/Board.css" rel="stylesheet" />
-</head>
-<body>
-
-    <div class="session_info">
+<link href="css/Board.css" rel="stylesheet" />
+<div class="content">
+    <div class="gamearea">
+            <div class="session_info">
         <p>Player: @current_session.player1.name</p>
         <p>Time Left: @current_session.player1.TimeLeft</p>
     </div>
@@ -36,7 +34,8 @@
         <p>Player: @current_session.player2.name</p>
         <p>Player: @current_session.player2.TimeLeft</p>
     </div>
-</body>
+    </div>
+</div>
 
 @code {
     [Parameter] public string Player1Name { get; set; }
