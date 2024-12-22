@@ -53,6 +53,18 @@
       "PackagePath": "staticwebassets\\images\\dotnet_bot.svg"
     },
     {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo2.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo3.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo3.jpg"
+    },
+    {
       "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_bishop.png",
       "PackagePath": "staticwebassets\\images\\white_bishop.png"
     },

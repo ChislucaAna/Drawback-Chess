@@ -87,3 +87,34 @@ h1:focus {
         padding-left: env(safe-area-inset-left);
     }
 }
+
+.navbar-toggler { /*the three horizontal lines you click to open the navbar*/
+    border-radius: 3rem;
+    color: transparent !important;
+    margin-top: 0.5rem;
+}
+
+.nav-link
+{
+    color:antiquewhite;
+}
+
+.navbar {
+    background-color: #0C0813 !important; /* Override default background */
+    color: #FFFFFF !important; /* Override default text color */
+    border-radius: 3rem;
+    background-color: #5632D5 !important;
+}
+
+.sidebar {
+    background: none !important;
+    background-color: #5632D5 !important;
+    border-radius: 2rem;
+    width: 95%;
+    margin: auto;
+    margin-top: 0.5rem;
+}
+
+body {
+    background-color: #3A3668;
+}

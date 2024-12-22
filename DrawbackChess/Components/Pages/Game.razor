@@ -47,7 +47,7 @@
 
     protected override void OnInitialized()
     {
-        if (Home.is_new_game)
+        if (GameMenu.is_new_game)
         {
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
             Player player1 = new Player(Player1Name, timeSpan, () =>

@@ -1,84 +1,28 @@
 ﻿@page "/"
 <link href="css/Home.css" rel="stylesheet" />
+
 <div class="content">
-    <div class="buttons_container">
-        <button @onclick="OpenNewGamePopup" class="menu-button">New Game</button>
-        <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+
+    <img src="\images\homelogo3.jpg"
+         alt="Notfound"
+         class="image" />
+    <button class="start" @onclick="OpenGameMenu">
+         Start playing
+     </button>
+    <div class="info">
+        <h1>Drawback Chess</h1>
+        <p>Experience the twist of Drawback Chess, where every player faces a unique random disadvantage, turning strategy and adaptability into the ultimate keys to victory!</p>
     </div>
 
-    @if (showNewGamePopup)
-    {
-        <div class="modal-overlay">
-            <h3>Game Options:</h3>
-
-            <!-- Player Name Input -->
-            <div class="form_field">
-                <label>Player Name:</label>
-                <input @bind="player1Name" placeholder="Enter player name" />
-            </div>
-
-            <div class="form_field">
-                <label>Player Name:</label>
-                <input @bind="player2Name" placeholder="Enter player name" />
-            </div>
-
-            <!-- Play Time Dropdown -->
-            <div class="form_field">
-                <label>Select Play Time (minutes):</label>
-                <select @bind="playTime">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="30">30</option>
-                </select>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="modal-buttons">
-                <button @onclick="StartGame" class="menu-button">Start</button>
-                <button @onclick="CloseNewGamePopup" class="menu-button cancel">Cancel</button>
-            </div>
-        </div>
-    }
 </div>
 
-@code {
 
+@code
+{
     [Inject] private NavigationManager Navigation { get; set; }
-    [Inject] private IJSRuntime JS { get; set; }
 
-    private bool showNewGamePopup = true;
-    private string player1Name = "";
-    private string player2Name = "";
-    private int playTime = 5;
-    public static bool is_new_game = false;
-
-    // Open the New Game popup
-    private void OpenNewGamePopup()
+    private void OpenGameMenu()
     {
-        showNewGamePopup = !showNewGamePopup;
-    }
-
-    // Close the popup without starting
-    private void CloseNewGamePopup()
-    {
-        showNewGamePopup = false;
-    }
-
-    // Start the game logic
-    private void StartGame()
-    {
-        is_new_game = true;
-        showNewGamePopup = false;
-        if (player1Name.Length>=1 && player2Name.Length>=1)
-            Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
-        else
-            Console.WriteLine("INVALID NAMES");
-    }
-
-
-    private async void ContinueGame()
-    {
-        await JS.InvokeVoidAsync("alert", "This feature is currently not available.");
+       Navigation.NavigateTo($"/menu");
     }
 }

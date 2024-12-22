@@ -17,7 +17,6 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\scop
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\scopedcss\bundle\DrawbackChess.styles.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\scopedcss\projectbundle\DrawbackChess.bundle.scp.css
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\n4kc1jw6vk-6gzpyzhau4.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\rr4ajn2bao-8inm30yfxf.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\itmhb06hms-cwpy2mdwdc.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\7o899amfqm-xziqt4rjqx.gz
@@ -34,7 +33,6 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\stat
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\staticwebassets.upToDateCheck.txt
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\7o899amfqm-xziqt4rjqx.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\ejikud5jnq-xziqt4rjqx.br
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\n4kc1jw6vk-6gzpyzhau4.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\rr4ajn2bao-8inm30yfxf.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\itmhb06hms-cwpy2mdwdc.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\staticwebassets.publish.json
@@ -1429,6 +1427,7 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\asse
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\Home.css.gz
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\Home.css.br
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\Home.css
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\homelogo.jpg
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\typemaps.arm64-v8a.ll
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\environment.arm64-v8a.ll
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\compressed_assemblies.arm64-v8a.ll
@@ -1438,9 +1437,13 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\andr
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\marshal_methods.arm64-v8a.o
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\jni_remap.arm64-v8a.o
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\app_shared_libraries\arm64-v8a\libxamarin-app.so
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\yi7o05yv65-ppselzjuzz.gz
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\yi7o05yv65-ppselzjuzz.br
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\pp2tk5bxih-n9gv610kzd.gz
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\pp2tk5bxih-n9gv610kzd.br
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-o24eherreq.gz
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-o24eherreq.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\homelogo2.jpg
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\xocxd5q6dk-rc2cltrh13.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\n4kc1jw6vk-u3umk736zu.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\xocxd5q6dk-rc2cltrh13.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\n4kc1jw6vk-u3umk736zu.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\images\homelogo3.jpg
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\yi7o05yv65-9i3mwxjqqw.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\pp2tk5bxih-e2xwx2p13t.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\yi7o05yv65-9i3mwxjqqw.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\pp2tk5bxih-e2xwx2p13t.br

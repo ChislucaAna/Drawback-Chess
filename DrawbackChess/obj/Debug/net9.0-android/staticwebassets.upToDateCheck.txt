@@ -17,6 +17,9 @@ wwwroot\images\black_pawn.png
 wwwroot\images\black_queen.png
 wwwroot\images\black_rook.png
 wwwroot\images\dotnet_bot.svg
+wwwroot\images\homelogo.jpg
+wwwroot\images\homelogo2.jpg
+wwwroot\images\homelogo3.jpg
 wwwroot\images\white_bishop.png
 wwwroot\images\white_king.png
 wwwroot\images\white_knight.png

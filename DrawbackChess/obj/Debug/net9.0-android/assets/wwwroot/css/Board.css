@@ -1,22 +1,28 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+body
+{
+    margin:0 !important;
+    padding:0 !important;
+}
 
 .content {
     height: 100vh;
-    margin: 0;
-    padding: 0; 
+    margin: 0 !important;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    align-items:center;
-    background: linear-gradient(45deg, rgba(12,8,19,1) 0%, rgba(55,56,85,1) 50%, rgba(0,0,0,1) 100%);
+    align-items: center;
+    background-color: #2B2847 !important;
 }
 
 .chessboard {
-    width: 100%;
+    width: 90%;
     aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     border: 2px solid #000;
+    margin:auto;
 }
 
 .square {

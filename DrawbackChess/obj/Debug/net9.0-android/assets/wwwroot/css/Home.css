@@ -1,4 +1,9 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+body{
+    margin:0;
+    padding:0;
+}
+
 .content {
     height: 100vh;
     margin: 0;
@@ -6,16 +11,19 @@
     font-family: 'DM Sans', sans-serif;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(45deg, rgba(12,8,19,1) 0%, rgba(55,56,85,1) 50%, rgba(0,0,0,1) 100%);
+    background-color: #2B2847;
+    background-color: #3A3668;
+    overflow:hidden;
 }
 .menu-button {
-    padding: 10px 20px;
-    font-size: 16px;
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.3rem;
     margin: 10px;
     cursor: pointer;
-    background-color: #3D4AEB;
+    background-color: #5632D5;
     color: antiquewhite;
-    border-radius: 5px;
+    border-radius: 1rem;
 }
 
 .buttons_container {
@@ -49,4 +57,49 @@ h3
 .modal-button
 {
     align-self:center;
+}
+
+h1 {
+    color: antiquewhite;
+    align-self:end;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-size:1.2rem;
+}
+
+p{
+    color:antiquewhite;
+     font-size:1rem;
+     text-align:end;
+     
+}
+
+.info {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    width: 105%;
+    height: 40%;
+    align-self:flex-start;
+    margin: 0;
+    padding: 0;
+    margin-bottom:2rem;
+    margin-top:1rem;
+}
+
+.start {
+    width: 50%;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    margin: 0.1rem;
+    cursor: pointer;
+    background-color: #5632D5;
+    color: antiquewhite;
+    border-radius: 1rem;
+    align-self: end;
+    margin-right:1rem;
 }
