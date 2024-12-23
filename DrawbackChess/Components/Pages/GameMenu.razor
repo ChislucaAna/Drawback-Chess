@@ -1,9 +1,9 @@
 ﻿@page "/menu"
-<link href="css/Home.css" rel="stylesheet" />
+<link href="css/gamemenu.css" rel="stylesheet" />
 
 <div class="buttons_container">
-    <button @onclick="OpenNewGamePopup" class="menu-button">New Game</button>
-    <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+    <button @onclick="OpenNewGamePopup" class="gamecreation-button">New Game</button>
+    <button @onclick="ContinueGame" class="gamecreation-button">Continue Game</button>
 </div>
 
 @if (showNewGamePopup)
@@ -13,12 +13,12 @@
         <!-- Player Name Input -->
         <div class="form_field">
             <label>Player Name:</label>
-            <input @bind="player1Name" placeholder="Enter player name" />
+            <input @bind="player1Name" placeholder="White Army" />
         </div>
 
         <div class="form_field">
             <label>Player Name:</label>
-            <input @bind="player2Name" placeholder="Enter player name" />
+            <input @bind="player2Name" placeholder="Black Army" />
         </div>
 
         <!-- Play Time Dropdown -->

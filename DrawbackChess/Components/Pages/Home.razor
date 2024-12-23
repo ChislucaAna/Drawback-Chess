@@ -1,21 +1,26 @@
 ﻿@page "/"
 <link href="css/Home.css" rel="stylesheet" />
-
 <div class="content">
+
+    <div class="info">
+            <h1>Drawback Chess</h1>
+            <p>Experience the twist of Drawback Chess, where every player faces a unique random disadvantage, turning strategy and adaptability into the ultimate keys to victory!</p>
+            <button class="start" @onclick="OpenGameMenu">
+                Start playing
+            </button>
+    </div>
+
+        <div class="info">
+            <p>Join the world of Drawback Chess and play seamlessly from anywhere, anytime!</p>
+            <button class="start" @onclick="OpenGameMenu">
+                Log in
+            </button>
+        </div>
 
     <img src="\images\homelogo3.jpg"
          alt="Notfound"
          class="image" />
-    <button class="start" @onclick="OpenGameMenu">
-         Start playing
-     </button>
-    <div class="info">
-        <h1>Drawback Chess</h1>
-        <p>Experience the twist of Drawback Chess, where every player faces a unique random disadvantage, turning strategy and adaptability into the ultimate keys to victory!</p>
-    </div>
-
 </div>
-
 
 @code
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,14 @@ namespace DrawbackChess
         public bool IsBlackSquare()
         {
             return (row + col) % 2 != 0;
+        }
+
+        public string getSquareColor()
+        {
+            if (IsBlackSquare())
+                return "Black";
+            else
+                return "White";
         }
 
         public string get_piece_color()

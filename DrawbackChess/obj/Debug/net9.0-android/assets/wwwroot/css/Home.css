@@ -11,19 +11,18 @@ body{
     font-family: 'DM Sans', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #2B2847;
     background-color: #3A3668;
     overflow:hidden;
 }
 .menu-button {
-    width: 50%;
     padding: 1rem;
-    font-size: 1.3rem;
-    margin: 10px;
+    margin: 1rem;
     cursor: pointer;
     background-color: #5632D5;
     color: antiquewhite;
     border-radius: 1rem;
+    height: 3rem;
+    width: 6rem;
 }
 
 .buttons_container {
@@ -31,13 +30,6 @@ body{
     justify-content:center;
 }
 
-.modal-overlay {
-    margin: 10px;
-    padding: 10px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
 
 label
 {
@@ -47,30 +39,22 @@ label
 h3
 {
     color:antiquewhite;
-}
-
-.form_field {
-    margin: 5px;
-    padding: 5px;
-}
-
-.modal-button
-{
-    align-self:center;
+    text-align:center;
 }
 
 h1 {
     color: antiquewhite;
-    align-self:end;
+    align-self: center;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
-    font-size:1.2rem;
+    font-size: 2rem;
+    text-shadow: 0 0 16px #5632D5, 0 0 20px #5632D5, 0 0 30px #5632D5, 0 0 40px #5632D5;
 }
 
 p{
     color:antiquewhite;
      font-size:1rem;
-     text-align:end;
+     text-align:center;
      
 }
 
@@ -81,14 +65,13 @@ p{
     flex-direction: column;
 }
 
+
 .image {
     width: 105%;
     height: 40%;
-    align-self:flex-start;
+    align-self: flex-start;
     margin: 0;
     padding: 0;
-    margin-bottom:2rem;
-    margin-top:1rem;
 }
 
 .start {
@@ -100,6 +83,6 @@ p{
     background-color: #5632D5;
     color: antiquewhite;
     border-radius: 1rem;
-    align-self: end;
-    margin-right:1rem;
+    align-self: center;
+    margin-left:1rem;
 }

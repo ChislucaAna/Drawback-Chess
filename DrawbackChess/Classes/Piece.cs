@@ -20,6 +20,8 @@ namespace DrawbackChess
         public HashSet<Square> GetChessRange(Square currentSquare, Board board)
         {   
             HashSet<Square> result = new HashSet<Square>();
+            if (type == "King")
+                return null;
             if(type!="Pawn")
                 result = GetPossibleMoves(currentSquare, board);
             else

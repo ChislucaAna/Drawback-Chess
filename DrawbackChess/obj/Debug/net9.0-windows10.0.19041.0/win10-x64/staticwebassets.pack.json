@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
+      "PackagePath": "staticwebassets\\css\\gamemenu.css"
+    },
+    {
       "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_bishop.png",
       "PackagePath": "staticwebassets\\images\\black_bishop.png"
     },

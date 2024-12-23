@@ -7,6 +7,8 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Classes;
+using Microsoft.Maui.ApplicationModel.DataTransfer;
+using Xamarin.Google.Crypto.Tink.Signature;
 
 namespace DrawbackChess
 {
@@ -121,11 +123,6 @@ namespace DrawbackChess
             StartSquare = null;
             EndSquare = null;
             PossibleMoves.Clear();
-            //Next Turrn
-            if (current_turn == "White")
-                current_turn = "Black";
-            else
-                current_turn = "White";
         }
 
         public bool Try_Execute_Move(Square clicked)
@@ -135,7 +132,8 @@ namespace DrawbackChess
             {
                 AddMoveToHistory(StartSquare.piece, EndSquare);
                 MovePiece();
-                checkChess();
+                SwitchTurn();
+                checkIfChessWasGiven();
                 return true;
             }
             else
@@ -143,6 +141,14 @@ namespace DrawbackChess
                 EndSquare = null;
                 return false;
             }
+        }
+
+        public void SwitchTurn()
+        {
+            if (current_turn == "White")
+                current_turn = "Black";
+            else
+                current_turn = "White";
         }
 
         public bool Move_Is_Possible()
@@ -193,26 +199,31 @@ namespace DrawbackChess
             }
             return null;
         }
-        public void checkChess()
+        public void checkIfChessWasGiven()
         {
             Move last = GetLastMove();
-            HashSet<Square> PossibleMoves = last.endpoint.piece.GetChessRange(last.endpoint,this);
-            Square kingposition = GetKingPosition();
-            if (kingposition != null)
-            {
-                if(PossibleMoves.Contains(kingposition))
-                {
-                    Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
-                    ChessHere = kingposition;
-                }
-                else //no chess is given currently
-                {
-                    ChessHere=null; 
-                }
-            }
+            if (last.piece.type == "King")
+                ChessHere = null;
             else
-                Console.WriteLine("Exception: king doesnt seem to be found on the board");
-    }
+            {
+                HashSet<Square> ChessRange = last.endpoint.piece.GetChessRange(last.endpoint, this);
+                Square kingposition = GetKingPosition();
+                if (kingposition != null)
+                {
+                    if (ChessRange.Contains(kingposition))
+                    {
+                        Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
+                        ChessHere = kingposition;
+                    }
+                    else //no chess is given currently
+                    {
+                        ChessHere = null;
+                    }
+                }
+                else
+                    Console.WriteLine("Exception: king doesnt seem to be found on the board");
+            }
+        }
     }
 
 }
