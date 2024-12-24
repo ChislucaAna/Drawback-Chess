@@ -41,5 +41,35 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
+        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        {
+            var chessrange = new HashSet<Square>();
+
+            int[][] directions = { new[] { 1, 0 }, new[] { -1, 0 }, new[] { 0, 1 }, new[] { 0, -1 } };
+
+            foreach (var dir in directions)
+            {
+                int row = currentSquare.row + dir[0];
+                int col = currentSquare.col + dir[1];
+
+                while (board.IsWithinBounds(row, col))
+                {
+                    var targetSquare = board.GetSquareAt(row, col);
+
+                    if (targetSquare.piece != null)
+                    {
+                        chessrange.Add(targetSquare); // Capture
+                        break; // Stop moving further
+                    }
+
+                    chessrange.Add(targetSquare);
+                    row += dir[0];
+                    col += dir[1];
+                }
+            }
+
+            return chessrange;
+        }
+
     }
 }

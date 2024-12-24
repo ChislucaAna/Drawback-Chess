@@ -21,7 +21,7 @@ namespace DrawbackChess
             new[] { -2, 1 }, new[] { -2, -1 },
             new[] { 1, 2 }, new[] { 1, -2 },
             new[] { -1, 2 }, new[] { -1, -2 }
-        };
+            };
 
             foreach (var offset in offsets)
             {
@@ -40,6 +40,38 @@ namespace DrawbackChess
             }
 
             return possibleMoves;
+        }
+
+        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        {
+            var chessrange = new HashSet<Square>();
+
+            // All possible moves for a knight
+            int[][] offsets =
+            {
+            new[] { 2, 1 }, new[] { 2, -1 },
+            new[] { -2, 1 }, new[] { -2, -1 },
+            new[] { 1, 2 }, new[] { 1, -2 },
+            new[] { -1, 2 }, new[] { -1, -2 }
+            };
+
+            foreach (var offset in offsets)
+            {
+                int row = currentSquare.row + offset[0];
+                int col = currentSquare.col + offset[1];
+
+                if (board.IsWithinBounds(row, col))
+                {
+                    var targetSquare = board.GetSquareAt(row, col);
+
+                    if (targetSquare!=null)
+                    {
+                        chessrange.Add(targetSquare); // Empty square or capture
+                    }
+                }
+            }
+
+            return chessrange;
         }
     }
 }

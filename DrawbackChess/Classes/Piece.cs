@@ -17,7 +17,8 @@ namespace DrawbackChess
         }
         public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
 
-        public HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        public abstract HashSet<Square> GetChessRange(Square currentSquare, Board board);
+        /*
         {   
             HashSet<Square> result = new HashSet<Square>();
             if (type == "King")
@@ -30,7 +31,7 @@ namespace DrawbackChess
                 result = conversion.GetDiagonalCapture(currentSquare, board);
             }
             return result;
-        }
+        }*/
 
         public void PrintPossibleMoves(Square currentSquare, Board board)
         {

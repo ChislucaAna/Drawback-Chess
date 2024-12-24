@@ -43,6 +43,29 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
+        //the other king must keep a 1 square distance at all times
+        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        {
+            var chessrange = new HashSet<Square>();
+            int[] rowOffsets = { -1, 0, 1 };
+            int[] colOffsets = { -1, 0, 1 };
+
+            foreach (int rowOffset in rowOffsets)
+            {
+                foreach (int colOffset in colOffsets)
+                {
+                    if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
+
+                    var targetSquare = board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    if (targetSquare != null)
+                    {
+                         chessrange.Add(targetSquare);
+                    }
+                }
+            }
+            return chessrange;
+        }
+
         public bool IsUnderAttack(Board board, Square targetsquare) //verifies if the current square would be dangerous(is under attack) for the king of specifed color
         {
             Console.WriteLine("CHECKING FOR SQUARE..");
