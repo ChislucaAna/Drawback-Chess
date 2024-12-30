@@ -4,18 +4,20 @@
 <div class="content">
     <div class="gamearea">
         <div class="session_info">
-            <p>Player: @current_session.player1.name</p>
-            <p>Player: @current_session.player1.drawback.text</p>
-            <p>Time Left: @current_session.player1.TimeLeft</p>
+            <p class="digital-timer rotated @(isGameStarted && !current_session.player1.isPaused ? "timer-glow" : "")">
+                @current_session.player1.TimeLeft
+            </p>
+            <br />
+            <p class="rotated">@current_session.player1.name</p>
         </div>
 
         <div class="column-labels">
-        @for (char colName = 'A'; colName <= 'H'; colName++)
-        {
-            <div class="column-label">
-                <span class="rotated">@colName</span>
-            </div>
-        }
+            @for (char colName = 'A'; colName <= 'H'; colName++)
+            {
+                <div class="column-label">
+                    <span class="rotated">@colName</span>
+                </div>
+            }
         </div>
         <div class="chessarea">
 
@@ -47,7 +49,7 @@
                             {
                                 <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
                                 alt="@square.piece.type"
-                                     class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                                class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
                             }
                         </div>
                     }
@@ -74,9 +76,11 @@
         </div>
 
         <div class="session_info">
-            <p>Player: @current_session.player2.name</p>
-            <p>Player: @current_session.player2.drawback.text</p>
-            <p>Player: @current_session.player2.TimeLeft</p>
+            <p>@current_session.player2.name</p>
+            <p class="digital-timer @(isGameStarted && !current_session.player2.isPaused ? "timer-glow" : "")">
+                @current_session.player2.TimeLeft
+            </p>
+            <p>@current_session.player2.drawback.text</p>
         </div>
     </div>
 </div>
@@ -86,6 +90,7 @@
     [Parameter] public string Player2Name { get; set; }
     [Parameter] public int PlayTime { get; set; }
     public Session current_session;
+    public bool isGameStarted = false;
 
     protected override void OnInitialized()
     {
@@ -119,7 +124,8 @@
             else
             {
                 if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
-                {    
+                {
+                    isGameStarted = true;
                     Player winner = current_session.get_winner();
                     if (winner != null)
                     {

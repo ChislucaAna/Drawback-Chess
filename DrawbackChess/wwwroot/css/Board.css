@@ -118,4 +118,42 @@ p{
     font-weight: bold;;
 }
 
+.digital-timer {
+    font-family: 'Courier New', Courier, monospace; /* Monospace font for digital watch effect */
+    font-size: 1rem; /* Adjust font size as needed */
+    color: white; /* Text color */
+    background-color: black; /* Background color for the timer */
+    padding: 10px 20px; /* Padding around the text */
+    border: 3px solid #800080;
+    border-radius: 5px; /* Slightly rounded corners */
+    display: inline-block;
+    text-align: center; /* Center text inside the div */
+    box-shadow: 0 0 15px grey; /* Subtle shadow to make it look more like a digital display */
+    transition: all 0.2s ease; /* Smooth transition for changes */
+}
+
+@keyframes glowing {
+    0% {
+        text-shadow: 0 0 5px #800080, 0 0 10px #800080, 0 0 15px #800080, 0 0 20px #800080;
+    }
+
+    50% {
+        text-shadow: 0 0 20px #800080, 0 0 30px #800080, 0 0 40px #800080, 0 0 50px #800080;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #800080, 0 0 10px #800080, 0 0 15px #800080, 0 0 20px #800080;
+    }
+}
+.timer-glow {
+    box-shadow: 0 0 20px white; /* Subtle shadow to make it look more like a digital display */
+}
+
+
+
+.session_info
+{
+    margin-top:1rem;
+    margin-left:1rem;
+}
 

@@ -3,6 +3,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #0D0924;
 }
 
 .content {
@@ -14,6 +15,7 @@ body {
     flex-direction: column;
     background-color: #3A3668;
     overflow: hidden;
+    background-color: #0D0924;
 }
 
 .menu-button {
@@ -31,6 +33,9 @@ body {
 }
 
 .gamecreation-button {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content */
     padding: 1rem;
     margin: 1rem;
     cursor: pointer;
@@ -38,7 +43,12 @@ body {
     color: antiquewhite;
     border-radius: 1rem;
     height: 4rem;
-    width: 9rem;
+    width: 8rem;
+    font-size: 1rem;
+}
+
+.menu-button:active {
+    background-color: black; /* New background color on click */
 }
 
 .buttons_container {
@@ -48,9 +58,11 @@ body {
 
 .modal-overlay {
     margin: 1rem;
-    height: 100%;
     display: flex;
+    border-radius: 3rem;
+    padding: 1rem;
     flex-direction: column;
+    background-color: #3A3668;
 }
 
 label {

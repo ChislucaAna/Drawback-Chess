@@ -12,7 +12,7 @@ namespace DrawbackChess.Classes
         public string name;
         public TimeSpan TimeLeft;
         public Timer? timer;
-        private bool isPaused = false;
+        public bool isPaused = true;
         private Action? _refreshUI;
         public Drawback drawback;
         public Player(string name,Drawback drawback,TimeSpan initialtime, Action refreshUI)
@@ -27,11 +27,13 @@ namespace DrawbackChess.Classes
             if (timer == null) //Start a new Timer
             {
                 timer = new Timer(UpdateTimer, null, 1000, 1000);
+                isPaused = false;
             }
             else if (isPaused) //Unpause
             {
                 isPaused = false;
             }
+            _refreshUI.Invoke();
         }
         public void PauseTimer()
         {
@@ -39,25 +41,27 @@ namespace DrawbackChess.Classes
             {
                 isPaused = true;
             }
+            _refreshUI.Invoke();
         }
         public void EndTimer()
         {
             timer?.Dispose();
             timer = null; 
-            isPaused = false;
-            TimeLeft = TimeSpan.Zero; 
+            isPaused = false;;
+            TimeLeft = TimeSpan.Zero;
+            _refreshUI.Invoke();
         }
         private async void UpdateTimer(object? state)
         {
             if (TimeLeft > TimeSpan.Zero && !isPaused)
             {
                 TimeLeft = TimeLeft.Subtract(TimeSpan.FromSeconds(1));
-                _refreshUI.Invoke();
             }
             else if (TimeLeft <= TimeSpan.Zero)
             {
                 EndTimer(); // Stop the timer when time is up
             }
+            _refreshUI.Invoke();
         }
     }
 }

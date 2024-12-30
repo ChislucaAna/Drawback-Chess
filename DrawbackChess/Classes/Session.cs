@@ -16,6 +16,8 @@ namespace DrawbackChess
         public Player player1;
         public Player player2;
 
+        public bool isGameStarted = false;
+
         public Session(Player player1, Player player2)
         {
             board = new Board();
