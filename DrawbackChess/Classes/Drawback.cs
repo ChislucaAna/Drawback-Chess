@@ -28,6 +28,7 @@ namespace DrawbackChess.Classes
             this.text = bucati[0];
             this.type = bucati[1];
             this.parameter = bucati[2];
+            Thread.Sleep(100);
         }
 
         public bool was_broken(Session context)

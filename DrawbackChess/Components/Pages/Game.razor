@@ -9,27 +9,67 @@
             <p>Time Left: @current_session.player1.TimeLeft</p>
         </div>
 
-        <div class="chessboard">
-            @for (int row = 1; row <= 8; row++)
-            {
-                @for (int col = 1; col <= 8; col++)
-                {
-                    var square = current_session.board.grid[row, col];
-                    var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
+        <div class="column-labels">
+        @for (char colName = 'A'; colName <= 'H'; colName++)
+        {
+            <div class="column-label">
+                <span class="rotated">@colName</span>
+            </div>
+        }
+        </div>
+        <div class="chessarea">
 
-                    <div class="square @(square.IsBlackSquare() ? "black" : "white") 
-                @(square == current_session.board.StartSquare ? "selected" : "")
-                @(square == current_session.board.ChessHere ? "red" : "")
-                @(isHighlighted ? "highlight" : "")"
-                    @onclick="() => OnSquareClick(square)">
-                        @if (square.piece != null)
-                        {
-                            <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                            alt="@square.piece.type"
-                            class="piece" />
-                        }
+            <div class="row-labels">
+                @for (int row = 1; row <= 8; row++)
+                {
+                    <div class="row-label">
+                        <label>@row</label>
                     </div>
                 }
+            </div>
+
+            <div class="chessboard">
+
+                @for (int row = 1; row <= 8; row++)
+                {
+
+                    @for (int col = 1; col <= 8; col++)
+                    {
+                        var square = current_session.board.grid[row, col];
+                        var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
+
+                        <div class="square @(square.IsBlackSquare() ? "black" : "white") 
+                    @(square == current_session.board.StartSquare ? "selected" : "")
+                    @(square == current_session.board.ChessHere ? "red" : "")
+                    @(isHighlighted ? "highlight" : "")"
+                        @onclick="() => OnSquareClick(square)">
+                            @if (square.piece != null)
+                            {
+                                <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                                alt="@square.piece.type"
+                                     class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                            }
+                        </div>
+                    }
+                }
+            </div>
+
+            <div class="row-labels">
+                @for (int row = 1; row <= 8; row++)
+                {
+                    <div class="row-label rotated">
+                        <label>@row</label>
+                    </div>
+                }
+            </div>
+
+
+        </div>
+
+        <div class="column-labels">
+            @for (char colName = 'A'; colName <= 'H'; colName++)
+            {
+                <div class="column-label">@colName</div>
             }
         </div>
 
