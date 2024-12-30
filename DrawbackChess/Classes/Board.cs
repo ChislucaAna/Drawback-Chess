@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Classes;
 using Microsoft.Maui.ApplicationModel.DataTransfer;
-using Xamarin.Google.Crypto.Tink.Signature;
 
 namespace DrawbackChess
 {
@@ -183,7 +182,10 @@ namespace DrawbackChess
         }
         public Move GetLastMove()
         {
-            return MoveHistory[MoveHistory.Count - 1];
+            if (MoveHistory.Count >= 1)
+                return MoveHistory[MoveHistory.Count - 1];
+            else
+                return null;
         }
 
         public Square GetKingPosition()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DrawbackChess.Classes;
 using Microsoft.AspNetCore.Components;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.IO;
 
 namespace DrawbackChess
 {
@@ -40,6 +41,31 @@ namespace DrawbackChess
                     Console.WriteLine("Something went wrong when trying to switch timer");
                     break;
             }
+        }
+
+        public Player get_winner()
+        {
+            Player special_winner = get_special_winner();
+            if (special_winner != null)
+                return special_winner;
+            Player basic_winner = get_basic_winner();
+            if (basic_winner != null)
+                return basic_winner;
+            return null;
+        }
+
+        public Player get_special_winner()
+        {
+            if(player1.drawback.was_broken(this))
+                return player1;
+            if (player2.drawback.was_broken(this))
+                return player2;
+            return null;
+        }
+
+        public Player get_basic_winner() //PLACEHOLDER : NOT IMPLEMENTED YET
+        {
+            return null;
         }
     }
 }

@@ -14,10 +14,12 @@ namespace DrawbackChess.Classes
         public Timer? timer;
         private bool isPaused = false;
         private Action? _refreshUI;
-        public Player(string name,TimeSpan initialtime, Action refreshUI)
+        public Drawback drawback;
+        public Player(string name,Drawback drawback,TimeSpan initialtime, Action refreshUI)
         {
             this.name = name;
             this.TimeLeft = initialtime;
+            this.drawback = drawback;   
             _refreshUI = refreshUI;
         }
         public void StartTimer()

@@ -5,6 +5,7 @@
     <div class="gamearea">
         <div class="session_info">
             <p>Player: @current_session.player1.name</p>
+            <p>Player: @current_session.player1.drawback.text</p>
             <p>Time Left: @current_session.player1.TimeLeft</p>
         </div>
 
@@ -34,6 +35,7 @@
 
         <div class="session_info">
             <p>Player: @current_session.player2.name</p>
+            <p>Player: @current_session.player2.drawback.text</p>
             <p>Player: @current_session.player2.TimeLeft</p>
         </div>
     </div>
@@ -50,11 +52,11 @@
         if (GameMenu.is_new_game)
         {
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Player player1 = new Player(Player1Name, timeSpan, () =>
+            Player player1 = new Player(Player1Name, new Drawback(),timeSpan, () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            Player player2 = new Player(Player1Name, timeSpan, () =>
+            Player player2 = new Player(Player1Name, new Drawback(), timeSpan, () =>
             {
                 InvokeAsync(StateHasChanged);
             });
@@ -78,6 +80,11 @@
             {
                 if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
                 {    
+                    Player winner = current_session.get_winner();
+                    if (winner != null)
+                    {
+                        Console.WriteLine("Game was won by" + winner.name);
+                    }
                     current_session.SwitchTimer();
                 }
             }
