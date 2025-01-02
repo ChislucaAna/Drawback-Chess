@@ -1,9 +1,16 @@
 ﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
 @using DrawbackChess.Classes
+@using DrawbackChess.Components
+@using CommunityToolkit.Maui.Views;
 <link href="css/Board.css" rel="stylesheet" />
 <div class="content">
+
+    <InfoPopup Title="Game Over" IsVisible="@IsPopupVisible">
+        <p>Checkmate! The game is over.</p>
+    </InfoPopup>
     <div class="gamearea">
         <div class="session_info">
+            <p class="rotated">@current_session.player1.drawback.text</p>
             <p class="digital-timer rotated @(isGameStarted && !current_session.player1.isPaused ? "timer-glow" : "")">
                 @current_session.player1.TimeLeft
             </p>
@@ -91,6 +98,7 @@
     [Parameter] public int PlayTime { get; set; }
     public Session current_session;
     public bool isGameStarted = false;
+    public bool IsPopupVisible = false;
 
     protected override void OnInitialized()
     {
@@ -101,7 +109,7 @@
             {
                 InvokeAsync(StateHasChanged);
             });
-            Player player2 = new Player(Player1Name, new Drawback(), timeSpan, () =>
+            Player player2 = new Player(Player2Name, new Drawback(), timeSpan, () =>
             {
                 InvokeAsync(StateHasChanged);
             });
@@ -130,6 +138,7 @@
                     if (winner != null)
                     {
                         Console.WriteLine("Game was won by" + winner.name);
+                        IsPopupVisible = true;
                     }
                     current_session.SwitchTimer();
                 }
@@ -137,6 +146,7 @@
         }
         StateHasChanged();
     }
+
 }
 
 

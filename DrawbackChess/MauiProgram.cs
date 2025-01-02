@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace DrawbackChess
 {
@@ -12,7 +13,8 @@ namespace DrawbackChess
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+                })
+                .UseMauiApp<App>().UseMauiCommunityToolkit();
 
             builder.Services.AddMauiBlazorWebView();
 
@@ -20,7 +22,6 @@ namespace DrawbackChess
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
-
             return builder.Build();
         }
     }

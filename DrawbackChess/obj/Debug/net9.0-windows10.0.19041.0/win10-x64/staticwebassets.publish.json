@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VAB1BIYNN0dvN8Umphci4gTb5hosJGwQiQBcd61RGoE=",
+  "Hash": "XTC2Jf76RJjjS7lGFpz0eSOmTZTpEYj83lfzaFu5cwo=",
   "Source": "DrawbackChess",
   "BasePath": "/",
   "Mode": "Root",
@@ -332,12 +332,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-glbbk3lxqi.br",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-fqf863cwhl.br",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\",
       "BasePath": "/",
-      "RelativePath": "css/Board#[.{fingerprint=glbbk3lxqi}]?.css.br",
+      "RelativePath": "css/Board#[.{fingerprint=fqf863cwhl}]?.css.br",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -346,8 +346,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "rpws08v3si",
-      "Integrity": "YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw=",
+      "Fingerprint": "l99wk6vhwz",
+      "Integrity": "F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css"
@@ -395,12 +395,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-glbbk3lxqi.gz",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-fqf863cwhl.gz",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "css/Board#[.{fingerprint=glbbk3lxqi}]?.css.gz",
+      "RelativePath": "css/Board#[.{fingerprint=fqf863cwhl}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -409,8 +409,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "dpptozufl0",
-      "Integrity": "YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8=",
+      "Fingerprint": "9v1kl31ut1",
+      "Integrity": "dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css"
@@ -514,8 +514,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "glbbk3lxqi",
-      "Integrity": "dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=",
+      "Fingerprint": "fqf863cwhl",
+      "Integrity": "WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Board.css"
@@ -1479,12 +1479,12 @@
     },
     {
       "Route": "css/Board.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-glbbk3lxqi.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-fqf863cwhl.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.001040582726"
+          "Quality": "0.001094091904"
         }
       ],
       "ResponseHeaders": [
@@ -1494,15 +1494,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "960"
+          "Value": "913"
         },
         {
           "Name": "ETag",
-          "Value": "\"YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw=\""
+          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1522,24 +1522,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
     {
       "Route": "css/Board.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-glbbk3lxqi.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-fqf863cwhl.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000836120401"
+          "Quality": "0.000874890639"
         }
       ],
       "ResponseHeaders": [
@@ -1549,15 +1549,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1195"
+          "Value": "1142"
         },
         {
           "Name": "ETag",
-          "Value": "\"YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8=\""
+          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1577,13 +1577,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
@@ -1598,7 +1598,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3482"
+          "Value": "3425"
         },
         {
           "Name": "Content-Type",
@@ -1606,11 +1606,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1620,13 +1620,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
     {
       "Route": "css/Board.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-glbbk3lxqi.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-fqf863cwhl.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1635,7 +1635,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "960"
+          "Value": "913"
         },
         {
           "Name": "Content-Type",
@@ -1643,11 +1643,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw=\""
+          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1665,13 +1665,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw="
+          "Value": "sha256-F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo="
         }
       ]
     },
     {
       "Route": "css/Board.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-glbbk3lxqi.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-fqf863cwhl.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1680,7 +1680,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1195"
+          "Value": "1142"
         },
         {
           "Name": "Content-Type",
@@ -1688,11 +1688,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8=\""
+          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1710,18 +1710,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8="
+          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
         }
       ]
     },
     {
-      "Route": "css/Board.glbbk3lxqi.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-glbbk3lxqi.br",
+      "Route": "css/Board.fqf863cwhl.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-fqf863cwhl.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.001040582726"
+          "Quality": "0.001094091904"
         }
       ],
       "ResponseHeaders": [
@@ -1731,15 +1731,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "960"
+          "Value": "913"
         },
         {
           "Name": "ETag",
-          "Value": "\"YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw=\""
+          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1759,13 +1759,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "glbbk3lxqi"
+          "Value": "fqf863cwhl"
         },
         {
           "Name": "label",
@@ -1773,18 +1773,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
     {
-      "Route": "css/Board.glbbk3lxqi.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-glbbk3lxqi.gz",
+      "Route": "css/Board.fqf863cwhl.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-fqf863cwhl.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000836120401"
+          "Quality": "0.000874890639"
         }
       ],
       "ResponseHeaders": [
@@ -1794,15 +1794,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1195"
+          "Value": "1142"
         },
         {
           "Name": "ETag",
-          "Value": "\"YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8=\""
+          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1822,13 +1822,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "glbbk3lxqi"
+          "Value": "fqf863cwhl"
         },
         {
           "Name": "label",
@@ -1836,12 +1836,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
     {
-      "Route": "css/Board.glbbk3lxqi.css",
+      "Route": "css/Board.fqf863cwhl.css",
       "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Board.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1851,7 +1851,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3482"
+          "Value": "3425"
         },
         {
           "Name": "Content-Type",
@@ -1859,11 +1859,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ=\""
+          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1873,7 +1873,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "glbbk3lxqi"
+          "Value": "fqf863cwhl"
         },
         {
           "Name": "label",
@@ -1881,13 +1881,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dB8dW4OHS/A1sLZz3PQedE37sverWdaJPebTFOptQCQ="
+          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
         }
       ]
     },
     {
-      "Route": "css/Board.glbbk3lxqi.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-glbbk3lxqi.br",
+      "Route": "css/Board.fqf863cwhl.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\publish\\xocxd5q6dk-fqf863cwhl.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1896,7 +1896,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "960"
+          "Value": "913"
         },
         {
           "Name": "Content-Type",
@@ -1904,11 +1904,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw=\""
+          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1926,7 +1926,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "glbbk3lxqi"
+          "Value": "fqf863cwhl"
         },
         {
           "Name": "label",
@@ -1934,13 +1934,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YZsEQbQxd27dDJU/oByaykrjwgyzx4apauM+imALUbw="
+          "Value": "sha256-F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo="
         }
       ]
     },
     {
-      "Route": "css/Board.glbbk3lxqi.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-glbbk3lxqi.gz",
+      "Route": "css/Board.fqf863cwhl.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\compressed\\xocxd5q6dk-fqf863cwhl.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1949,7 +1949,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1195"
+          "Value": "1142"
         },
         {
           "Name": "Content-Type",
@@ -1957,11 +1957,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8=\""
+          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:33:06 GMT"
+          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1979,7 +1979,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "glbbk3lxqi"
+          "Value": "fqf863cwhl"
         },
         {
           "Name": "label",
@@ -1987,7 +1987,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YUsP3H0QJUZRi2YMVpP5whtfKPMDmNCznsSMb5izik8="
+          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
         }
       ]
     },
