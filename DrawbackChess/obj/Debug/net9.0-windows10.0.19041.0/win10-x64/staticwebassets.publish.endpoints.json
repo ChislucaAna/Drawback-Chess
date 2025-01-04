@@ -517,68 +517,13 @@
       ]
     },
     {
-      "Route": "css/Board.css",
-      "AssetFile": "css/Board.css.br",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "br",
-          "Quality": "0.001094091904"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "913"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
-        }
-      ]
-    },
-    {
-      "Route": "css/Board.css",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.css",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000874890639"
+          "Quality": "0.000862068966"
         }
       ],
       "ResponseHeaders": [
@@ -596,7 +541,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -604,15 +549,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -622,145 +567,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         }
       ]
     },
     {
-      "Route": "css/Board.css",
-      "AssetFile": "css/Board.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3425"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
-        }
-      ]
-    },
-    {
-      "Route": "css/Board.css.br",
-      "AssetFile": "css/Board.css.br",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "913"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo="
-        }
-      ]
-    },
-    {
-      "Route": "css/Board.css.gz",
-      "AssetFile": "css/Board.css.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1142"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
-        }
-      ]
-    },
-    {
-      "Route": "css/Board.fqf863cwhl.css",
-      "AssetFile": "css/Board.css.br",
+      "Route": "css/Game.css",
+      "AssetFile": "css/Game.css.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.001094091904"
+          "Quality": "0.001076426265"
         }
       ],
       "ResponseHeaders": [
@@ -770,7 +588,7 @@
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -778,7 +596,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "928"
         },
         {
           "Name": "Content-Type",
@@ -786,15 +604,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
+          "Value": "\"6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -803,27 +621,146 @@
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "fqf863cwhl"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
-        },
-        {
-          "Name": "label",
-          "Value": "css/Board.css"
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.css",
+      "AssetFile": "css/Game.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3492"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css.br",
+      "AssetFile": "css/Game.css.br",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "928"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css.gz",
+      "AssetFile": "css/Game.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1159"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.x2tve9sqde.css",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000874890639"
+          "Quality": "0.000862068966"
         }
       ],
       "ResponseHeaders": [
@@ -841,7 +778,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -849,15 +786,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -867,21 +804,84 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css"
+          "Value": "css/Game.css"
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css",
-      "AssetFile": "css/Board.css",
+      "Route": "css/Game.x2tve9sqde.css",
+      "AssetFile": "css/Game.css.br",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "br",
+          "Quality": "0.001076426265"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "928"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x2tve9sqde"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
+        },
+        {
+          "Name": "label",
+          "Value": "css/Game.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.x2tve9sqde.css",
+      "AssetFile": "css/Game.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -894,7 +894,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3425"
+          "Value": "3492"
         },
         {
           "Name": "Content-Type",
@@ -902,31 +902,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css"
+          "Value": "css/Game.css"
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css.br",
-      "AssetFile": "css/Board.css.br",
+      "Route": "css/Game.x2tve9sqde.css.br",
+      "AssetFile": "css/Game.css.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -943,7 +943,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "913"
+          "Value": "928"
         },
         {
           "Name": "Content-Type",
@@ -951,11 +951,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo=\""
+          "Value": "\"6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -965,21 +965,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-F20HzeXC2QCI4CJv87kPNW4DvLA0/XU7/UdoGYox1Yo="
+          "Value": "sha256-6A6kU6xq9UO6Bi5NcEx0wudTFeYZqqgJPkOFU6sH/wI="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css.br"
+          "Value": "css/Game.css.br"
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css.gz",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.x2tve9sqde.css.gz",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -996,7 +996,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -1004,11 +1004,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -1018,15 +1018,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
+          "Value": "sha256-WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css.gz"
+          "Value": "css/Game.css.gz"
         }
       ]
     },

@@ -21,7 +21,7 @@ namespace DrawbackChess
         public Square? ChessHere = null; //if a king is in chess his square will be highlighted
         public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
         //MOVEHISTORY
-        List<Move> MoveHistory = new List<Move>();
+        public List<Move> MoveHistory = new List<Move>();
         public Board()
         {
             grid = new Square[9, 9];

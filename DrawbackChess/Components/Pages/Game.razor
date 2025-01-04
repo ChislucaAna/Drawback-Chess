@@ -2,102 +2,30 @@
 @using DrawbackChess.Classes
 @using DrawbackChess.Components
 @using CommunityToolkit.Maui.Views;
-<link href="css/Board.css" rel="stylesheet" />
+<link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <InfoPopup Title="Game Over" IsVisible="@IsPopupVisible">
+    <GameEndedPopup Title="Game Over" IsVisible="@IsPopupVisible">
         <p>Checkmate! The game is over.</p>
-    </InfoPopup>
+    </GameEndedPopup>>
     <div class="gamearea">
-        <div class="session_info">
-            <p class="rotated">@current_session.player1.drawback.text</p>
-            <p class="digital-timer rotated @(isGameStarted && !current_session.player1.isPaused ? "timer-glow" : "")">
-                @current_session.player1.TimeLeft
-            </p>
-            <br />
-            <p class="rotated">@current_session.player1.name</p>
-        </div>
+        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" rotate="true">
+        </PlayerGameInfo>
 
-        <div class="column-labels">
-            @for (char colName = 'A'; colName <= 'H'; colName++)
-            {
-                <div class="column-label">
-                    <span class="rotated">@colName</span>
-                </div>
-            }
-        </div>
-        <div class="chessarea">
+        <GameArea current_session="@current_session"></GameArea>
 
-            <div class="row-labels">
-                @for (int row = 1; row <= 8; row++)
-                {
-                    <div class="row-label">
-                        <label>@row</label>
-                    </div>
-                }
-            </div>
-
-            <div class="chessboard">
-
-                @for (int row = 1; row <= 8; row++)
-                {
-
-                    @for (int col = 1; col <= 8; col++)
-                    {
-                        var square = current_session.board.grid[row, col];
-                        var isHighlighted = current_session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
-
-                        <div class="square @(square.IsBlackSquare() ? "black" : "white") 
-                    @(square == current_session.board.StartSquare ? "selected" : "")
-                    @(square == current_session.board.ChessHere ? "red" : "")
-                    @(isHighlighted ? "highlight" : "")"
-                        @onclick="() => OnSquareClick(square)">
-                            @if (square.piece != null)
-                            {
-                                <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                                alt="@square.piece.type"
-                                class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
-                            }
-                        </div>
-                    }
-                }
-            </div>
-
-            <div class="row-labels">
-                @for (int row = 1; row <= 8; row++)
-                {
-                    <div class="row-label rotated">
-                        <label>@row</label>
-                    </div>
-                }
-            </div>
-
-
-        </div>
-
-        <div class="column-labels">
-            @for (char colName = 'A'; colName <= 'H'; colName++)
-            {
-                <div class="column-label">@colName</div>
-            }
-        </div>
-
-        <div class="session_info">
-            <p>@current_session.player2.name</p>
-            <p class="digital-timer @(isGameStarted && !current_session.player2.isPaused ? "timer-glow" : "")">
-                @current_session.player2.TimeLeft
-            </p>
-            <p>@current_session.player2.drawback.text</p>
-        </div>
+        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player2" rotate="false">
+        </PlayerGameInfo>
     </div>
 </div>
 
 @code {
+    //parametrii luati de la meniul de creare a jocului
     [Parameter] public string Player1Name { get; set; }
     [Parameter] public string Player2Name { get; set; }
     [Parameter] public int PlayTime { get; set; }
+    //parametrii pentru joc
     public Session current_session;
-    public bool isGameStarted = false;
     public bool IsPopupVisible = false;
 
     protected override void OnInitialized()
@@ -115,36 +43,6 @@
             });
             current_session = new Session(player1, player2);
         }
-    }
-
-    private void OnSquareClick(Square clicked)
-    {
-        if (current_session.board.StartSquare == clicked)   
-        {
-            current_session.board.DeselectPiece();
-        }
-        else
-        {
-            if (current_session.board.StartSquare == null) 
-            {
-                current_session.board.TrySelectPieceOn(clicked);
-            }
-            else
-            {
-                if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
-                {
-                    isGameStarted = true;
-                    Player winner = current_session.get_winner();
-                    if (winner != null)
-                    {
-                        Console.WriteLine("Game was won by" + winner.name);
-                        IsPopupVisible = true;
-                    }
-                    current_session.SwitchTimer();
-                }
-            }
-        }
-        StateHasChanged();
     }
 
 }

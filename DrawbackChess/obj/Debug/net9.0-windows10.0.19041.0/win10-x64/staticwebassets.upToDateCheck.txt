@@ -1,15 +1,15 @@
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\gamemenu.css
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\Game.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\images\dotnet_bot.svg
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\index.html
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\bootstrap\bootstrap.min.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\Home.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\bootstrap\bootstrap.min.css.map
-C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\Board.css
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\wwwroot\css\app.css
 wwwroot\css\app.css
-wwwroot\css\Board.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
+wwwroot\css\Game.css
 wwwroot\css\gamemenu.css
 wwwroot\css\Home.css
 wwwroot\images\black_bishop.png

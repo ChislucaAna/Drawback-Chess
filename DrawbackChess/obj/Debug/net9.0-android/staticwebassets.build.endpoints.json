@@ -301,13 +301,13 @@
       ]
     },
     {
-      "Route": "css/Board.css",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.css",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000874890639"
+          "Quality": "0.000862068966"
         }
       ],
       "ResponseHeaders": [
@@ -325,7 +325,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -333,15 +333,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -351,13 +351,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         }
       ]
     },
     {
-      "Route": "css/Board.css",
-      "AssetFile": "css/Board.css",
+      "Route": "css/Game.css",
+      "AssetFile": "css/Game.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -370,7 +370,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3425"
+          "Value": "3492"
         },
         {
           "Name": "Content-Type",
@@ -378,23 +378,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         }
       ]
     },
     {
-      "Route": "css/Board.css.gz",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.css.gz",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -411,7 +411,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -419,11 +419,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -433,18 +433,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
+          "Value": "sha256-WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI="
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.x2tve9sqde.css",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000874890639"
+          "Quality": "0.000862068966"
         }
       ],
       "ResponseHeaders": [
@@ -462,7 +462,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -470,15 +470,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "W/\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -488,21 +488,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css"
+          "Value": "css/Game.css"
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css",
-      "AssetFile": "css/Board.css",
+      "Route": "css/Game.x2tve9sqde.css",
+      "AssetFile": "css/Game.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -515,7 +515,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3425"
+          "Value": "3492"
         },
         {
           "Name": "Content-Type",
@@ -523,31 +523,31 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY=\""
+          "Value": "\"B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WYzumifVQLW2SghzBoJHO96c2r0AWAwMYRx7TF6jVoY="
+          "Value": "sha256-B4k1+ZkiEh2tAyG/aD/U3vd7n27d3+p8RVQPIDO4GCY="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css"
+          "Value": "css/Game.css"
         }
       ]
     },
     {
-      "Route": "css/Board.fqf863cwhl.css.gz",
-      "AssetFile": "css/Board.css.gz",
+      "Route": "css/Game.x2tve9sqde.css.gz",
+      "AssetFile": "css/Game.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -564,7 +564,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1142"
+          "Value": "1159"
         },
         {
           "Name": "Content-Type",
@@ -572,11 +572,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg=\""
+          "Value": "\"WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 30 Dec 2024 17:54:57 GMT"
+          "Value": "Sat, 04 Jan 2025 10:57:43 GMT"
         },
         {
           "Name": "Vary",
@@ -586,15 +586,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fqf863cwhl"
+          "Value": "x2tve9sqde"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dfczhyejtsM453grm+woHi9jh5HXzKbh2zKr6F2HOWg="
+          "Value": "sha256-WJOEPyH4fHXlu4M0Yq6Z3/8iV6xt57qCZjUtTXeklqI="
         },
         {
           "Name": "label",
-          "Value": "css/Board.css.gz"
+          "Value": "css/Game.css.gz"
         }
       ]
     },

@@ -16,8 +16,6 @@ namespace DrawbackChess
         public Player player1;
         public Player player2;
 
-        public bool isGameStarted = false;
-
         public Session(Player player1, Player player2)
         {
             board = new Board();
@@ -68,6 +66,11 @@ namespace DrawbackChess
         public Player get_basic_winner() //PLACEHOLDER : NOT IMPLEMENTED YET
         {
             return null;
+        }
+
+        public bool GameHasStarted()
+        {
+            return board.MoveHistory != null;
         }
     }
 }

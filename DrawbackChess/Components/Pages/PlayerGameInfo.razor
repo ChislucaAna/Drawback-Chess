@@ -1,0 +1,13 @@
+﻿@code {
+    [Parameter] public DrawbackChess.Classes.Player? player { get; set; }
+    [Parameter] public bool rotate { get; set; }
+    [Parameter] public bool GameHasStarted { get; set; }
+}
+
+<div class="session_info @(rotate ? "rotated" : "")">
+    <p>@player.name</p>
+    <p class="digital-timer @(GameHasStarted && !player.isPaused ? "timer-glow" : "")">
+        @player.TimeLeft
+    </p>
+    <p>@player.drawback.text</p>
+</div>
