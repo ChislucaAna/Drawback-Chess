@@ -43,7 +43,7 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
-        //the other king must keep a 1 square distance at all times
+        //the other king must keep a 1 square distance at all times so we treat this rule as a pseudo chess
         public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
         {
             var chessrange = new HashSet<Square>();

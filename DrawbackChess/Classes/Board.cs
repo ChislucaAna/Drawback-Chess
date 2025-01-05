@@ -131,9 +131,17 @@ namespace DrawbackChess
             {
                 AddMoveToHistory(StartSquare.piece, EndSquare);
                 MovePiece();
-                SwitchTurn();
-                checkIfChessWasGiven();
-                return true;
+                if ((GetKingPosition().piece as King).IsUnderAttack(this, GetKingPosition()))
+                {
+                    Console.WriteLine("This move is actually no ok"); //I dai reverse aici la miscare
+                    return false;
+                }
+                else
+                {
+                    SwitchTurn();
+                    checkIfChessWasGiven();
+                    return true;
+                }
             }
             else
             {
@@ -152,9 +160,9 @@ namespace DrawbackChess
 
         public bool Move_Is_Possible()
         {
-            if (PossibleMoves.Contains(EndSquare))
-                return true;
-            return false;
+             if (PossibleMoves.Contains(EndSquare))
+                    return true;
+                return false;
         }
 
         public void AddMoveToHistory(Piece piece, Square endpoint)
@@ -204,7 +212,7 @@ namespace DrawbackChess
         public void checkIfChessWasGiven()
         {
             Move last = GetLastMove();
-            if (last.piece.type == "King")
+            if (last.piece.type == "King") //u cant give chess with a king
                 ChessHere = null;
             else
             {

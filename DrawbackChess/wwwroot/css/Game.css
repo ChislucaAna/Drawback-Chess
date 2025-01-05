@@ -12,7 +12,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #3A3668 !important;
     background-color: #0D0924 !important;
 }
 
@@ -32,7 +31,7 @@ body {
 }
 
     .square.white {
-        background-color: #FFFFFF;
+        background-color: #F8F8FF;
     }
 
     .square.black {
@@ -40,7 +39,7 @@ body {
     }
 
     .square.selected {
-        outline: 3px solid yellow;
+        outline: 3px solid #5632D5;
         z-index: 1;
     }
 
@@ -50,8 +49,8 @@ body {
     }
 
     .square.highlight {
-        background-color: rgba(0, 255, 0, 0.5); 
-        border: 2px solid #00cc00; 
+        background-color: #5632D5;
+        border: 2px solid #0D0924;
         cursor: pointer;
     }
 
@@ -61,10 +60,10 @@ body {
     object-fit: contain;
 }
 
-p{
-    color:antiquewhite;
-    font:0.5rem;
-    margin:0.1rem;
+p {
+    color: #F8F8FF;
+    font: 0.5rem;
+    margin: 0.1rem;
 }
 
 .gamearea {
@@ -124,10 +123,10 @@ p{
 .digital-timer {
     font-family: 'Courier New', Courier, monospace; /* Monospace font for digital watch effect */
     font-size: 1rem; /* Adjust font size as needed */
-    color: white; /* Text color */
+    color: #F8F8FF; /* Text color */
     background-color: black; /* Background color for the timer */
     padding: 10px 20px; /* Padding around the text */
-    border: 3px solid #800080;
+    border: 2px solid #757486;
     border-radius: 5px; /* Slightly rounded corners */
     display: inline-block;
     text-align: center; /* Center text inside the div */
@@ -149,7 +148,7 @@ p{
     }
 }
 .timer-glow {
-    box-shadow: 0 0 20px white; /* Subtle shadow to make it look more like a digital display */
+    box-shadow: 0 0 1rem #5632D5; /* Subtle shadow to make it look more like a digital display */
 }
 
 

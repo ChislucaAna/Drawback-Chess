@@ -17,12 +17,9 @@
             {
                 if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
                 {
-                    DrawbackChess.Classes.Player? winner = current_session.get_winner();
-                    if (winner != null)
-                    {
-                        Console.WriteLine("Game was won by" + winner.name);
-                    }
-                    current_session.SwitchTimer();
+                    current_session.LookForWinner();
+                    if(current_session.winner==null)
+                        current_session.SwitchTimer();
                 }
             }
         }

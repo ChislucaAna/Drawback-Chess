@@ -15,6 +15,7 @@ namespace DrawbackChess
         public Board board;
         public Player player1;
         public Player player2;
+        public Player winner;
 
         public Session(Player player1, Player player2)
         {
@@ -43,18 +44,18 @@ namespace DrawbackChess
             }
         }
 
-        public Player get_winner()
+        public void LookForWinner()
         {
-            Player special_winner = get_special_winner();
-            if (special_winner != null)
-                return special_winner;
-            Player basic_winner = get_basic_winner();
-            if (basic_winner != null)
-                return basic_winner;
-            return null;
+            Player winner = GetSpecialWinner() ?? GetBasicWinner();
+
+            if (winner != null)
+            {
+                this.winner = winner;
+                EndGame();
+            }
         }
 
-        public Player get_special_winner()
+        public Player GetSpecialWinner()
         {
             if(player1.drawback.was_broken(this))
                 return player1;
@@ -63,7 +64,7 @@ namespace DrawbackChess
             return null;
         }
 
-        public Player get_basic_winner() //PLACEHOLDER : NOT IMPLEMENTED YET
+        public Player GetBasicWinner() //PLACEHOLDER : NOT IMPLEMENTED YET . Basic chess endgames function
         {
             return null;
         }
@@ -71,6 +72,17 @@ namespace DrawbackChess
         public bool GameHasStarted()
         {
             return board.MoveHistory != null;
+        }
+
+        public bool GameHasEnded()
+        {
+            return winner!= null;
+        }
+
+        public void EndGame()
+        {
+            player1.EndTimer();
+            player2.EndTimer();
         }
     }
 }

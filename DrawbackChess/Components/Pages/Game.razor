@@ -5,8 +5,8 @@
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@IsPopupVisible">
-        <p>Checkmate! The game is over.</p>
+    <GameEndedPopup Title="Game Over" IsVisible="@current_session.GameHasEnded()">
+        <p class="message">Game over! Game was won by @current_session.winner.name.</p>
     </GameEndedPopup>>
     <div class="gamearea">
         <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" rotate="true">
@@ -26,7 +26,6 @@
     [Parameter] public int PlayTime { get; set; }
     //parametrii pentru joc
     public Session current_session;
-    public bool IsPopupVisible = false;
 
     protected override void OnInitialized()
     {
