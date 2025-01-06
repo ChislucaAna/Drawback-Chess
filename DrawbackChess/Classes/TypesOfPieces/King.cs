@@ -26,7 +26,7 @@ namespace DrawbackChess
                     var targetSquare = board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null && (targetSquare.piece == null || targetSquare.piece.color != color))
                     {
-                        if (!IsUnderAttack(board,targetSquare))
+                        if (!targetSquare.IsDangerous(board,this.color))
                         {
                             possibleMoves.Add(targetSquare);
                         }
@@ -66,46 +66,11 @@ namespace DrawbackChess
             return chessrange;
         }
 
-        public bool IsUnderAttack(Board board, Square targetsquare) //verifies if the current square would be dangerous(is under attack) for the king of specifed color
-        {
-            Console.WriteLine("CHECKING FOR SQUARE..");
-            Console.WriteLine(targetsquare.row);
-            Console.WriteLine(targetsquare.col);
+        
 
-            for (int row = 1; row <= 8; row++)
-            {
-                for (int col = 1; col <= 8; col++)
-                {
-                    if (board.grid[row, col].piece != null) //foreach enemy piece we get chess range and verify if the square is there
-                    {
-                        if (board.grid[row, col].piece.color != this.color)
-                        {
-                            Console.WriteLine($"({row}, {col})");
-                            var chessrange = board.grid[row, col].piece.GetChessRange(board.grid[row, col], board);
-                            Console.WriteLine("Calculatinngg");
-                            if (chessrange != null) //for the opposite king it would be null
-                            {
-                                Console.WriteLine("Chess range is");
-                                foreach (var move in chessrange)
-                                {
-                                    Console.WriteLine($"({move.row}, {move.col})");
-                                }
-                                if (ContainsSquare(chessrange, targetsquare))
-                                {
-                                    Console.WriteLine("Found one");
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        private bool ContainsSquare(HashSet<Square> chessRange, Square targetSquare)
+        /*private bool ContainsSquare(HashSet<Square> chessRange, Square targetSquare)
         {
             return chessRange.Any(square => square.row == targetSquare.row && square.col == targetSquare.col);
-        }
+        }*/
     }
 }

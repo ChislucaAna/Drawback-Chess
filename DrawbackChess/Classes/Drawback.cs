@@ -31,25 +31,5 @@ namespace DrawbackChess.Classes
             Thread.Sleep(100);
         }
 
-        public bool was_broken(Session context)
-        {
-            switch (this.type)
-            {
-                case "location_not_allowed":
-                    if (context.board.GetLastMove().endpoint.ToString() == parameter)
-                        return true;
-                    break;
-                case "Blue":
-                    Console.WriteLine("The color is Blue.");
-                    break;
-                case "Green":
-                    Console.WriteLine("The color is Green.");
-                    break;
-                default:
-                    Console.WriteLine("Unknown color.");
-                    break;
-            }
-            return false;
-        }
     }
 }

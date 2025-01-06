@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO.Pipelines;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -129,11 +130,11 @@ namespace DrawbackChess
             EndSquare = clicked;
             if (Move_Is_Possible())
             {
-                AddMoveToHistory(StartSquare.piece, EndSquare);
+                AddMoveToHistory(StartSquare.piece, StartSquare,EndSquare);
                 MovePiece();
-                if ((GetKingPosition().piece as King).IsUnderAttack(this, GetKingPosition()))
+                if (GetKingPosition().IsDangerous(this,current_turn))
                 {
-                    Console.WriteLine("This move is actually no ok"); //I dai reverse aici la miscare
+                    ReverseLastMove();
                     return false;
                 }
                 else
@@ -148,6 +149,14 @@ namespace DrawbackChess
                 EndSquare = null;
                 return false;
             }
+        }
+
+        public void ReverseLastMove()
+        {
+            StartSquare = GetLastMove().endpoint;
+            EndSquare=GetLastMove().startpoint;
+            MovePiece();
+            MoveHistory.RemoveAt(MoveHistory.Count-1);
         }
 
         public void SwitchTurn()
@@ -165,9 +174,9 @@ namespace DrawbackChess
                 return false;
         }
 
-        public void AddMoveToHistory(Piece piece, Square endpoint)
+        public void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
         {
-            MoveHistory.Add(new Move(piece, endpoint));
+            MoveHistory.Add(new Move(piece, startpoint, endpoint));
         }
 
         public void PrintMoveHistory()
@@ -194,6 +203,18 @@ namespace DrawbackChess
                 return MoveHistory[MoveHistory.Count - 1];
             else
                 return null;
+        }
+
+        public Move GetLastMoveOfPlayer(string color)
+        {
+            for(int i=MoveHistory.Count-1; i>=0; i--)
+            {
+                if (MoveHistory[i].piece.color==color)
+                {
+                    return MoveHistory[i];
+                }
+            }
+            return null;
         }
 
         public Square GetKingPosition()

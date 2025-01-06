@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
@@ -15,8 +16,10 @@ namespace DrawbackChess.Classes
         public bool isPaused = true;
         private Action? _refreshUI;
         public Drawback drawback;
-        public Player(string name,Drawback drawback,TimeSpan initialtime, Action refreshUI)
+        string color;
+        public Player(string name,string color,Drawback drawback,TimeSpan initialtime, Action refreshUI)
         {
+            this.color= color;  
             this.name = name;
             this.TimeLeft = initialtime;
             this.drawback = drawback;   
@@ -62,6 +65,28 @@ namespace DrawbackChess.Classes
                 EndTimer(); // Stop the timer when time is up
             }
             _refreshUI.Invoke();
+        }
+
+        public bool broke_drawback(Session current_session)
+        {
+            switch (drawback.type)
+            {
+                case "location_not_allowed":
+                    if(current_session.board.GetLastMoveOfPlayer(this.color)!=null)
+                        if (current_session.board.GetLastMoveOfPlayer(this.color).endpoint.ToString() == drawback.parameter)
+                            return true;
+                    break;
+                case "Blue":
+                    Console.WriteLine("The color is Blue.");
+                    break;
+                case "Green":
+                    Console.WriteLine("The color is Green.");
+                    break;
+                default:
+                    Console.WriteLine("Unknown color.");
+                    break;
+            }
+            return false;
         }
     }
 }

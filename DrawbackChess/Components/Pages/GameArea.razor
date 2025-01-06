@@ -1,33 +1,4 @@
-﻿@code {
-    [Parameter] public Session? current_session { get; set; }
-
-    private void OnSquareClick(Square clicked)
-    {
-        if (current_session.board.StartSquare == clicked)
-        {
-            current_session.board.DeselectPiece();
-        }
-        else
-        {
-            if (current_session.board.StartSquare == null)
-            {
-                current_session.board.TrySelectPieceOn(clicked);
-            }
-            else
-            {
-                if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
-                {
-                    current_session.LookForWinner();
-                    if(current_session.winner==null)
-                        current_session.SwitchTimer();
-                }
-            }
-        }
-        StateHasChanged();
-    }
-}
-
-<div class="column-labels">
+﻿<div class="column-labels">
     @for (char colName = 'A'; colName <= 'H'; colName++)
     {
         <div class="column-label">
@@ -90,3 +61,32 @@
         <div class="column-label">@colName</div>
     }
 </div>
+
+@code {
+    [Parameter] public Session? current_session { get; set; }
+
+    private void OnSquareClick(Square clicked)
+    {
+        if (current_session.board.StartSquare == clicked)
+        {
+            current_session.board.DeselectPiece();
+        }
+        else
+        {
+            if (current_session.board.StartSquare == null)
+            {
+                current_session.board.TrySelectPieceOn(clicked);
+            }
+            else
+            {
+                if (current_session.board.Try_Execute_Move(clicked)) //if move was succesfull
+                {
+                    current_session.LookForWinner();
+                    if (current_session.winner == null)
+                        current_session.SwitchTimer();
+                }
+            }
+        }
+        StateHasChanged();
+    }
+}

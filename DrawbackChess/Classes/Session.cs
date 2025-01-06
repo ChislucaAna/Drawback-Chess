@@ -55,13 +55,20 @@ namespace DrawbackChess
             }
         }
 
+        public Player GetLastThatMoved()
+        {
+            if (board.current_turn == "white")
+                return player1;
+            else
+                return player2;
+        }
         public Player GetSpecialWinner()
         {
-            if(player1.drawback.was_broken(this))
+            if(player1.broke_drawback(this))
                 return player1;
-            if (player2.drawback.was_broken(this))
+            if (player2.broke_drawback(this))
                 return player2;
-            return null;
+            return null; //no winner yet
         }
 
         public Player GetBasicWinner() //PLACEHOLDER : NOT IMPLEMENTED YET . Basic chess endgames function
