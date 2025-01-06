@@ -1,3 +1,8 @@
+You can make maximum 10 moves;limited_number_of_moves;10;
+You can make maximum 15 moves;limited_number_of_moves;15;
+You can make maximum 20 moves;limited_number_of_moves;20;
+You can make maximum 25 moves;limited_number_of_moves;25;
+You can make maximum 30 moves;limited_number_of_moves;30;
 You can't move your King;piece_not_allowed;King;
 You can't move your Queen;piece_not_allowed;Queen;
 You can't move your Bishop;piece_not_allowed;Bishop;

@@ -82,8 +82,9 @@ namespace DrawbackChess.Classes
                         if (current_session.board.GetLastMoveOfPlayer(this.color).piece.type == drawback.parameter)
                             return true;
                     break;
-                case "Green":
-                    Console.WriteLine("The color is Green.");
+                case "limited_number_of_moves":
+                        if (current_session.board.GetNumberOfMoves(this.color) == Convert.ToInt32(drawback.parameter))
+                            return true;
                     break;
                 default:
                     Console.WriteLine("Unknown color.");

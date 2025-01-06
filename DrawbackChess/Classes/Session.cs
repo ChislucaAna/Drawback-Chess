@@ -16,6 +16,7 @@ namespace DrawbackChess
         public Player player1;
         public Player player2;
         public Player winner;
+        public string contents;
 
         public Session(Player player1, Player player2)
         {
@@ -65,9 +66,9 @@ namespace DrawbackChess
         public Player GetSpecialWinner()
         {
             if(player1.broke_drawback(this))
-                return player1;
-            if (player2.broke_drawback(this))
                 return player2;
+            if (player2.broke_drawback(this))
+                return player1;
             return null; //no winner yet
         }
 

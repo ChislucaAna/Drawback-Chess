@@ -217,6 +217,18 @@ namespace DrawbackChess
             return null;
         }
 
+        public int GetNumberOfMoves(string color)
+        {
+            int nr = 0;
+            for (int i = MoveHistory.Count - 1; i >= 0; i--)
+            {
+                if (MoveHistory[i].piece.color == color)
+                {
+                    nr++;
+                }
+            }
+            return nr;
+        }
         public Square GetKingPosition()
         {
             for (int row = 1; row <= 8; row++)

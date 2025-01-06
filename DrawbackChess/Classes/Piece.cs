@@ -18,21 +18,6 @@ namespace DrawbackChess
         public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
 
         public abstract HashSet<Square> GetChessRange(Square currentSquare, Board board);
-        /*
-        {   
-            HashSet<Square> result = new HashSet<Square>();
-            if (type == "King")
-                return null;
-            if(type!="Pawn")
-                result = GetPossibleMoves(currentSquare, board);
-            else
-            {
-                Pawn conversion = currentSquare.piece as Pawn;
-                result = conversion.GetDiagonalCapture(currentSquare, board);
-            }
-            return result;
-        }*/
-
         public void PrintPossibleMoves(Square currentSquare, Board board)
         {
             var possibleMoves = GetPossibleMoves(currentSquare, board);
