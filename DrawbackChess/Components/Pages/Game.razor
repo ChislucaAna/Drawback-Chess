@@ -32,11 +32,11 @@
         if (GameMenu.is_new_game)
         {
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Player player1 = new Player(Player1Name,"white", new Drawback(),timeSpan, () =>
+            Player player1 = new Player(Player1Name,"White", new Drawback(),timeSpan, () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            Player player2 = new Player(Player2Name,"black", new Drawback(), timeSpan, () =>
+            Player player2 = new Player(Player2Name,"Black", new Drawback(), timeSpan, () =>
             {
                 InvokeAsync(StateHasChanged);
             });

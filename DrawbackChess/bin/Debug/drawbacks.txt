@@ -1,3 +1,9 @@
+You can't move your King;piece_not_allowed;King;
+You can't move your Queen;piece_not_allowed;Queen;
+You can't move your Bishop;piece_not_allowed;Bishop;
+You can't move your Rook;piece_not_allowed;Rook;
+You can't move your Pawn;piece_not_allowed;Pawn;
+You can't move your Knight;piece_not_allowed;Knight;
 You can't move on A1;location_not_allowed;A1;
 You can't move on A2;location_not_allowed;A2;
 You can't move on A3;location_not_allowed;A3;

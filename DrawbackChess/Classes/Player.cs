@@ -69,6 +69,7 @@ namespace DrawbackChess.Classes
 
         public bool broke_drawback(Session current_session)
         {
+            Console.WriteLine(drawback.type);
             switch (drawback.type)
             {
                 case "location_not_allowed":
@@ -76,8 +77,10 @@ namespace DrawbackChess.Classes
                         if (current_session.board.GetLastMoveOfPlayer(this.color).endpoint.ToString() == drawback.parameter)
                             return true;
                     break;
-                case "Blue":
-                    Console.WriteLine("The color is Blue.");
+                case "piece_not_allowed":
+                    if (current_session.board.GetLastMoveOfPlayer(this.color) != null)
+                        if (current_session.board.GetLastMoveOfPlayer(this.color).piece.type == drawback.parameter)
+                            return true;
                     break;
                 case "Green":
                     Console.WriteLine("The color is Green.");
