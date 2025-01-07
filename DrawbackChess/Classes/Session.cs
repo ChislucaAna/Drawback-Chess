@@ -17,6 +17,7 @@ namespace DrawbackChess
         public Player player2;
         public Player winner;
         public string contents;
+        public string typeofwin;
 
         public Session(Player player1, Player player2)
         {
@@ -66,15 +67,38 @@ namespace DrawbackChess
         public Player GetSpecialWinner()
         {
             if(player1.broke_drawback(this))
+            {
+                typeofwin = "drawback rules";
                 return player2;
+            }
             if (player2.broke_drawback(this))
+            {
+                typeofwin = "drawback rules";
                 return player1;
+            }
             return null; //no winner yet
         }
 
         public Player GetBasicWinner() //PLACEHOLDER : NOT IMPLEMENTED YET . Basic chess endgames function
         {
-            return null;
+            if (board.ChessHere != null) //s-a dat sah. Verificam daca e mat(Playerul curent e in sah si nu poate muta nimic)
+            {
+                if(board.Mate())
+                {
+                    typeofwin = "mate";
+                    return GetLastThatMoved();
+                }
+                return null;
+            }
+            else //nu s-a dat sah. Verificam daca e remiza(Playerul curent nu este in sah, are doar rege si nu poate muta nicaieri)
+            {
+                if(board.Draw())
+                {
+                    typeofwin = "draw";
+                    return player1; //we wont display this anyways
+                }
+                return null;
+            }
         }
 
         public bool GameHasStarted()

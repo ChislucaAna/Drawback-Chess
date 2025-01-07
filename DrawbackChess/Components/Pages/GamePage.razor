@@ -6,8 +6,20 @@
 <div class="content">
 
     <GameEndedPopup Title="Game Over" IsVisible="@current_session.GameHasEnded()">
-        <p class="message">Game over! Game was won by @current_session.winner.name.</p>
-    </GameEndedPopup>>
+        @if (current_session.typeofwin != "draw")
+        {
+            <p class="message">
+                Game over! Game was won by @current_session.winner.name by @current_session.typeofwin.
+            </p>
+        }
+        else
+        {
+            <p class="message">
+                Game over! The game ended in a draw.
+            </p>
+        }
+    </GameEndedPopup>
+
     <div class="gamearea">
         <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" rotate="true">
         </PlayerGameInfo>

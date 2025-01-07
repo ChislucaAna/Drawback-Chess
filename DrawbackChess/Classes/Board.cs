@@ -134,6 +134,7 @@ namespace DrawbackChess
                 MovePiece();
                 if (GetKingPosition().IsDangerous(this,current_turn))
                 {
+                    Console.WriteLine("your king is still in chess dummy");
                     ReverseLastMove();
                     return false;
                 }
@@ -146,6 +147,7 @@ namespace DrawbackChess
             }
             else
             {
+                Console.WriteLine("no possible");
                 EndSquare = null;
                 return false;
             }
@@ -153,10 +155,30 @@ namespace DrawbackChess
 
         public void ReverseLastMove()
         {
-            StartSquare = GetLastMove().endpoint;
-            EndSquare=GetLastMove().startpoint;
-            MovePiece();
-            MoveHistory.RemoveAt(MoveHistory.Count-1);
+            if (MoveHistory.Count == 0)
+            {
+                Console.WriteLine("No moves to reverse.");
+                return;
+            }
+
+            // Get the last move
+            var lastMove = GetLastMove();
+
+            // Restore the piece to the starting square
+            StartSquare = lastMove.startpoint;
+            EndSquare = lastMove.endpoint;
+
+            // Move the piece back to the starting square
+            StartSquare.piece = lastMove.piece;
+
+            // If there was a captured piece, restore it to the endpoint
+            EndSquare.piece = lastMove.capturedPiece; // Assuming `capturedPiece` tracks what was captured
+
+            Console.WriteLine($"Restored piece to StartSquare: {StartSquare.piece?.type ?? "None"}");
+            Console.WriteLine($"Restored piece to EndSquare: {EndSquare.piece?.type ?? "None"}");
+
+            // Remove the last move from the history
+            MoveHistory.RemoveAt(MoveHistory.Count - 1);
         }
 
         public void SwitchTurn()
@@ -176,7 +198,7 @@ namespace DrawbackChess
 
         public void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
         {
-            MoveHistory.Add(new Move(piece, startpoint, endpoint));
+            MoveHistory.Add(new Move(piece, startpoint, endpoint, endpoint.piece));
         }
 
         public void PrintMoveHistory()
@@ -249,23 +271,90 @@ namespace DrawbackChess
                 ChessHere = null;
             else
             {
-                HashSet<Square> ChessRange = last.endpoint.piece.GetChessRange(last.endpoint, this);
-                Square kingposition = GetKingPosition();
-                if (kingposition != null)
+                if (last.endpoint.piece != null)
                 {
-                    if (ChessRange.Contains(kingposition))
+                    HashSet<Square> ChessRange = last.endpoint.piece.GetChessRange(last.endpoint, this);
+                    Square kingposition = GetKingPosition();
+                    if (kingposition != null)
                     {
-                        Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
-                        ChessHere = kingposition;
+                        if (ChessRange.Contains(kingposition))
+                        {
+                            Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
+                            ChessHere = kingposition;
+                        }
+                        else //no chess is given currently
+                        {
+                            ChessHere = null;
+                        }
                     }
-                    else //no chess is given currently
+                    else
+                        Console.WriteLine("Exception: king doesnt seem to be found on the board");
+                }
+            }
+        }
+
+        public bool Mate()
+        {
+            foreach (Square square in grid)
+            {
+                if (square != null)
+                {
+                    if (square.piece != null)
                     {
-                        ChessHere = null;
+                        if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+                        {
+                            var possibilities = square.piece.GetPossibleMoves(square, this);
+                            square.piece.PrintPossibleMoves(square, this);
+                            foreach (Square destination in possibilities)
+                            {
+                                if (square != null)
+                                {
+                                    PossibleMoves = possibilities;
+                                    StartSquare = square;
+                                    if (Try_Execute_Move(destination))
+                                    {
+                                        ReverseLastMove(); //ai o problema aici atunci cand ultima mutare a implicat luarea unei piese
+                                        SwitchTurn();
+                                        checkIfChessWasGiven();
+                                        StartSquare = null;
+                                        EndSquare = null;
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                else
-                    Console.WriteLine("Exception: king doesnt seem to be found on the board");
             }
+            return true ; //there is no possible move to make. We have mare
+        }
+
+        public int GetNumberOfPieces(string color)
+        {
+            int nr = 0;
+            foreach (Square square in grid)
+            {
+                if (square != null)
+                {
+                    if (square.piece != null)
+                    {
+                        if(square.piece.color == current_turn)
+                        {
+                            nr++;
+                        }
+                    }
+                }
+            }
+            return nr;
+        }
+
+        public bool Draw()
+        {
+            if(GetKingPosition().piece.GetPossibleMoves(GetKingPosition(),this)==null && GetNumberOfPieces(current_turn)==1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 
