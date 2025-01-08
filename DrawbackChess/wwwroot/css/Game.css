@@ -36,6 +36,8 @@ body {
 
     .square.black {
         background-color: #757486;
+        background-color: #3A3668;
+        box-shadow: none;
     }
 
     .square.selected {

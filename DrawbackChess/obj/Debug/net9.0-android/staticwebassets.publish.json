@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xTO3ESNmqF4zNlhblUhvuKe7nvzNdVnwUTR7niE1MCo=",
+  "Hash": "wCn3x8qrQUTniS07tiP0MtmGY1qTL6K+DVefdcU/J7M=",
   "Source": "DrawbackChess",
   "BasePath": "/",
   "Mode": "Root",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-b829fjj0dz.gz",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-fmb4w2hgkx.gz",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "css/gamemenu#[.{fingerprint=b829fjj0dz}]?.css.gz",
+      "RelativePath": "css/gamemenu#[.{fingerprint=fmb4w2hgkx}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -31,8 +31,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "sfwwm1utfw",
-      "Integrity": "yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY=",
+      "Fingerprint": "umcy4yugsi",
+      "Integrity": "il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css"
@@ -80,12 +80,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\scopedcss\\projectbundle\\DrawbackChess.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-3zpukovsjh.gz",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-ukeqi4kjn9.gz",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "css/Game#[.{fingerprint=3zpukovsjh}]?.css.gz",
+      "RelativePath": "css/Game#[.{fingerprint=ukeqi4kjn9}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -94,8 +94,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "pjxj76ials",
-      "Integrity": "lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w=",
+      "Fingerprint": "1porwpbpoq",
+      "Integrity": "OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css"
@@ -164,12 +164,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-i63mjrv7o0.gz",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-ll8mww3lhj.gz",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "css/Home#[.{fingerprint=i63mjrv7o0}]?.css.gz",
+      "RelativePath": "css/Home#[.{fingerprint=ll8mww3lhj}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,19 +178,19 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "kopnsptohd",
-      "Integrity": "xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k=",
+      "Fingerprint": "jwiksx3lcf",
+      "Integrity": "s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-b829fjj0dz.br",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-fmb4w2hgkx.br",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\",
       "BasePath": "/",
-      "RelativePath": "css/gamemenu#[.{fingerprint=b829fjj0dz}]?.css.br",
+      "RelativePath": "css/gamemenu#[.{fingerprint=fmb4w2hgkx}]?.css.br",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -199,8 +199,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "myn4x89zla",
-      "Integrity": "ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228=",
+      "Fingerprint": "5pp2tjqywh",
+      "Integrity": "mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css"
@@ -248,12 +248,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\scopedcss\\projectbundle\\DrawbackChess.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-3zpukovsjh.br",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-ukeqi4kjn9.br",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\",
       "BasePath": "/",
-      "RelativePath": "css/Game#[.{fingerprint=3zpukovsjh}]?.css.br",
+      "RelativePath": "css/Game#[.{fingerprint=ukeqi4kjn9}]?.css.br",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -262,8 +262,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "je7co5c39s",
-      "Integrity": "e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg=",
+      "Fingerprint": "jaxu6kn5vm",
+      "Integrity": "C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css"
@@ -332,12 +332,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-i63mjrv7o0.br",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-ll8mww3lhj.br",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\",
       "BasePath": "/",
-      "RelativePath": "css/Home#[.{fingerprint=i63mjrv7o0}]?.css.br",
+      "RelativePath": "css/Home#[.{fingerprint=ll8mww3lhj}]?.css.br",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -346,8 +346,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "djghnh2x3w",
-      "Integrity": "+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI=",
+      "Fingerprint": "372hufttdx",
+      "Integrity": "oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css"
@@ -374,12 +374,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-pc7qnmjsvz.br",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-t7g06pi4tw.br",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\",
       "BasePath": "/",
-      "RelativePath": "css/app#[.{fingerprint=pc7qnmjsvz}]?.css.br",
+      "RelativePath": "css/app#[.{fingerprint=t7g06pi4tw}]?.css.br",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -388,8 +388,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "br",
-      "Fingerprint": "tuyd8enkdh",
-      "Integrity": "S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc=",
+      "Fingerprint": "yfm5p45a40",
+      "Integrity": "IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css"
@@ -416,12 +416,12 @@
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-pc7qnmjsvz.gz",
+      "Identity": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-t7g06pi4tw.gz",
       "SourceId": "DrawbackChess",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\",
       "BasePath": "/",
-      "RelativePath": "css/app#[.{fingerprint=pc7qnmjsvz}]?.css.gz",
+      "RelativePath": "css/app#[.{fingerprint=t7g06pi4tw}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -430,8 +430,8 @@
       "RelatedAsset": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "383mw3d83d",
-      "Integrity": "05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0=",
+      "Fingerprint": "dk0b9wj2wj",
+      "Integrity": "Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css"
@@ -493,8 +493,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pc7qnmjsvz",
-      "Integrity": "R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=",
+      "Fingerprint": "t7g06pi4tw",
+      "Integrity": "GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\app.css"
@@ -556,8 +556,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3zpukovsjh",
-      "Integrity": "AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=",
+      "Fingerprint": "ukeqi4kjn9",
+      "Integrity": "Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Game.css"
@@ -577,8 +577,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b829fjj0dz",
-      "Integrity": "iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=",
+      "Fingerprint": "fmb4w2hgkx",
+      "Integrity": "KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\gamemenu.css"
@@ -598,8 +598,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "i63mjrv7o0",
-      "Integrity": "mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=",
+      "Fingerprint": "ll8mww3lhj",
+      "Integrity": "9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Home.css"
@@ -965,12 +965,12 @@
   "Endpoints": [
     {
       "Route": "css/app.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-pc7qnmjsvz.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-t7g06pi4tw.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000568828214"
+          "Quality": "0.000564015792"
         }
       ],
       "ResponseHeaders": [
@@ -980,15 +980,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1757"
+          "Value": "1772"
         },
         {
           "Name": "ETag",
-          "Value": "\"S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc=\""
+          "Value": "\"IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1008,24 +1008,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "W/\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
     {
       "Route": "css/app.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-pc7qnmjsvz.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-t7g06pi4tw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000488281250"
+          "Quality": "0.000492125984"
         }
       ],
       "ResponseHeaders": [
@@ -1035,15 +1035,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2047"
+          "Value": "2031"
         },
         {
           "Name": "ETag",
-          "Value": "\"05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0=\""
+          "Value": "\"Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1063,13 +1063,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "W/\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
@@ -1084,7 +1084,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4316"
+          "Value": "4249"
         },
         {
           "Name": "Content-Type",
@@ -1092,11 +1092,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1106,13 +1106,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
     {
       "Route": "css/app.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-pc7qnmjsvz.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-t7g06pi4tw.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1121,7 +1121,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1757"
+          "Value": "1772"
         },
         {
           "Name": "Content-Type",
@@ -1129,11 +1129,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc=\""
+          "Value": "\"IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1151,13 +1151,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc="
+          "Value": "sha256-IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU="
         }
       ]
     },
     {
       "Route": "css/app.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-pc7qnmjsvz.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-t7g06pi4tw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1166,7 +1166,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2047"
+          "Value": "2031"
         },
         {
           "Name": "Content-Type",
@@ -1174,11 +1174,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0=\""
+          "Value": "\"Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1196,18 +1196,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0="
+          "Value": "sha256-Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY="
         }
       ]
     },
     {
-      "Route": "css/app.pc7qnmjsvz.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-pc7qnmjsvz.br",
+      "Route": "css/app.t7g06pi4tw.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-t7g06pi4tw.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.000568828214"
+          "Quality": "0.000564015792"
         }
       ],
       "ResponseHeaders": [
@@ -1217,15 +1217,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1757"
+          "Value": "1772"
         },
         {
           "Name": "ETag",
-          "Value": "\"S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc=\""
+          "Value": "\"IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1245,13 +1245,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "W/\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pc7qnmjsvz"
+          "Value": "t7g06pi4tw"
         },
         {
           "Name": "label",
@@ -1259,18 +1259,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
     {
-      "Route": "css/app.pc7qnmjsvz.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-pc7qnmjsvz.gz",
+      "Route": "css/app.t7g06pi4tw.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-t7g06pi4tw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000488281250"
+          "Quality": "0.000492125984"
         }
       ],
       "ResponseHeaders": [
@@ -1280,15 +1280,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2047"
+          "Value": "2031"
         },
         {
           "Name": "ETag",
-          "Value": "\"05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0=\""
+          "Value": "\"Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1308,13 +1308,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "W/\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pc7qnmjsvz"
+          "Value": "t7g06pi4tw"
         },
         {
           "Name": "label",
@@ -1322,12 +1322,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
     {
-      "Route": "css/app.pc7qnmjsvz.css",
+      "Route": "css/app.t7g06pi4tw.css",
       "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1337,7 +1337,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4316"
+          "Value": "4249"
         },
         {
           "Name": "Content-Type",
@@ -1345,11 +1345,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU=\""
+          "Value": "\"GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1359,7 +1359,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pc7qnmjsvz"
+          "Value": "t7g06pi4tw"
         },
         {
           "Name": "label",
@@ -1367,13 +1367,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-R5mNHODjzgiLSQhgd9DQGf074DWJbvXl5FS8ktc0vHU="
+          "Value": "sha256-GTyZmVae4h1ps6HgasapGRFlN3HV8DI+OdVn1XveZIk="
         }
       ]
     },
     {
-      "Route": "css/app.pc7qnmjsvz.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-pc7qnmjsvz.br",
+      "Route": "css/app.t7g06pi4tw.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\yi7o05yv65-t7g06pi4tw.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1382,7 +1382,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1757"
+          "Value": "1772"
         },
         {
           "Name": "Content-Type",
@@ -1390,11 +1390,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc=\""
+          "Value": "\"IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1412,7 +1412,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pc7qnmjsvz"
+          "Value": "t7g06pi4tw"
         },
         {
           "Name": "label",
@@ -1420,13 +1420,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-S57LOo1ev+O45EFt3Ctk+eVaMgBq8JUJMcUpOd5TnAc="
+          "Value": "sha256-IubCA73rqabQe+gkuBiEa6kfNSKd+A9RcZmE8p6FbpU="
         }
       ]
     },
     {
-      "Route": "css/app.pc7qnmjsvz.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-pc7qnmjsvz.gz",
+      "Route": "css/app.t7g06pi4tw.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\yi7o05yv65-t7g06pi4tw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1435,7 +1435,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2047"
+          "Value": "2031"
         },
         {
           "Name": "Content-Type",
@@ -1443,11 +1443,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0=\""
+          "Value": "\"Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 22 Dec 2024 10:49:14 GMT"
+          "Value": "Wed, 08 Jan 2025 15:36:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1465,7 +1465,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pc7qnmjsvz"
+          "Value": "t7g06pi4tw"
         },
         {
           "Name": "label",
@@ -1473,7 +1473,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-05VgMKaC4fxJbaANGouc0ugJACs/UwEaiQKE8AdT1O0="
+          "Value": "sha256-Y0/2OhHhrRaYObuK5OdRTHmxRTAbVzEjLcevupOOjrY="
         }
       ]
     },
@@ -2506,13 +2506,13 @@
       ]
     },
     {
-      "Route": "css/Game.3zpukovsjh.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-3zpukovsjh.gz",
+      "Route": "css/Game.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-ukeqi4kjn9.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000882612533"
+          "Quality": "0.000869565217"
         }
       ],
       "ResponseHeaders": [
@@ -2522,15 +2522,252 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1132"
+          "Value": "1149"
         },
         {
           "Name": "ETag",
-          "Value": "\"lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w=\""
+          "Value": "\"OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-ukeqi4kjn9.br",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "br",
+          "Quality": "0.001082251082"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "923"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-ukeqi4kjn9.br",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "923"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-ukeqi4kjn9.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1149"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U="
+        }
+      ]
+    },
+    {
+      "Route": "css/Game.ukeqi4kjn9.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-ukeqi4kjn9.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000869565217"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1149"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2550,13 +2787,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
+          "Value": "W/\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zpukovsjh"
+          "Value": "ukeqi4kjn9"
         },
         {
           "Name": "label",
@@ -2564,18 +2801,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
         }
       ]
     },
     {
-      "Route": "css/Game.3zpukovsjh.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-3zpukovsjh.br",
+      "Route": "css/Game.ukeqi4kjn9.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-ukeqi4kjn9.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.001095290252"
+          "Quality": "0.001082251082"
         }
       ],
       "ResponseHeaders": [
@@ -2585,15 +2822,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "912"
+          "Value": "923"
         },
         {
           "Name": "ETag",
-          "Value": "\"e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg=\""
+          "Value": "\"C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2613,13 +2850,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
+          "Value": "W/\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zpukovsjh"
+          "Value": "ukeqi4kjn9"
         },
         {
           "Name": "label",
@@ -2627,12 +2864,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
         }
       ]
     },
     {
-      "Route": "css/Game.3zpukovsjh.css",
+      "Route": "css/Game.ukeqi4kjn9.css",
       "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2642,7 +2879,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3438"
+          "Value": "3501"
         },
         {
           "Name": "Content-Type",
@@ -2650,11 +2887,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
+          "Value": "\"Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2664,7 +2901,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zpukovsjh"
+          "Value": "ukeqi4kjn9"
         },
         {
           "Name": "label",
@@ -2672,13 +2909,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
+          "Value": "sha256-Tq4hlvXJ1GBuvRuZ7u//LTcJ6a/rqeEIgfxA8ML+LdQ="
         }
       ]
     },
     {
-      "Route": "css/Game.3zpukovsjh.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-3zpukovsjh.br",
+      "Route": "css/Game.ukeqi4kjn9.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-ukeqi4kjn9.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2687,7 +2924,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "912"
+          "Value": "923"
         },
         {
           "Name": "Content-Type",
@@ -2695,11 +2932,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg=\""
+          "Value": "\"C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2717,7 +2954,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zpukovsjh"
+          "Value": "ukeqi4kjn9"
         },
         {
           "Name": "label",
@@ -2725,13 +2962,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg="
+          "Value": "sha256-C0rtsBD/1T8bECwJLCUNEoJQk2GwRiZACCI5kQe1g1Y="
         }
       ]
     },
     {
-      "Route": "css/Game.3zpukovsjh.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-3zpukovsjh.gz",
+      "Route": "css/Game.ukeqi4kjn9.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-ukeqi4kjn9.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2740,7 +2977,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1132"
+          "Value": "1149"
         },
         {
           "Name": "Content-Type",
@@ -2748,11 +2985,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w=\""
+          "Value": "\"OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:35:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2770,7 +3007,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3zpukovsjh"
+          "Value": "ukeqi4kjn9"
         },
         {
           "Name": "label",
@@ -2778,18 +3015,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w="
+          "Value": "sha256-OzZUrTJre5S96k/+SItsLdzI9oBcKd8XHL+sJNYBk3U="
         }
       ]
     },
     {
-      "Route": "css/Game.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-3zpukovsjh.gz",
+      "Route": "css/gamemenu.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-fmb4w2hgkx.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000882612533"
+          "Quality": "0.001992031873"
         }
       ],
       "ResponseHeaders": [
@@ -2799,15 +3036,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1132"
+          "Value": "501"
         },
         {
           "Name": "ETag",
-          "Value": "\"lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w=\""
+          "Value": "\"il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2827,24 +3064,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
+          "Value": "W/\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
         }
       ]
     },
     {
-      "Route": "css/Game.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-3zpukovsjh.br",
+      "Route": "css/gamemenu.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-fmb4w2hgkx.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.001095290252"
+          "Quality": "0.002597402597"
         }
       ],
       "ResponseHeaders": [
@@ -2854,15 +3091,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "912"
+          "Value": "384"
         },
         {
           "Name": "ETag",
-          "Value": "\"e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg=\""
+          "Value": "\"mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2882,271 +3119,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
+          "Value": "W/\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
         }
       ]
     },
     {
-      "Route": "css/Game.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3438"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AT1Rhm92YOuOg9z8yEpzmDmqWyA7p/ECPWohDXMz0NQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/Game.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\ffqjq9dymt-3zpukovsjh.br",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "912"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-e3yNgYgWyv0Xc3xv5YOx+xVSdDPdiMoA85hnCKHkNFg="
-        }
-      ]
-    },
-    {
-      "Route": "css/Game.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\ffqjq9dymt-3zpukovsjh.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1132"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:06:55 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-lQ+kEasBe05I7zO4vKihSeEgKLhCXTSq3jXQC/INS/w="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.b829fjj0dz.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-b829fjj0dz.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001782531194"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "560"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "b829fjj0dz"
-        },
-        {
-          "Name": "label",
-          "Value": "css/gamemenu.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.b829fjj0dz.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-b829fjj0dz.br",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "br",
-          "Quality": "0.002375296912"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "420"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "b829fjj0dz"
-        },
-        {
-          "Name": "label",
-          "Value": "css/gamemenu.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.b829fjj0dz.css",
+      "Route": "css/gamemenu.css",
       "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3156,7 +3140,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1754"
+          "Value": "1233"
         },
         {
           "Name": "Content-Type",
@@ -3164,11 +3148,264 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
+          "Value": "\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
+        }
+      ]
+    },
+    {
+      "Route": "css/gamemenu.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-fmb4w2hgkx.br",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "384"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU="
+        }
+      ]
+    },
+    {
+      "Route": "css/gamemenu.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-fmb4w2hgkx.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "501"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4="
+        }
+      ]
+    },
+    {
+      "Route": "css/gamemenu.fmb4w2hgkx.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-fmb4w2hgkx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001992031873"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "501"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fmb4w2hgkx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/gamemenu.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
+        }
+      ]
+    },
+    {
+      "Route": "css/gamemenu.fmb4w2hgkx.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-fmb4w2hgkx.br",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "br",
+          "Quality": "0.002597402597"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "384"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "br"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fmb4w2hgkx"
+        },
+        {
+          "Name": "label",
+          "Value": "css/gamemenu.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
+        }
+      ]
+    },
+    {
+      "Route": "css/gamemenu.fmb4w2hgkx.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1233"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3178,7 +3415,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b829fjj0dz"
+          "Value": "fmb4w2hgkx"
         },
         {
           "Name": "label",
@@ -3186,13 +3423,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
+          "Value": "sha256-KXSnb1TO0QzYODs/ksGL/CkHg+6ZpsaXDuwenN5OGe8="
         }
       ]
     },
     {
-      "Route": "css/gamemenu.b829fjj0dz.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-b829fjj0dz.br",
+      "Route": "css/gamemenu.fmb4w2hgkx.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-fmb4w2hgkx.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3201,7 +3438,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "420"
+          "Value": "384"
         },
         {
           "Name": "Content-Type",
@@ -3209,11 +3446,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228=\""
+          "Value": "\"mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3231,7 +3468,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b829fjj0dz"
+          "Value": "fmb4w2hgkx"
         },
         {
           "Name": "label",
@@ -3239,13 +3476,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228="
+          "Value": "sha256-mXcDXm9Wifh0+fG3htNSMLp1ZG8fssGCJSFc3dVk9QU="
         }
       ]
     },
     {
-      "Route": "css/gamemenu.b829fjj0dz.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-b829fjj0dz.gz",
+      "Route": "css/gamemenu.fmb4w2hgkx.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-fmb4w2hgkx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3254,7 +3491,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "560"
+          "Value": "501"
         },
         {
           "Name": "Content-Type",
@@ -3262,11 +3499,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY=\""
+          "Value": "\"il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
+          "Value": "Wed, 08 Jan 2025 15:03:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3284,7 +3521,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b829fjj0dz"
+          "Value": "fmb4w2hgkx"
         },
         {
           "Name": "label",
@@ -3292,255 +3529,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-b829fjj0dz.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001782531194"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "560"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-b829fjj0dz.br",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "br",
-          "Quality": "0.002375296912"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "420"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1754"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-iz6Yc0uvNOVHjlHfXPAxraGnJiUs92CTwJbDlasp5ps="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\3lgriv4ufm-b829fjj0dz.br",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "420"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "br"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-ToMdVfpIn/YHQc2e8+3DfxsqERTCEi2rocGr7rCP228="
-        }
-      ]
-    },
-    {
-      "Route": "css/gamemenu.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\3lgriv4ufm-b829fjj0dz.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "560"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:03:41 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-yPnJGMPptWXga7vPEObWcFId9h1/zi7V8zKP1GwoFCY="
+          "Value": "sha256-il/bPKTdiQmqrrS6ZV1uUaDqILAva3Xmm2kYUp9his4="
         }
       ]
     },
     {
       "Route": "css/Home.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-i63mjrv7o0.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-ll8mww3lhj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001782531194"
+          "Quality": "0.001661129568"
         }
       ],
       "ResponseHeaders": [
@@ -3550,15 +3550,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "560"
+          "Value": "601"
         },
         {
           "Name": "ETag",
-          "Value": "\"xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k=\""
+          "Value": "\"s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3578,24 +3578,24 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "W/\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
     {
       "Route": "css/Home.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-i63mjrv7o0.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-ll8mww3lhj.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.002347417840"
+          "Quality": "0.002212389381"
         }
       ],
       "ResponseHeaders": [
@@ -3605,15 +3605,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "425"
+          "Value": "451"
         },
         {
           "Name": "ETag",
-          "Value": "\"+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI=\""
+          "Value": "\"oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3633,13 +3633,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "W/\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
@@ -3654,7 +3654,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1485"
+          "Value": "1666"
         },
         {
           "Name": "Content-Type",
@@ -3662,11 +3662,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3676,13 +3676,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
     {
       "Route": "css/Home.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-i63mjrv7o0.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-ll8mww3lhj.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3691,7 +3691,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "425"
+          "Value": "451"
         },
         {
           "Name": "Content-Type",
@@ -3699,11 +3699,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI=\""
+          "Value": "\"oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3721,13 +3721,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI="
+          "Value": "sha256-oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4="
         }
       ]
     },
     {
       "Route": "css/Home.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-i63mjrv7o0.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-ll8mww3lhj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3736,7 +3736,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "560"
+          "Value": "601"
         },
         {
           "Name": "Content-Type",
@@ -3744,11 +3744,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k=\""
+          "Value": "\"s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3766,18 +3766,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k="
+          "Value": "sha256-s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI="
         }
       ]
     },
     {
-      "Route": "css/Home.i63mjrv7o0.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-i63mjrv7o0.gz",
+      "Route": "css/Home.ll8mww3lhj.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-ll8mww3lhj.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001782531194"
+          "Quality": "0.001661129568"
         }
       ],
       "ResponseHeaders": [
@@ -3787,15 +3787,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "560"
+          "Value": "601"
         },
         {
           "Name": "ETag",
-          "Value": "\"xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k=\""
+          "Value": "\"s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3815,13 +3815,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "W/\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i63mjrv7o0"
+          "Value": "ll8mww3lhj"
         },
         {
           "Name": "label",
@@ -3829,18 +3829,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
     {
-      "Route": "css/Home.i63mjrv7o0.css",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-i63mjrv7o0.br",
+      "Route": "css/Home.ll8mww3lhj.css",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-ll8mww3lhj.br",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "br",
-          "Quality": "0.002347417840"
+          "Quality": "0.002212389381"
         }
       ],
       "ResponseHeaders": [
@@ -3850,15 +3850,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "425"
+          "Value": "451"
         },
         {
           "Name": "ETag",
-          "Value": "\"+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI=\""
+          "Value": "\"oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3878,13 +3878,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "W/\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i63mjrv7o0"
+          "Value": "ll8mww3lhj"
         },
         {
           "Name": "label",
@@ -3892,12 +3892,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
     {
-      "Route": "css/Home.i63mjrv7o0.css",
+      "Route": "css/Home.ll8mww3lhj.css",
       "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3907,7 +3907,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1485"
+          "Value": "1666"
         },
         {
           "Name": "Content-Type",
@@ -3915,11 +3915,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g=\""
+          "Value": "\"9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3929,7 +3929,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i63mjrv7o0"
+          "Value": "ll8mww3lhj"
         },
         {
           "Name": "label",
@@ -3937,13 +3937,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-mqhkjKtFQClf/dtyuQ3rmvLzN2lktTVX8a5MLgyxn4g="
+          "Value": "sha256-9xoiVdrjmUeVZBz6s85/Bufn4dhPnxOmAr+l2egYF7Q="
         }
       ]
     },
     {
-      "Route": "css/Home.i63mjrv7o0.css.br",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-i63mjrv7o0.br",
+      "Route": "css/Home.ll8mww3lhj.css.br",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\publish\\pp2tk5bxih-ll8mww3lhj.br",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3952,7 +3952,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "425"
+          "Value": "451"
         },
         {
           "Name": "Content-Type",
@@ -3960,11 +3960,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI=\""
+          "Value": "\"oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3982,7 +3982,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i63mjrv7o0"
+          "Value": "ll8mww3lhj"
         },
         {
           "Name": "label",
@@ -3990,13 +3990,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+ShmrxajXwZGyiJjU1tHmN/JJhjQf7PqRSlNVZsPLnI="
+          "Value": "sha256-oVCgnM2Q8e7CqucPWqL5jZpaJuTqWraI6fALd71yvh4="
         }
       ]
     },
     {
-      "Route": "css/Home.i63mjrv7o0.css.gz",
-      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-i63mjrv7o0.gz",
+      "Route": "css/Home.ll8mww3lhj.css.gz",
+      "AssetFile": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-android\\compressed\\pp2tk5bxih-ll8mww3lhj.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4005,7 +4005,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "560"
+          "Value": "601"
         },
         {
           "Name": "Content-Type",
@@ -4013,11 +4013,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k=\""
+          "Value": "\"s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 05 Jan 2025 10:04:05 GMT"
+          "Value": "Wed, 08 Jan 2025 15:08:41 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4035,7 +4035,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i63mjrv7o0"
+          "Value": "ll8mww3lhj"
         },
         {
           "Name": "label",
@@ -4043,7 +4043,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xFEItvFJzHdBV+qK3HXRcBfEPQI20NvOKvrLwLNe15k="
+          "Value": "sha256-s8zbMFyl/21WCFWwB1qe3kR2IeW/b0P13TRlMDr5UfI="
         }
       ]
     },

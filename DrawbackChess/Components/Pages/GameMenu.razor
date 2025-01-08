@@ -1,44 +1,60 @@
 ﻿@page "/menu"
 <link href="css/gamemenu.css" rel="stylesheet" />
 
-<div class="buttons_container">
-    <button @onclick="OpenNewGamePopup" class="gamecreation-button">New Game</button>
-    <button @onclick="ContinueGame" class="gamecreation-button">Continue Game</button>
+<div class="modal-overlay">
+    <h3>New Game Options:</h3>
+    <!-- Player Name Input -->
+    <div class="form_field">
+        <label>Player Name:</label>
+        <input @bind="player1Name" placeholder="White" />
+    </div>
+
+    <div class="form_field">
+        <label>Player Name:</label>
+        <input @bind="player2Name" placeholder="Black" />
+    </div>
+
+    <!-- Play Time Dropdown -->
+    <div class="form_field">
+        <label>Select Play Time (minutes):</label>
+        <select @bind="playTime">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+        </select>
+    </div>
+
+    <button @onclick="StartGame" class="menu-button">Start New Game</button>
 </div>
 
-@if (showNewGamePopup)
-{
-    <div class="modal-overlay">
-        <h3>Game Options:</h3>
-        <!-- Player Name Input -->
-        <div class="form_field">
-            <label>Player Name:</label>
-            <input @bind="player1Name" placeholder="White Army" />
-        </div>
-
-        <div class="form_field">
-            <label>Player Name:</label>
-            <input @bind="player2Name" placeholder="Black Army" />
-        </div>
-
-        <!-- Play Time Dropdown -->
-        <div class="form_field">
-            <label>Select Play Time (minutes):</label>
-            <select @bind="playTime">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-            </select>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="modal-buttons">
-            <button @onclick="StartGame" class="menu-button">Start</button>
-            <button @onclick="CloseNewGamePopup" class="menu-button cancel">Cancel</button>
-        </div>
+<div class="modal-overlay">
+    <h3>Continue Last Game:</h3>
+    <!-- Player Name Input -->
+    <div class="form_field">
+        <label>Player Name:</label>
+        <input @bind="player1Name" placeholder="White" readonly="true" style="pointer-events: none;" />
     </div>
-}
+
+    <div class="form_field">
+        <label>Player Name:</label>
+        <input @bind="player2Name" placeholder="Black" readonly="true" style="pointer-events: none;" />
+    </div>
+
+    <!-- Play Time Dropdown -->
+    <div class="form_field">
+        <label>Select Play Time (minutes):</label>
+        <select @bind="playTime" readonly="true" style="pointer-events: none;">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="30">30</option>
+        </select>
+    </div>
+
+    <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+</div>
+
 
 @code {
 
@@ -71,7 +87,7 @@
         if (player1Name.Length >= 1 && player2Name.Length >= 1)
             Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
         else
-            Console.WriteLine("INVALID NAMES");
+            Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
     }
 
 

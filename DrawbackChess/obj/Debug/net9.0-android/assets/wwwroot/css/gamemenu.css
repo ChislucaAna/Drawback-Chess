@@ -18,50 +18,25 @@ body {
 }
 
 .menu-button {
-    display: flex;
-    justify-content: center; /* Horizontally centers the content */
-    align-items: center; /* Vertically centers the content */
     padding: 1rem;
-    margin: 1rem;
     cursor: pointer;
     background-color: #5632D5;
     color: #F8F8FF;
     border-radius: 1rem;
-    height: 3rem;
-    width: 6rem;
+    margin: auto;
+    text-align:center;
 }
-
-.gamecreation-button {
-    display: flex;
-    justify-content: center; /* Horizontally centers the content */
-    align-items: center; /* Vertically centers the content */
-    padding: 1rem;
-    margin: 1rem;
-    cursor: pointer;
-    background-color: #5632D5;
-    color: #F8F8FF;
-    border-radius: 1rem;
-    height: 4rem;
-    width: 8rem;
-    font-size: 1rem;
-}
-
-.menu-button:active {
-    background-color: black; /* New background color on click */
-}
-
-.buttons_container {
-    display: flex;
-    justify-content: center;
-}
-
 .modal-overlay {
-    margin: 1rem;
     display: flex;
-    border-radius: 3rem;
+    border-radius: 2rem;
     padding: 1rem;
     flex-direction: column;
     background-color: #3A3668;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
 }
 
 label {
@@ -71,6 +46,7 @@ label {
 h3 {
     color: #F8F8FF;
     text-align: center;
+    text-shadow: 0 0 16px #5632D5, 0 0 20px #5632D5, 0 0 30px #5632D5, 0 0 40px #5632D5;
 }
 
 .form_field {

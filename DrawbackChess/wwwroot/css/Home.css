@@ -15,8 +15,8 @@ body{
     overflow:hidden;
 }
 .menu-button {
+    margin:auto;
     padding: 1rem;
-    margin: 1rem;
     cursor: pointer;
     background-color: #5632D5;
     color: #F8F8FF;
@@ -28,6 +28,7 @@ body{
 .buttons_container {
     display: flex;
     justify-content:center;
+    align-items:center;
 }
 
 
@@ -57,6 +58,7 @@ p {
 
 .info {
     margin: 10px;
+    margin-top:3rem;
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -69,6 +71,7 @@ p {
     align-self: flex-start;
     margin: 0;
     padding: 0;
+    margin-top:6.5rem;
 }
 
 .start {
@@ -76,10 +79,12 @@ p {
     padding: 10px 20px;
     font-size: 1.3rem;
     margin: 0.1rem;
+    margin-top:1rem;
     cursor: pointer;
     background-color: #5632D5;
     color: #F8F8FF;
     border-radius: 1rem;
     align-self: center;
     margin-left: 1rem;
+    box-shadow: 0 0 10px #5632D5, 0 0 15px #5632D5, 0 0 20px #5632D5, 0 0 25px #5632D5;
 }

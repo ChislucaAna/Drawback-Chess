@@ -6,10 +6,7 @@
 
     private void ClosePopup()
     {
-        if (OnClose.HasDelegate)
-        {
-            OnClose.InvokeAsync();
-        }
+        IsVisible=false;
     }
 }
 
@@ -30,9 +27,8 @@
 
 <style>
     .popup-overlay {
-        position:absolute;
-        top: 0;
-        left: 0;
+        position:relative;
+        margin-top:1rem;
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
@@ -44,7 +40,7 @@
     .popup-container {
         background-color: #F8F8FF;
         border-radius: 10px;
-        padding: 20px;
+        padding: 1rem;
         width: 90%;
         max-width: 400px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,21 +55,23 @@
     .popup-close-btn {
         background: transparent;
         border: none;
-        font-size: 1.5em;
+        font-size: 1.5rem;
         cursor: pointer;
     }
 
     .popup-body {
-        margin-top: 15px;
+        margin-top: 0.5rem;
     }
 
     h2
     {
         color: #5632D5;
+        font-size:1.5rem;
     }
 
     .message
     {
          color:#0D0924;
+        font-size: 1rem;
     }
 </style>
