@@ -66,31 +66,9 @@ namespace DrawbackChess.Classes
             }
             _refreshUI.Invoke();
         }
-
         public bool broke_drawback(Session current_session)
         {
-            Console.WriteLine(drawback.type);
-            switch (drawback.type)
-            {
-                case "location_not_allowed":
-                    if(current_session.board.GetLastMoveOfPlayer(this.color)!=null)
-                        if (current_session.board.GetLastMoveOfPlayer(this.color).endpoint.ToString() == drawback.parameter)
-                            return true;
-                    break;
-                case "piece_not_allowed":
-                    if (current_session.board.GetLastMoveOfPlayer(this.color) != null)
-                        if (current_session.board.GetLastMoveOfPlayer(this.color).piece.type == drawback.parameter)
-                            return true;
-                    break;
-                case "limited_number_of_moves":
-                        if (current_session.board.GetNumberOfMoves(this.color) == Convert.ToInt32(drawback.parameter))
-                            return true;
-                    break;
-                default:
-                    Console.WriteLine("Unknown color.");
-                    break;
-            }
-            return false;
+            return drawback.drawbackHandlers[drawback.type](current_session, color);
         }
     }
 }

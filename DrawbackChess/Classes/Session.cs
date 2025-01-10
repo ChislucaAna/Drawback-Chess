@@ -7,6 +7,7 @@ using DrawbackChess.Classes;
 using Microsoft.AspNetCore.Components;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.IO;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DrawbackChess
 {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DrawbackChess.Classes
 {
@@ -13,6 +14,10 @@ namespace DrawbackChess.Classes
         public string text; //UI TEXT
         public string type;
         public string parameter;
+
+        public Dictionary<string, Func<Session,string, bool>> drawbackHandlers = new Dictionary< string, Func<Session, string, bool>>();
+
+
 
         public Drawback(string contents)
         {
@@ -32,6 +37,33 @@ namespace DrawbackChess.Classes
                 }
             }
             Thread.Sleep(100);
+
+            drawbackHandlers["location_not_allowed"] = location_not_allowed;
+            drawbackHandlers["piece_not_allowed"] = piece_not_allowed;
+            drawbackHandlers["limited_number_of_moves"] = limited_number_of_moves;
+        }
+
+        public bool location_not_allowed(Session current_session,string playercolor)
+        {
+            if (current_session.board.GetLastMoveOfPlayer(playercolor) != null)
+                if (current_session.board.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == this.parameter)
+                    return true;
+            return false;
+        }
+
+        public bool piece_not_allowed(Session current_session,string playercolor)
+        {
+            if (current_session.board.GetLastMoveOfPlayer(playercolor) != null)
+                if (current_session.board.GetLastMoveOfPlayer(playercolor).piece.type == this.parameter)
+                    return true;
+            return false;
+        }
+
+        public bool limited_number_of_moves(Session current_session,string playercolor)
+        {
+            if (current_session.board.GetNumberOfMoves(playercolor) == Convert.ToInt32(this.parameter))
+                return true;
+            return false;
         }
     }
 }
