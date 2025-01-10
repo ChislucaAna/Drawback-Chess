@@ -19,9 +19,11 @@ namespace DrawbackChess
         public Player winner;
         public string contents;
         public string typeofwin;
+        DrawbackHandler handler;
 
         public Session(Player player1, Player player2)
         {
+            handler = new DrawbackHandler();
             board = new Board();
             this.player1 = player1;
             this.player2 = player2;
@@ -47,6 +49,18 @@ namespace DrawbackChess
             }
         }
 
+        public Player GetLastThatMoved()
+        {
+            if (board.current_turn == "white")
+                return player2;
+            else
+                return player1;
+        }
+
+        //
+        //Win checkker functions:
+        //
+
         public void LookForWinner()
         {
             Player winner = GetSpecialWinner() ?? GetBasicWinner();
@@ -57,32 +71,22 @@ namespace DrawbackChess
                 EndGame();
             }
         }
-
-        public Player GetLastThatMoved()
-        {
-            if (board.current_turn == "white")
-                return player1;
-            else
-                return player2;
-        }
         public Player GetSpecialWinner()
         {
-            if(player1.broke_drawback(this))
+            foreach (var player in new[] { player1, player2 })
             {
-                typeofwin = "drawback rules";
-                return player2;
+                if (handler.handle[player.drawback.type](this, player.color, player.drawback.parameter))
+                {
+                    typeofwin = "drawback rules";
+                    return player == player1 ? player2 : player1; //if one player broke the drawback, the other is the winner
+                }
             }
-            if (player2.broke_drawback(this))
-            {
-                typeofwin = "drawback rules";
-                return player1;
-            }
-            return null; //no winner yet
+            return null; // No winner yet
         }
 
-        public Player GetBasicWinner() //PLACEHOLDER : NOT IMPLEMENTED YET . Basic chess endgames function
+        public Player GetBasicWinner()
         {
-            if (board.ChessHere != null) //s-a dat sah. Verificam daca e mat(Playerul curent e in sah si nu poate muta nimic)
+            if (board.ChessHere != null) //There is a player currently in check. We check for mate.
             {
                 if(board.Mate())
                 {
@@ -91,17 +95,20 @@ namespace DrawbackChess
                 }
                 return null;
             }
-            else //nu s-a dat sah. Verificam daca e remiza(Playerul curent nu este in sah, are doar rege si nu poate muta nicaieri)
+            else //there is no player currently in check. We check for draws.
             {
                 if(board.Draw())
                 {
                     typeofwin = "draw";
-                    return player1; //we wont display this anyways
+                    return player1; //we wont display this anyways,  but it shows that game has ended
                 }
                 return null;
             }
         }
 
+        //
+        //Game state functions:
+        //
         public bool GameHasStarted()
         {
             return board.MoveHistory != null;

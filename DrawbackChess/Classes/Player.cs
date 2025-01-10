@@ -10,13 +10,18 @@ namespace DrawbackChess.Classes
 {
     public class Player
     {
+
+        //Player data
         public string name;
+        public string color;
+        public Drawback drawback;
         public TimeSpan TimeLeft;
+
+        //Player's timer
         public Timer? timer;
         public bool isPaused = true;
-        private Action? _refreshUI;
-        public Drawback drawback;
-        string color;
+        private Action _refreshUI;
+
         public Player(string name,string color,Drawback drawback,TimeSpan initialtime, Action refreshUI)
         {
             this.color= color;  
@@ -54,7 +59,7 @@ namespace DrawbackChess.Classes
             TimeLeft = TimeSpan.Zero;
             _refreshUI.Invoke();
         }
-        private async void UpdateTimer(object? state)
+        private void UpdateTimer(object? state)
         {
             if (TimeLeft > TimeSpan.Zero && !isPaused)
             {
@@ -65,10 +70,6 @@ namespace DrawbackChess.Classes
                 EndTimer(); // Stop the timer when time is up
             }
             _refreshUI.Invoke();
-        }
-        public bool broke_drawback(Session current_session)
-        {
-            return drawback.drawbackHandlers[drawback.type](current_session, color);
         }
     }
 }

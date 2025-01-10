@@ -48,25 +48,20 @@ namespace DrawbackChess
             return $"{colLetter}{row}";
         }
 
-        public bool IsDangerous(Board board, string color) //verifies if the square would be dangerous for king of specified color
+        public bool IsDangerous(Board board, string color)
         {
-            for (int row = 1; row <= 8; row++)
+            foreach (var square in board.grid)
             {
-                for (int col = 1; col <= 8; col++)
+                if (square == null)
+                    continue;
+
+                var piece = square.piece;
+                if (piece != null && piece.color != color)
                 {
-                    if (board.grid[row, col].piece != null) //foreach enemy piece we get chess range and verify if the square is there
+                    var chessRange = piece.GetChessRange(square, board);
+                    if (chessRange?.Contains(this) == true)
                     {
-                        if (board.grid[row, col].piece.color != color)
-                        {
-                            var chessrange = board.grid[row, col].piece.GetChessRange(board.grid[row, col], board);
-                            if (chessrange != null) 
-                            {
-                                if (chessrange.Contains(this))
-                                {
-                                    return true;
-                                }
-                            }
-                        }
+                        return true;
                     }
                 }
             }
