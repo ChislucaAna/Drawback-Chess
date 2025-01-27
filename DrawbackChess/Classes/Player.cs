@@ -68,6 +68,9 @@ namespace DrawbackChess.Classes
             else if (TimeLeft <= TimeSpan.Zero)
             {
                 EndTimer(); // Stop the timer when time is up
+                
+
+                //And award the win to other player, NO IDEA HOW TO GET THAT HERE
             }
             _refreshUI.Invoke();
         }

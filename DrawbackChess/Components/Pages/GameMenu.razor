@@ -2,7 +2,7 @@
 <link href="css/gamemenu.css" rel="stylesheet" />
 
 <div class="modal-overlay">
-    <h3>New Game Options:</h3>
+    <h3>Play on same device:</h3>
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
@@ -29,30 +29,14 @@
 </div>
 
 <div class="modal-overlay">
-    <h3>Continue Last Game:</h3>
+    <h3>Play online:</h3>
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
         <input @bind="player1Name" placeholder="White" readonly="true" style="pointer-events: none;" />
     </div>
 
-    <div class="form_field">
-        <label>Player Name:</label>
-        <input @bind="player2Name" placeholder="Black" readonly="true" style="pointer-events: none;" />
-    </div>
-
-    <!-- Play Time Dropdown -->
-    <div class="form_field">
-        <label>Select Play Time (minutes):</label>
-        <select @bind="playTime" readonly="true" style="pointer-events: none;">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="30">30</option>
-        </select>
-    </div>
-
-    <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
+    <button @onclick="PlayOnline" class="menu-button">Play Online</button>
 </div>
 
 
@@ -91,7 +75,7 @@
     }
 
 
-    private async void ContinueGame()
+    private async void PlayOnline()
     {
         await JS.InvokeVoidAsync("alert", "This feature is currently not available.");
     }
