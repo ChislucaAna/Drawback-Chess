@@ -57,6 +57,11 @@ namespace DrawbackChess
                 return player1;
         }
 
+        public string GetTurnPlayerColor()
+        {
+            return board.current_turn;
+        }
+
         //
         //Win checkker functions:
         //

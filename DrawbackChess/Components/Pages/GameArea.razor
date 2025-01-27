@@ -31,12 +31,12 @@
                     @(square == current_session.board.StartSquare ? "selected" : "")
                     @(square == current_session.board.ChessHere ? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
-                     @onclick="() => OnSquareClick(square)">
+                @onclick="() => OnSquareClick(square)">
                     @if (square.piece != null)
                     {
                         <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                             alt="@square.piece.type"
-                             class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                        alt="@square.piece.type"
+                        class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
                     }
                 </div>
             }
@@ -67,26 +67,34 @@
 
     private void OnSquareClick(Square clicked)
     {
+        //Clicked on same piece deselect it.
         if (current_session.board.StartSquare == clicked)
         {
             current_session.board.DeselectPiece();
         }
-        else
+
+        //Nothing previously clicked so select new piece
+        if (current_session.board.StartSquare == null)
         {
-            if (current_session.board.StartSquare == null)
-            {
-                current_session.board.TrySelectPieceOn(clicked);
-            }
-            else
-            {
-                if (current_session.board.Try_Execute_Move(clicked)) 
-                {
-                    current_session.LookForWinner();
-                    if (current_session.winner == null)
-                        current_session.SwitchTimer();
-                }
-            }
+            current_session.board.TrySelectPieceOn(clicked);
         }
+
+        //Clicked on owned piece, try to move selection to new piece
+        if (clicked.get_piece_color() == current_session.GetTurnPlayerColor())
+        {
+            current_session.board.DeselectPiece();
+            current_session.board.TrySelectPieceOn(clicked);
+        }
+
+        //Clicked on possible move with selected piece try to execute move
+        if (current_session.board.Try_Execute_Move(clicked)) 
+        {
+            current_session.LookForWinner();
+            if (current_session.winner == null)
+                current_session.SwitchTimer();
+        }
+            
+        
         StateHasChanged();
     }
 }

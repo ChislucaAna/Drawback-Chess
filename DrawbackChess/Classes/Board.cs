@@ -130,11 +130,11 @@ namespace DrawbackChess
             EndSquare = clicked;
             if (Move_Is_Possible())
             {
-                AddMoveToHistory(StartSquare.piece, StartSquare,EndSquare);
+                AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
                 MovePiece();
-                if (GetKingPosition().IsDangerous(this,current_turn))
+                if (GetKingPosition().IsDangerous(this, current_turn))
                 {
-                    Console.WriteLine("your king is still in chess dummy");
+                    Console.WriteLine("your king is still in check dummy");
                     ReverseLastMove();
                     return false;
                 }
