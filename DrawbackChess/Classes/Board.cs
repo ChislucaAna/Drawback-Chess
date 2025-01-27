@@ -125,9 +125,8 @@ namespace DrawbackChess
             PossibleMoves.Clear();
         }
 
-        public bool Try_Execute_Move(Square clicked)
+        public bool Try_Execute_Move()
         {
-            EndSquare = clicked;
             if (Move_Is_Possible())
             {
                 AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
@@ -311,7 +310,8 @@ namespace DrawbackChess
                                 {
                                     PossibleMoves = possibilities;
                                     StartSquare = square;
-                                    if (Try_Execute_Move(destination))
+                                    EndSquare = destination;
+                                    if (Try_Execute_Move())
                                     {
                                         ReverseLastMove(); //ai o problema aici atunci cand ultima mutare a implicat luarea unei piese
                                         SwitchTurn();

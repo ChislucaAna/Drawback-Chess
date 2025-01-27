@@ -87,7 +87,8 @@
         }
 
         //Clicked on possible move with selected piece try to execute move
-        if (current_session.board.Try_Execute_Move(clicked)) 
+        current_session.board.EndSquare = clicked;
+        if (current_session.board.Try_Execute_Move()) 
         {
             current_session.LookForWinner();
             if (current_session.winner == null)
