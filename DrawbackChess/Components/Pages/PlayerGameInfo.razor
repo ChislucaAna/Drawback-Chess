@@ -1,13 +1,14 @@
 ﻿@code {
     [Parameter] public DrawbackChess.Classes.Player? player { get; set; }
+    [Parameter] public DrawbackChess.Classes.ChessTimer? timer { get; set; }
     [Parameter] public bool rotate { get; set; }
     [Parameter] public bool GameHasStarted { get; set; }
 }
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 <div class="session_info @(rotate ? "rotated" : "")">
     <p>@player.name</p>
-    <p class="digital-timer @(GameHasStarted && !player.isPaused ? "timer-glow" : "")">
-        @player.TimeLeft
+    <p class="digital-timer @(GameHasStarted && !timer.isPaused ? "timer-glow" : "")">
+        @timer.TimeLeft
     </p>
     <div>
         <button @onclick="ToggleDrawbackVisibility" class="toggle-drawback-btn">

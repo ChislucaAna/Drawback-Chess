@@ -90,8 +90,7 @@
         current_session.board.EndSquare = clicked;
         if (current_session.board.Try_Execute_Move()) 
         {
-            current_session.LookForWinner();
-            if (current_session.winner == null)
+            if (Session.winner == null)
                 current_session.SwitchTimer();
         }
             

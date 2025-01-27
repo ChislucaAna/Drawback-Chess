@@ -16,17 +16,21 @@ namespace DrawbackChess
         public Board board;
         public Player player1;
         public Player player2;
-        public Player winner;
+        public static Player winner;
         public string contents;
         public string typeofwin;
         DrawbackHandler handler;
+        public ChessTimer WhiteTimer;
+        public ChessTimer BlackTimer;
 
-        public Session(Player player1, Player player2)
+        public Session(Player player1, Player player2,ChessTimer WhiteTimer, ChessTimer BlackTimer)
         {
             handler = new DrawbackHandler();
             board = new Board();
             this.player1 = player1;
             this.player2 = player2;
+            this.WhiteTimer = WhiteTimer;
+            this.BlackTimer = BlackTimer;
         }
 
         public void SwitchTimer()
@@ -34,13 +38,13 @@ namespace DrawbackChess
             switch (board.current_turn)
             {
                 case "White":
-                    player2.PauseTimer();
-                    player1.StartTimer();
+                    BlackTimer.PauseTimer();
+                    WhiteTimer.StartTimer();
                     Console.WriteLine("White timer started");
                     break;
                 case "Black":
-                    player1.PauseTimer();
-                    player2.StartTimer();
+                    WhiteTimer.PauseTimer();
+                    BlackTimer.StartTimer();
                     Console.WriteLine("Black timer started");
                     break;
                 default:
@@ -72,7 +76,6 @@ namespace DrawbackChess
 
             if (winner != null)
             {
-                this.winner = winner;
                 EndGame();
             }
         }
@@ -126,8 +129,8 @@ namespace DrawbackChess
 
         public void EndGame()
         {
-            player1.EndTimer();
-            player2.EndTimer();
+            WhiteTimer.EndTimer();
+            BlackTimer.EndTimer();
         }
     }
 }

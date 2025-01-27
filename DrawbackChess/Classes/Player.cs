@@ -15,64 +15,14 @@ namespace DrawbackChess.Classes
         public string name;
         public string color;
         public Drawback drawback;
-        public TimeSpan TimeLeft;
 
         //Player's timer
-        public Timer? timer;
-        public bool isPaused = true;
-        private Action _refreshUI;
 
-        public Player(string name,string color,Drawback drawback,TimeSpan initialtime, Action refreshUI)
+        public Player(string name, string color, Drawback drawback)
         {
-            this.color= color;  
+            this.color = color;
             this.name = name;
-            this.TimeLeft = initialtime;
-            this.drawback = drawback;   
-            _refreshUI = refreshUI;
-        }
-        public void StartTimer()
-        {
-            if (timer == null) //Start a new Timer
-            {
-                timer = new Timer(UpdateTimer, null, 1000, 1000);
-                isPaused = false;
-            }
-            else if (isPaused) //Unpause
-            {
-                isPaused = false;
-            }
-            _refreshUI.Invoke();
-        }
-        public void PauseTimer()
-        {
-            if (timer != null)
-            {
-                isPaused = true;
-            }
-            _refreshUI.Invoke();
-        }
-        public void EndTimer()
-        {
-            timer?.Dispose();
-            timer = null; 
-            isPaused = false;;
-            TimeLeft = TimeSpan.Zero;
-            _refreshUI.Invoke();
-        }
-        private void UpdateTimer(object? state)
-        {
-            if (TimeLeft > TimeSpan.Zero && !isPaused)
-            {
-                TimeLeft = TimeLeft.Subtract(TimeSpan.FromSeconds(1));
-            }
-            else if (TimeLeft <= TimeSpan.Zero)
-            {
-                EndTimer(); // Stop the timer when time is up
-                
-
-                //And award the win to other player, NO IDEA HOW TO GET THAT HERE
-            }
-            _refreshUI.Invoke();
+            this.drawback = drawback;
         }
     }
 }

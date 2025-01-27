@@ -9,7 +9,7 @@
         @if (current_session.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @current_session.winner.name by @current_session.typeofwin.
+                Game over! Game was won by @Session.winner.name by @current_session.typeofwin.
             </p>
         }
         else
@@ -21,21 +21,21 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" rotate="true">
+        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" timer="@current_session.WhiteTimer" rotate="true">
         </PlayerGameInfo>
 
         <GameArea current_session="@current_session"></GameArea>
 
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player2" rotate="false">
+        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player2" timer="@current_session.BlackTimer" rotate="false">
         </PlayerGameInfo>
     </div>
 </div>
 
 @code {
-    //parametrii luati de la meniul de creare a jocului
-    [Parameter] public string Player1Name { get; set; }
-    [Parameter] public string Player2Name { get; set; }
-    [Parameter] public int PlayTime { get; set; }
+        //parametrii luati de la meniul de creare a jocului
+        [Parameter] public string Player1Name { get; set; }
+        [Parameter] public string Player2Name { get; set; }
+        [Parameter] public int PlayTime { get; set; }
     //parametrii pentru joc
     public Session current_session;
     string contents;
@@ -46,15 +46,17 @@
         if (GameMenu.is_new_game)
         {
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Player player1 = new Player(Player1Name, "White", new Drawback(contents), timeSpan, () =>
+            Player player1 = new Player(Player1Name, "White", new Drawback(contents));
+            Player player2 = new Player(Player2Name, "Black", new Drawback(contents));
+            ChessTimer timer1 = new ChessTimer(PlayTime,"White", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            Player player2 = new Player(Player2Name, "Black", new Drawback(contents), timeSpan, () =>
-           {
-               InvokeAsync(StateHasChanged);
-           });
-            current_session = new Session(player1, player2);
+            ChessTimer timer2 = new ChessTimer(PlayTime,"Black", () =>
+            {
+                InvokeAsync(StateHasChanged);
+            });
+            current_session = new Session(player1, player2,timer1,timer2);
         }
     }
 
