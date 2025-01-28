@@ -97,7 +97,7 @@ namespace DrawbackChess
 
         public static Player GetBasicWinner()
         {
-            if (board.ChessHere != null) //There is a player currently in check. We check for mate.
+            if (board.CheckWasGiven()) //There is a player currently in check. We check for mate.
             {
                 if(board.Mate())
                 {

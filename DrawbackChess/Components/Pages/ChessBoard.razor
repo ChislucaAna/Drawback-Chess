@@ -29,7 +29,7 @@
 
                 <div class="square @(square.IsBlackSquare() ? "black" : "white")
                     @(square == Session.board.StartSquare ? "selected" : "")
-                    @(square == Session.board.ChessHere ? "red" : "")
+                    @(Session.board.CheckWasGiven() &&  square==Session.board.GetKingPosition(Session.board.current_turn)? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
                 @onclick="() => OnSquareClick(square)">
                     @if (square.piece != null)
