@@ -13,27 +13,22 @@ namespace DrawbackChess
 {
     public class Session
     {
-        public Board board;
-        public Player player1;
-        public Player player2;
+        public static Board board;
+        public static Player player1;
+        public static Player player2;
         public static Player winner;
-        public string contents;
-        public string typeofwin;
-        DrawbackHandler handler;
-        public ChessTimer WhiteTimer;
-        public ChessTimer BlackTimer;
+        public static string typeofwin;
+        public static DrawbackHandler handler;
+        public static ChessTimer WhiteTimer;
+        public static ChessTimer BlackTimer;
+        public static Action refreshUI;
+        public static bool game_ended = false;
 
-        public Session(Player player1, Player player2,ChessTimer WhiteTimer, ChessTimer BlackTimer)
+        public Session()
         {
-            handler = new DrawbackHandler();
-            board = new Board();
-            this.player1 = player1;
-            this.player2 = player2;
-            this.WhiteTimer = WhiteTimer;
-            this.BlackTimer = BlackTimer;
         }
 
-        public void SwitchTimer()
+        public static void SwitchTimer()
         {
             switch (board.current_turn)
             {
@@ -53,7 +48,7 @@ namespace DrawbackChess
             }
         }
 
-        public Player GetLastThatMoved()
+        public static Player GetLastThatMoved()
         {
             if (board.current_turn == "white")
                 return player2;
@@ -61,7 +56,7 @@ namespace DrawbackChess
                 return player1;
         }
 
-        public string GetTurnPlayerColor()
+        public static string GetTurnPlayerColor()
         {
             return board.current_turn;
         }
@@ -70,21 +65,23 @@ namespace DrawbackChess
         //Win checkker functions:
         //
 
-        public void LookForWinner()
+        public static void LookForWinner()
         {
-            Player winner = GetSpecialWinner() ?? GetBasicWinner();
+            Session.winner = GetSpecialWinner() ?? GetBasicWinner();
 
-            if (winner != null)
+            if (Session.winner != null)
             {
                 EndGame();
             }
         }
-        public Player GetSpecialWinner()
+        public static Player GetSpecialWinner()
         {
+            Console.WriteLine("this has been called");
             foreach (var player in new[] { player1, player2 })
             {
-                if (handler.handle[player.drawback.type](this, player.color, player.drawback.parameter))
+                if (handler.handle[player.drawback.type](player.color, player.drawback.parameter))
                 {
+                    Console.WriteLine("broke drawback");
                     typeofwin = "drawback rules";
                     return player == player1 ? player2 : player1; //if one player broke the drawback, the other is the winner
                 }
@@ -92,7 +89,7 @@ namespace DrawbackChess
             return null; // No winner yet
         }
 
-        public Player GetBasicWinner()
+        public static Player GetBasicWinner()
         {
             if (board.ChessHere != null) //There is a player currently in check. We check for mate.
             {
@@ -117,20 +114,22 @@ namespace DrawbackChess
         //
         //Game state functions:
         //
-        public bool GameHasStarted()
+        public static bool GameHasStarted()
         {
             return board.MoveHistory != null;
         }
 
-        public bool GameHasEnded()
+        public static bool GameHasEnded()
         {
-            return winner!= null;
+            return Session.winner!= null;
         }
 
-        public void EndGame()
+        public static void EndGame()
         {
             WhiteTimer.EndTimer();
             BlackTimer.EndTimer();
+            Session.game_ended = true;
+            refreshUI();
         }
     }
 }

@@ -5,11 +5,11 @@
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@current_session.GameHasEnded()">
-        @if (current_session.typeofwin != "draw")
+    <GameEndedPopup Title="Game Over" IsVisible="@Session.game_ended">
+        @if (Session.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @Session.winner.name by @current_session.typeofwin.
+                Game over! Game was won by @Session.winner.name by @Session.typeofwin.
             </p>
         }
         else
@@ -21,23 +21,21 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" timer="@current_session.WhiteTimer" rotate="true">
+        <PlayerGameInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player1" timer="@Session.WhiteTimer" rotate="true">
         </PlayerGameInfo>
 
-        <GameArea current_session="@current_session"></GameArea>
+        <GameArea></GameArea>
 
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player2" timer="@current_session.BlackTimer" rotate="false">
+        <PlayerGameInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player2" timer="@Session.BlackTimer" rotate="false">
         </PlayerGameInfo>
     </div>
 </div>
 
 @code {
-        //parametrii luati de la meniul de creare a jocului
-        [Parameter] public string Player1Name { get; set; }
-        [Parameter] public string Player2Name { get; set; }
-        [Parameter] public int PlayTime { get; set; }
-    //parametrii pentru joc
-    public Session current_session;
+    //parametrii luati de la meniul de creare a jocului
+    [Parameter] public string Player1Name { get; set; }
+    [Parameter] public string Player2Name { get; set; }
+    [Parameter] public int PlayTime { get; set; }
     string contents;
 
     protected override async void OnInitialized()
@@ -45,22 +43,25 @@
         LoadMauiAsset();
         if (GameMenu.is_new_game)
         {
+            Session.handler = new DrawbackHandler();
+            Session.board = new Board();
+            Session current_session = new Session();
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Player player1 = new Player(Player1Name, "White", new Drawback(contents));
-            Player player2 = new Player(Player2Name, "Black", new Drawback(contents));
-            ChessTimer timer1 = new ChessTimer(PlayTime,"White", () =>
+            Session.player1 = new Player(Player1Name, "White", new Drawback(contents));
+            Session. player2 = new Player(Player2Name, "Black", new Drawback(contents));
+            Session.refreshUI = async () => await InvokeAsync(StateHasChanged);
+            Session.WhiteTimer = new ChessTimer(PlayTime,"White", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            ChessTimer timer2 = new ChessTimer(PlayTime,"Black", () =>
+            Session.BlackTimer = new ChessTimer(PlayTime,"Black", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            current_session = new Session(player1, player2,timer1,timer2);
         }
     }
 
-    public async void LoadMauiAsset()
+    public async void LoadMauiAsset() //loads all drawbacks possible
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
         using var reader = new StreamReader(stream);

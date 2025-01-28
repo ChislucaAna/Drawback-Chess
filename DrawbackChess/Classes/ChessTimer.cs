@@ -60,9 +60,13 @@ namespace DrawbackChess.Classes
             }
             else if (TimeLeft <= TimeSpan.Zero)
             {
-                EndTimer(); // Stop the timer when time is up
-                //And award the win to other player, NO IDEA HOW TO GET THAT HERE
-                //me neither
+                EndTimer();
+                if (color == "White")
+                    Session.winner = Session.player2;
+                else
+                    Session.winner = Session.player1;
+                Session.typeofwin = "time limit";
+                Session.game_ended = true;
             }
             _refreshUI.Invoke();
         }
