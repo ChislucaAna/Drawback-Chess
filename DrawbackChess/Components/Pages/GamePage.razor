@@ -5,7 +5,7 @@
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@Session.game_ended">
+    <GameEndedPopup Title="Game Over" IsVisible="@Session.GameHasEnded()">
         @if (Session.typeofwin != "draw")
         {
             <p class="message">
@@ -21,13 +21,13 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerGameInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player1" timer="@Session.WhiteTimer" rotate="true">
-        </PlayerGameInfo>
+        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player1" timer="@Session.WhiteTimer" rotate="true">
+        </PlayerInfo>
 
-        <GameArea></GameArea>
+        <ChessBoard></ChessBoard>
 
-        <PlayerGameInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player2" timer="@Session.BlackTimer" rotate="false">
-        </PlayerGameInfo>
+        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player2" timer="@Session.BlackTimer" rotate="false">
+        </PlayerInfo>
     </div>
 </div>
 
@@ -40,9 +40,11 @@
 
     protected override async void OnInitialized()
     {
+        Console.WriteLine(Player1Name);
         LoadMauiAsset();
         if (GameMenu.is_new_game)
         {
+            Session.RemoveOldGameData();
             Session.handler = new DrawbackHandler();
             Session.board = new Board();
             Session current_session = new Session();

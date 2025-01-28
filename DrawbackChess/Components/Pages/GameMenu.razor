@@ -71,8 +71,14 @@
         showNewGamePopup = false;
         if (player1Name.Length >= 1 && player2Name.Length >= 1)
             Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
-        else
-            Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
+
+        if (player1Name.Length >= 1)
+            Navigation.NavigateTo($"/Game/{player1Name}/{"Black"}/{playTime}");
+        
+        if (player2Name.Length >= 1)
+            Navigation.NavigateTo($"/Game/{"White"}/{player2Name}/{playTime}");
+
+        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
     }
 
 

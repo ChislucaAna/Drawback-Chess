@@ -66,6 +66,10 @@
 
     private void OnSquareClick(Square clicked)
     {
+        //No pieces can be moved after ending of game
+        if (Session.GameHasEnded())
+            return;
+
         //Clicked on same piece deselect it.
         if (Session.board.StartSquare == clicked)
         {

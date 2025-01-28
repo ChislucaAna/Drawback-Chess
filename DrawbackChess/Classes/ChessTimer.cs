@@ -66,7 +66,6 @@ namespace DrawbackChess.Classes
                 else
                     Session.winner = Session.player1;
                 Session.typeofwin = "time limit";
-                Session.game_ended = true;
             }
             _refreshUI.Invoke();
         }

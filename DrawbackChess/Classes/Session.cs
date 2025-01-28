@@ -16,16 +16,22 @@ namespace DrawbackChess
         public static Board board;
         public static Player player1;
         public static Player player2;
-        public static Player winner;
-        public static string typeofwin;
+        public static Player? winner;
+        public static string? typeofwin;
         public static DrawbackHandler handler;
         public static ChessTimer WhiteTimer;
         public static ChessTimer BlackTimer;
         public static Action refreshUI;
-        public static bool game_ended = false;
 
         public Session()
         {
+
+        }
+
+        public static void RemoveOldGameData()
+        {
+            winner = null;
+            typeofwin = null;
         }
 
         public static void SwitchTimer()
@@ -67,9 +73,9 @@ namespace DrawbackChess
 
         public static void LookForWinner()
         {
-            Session.winner = GetSpecialWinner() ?? GetBasicWinner();
+            winner = GetSpecialWinner() ?? GetBasicWinner();
 
-            if (Session.winner != null)
+            if (winner != null)
             {
                 EndGame();
             }
@@ -121,14 +127,13 @@ namespace DrawbackChess
 
         public static bool GameHasEnded()
         {
-            return Session.winner!= null;
+            return winner!= null;
         }
 
         public static void EndGame()
         {
             WhiteTimer.EndTimer();
             BlackTimer.EndTimer();
-            Session.game_ended = true;
             refreshUI();
         }
     }
