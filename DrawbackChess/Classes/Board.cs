@@ -14,14 +14,8 @@ namespace DrawbackChess
 {
     public class Board
     {
-        public Square[,] grid;
-        public string current_turn = "White"; //each player makes one move at a time, alternatively
-        //for piece movement:
-        public Square? StartSquare=null;
-        public Square? EndSquare=null;
-        public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
-        //MOVEHISTORY
-        public List<Move> MoveHistory = new List<Move>();
+        public static Square[,] grid;
+        public static string current_turn = "White"; //each player makes one move at a time, alternatively
         public Board()
         {
             grid = new Square[9, 9];
@@ -66,7 +60,7 @@ namespace DrawbackChess
             }
         }
 
-        public void PrintCurrentState()
+        public static void PrintCurrentState()
         {
             for (int row = 1; row <= 8; row++)
             {
@@ -81,189 +75,25 @@ namespace DrawbackChess
             }
         }
 
-        public Square? GetSquareAt(int row, int col)
+        public static Square? GetSquareAt(int row, int col)
         {
             return IsWithinBounds(row, col) ? grid[row, col] : null;
         }
 
-        public bool IsWithinBounds(int row, int col)
+        public static bool IsWithinBounds(int row, int col)
         {
             return row >= 1 && row <= 8 && col >= 1 && col <= 8;
         }
 
-        public bool CanSelect(Square s)
-        {
-            if (s.piece == null)
-                return false; //there is no piece to select on this square
-            if (current_turn != s.get_piece_color())
-                return false; //it s not this player's turn yet
-            return true; //all is good
-        }
-        public void TrySelectPieceOn(Square s)
-        {
-            if (CanSelect(s))
-            {
-                StartSquare = s;
-            }
-        }
-        public void DeselectPiece()
-        {
-            StartSquare = null;
-            PossibleMoves.Clear();
-        }
 
-        public void MovePiece()
-        {
-            EndSquare.piece = StartSquare.piece;
-            StartSquare.piece = null;
-        }
-
-        public void ClearMovementData()
-        {
-            StartSquare = null;
-            EndSquare = null;
-            PossibleMoves.Clear();
-        }
-
-        public bool Try_Execute_Move()
-        {
-            if(StartSquare==null)
-                return false;
-
-            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare, this);
-            if (Move_Is_Possible())
-            {
-                AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-                MovePiece();
-                ClearMovementData();
-                if (KingIsInCheck(current_turn))
-                {
-                    ReverseLastMove();
-                    return false;
-                }
-                else
-                {
-                    SwitchTurn();
-                    Session.refreshUI();
-                    return true;
-                }
-            }
-            else
-            {
-                Console.WriteLine("no possible");
-                EndSquare = null;
-                return false;
-            }
-        }
-
-        public bool ParameterMove(Square start, Square End) //The star of the show :D
-        {
-            StartSquare = start;
-            EndSquare = End;
-            return Try_Execute_Move();
-        }
-
-        public void ReverseLastMove()
-        {
-            if (MoveHistory.Count == 0)
-            {
-                Console.WriteLine("No moves to reverse.");
-                return;
-            }
-
-            // Get the last move
-            var lastMove = GetLastMove();
-
-            // Restore the piece to the starting square
-            StartSquare = lastMove.startpoint;
-            EndSquare = lastMove.endpoint;
-
-            // Move the piece back to the starting square
-            StartSquare.piece = lastMove.piece;
-
-            // If there was a captured piece, restore it to the endpoint
-            EndSquare.piece = lastMove.capturedPiece; // Assuming `capturedPiece` tracks what was captured
-
-            Console.WriteLine($"Restored piece to StartSquare: {StartSquare.piece?.type ?? "None"}");
-            Console.WriteLine($"Restored piece to EndSquare: {EndSquare.piece?.type ?? "None"}");
-        }
-
-        public void SwitchTurn()
+        public static void SwitchTurn()
         {
             if (current_turn == "White")
                 current_turn = "Black";
             else
                 current_turn = "White";
         }
-
-        public bool Move_Is_Possible()
-        {
-             if (PossibleMoves.Contains(EndSquare))
-                    return true;
-                return false;
-        }
-
-        public void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
-        {
-            MoveHistory.Add(new Move(piece, startpoint, endpoint, endpoint.piece));
-        }
-
-        public void RemoveLastMoveFromHistory()
-        {
-            MoveHistory.RemoveAt(MoveHistory.Count - 1);
-        }
-
-        public void PrintMoveHistory()
-        {
-            if (MoveHistory.Count == 0)
-            {
-                Console.WriteLine("No moves have been made yet.");
-                return;
-            }
-
-            Console.WriteLine("Move History:");
-            for (int i = 0; i < MoveHistory.Count; i++)
-            {
-                Console.WriteLine(String.Format("{0}. {1} {2} was moved to {3}.",
-                i + 1,
-                MoveHistory[i].piece.color,
-                MoveHistory[i].piece.type,
-                MoveHistory[i].endpoint.ToString()));
-            }
-        }
-        public Move GetLastMove()
-        {
-            if (MoveHistory.Count >= 1)
-                return MoveHistory[MoveHistory.Count - 1];
-            else
-                return null;
-        }
-
-        public Move GetLastMoveOfPlayer(string color)
-        {
-            for(int i=MoveHistory.Count-1; i>=0; i--)
-            {
-                if (MoveHistory[i].piece.color==color)
-                {
-                    return MoveHistory[i];
-                }
-            }
-            return null;
-        }
-
-        public int GetNumberOfMoves(string color)
-        {
-            int nr = 0;
-            for (int i = MoveHistory.Count - 1; i >= 0; i--)
-            {
-                if (MoveHistory[i].piece.color == color)
-                {
-                    nr++;
-                }
-            }
-            return nr;
-        }
-        public Square GetKingPosition(string color)
+        public static Square GetKingPosition(string color)
         {
             for (int row = 1; row <= 8; row++)
             {
@@ -276,7 +106,7 @@ namespace DrawbackChess
             }
             return null;
         }
-        public bool KingIsInCheck(string color)
+        public static  bool KingIsInCheck(string color)
         {
             
             Square kingposition = GetKingPosition(color);
@@ -284,7 +114,7 @@ namespace DrawbackChess
             {
                 if (s == null || s.piece==null) continue;
                 if (s.piece.color == color) continue;
-                HashSet<Square> ChessRange = s.piece.GetChessRange(s, this);
+                HashSet<Square> ChessRange = s.piece.GetChessRange(s);
                 if (kingposition != null)
                 {
                     if (ChessRange.Contains(kingposition))
@@ -297,7 +127,7 @@ namespace DrawbackChess
             }
             return false;
         }
-        public bool Mate()
+        public static bool Mate()
         {
             foreach (Square square in grid)
             {
@@ -305,10 +135,10 @@ namespace DrawbackChess
                     continue;
                 if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
                 {
-                    var possibilities = square.piece.GetPossibleMoves(square, this);
+                    HashSet<Square> possibilities = square.piece.GetPossibleMoves(square);
                     foreach (Square destination in possibilities)
                     {
-                        if (SimulateMove(square, destination)) //exista mutare care se poate face
+                        if (MovementHandler.SimulateMove(square, destination)) //exista mutare care se poate face
                         {
                             return false;
                         }
@@ -317,24 +147,7 @@ namespace DrawbackChess
             }
             return true ;
         }
-
-        public bool SimulateMove(Square start, Square end)
-        {
-            bool successful = true;
-            StartSquare = start;
-            EndSquare = end;
-
-            AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-            MovePiece();
-            ClearMovementData();
-            if (KingIsInCheck(current_turn))
-                successful = false;
-            ReverseLastMove();
-            RemoveLastMoveFromHistory();
-
-            return successful;
-        }
-        public int GetNumberOfPieces(string color)
+        public static int GetNumberOfPieces(string color)
         {
             int nr = 0;
             foreach (Square square in grid)
@@ -353,9 +166,9 @@ namespace DrawbackChess
             return nr;
         }
 
-        public bool Draw()
+        public static bool Draw()
         {
-            if(GetKingPosition(current_turn).piece.GetPossibleMoves(GetKingPosition(current_turn),this)==null && GetNumberOfPieces(current_turn)==1)
+            if(GetKingPosition(current_turn).piece.GetPossibleMoves(GetKingPosition(current_turn))==null && GetNumberOfPieces(current_turn)==1)
             {
                 return true;
             }

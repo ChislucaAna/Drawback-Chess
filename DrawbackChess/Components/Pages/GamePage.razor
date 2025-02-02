@@ -40,12 +40,10 @@
 
     protected override async void OnInitialized()
     {
-        Console.WriteLine(Player1Name);
-        LoadMauiAsset();
+        LoadDrawbacks();
         if (GameMenu.is_new_game)
         {
             Session.RemoveOldGameData();
-            Session.handler = new DrawbackHandler();
             Session.board = new Board();
             Session current_session = new Session();
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
@@ -63,12 +61,13 @@
         }
     }
 
-    public async void LoadMauiAsset() //loads all drawbacks possible
+    public async void LoadDrawbacks() //loads all drawbacks possible
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
         using var reader = new StreamReader(stream);
-
         contents = reader.ReadToEnd();
+
+        DrawbackHandler.InitDrawbacks();
     }
 
 }

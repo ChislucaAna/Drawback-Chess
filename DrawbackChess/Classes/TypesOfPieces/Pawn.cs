@@ -10,7 +10,7 @@ namespace DrawbackChess
     {
         public Pawn(string color) : base(color, "Pawn") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -19,7 +19,7 @@ namespace DrawbackChess
             int col = currentSquare.col;
 
             // Forward move
-            var forwardSquare = board.GetSquareAt(row + direction, col);
+            var forwardSquare = Board.GetSquareAt(row + direction, col);
             if (forwardSquare != null && forwardSquare.piece == null)
             {
                 possibleMoves.Add(forwardSquare);
@@ -27,7 +27,7 @@ namespace DrawbackChess
                 bool isFirstMove = (color == "White" && row == 2) || (color == "Black" && row == 7); //first move of the pawn is 2 squares
                 if (isFirstMove)
                 {
-                    var twoSquareForward = board.GetSquareAt(row + 2 * direction, col);
+                    var twoSquareForward = Board.GetSquareAt(row + 2 * direction, col);
                     if (twoSquareForward != null && twoSquareForward.piece == null)
                     {
                         possibleMoves.Add(twoSquareForward);
@@ -38,7 +38,7 @@ namespace DrawbackChess
             // Diagonal capture
             foreach (var offset in new[] { -1, 1 })
             {
-                var diagonalSquare = board.GetSquareAt(row + direction, col + offset);
+                var diagonalSquare = Board.GetSquareAt(row + direction, col + offset);
                 if (diagonalSquare != null && diagonalSquare.piece != null && diagonalSquare.piece.color != color)
                 {
                     possibleMoves.Add(diagonalSquare);
@@ -48,7 +48,7 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
-        public override HashSet<Square> GetChessRange(Square currentSquare,Board board) //diagonal chess
+        public override HashSet<Square> GetChessRange(Square currentSquare) //diagonal chess
         {
             var chessrange = new HashSet<Square>();
 
@@ -57,7 +57,7 @@ namespace DrawbackChess
             int col = currentSquare.col;
             foreach (var offset in new[] { -1, 1 })
             {
-                var diagonalSquare = board.GetSquareAt(row + direction, col + offset);
+                var diagonalSquare = Board.GetSquareAt(row + direction, col + offset);
                 if (diagonalSquare != null)
                 {
                     chessrange.Add(diagonalSquare);

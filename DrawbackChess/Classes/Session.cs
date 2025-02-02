@@ -14,12 +14,10 @@ namespace DrawbackChess
     public class Session
     {
         public static Board board;
-        public static MovementHandler movementHandler;
         public static Player player1;
         public static Player player2;
         public static Player? winner;
         public static string? typeofwin;
-        public static DrawbackHandler drawbackHandler;
         public static ChessTimer WhiteTimer;
         public static ChessTimer BlackTimer;
         public static Action refreshUI;
@@ -37,7 +35,7 @@ namespace DrawbackChess
 
         public static void SwitchTimer()
         {
-            switch (board.current_turn)
+            switch (Board.current_turn)
             {
                 case "White":
                     BlackTimer.PauseTimer();
@@ -57,7 +55,7 @@ namespace DrawbackChess
 
         public static Player GetLastThatMoved()
         {
-            if (board.current_turn == "white")
+            if (Board.current_turn == "white")
                 return player2;
             else
                 return player1;
@@ -65,7 +63,7 @@ namespace DrawbackChess
 
         public static string GetTurnPlayerColor()
         {
-            return board.current_turn;
+            return Board.current_turn;
         }
 
         //
@@ -86,7 +84,7 @@ namespace DrawbackChess
             Console.WriteLine("this has been called");
             foreach (var player in new[] { player1, player2 })
             {
-                if (handler.handle[player.drawback.type](player.color, player.drawback.parameter))
+                if (DrawbackHandler.handle[player.drawback.type](player.color, player.drawback.parameter))
                 {
                     Console.WriteLine("broke drawback");
                     typeofwin = "drawback rules";
@@ -98,9 +96,9 @@ namespace DrawbackChess
 
         public static Player GetBasicWinner()
         {
-            if (board.KingIsInCheck(board.current_turn)) //Current player is in check. We check for mate.
+            if (Board.KingIsInCheck(Board.current_turn)) //Current player is in check. We check for mate.
             {
-                if(board.Mate())
+                if(Board.Mate())
                 {
                     typeofwin = "mate";
                     return GetLastThatMoved();
@@ -109,7 +107,7 @@ namespace DrawbackChess
             }
             else //Current player is not in check. We check for draws.
             {
-                if(board.Draw())
+                if(Board.Draw())
                 {
                     typeofwin = "draw";
                     return player1; //we wont display this anyways,  but it shows that game has ended
@@ -123,7 +121,7 @@ namespace DrawbackChess
         //
         public static bool GameHasStarted()
         {
-            return board.MoveHistory != null;
+            return MoveHistory.contents != null;
         }
 
         public static bool GameHasEnded()

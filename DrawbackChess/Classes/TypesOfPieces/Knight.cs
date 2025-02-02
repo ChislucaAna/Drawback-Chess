@@ -10,7 +10,7 @@ namespace DrawbackChess
     {
         public Knight(string color) : base(color, "Knight") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -28,9 +28,9 @@ namespace DrawbackChess
                 int row = currentSquare.row + offset[0];
                 int col = currentSquare.col + offset[1];
 
-                if (board.IsWithinBounds(row, col))
+                if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = board.GetSquareAt(row, col);
+                    var targetSquare = Board.GetSquareAt(row, col);
 
                     if (targetSquare.piece == null || targetSquare.piece.color != color)
                     {
@@ -42,7 +42,7 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
-        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        public override HashSet<Square> GetChessRange(Square currentSquare)
         {
             var chessrange = new HashSet<Square>();
 
@@ -60,9 +60,9 @@ namespace DrawbackChess
                 int row = currentSquare.row + offset[0];
                 int col = currentSquare.col + offset[1];
 
-                if (board.IsWithinBounds(row, col))
+                if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = board.GetSquareAt(row, col);
+                    var targetSquare = Board.GetSquareAt(row, col);
 
                     if (targetSquare!=null)
                     {
