@@ -136,16 +136,14 @@ namespace DrawbackChess
                 AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
                 MovePiece();
                 ClearMovementData();
-                if (GetKingPosition(current_turn).IsDangerous(this, current_turn))
+                if (KingIsInCheck(current_turn))
                 {
-                    Console.WriteLine("your king is still in check dummy");
                     ReverseLastMove();
                     return false;
                 }
                 else
                 {
                     SwitchTurn();
-                    CheckWasGiven();
                     Session.refreshUI();
                     return true;
                 }
@@ -188,9 +186,6 @@ namespace DrawbackChess
 
             Console.WriteLine($"Restored piece to StartSquare: {StartSquare.piece?.type ?? "None"}");
             Console.WriteLine($"Restored piece to EndSquare: {EndSquare.piece?.type ?? "None"}");
-
-            // Remove the last move from the history
-            MoveHistory.RemoveAt(MoveHistory.Count - 1);
         }
 
         public void SwitchTurn()
@@ -211,6 +206,11 @@ namespace DrawbackChess
         public void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
         {
             MoveHistory.Add(new Move(piece, startpoint, endpoint, endpoint.piece));
+        }
+
+        public void RemoveLastMoveFromHistory()
+        {
+            MoveHistory.RemoveAt(MoveHistory.Count - 1);
         }
 
         public void PrintMoveHistory()
@@ -276,14 +276,14 @@ namespace DrawbackChess
             }
             return null;
         }
-        public bool CheckWasGiven()
+        public bool KingIsInCheck(string color)
         {
             
-            Square kingposition = GetKingPosition(current_turn);
+            Square kingposition = GetKingPosition(color);
             foreach (Square s in grid)
             {
                 if (s == null || s.piece==null) continue;
-                if (s.piece.color == current_turn) continue;
+                if (s.piece.color == color) continue;
                 HashSet<Square> ChessRange = s.piece.GetChessRange(s, this);
                 if (kingposition != null)
                 {
@@ -306,19 +306,33 @@ namespace DrawbackChess
                 if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
                 {
                     var possibilities = square.piece.GetPossibleMoves(square, this);
-                    square.piece.PrintPossibleMoves(square, this);
                     foreach (Square destination in possibilities)
                     {
-                        if (ParameterMove(square, destination)) //exista mutare care se poate face
+                        if (SimulateMove(square, destination)) //exista mutare care se poate face
                         {
-                            ReverseLastMove();
-                            SwitchTurn();
                             return false;
                         }
                     }
                 }
             }
-            return true ; //there is no possible move to make. We have mare
+            return true ;
+        }
+
+        public bool SimulateMove(Square start, Square end)
+        {
+            bool successful = true;
+            StartSquare = start;
+            EndSquare = end;
+
+            AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
+            MovePiece();
+            ClearMovementData();
+            if (KingIsInCheck(current_turn))
+                successful = false;
+            ReverseLastMove();
+            RemoveLastMoveFromHistory();
+
+            return successful;
         }
         public int GetNumberOfPieces(string color)
         {

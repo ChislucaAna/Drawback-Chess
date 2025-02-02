@@ -14,11 +14,12 @@ namespace DrawbackChess
     public class Session
     {
         public static Board board;
+        public static MovementHandler movementHandler;
         public static Player player1;
         public static Player player2;
         public static Player? winner;
         public static string? typeofwin;
-        public static DrawbackHandler handler;
+        public static DrawbackHandler drawbackHandler;
         public static ChessTimer WhiteTimer;
         public static ChessTimer BlackTimer;
         public static Action refreshUI;
@@ -97,7 +98,7 @@ namespace DrawbackChess
 
         public static Player GetBasicWinner()
         {
-            if (board.CheckWasGiven()) //There is a player currently in check. We check for mate.
+            if (board.KingIsInCheck(board.current_turn)) //Current player is in check. We check for mate.
             {
                 if(board.Mate())
                 {
@@ -106,7 +107,7 @@ namespace DrawbackChess
                 }
                 return null;
             }
-            else //there is no player currently in check. We check for draws.
+            else //Current player is not in check. We check for draws.
             {
                 if(board.Draw())
                 {
