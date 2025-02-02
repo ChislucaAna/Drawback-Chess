@@ -19,7 +19,6 @@ namespace DrawbackChess
         //for piece movement:
         public Square? StartSquare=null;
         public Square? EndSquare=null;
-        public Square? ChessHere = null; //if a king is in chess his square will be highlighted
         public HashSet<Square> PossibleMoves { get; set; } = new(); //posible moves of potentially selected piece
         //MOVEHISTORY
         public List<Move> MoveHistory = new List<Move>();
@@ -105,7 +104,6 @@ namespace DrawbackChess
             if (CanSelect(s))
             {
                 StartSquare = s;
-                PossibleMoves = s.piece.GetPossibleMoves(s,this);
             }
         }
         public void DeselectPiece()
@@ -118,21 +116,27 @@ namespace DrawbackChess
         {
             EndSquare.piece = StartSquare.piece;
             StartSquare.piece = null;
+        }
 
-            //Finish Movement
+        public void ClearMovementData()
+        {
             StartSquare = null;
             EndSquare = null;
             PossibleMoves.Clear();
         }
 
-        public bool Try_Execute_Move(Square clicked)
+        public bool Try_Execute_Move()
         {
-            EndSquare = clicked;
+            if(StartSquare==null)
+                return false;
+
+            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare, this);
             if (Move_Is_Possible())
             {
                 AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
                 MovePiece();
-                if (GetKingPosition().IsDangerous(this, current_turn))
+                ClearMovementData();
+                if (GetKingPosition(current_turn).IsDangerous(this, current_turn))
                 {
                     Console.WriteLine("your king is still in check dummy");
                     ReverseLastMove();
@@ -141,7 +145,8 @@ namespace DrawbackChess
                 else
                 {
                     SwitchTurn();
-                    checkIfChessWasGiven();
+                    CheckWasGiven();
+                    Session.refreshUI();
                     return true;
                 }
             }
@@ -151,6 +156,13 @@ namespace DrawbackChess
                 EndSquare = null;
                 return false;
             }
+        }
+
+        public bool ParameterMove(Square start, Square End) //The star of the show :D
+        {
+            StartSquare = start;
+            EndSquare = End;
+            return Try_Execute_Move();
         }
 
         public void ReverseLastMove()
@@ -251,84 +263,63 @@ namespace DrawbackChess
             }
             return nr;
         }
-        public Square GetKingPosition()
+        public Square GetKingPosition(string color)
         {
             for (int row = 1; row <= 8; row++)
             {
                 for (int col = 1; col <= 8; col++)
                 {
                     if (grid[row,col].piece!=null)
-                        if (grid[row, col].piece.type=="King" && grid[row, col].piece.color == current_turn)
+                        if (grid[row, col].piece.type=="King" && grid[row, col].piece.color == color)
                             return grid[row, col];
                 }
             }
             return null;
         }
-        public void checkIfChessWasGiven()
+        public bool CheckWasGiven()
         {
-            Move last = GetLastMove();
-            if (last.piece.type == "King") //u cant give chess with a king
-                ChessHere = null;
-            else
+            
+            Square kingposition = GetKingPosition(current_turn);
+            foreach (Square s in grid)
             {
-                if (last.endpoint.piece != null)
+                if (s == null || s.piece==null) continue;
+                if (s.piece.color == current_turn) continue;
+                HashSet<Square> ChessRange = s.piece.GetChessRange(s, this);
+                if (kingposition != null)
                 {
-                    HashSet<Square> ChessRange = last.endpoint.piece.GetChessRange(last.endpoint, this);
-                    Square kingposition = GetKingPosition();
-                    if (kingposition != null)
+                    if (ChessRange.Contains(kingposition))
                     {
-                        if (ChessRange.Contains(kingposition))
-                        {
-                            Console.WriteLine(String.Format("Chess to {0} king.", current_turn));
-                            ChessHere = kingposition;
-                        }
-                        else //no chess is given currently
-                        {
-                            ChessHere = null;
-                        }
+                        Console.WriteLine(String.Format("Check to {0} king.", current_turn));
+                        return true;
+                        
                     }
-                    else
-                        Console.WriteLine("Exception: king doesnt seem to be found on the board");
                 }
             }
+            return false;
         }
-
         public bool Mate()
         {
             foreach (Square square in grid)
             {
-                if (square != null)
+                if (square == null || square.piece==null)
+                    continue;
+                if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
                 {
-                    if (square.piece != null)
+                    var possibilities = square.piece.GetPossibleMoves(square, this);
+                    square.piece.PrintPossibleMoves(square, this);
+                    foreach (Square destination in possibilities)
                     {
-                        if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+                        if (ParameterMove(square, destination)) //exista mutare care se poate face
                         {
-                            var possibilities = square.piece.GetPossibleMoves(square, this);
-                            square.piece.PrintPossibleMoves(square, this);
-                            foreach (Square destination in possibilities)
-                            {
-                                if (square != null)
-                                {
-                                    PossibleMoves = possibilities;
-                                    StartSquare = square;
-                                    if (Try_Execute_Move(destination))
-                                    {
-                                        ReverseLastMove(); //ai o problema aici atunci cand ultima mutare a implicat luarea unei piese
-                                        SwitchTurn();
-                                        checkIfChessWasGiven();
-                                        StartSquare = null;
-                                        EndSquare = null;
-                                        return false;
-                                    }
-                                }
-                            }
+                            ReverseLastMove();
+                            SwitchTurn();
+                            return false;
                         }
                     }
                 }
             }
             return true ; //there is no possible move to make. We have mare
         }
-
         public int GetNumberOfPieces(string color)
         {
             int nr = 0;
@@ -350,7 +341,7 @@ namespace DrawbackChess
 
         public bool Draw()
         {
-            if(GetKingPosition().piece.GetPossibleMoves(GetKingPosition(),this)==null && GetNumberOfPieces(current_turn)==1)
+            if(GetKingPosition(current_turn).piece.GetPossibleMoves(GetKingPosition(current_turn),this)==null && GetNumberOfPieces(current_turn)==1)
             {
                 return true;
             }

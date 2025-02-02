@@ -5,11 +5,11 @@
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@current_session.GameHasEnded()">
-        @if (current_session.typeofwin != "draw")
+    <GameEndedPopup Title="Game Over" IsVisible="@Session.GameHasEnded()">
+        @if (Session.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @current_session.winner.name by @current_session.typeofwin.
+                Game over! Game was won by @Session.winner.name by @Session.typeofwin.
             </p>
         }
         else
@@ -21,13 +21,13 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player1" rotate="true">
-        </PlayerGameInfo>
+        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player1" timer="@Session.WhiteTimer" rotate="true">
+        </PlayerInfo>
 
-        <GameArea current_session="@current_session"></GameArea>
+        <ChessBoard></ChessBoard>
 
-        <PlayerGameInfo GameHasStarted="@current_session.GameHasStarted()" player="@current_session.player2" rotate="false">
-        </PlayerGameInfo>
+        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player2" timer="@Session.BlackTimer" rotate="false">
+        </PlayerInfo>
     </div>
 </div>
 
@@ -36,29 +36,34 @@
     [Parameter] public string Player1Name { get; set; }
     [Parameter] public string Player2Name { get; set; }
     [Parameter] public int PlayTime { get; set; }
-    //parametrii pentru joc
-    public Session current_session;
     string contents;
 
     protected override async void OnInitialized()
     {
+        Console.WriteLine(Player1Name);
         LoadMauiAsset();
         if (GameMenu.is_new_game)
         {
+            Session.RemoveOldGameData();
+            Session.handler = new DrawbackHandler();
+            Session.board = new Board();
+            Session current_session = new Session();
             TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Player player1 = new Player(Player1Name, "White", new Drawback(contents), timeSpan, () =>
+            Session.player1 = new Player(Player1Name, "White", new Drawback(contents));
+            Session. player2 = new Player(Player2Name, "Black", new Drawback(contents));
+            Session.refreshUI = async () => await InvokeAsync(StateHasChanged);
+            Session.WhiteTimer = new ChessTimer(PlayTime,"White", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            Player player2 = new Player(Player2Name, "Black", new Drawback(contents), timeSpan, () =>
-           {
-               InvokeAsync(StateHasChanged);
-           });
-            current_session = new Session(player1, player2);
+            Session.BlackTimer = new ChessTimer(PlayTime,"Black", () =>
+            {
+                InvokeAsync(StateHasChanged);
+            });
         }
     }
 
-    public async void LoadMauiAsset()
+    public async void LoadMauiAsset() //loads all drawbacks possible
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
         using var reader = new StreamReader(stream);

@@ -1,0 +1,104 @@
+﻿<div class="column-labels">
+    @for (char colName = 'A'; colName <= 'H'; colName++)
+    {
+        <div class="column-label">
+            <span class="rotated">@colName</span>
+        </div>
+    }
+</div>
+<div class="chessarea">
+
+    <div class="row-labels">
+        @for (int row = 1; row <= 8; row++)
+        {
+            <div class="row-label">
+                <label>@row</label>
+            </div>
+        }
+    </div>
+
+    <div class="chessboard">
+
+        @for (int row = 1; row <= 8; row++)
+        {
+
+            @for (int col = 1; col <= 8; col++)
+            {
+                var square = Session.board.grid[row, col];
+                var isHighlighted = Session.board.PossibleMoves.Contains(square); // Check if the square is a possible move
+
+                <div class="square @(square.IsBlackSquare() ? "black" : "white")
+                    @(square == Session.board.StartSquare ? "selected" : "")
+                    @(Session.board.CheckWasGiven() &&  square==Session.board.GetKingPosition(Session.board.current_turn)? "red" : "")
+                    @(isHighlighted ? "highlight" : "")"
+                @onclick="() => OnSquareClick(square)">
+                    @if (square.piece != null)
+                    {
+                        <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                        alt="@square.piece.type"
+                        class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="row-labels">
+        @for (int row = 1; row <= 8; row++)
+        {
+            <div class="row-label rotated">
+                <label>@row</label>
+            </div>
+        }
+    </div>
+
+
+</div>
+
+<div class="column-labels">
+    @for (char colName = 'A'; colName <= 'H'; colName++)
+    {
+        <div class="column-label">@colName</div>
+    }
+</div>
+
+@code {
+
+    private void OnSquareClick(Square clicked)
+    {
+        //No pieces can be moved after ending of game
+        if (Session.GameHasEnded())
+            return;
+
+        //Clicked on same piece deselect it.
+        if (Session.board.StartSquare == clicked)
+        {
+            Session.board.DeselectPiece();
+        }
+
+        //Nothing previously clicked so select new piece
+        if (Session.board.StartSquare == null)
+        {
+            Session.board.TrySelectPieceOn(clicked);
+        }
+
+        //Clicked on owned piece, try to move selection to new piece
+        if (clicked.get_piece_color() == Session.GetTurnPlayerColor())
+        {
+            Session.board.DeselectPiece();
+            Session.board.TrySelectPieceOn(clicked);
+        }
+
+        //Clicked on possible move with selected piece try to execute move
+        Session.board.EndSquare = clicked;
+        if (Session.board.Try_Execute_Move()) 
+        {
+            Session.LookForWinner();
+            if (Session.winner == null)
+                Session.SwitchTimer();
+        }
+            
+        
+        StateHasChanged();
+    }
+}

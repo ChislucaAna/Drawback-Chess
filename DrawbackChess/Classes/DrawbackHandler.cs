@@ -8,8 +8,8 @@ namespace DrawbackChess.Classes
 {
     public class DrawbackHandler
     {
-        public Dictionary<string, Func<Session, string,string, bool>> handle =
-            new Dictionary<string, Func<Session, string,string, bool>>();
+        public Dictionary<string, Func<string,string, bool>> handle =
+            new Dictionary<string, Func<string,string, bool>>();
 
         public DrawbackHandler() 
         {
@@ -18,25 +18,25 @@ namespace DrawbackChess.Classes
             handle["limited_number_of_moves"] = limited_number_of_moves;
         }
 
-        public bool location_not_allowed(Session current_session, string playercolor, string DrawbackParameter)
+        public bool location_not_allowed(string playercolor, string DrawbackParameter)
         {
-            if (current_session.board.GetLastMoveOfPlayer(playercolor) != null)
-                if (current_session.board.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
+            if (Session.board.GetLastMoveOfPlayer(playercolor) != null)
+                if (Session.board.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
                     return true;
             return false;
         }
 
-        public bool piece_not_allowed(Session current_session, string playercolor, string DrawbackParameter)
+        public bool piece_not_allowed(string playercolor, string DrawbackParameter)
         {
-            if (current_session.board.GetLastMoveOfPlayer(playercolor) != null)
-                if (current_session.board.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
+            if (Session.board.GetLastMoveOfPlayer(playercolor) != null)
+                if (Session.board.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
                     return true;
             return false;
         }
 
-        public bool limited_number_of_moves(Session current_session, string playercolor, string DrawbackParameter)
+        public bool limited_number_of_moves(string playercolor, string DrawbackParameter)
         {
-            if (current_session.board.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
+            if (Session.board.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
                 return true;
             return false;
         }

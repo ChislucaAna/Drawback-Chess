@@ -18,6 +18,7 @@
     <div class="form_field">
         <label>Select Play Time (minutes):</label>
         <select @bind="playTime">
+            <option value="1">1</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -70,8 +71,14 @@
         showNewGamePopup = false;
         if (player1Name.Length >= 1 && player2Name.Length >= 1)
             Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
-        else
-            Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
+
+        if (player1Name.Length >= 1)
+            Navigation.NavigateTo($"/Game/{player1Name}/{"Black"}/{playTime}");
+        
+        if (player2Name.Length >= 1)
+            Navigation.NavigateTo($"/Game/{"White"}/{player2Name}/{playTime}");
+
+        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
     }
 
 
