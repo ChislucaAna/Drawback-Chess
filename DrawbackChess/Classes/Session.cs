@@ -20,7 +20,7 @@ namespace DrawbackChess
         public static string? typeofwin;
         public static ChessTimer WhiteTimer;
         public static ChessTimer BlackTimer;
-        public static Action refreshUI;
+        public static Action refreshUI; //refreshes GamePage.razor but not the chessboard itself
 
         public Session()
         {
@@ -31,6 +31,7 @@ namespace DrawbackChess
         {
             winner = null;
             typeofwin = null;
+            Board.current_turn = "White";
         }
 
         public static void SwitchTimer()

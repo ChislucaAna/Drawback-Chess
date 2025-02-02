@@ -62,26 +62,20 @@
 
     <ItemGroup>
       <AndroidResource Remove="Components\NewFolder1\**" />
-      <AndroidResource Remove="Components\NewFolder\**" />
       <AndroidResource Remove="NewFolder\**" />
       <AndroidResource Remove="wwwroot\NewFolder\**" />
       <Compile Remove="Components\NewFolder1\**" />
-      <Compile Remove="Components\NewFolder\**" />
       <Compile Remove="NewFolder\**" />
       <Compile Remove="wwwroot\NewFolder\**" />
       <Content Remove="Components\NewFolder1\**" />
-      <Content Remove="Components\NewFolder\**" />
       <Content Remove="NewFolder\**" />
       <Content Remove="wwwroot\NewFolder\**" />
       <EmbeddedResource Remove="Components\NewFolder1\**" />
-      <EmbeddedResource Remove="Components\NewFolder\**" />
       <EmbeddedResource Remove="NewFolder\**" />
       <EmbeddedResource Remove="wwwroot\NewFolder\**" />
       <MauiXaml Remove="Components\NewFolder1\**" />
-      <MauiXaml Remove="Components\NewFolder\**" />
       <MauiXaml Remove="NewFolder\**" />
       <None Remove="Components\NewFolder1\**" />
-      <None Remove="Components\NewFolder\**" />
       <None Remove="NewFolder\**" />
       <None Remove="wwwroot\NewFolder\**" />
     </ItemGroup>

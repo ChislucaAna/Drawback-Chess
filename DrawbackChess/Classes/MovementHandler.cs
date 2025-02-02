@@ -77,7 +77,6 @@ namespace DrawbackChess.Classes
                 return;
             }
 
-            // Get the last move
             var lastMove = MoveHistory.GetLastMove();
 
             // Restore the piece to the starting square
@@ -90,8 +89,27 @@ namespace DrawbackChess.Classes
             // If there was a captured piece, restore it to the endpoint
             EndSquare.piece = lastMove.capturedPiece; // Assuming `capturedPiece` tracks what was captured
 
-            Console.WriteLine($"Restored piece to StartSquare: {StartSquare.piece?.type ?? "None"}");
-            Console.WriteLine($"Restored piece to EndSquare: {EndSquare.piece?.type ?? "None"}");
+            Console.WriteLine("Last move has just been reversed from the board");
+            Console.WriteLine(lastMove.ToString());
+        }
+
+        public static void ReverseLastMoveOfPlayer(string playercolor)
+        {
+            var lastMove = MoveHistory.GetLastMoveOfPlayer(playercolor);
+            if (lastMove == null)
+                return;
+            // Restore the piece to the starting square
+            StartSquare = lastMove.startpoint;
+            EndSquare = lastMove.endpoint;
+
+            // Move the piece back to the starting square
+            StartSquare.piece = lastMove.piece;
+
+            // If there was a captured piece, restore it to the endpoint
+            EndSquare.piece = lastMove.capturedPiece; // Assuming `capturedPiece` tracks what was captured
+
+            Console.WriteLine("Last move has just been reversed from the board");
+            Console.WriteLine(lastMove.ToString());
         }
 
         public static void ClearMovementData()
@@ -110,6 +128,8 @@ namespace DrawbackChess.Classes
             if (Move_Is_Possible())
             {
                 MoveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
+                Console.WriteLine("MoveHistory:");
+                Console.WriteLine(MoveHistory.PrintMoveHistory());
                 MovePiece();
                 ClearMovementData();
                 if (Board.KingIsInCheck(Board.current_turn))
@@ -120,7 +140,6 @@ namespace DrawbackChess.Classes
                 else
                 {
                     Board.SwitchTurn();
-                    Session.refreshUI();
                     return true;
                 }
             }

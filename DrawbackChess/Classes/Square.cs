@@ -44,7 +44,7 @@ namespace DrawbackChess
         }
         public override string ToString()
         {
-            char colLetter = (char)('A' + (col - 1));
+            char colLetter = (char)('a' + (col - 1));
             return $"{colLetter}{row}";
         }
 

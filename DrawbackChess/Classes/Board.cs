@@ -16,6 +16,7 @@ namespace DrawbackChess
     {
         public static Square[,] grid;
         public static string current_turn = "White"; //each player makes one move at a time, alternatively
+        public static Action refreshUI;
         public Board()
         {
             grid = new Square[9, 9];

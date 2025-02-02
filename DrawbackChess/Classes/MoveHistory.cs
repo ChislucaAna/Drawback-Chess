@@ -17,26 +17,27 @@ namespace DrawbackChess.Classes
 
         public static void RemoveLastFromHistory()
         {
+            if(contents.Count == 0) return;
             contents.RemoveAt(contents.Count - 1);
+            Console.WriteLine("Removed last move from histroy.This is the current state:");
+            MoveHistory.PrintMoveHistory();
         }
 
-        public static void PrintMoveHistory()
+        public static string PrintMoveHistory()//inca mai trebuie implementat pentru rocada si checkmate
         {
+            string tostring="";
             if (contents.Count == 0)
             {
-                Console.WriteLine("No moves have been made yet.");
-                return;
+               return "No moves have been made yet.";
             }
 
-            Console.WriteLine("Move History:");
             for (int i = 0; i < contents.Count; i++)
             {
-                Console.WriteLine(String.Format("{0}. {1} {2} was moved to {3}.",
-                i + 1,
-                contents[i].piece.color,
-                contents[i].piece.type,
-                contents[i].endpoint.ToString()));
+                tostring += (i+1).ToString()+".";
+                tostring += GetLastMove().ToString();
+                tostring += System.Environment.NewLine;
             }
+            return tostring;
         }
         public static Move GetLastMove()
         {
@@ -56,6 +57,17 @@ namespace DrawbackChess.Classes
                 }
             }
             return null;
+        }
+
+        public static void RemoveLastMoveOfPlayer(string color)
+        {
+            for (int i = contents.Count - 1; i >= 0; i--)
+            {
+                if (contents[i].piece.color == color)
+                {
+                    contents.RemoveAt(i);
+                }
+            };
         }
 
         public static int GetNumberOfMoves(string color)
