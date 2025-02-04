@@ -13,14 +13,14 @@ namespace DrawbackChess.Classes
         public Square endpoint;
         public Piece capturedPiece;
 
-        public static Dictionary<string, string> Abbreviations = new Dictionary<string, string>
+        public static Dictionary<string, string> MoveAbbreviations = new Dictionary<string, string>
         {
             { "King", "K" },
             { "Queen", "Q" },
             { "Rook", "R" },
             { "Bishop", "B" },
             { "Knight", "N" },
-            { "Pawn", "" } // Pawns have no abbreviation
+            { "Pawn", "" } // Pawns have no abbreviation in movement notation
         };
 
         public Move(Piece piece, Square startpoint,Square endpoint, Piece capture)
@@ -39,7 +39,7 @@ namespace DrawbackChess.Classes
         public override string ToString()
         {
             string tostring = "";
-            tostring += Abbreviations[piece.type];
+            tostring += MoveAbbreviations[piece.type];
             if (IsCapture())
             {
                 if (piece.type == "Pawn")

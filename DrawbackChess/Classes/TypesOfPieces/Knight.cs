@@ -30,7 +30,7 @@ namespace DrawbackChess
 
                 if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Board.GetSquareAt(row, col);
+                    var targetSquare = Session.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece == null || targetSquare.piece.color != color)
                     {
@@ -62,7 +62,7 @@ namespace DrawbackChess
 
                 if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Board.GetSquareAt(row, col);
+                    var targetSquare = Session.board.GetSquareAt(row, col);
 
                     if (targetSquare!=null)
                     {

@@ -15,7 +15,7 @@
         <button @onclick="ToggleDrawbackVisibility" class="toggle-drawback-btn">
             <i class="fa @(isDrawbackVisible ? "fal  fa-eye-slash" : "fal  fa-eye")"></i>
         </button>
-        <button @onclick="ReverseLastMove" class="toggle-drawback-btn">
+        <button @onclick="ReverseLastMove" class="toggle-drawback-btn" disabled="@(player.color==Session.current_turn || !Session.GameHasStarted() || Session.GameHasEnded())">
             <i class="fa fal fa-arrow-left"></i>
         </button>
         <p class="drawback-text" style="@(isDrawbackVisible ? "" : "display: none;")">
@@ -34,18 +34,12 @@
 
     private void ReverseLastMove()
     {
-        if (!Session.GameHasEnded())
-        {
-            if (MoveHistory.GetLastMove().piece.color == player.color)
-            {
-                MovementHandler.ReverseLastMoveOfPlayer(player.color);
-                MoveHistory.RemoveLastMoveOfPlayer(player.color);
-                Board.PrintCurrentState();
+        MovementHandler.ReverseLastMoveOfPlayer(player.color);
+        MoveHistory.RemoveLastMoveOfPlayer(player.color);
+        Session.board.PrintCurrentState();
 
-                Board.SwitchTurn();
-                Session.SwitchTimer();
-                Board.refreshUI();
-            }
-        }
+        Session.SwitchTurn();
+        Session.SwitchTimer();
+        Board.refreshUI();
     }
 }

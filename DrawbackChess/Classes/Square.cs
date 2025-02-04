@@ -50,7 +50,7 @@ namespace DrawbackChess
 
         public bool IsDangerousForKing(string color)
         {
-            foreach (var square in Board.grid)
+            foreach (var square in Session.board.grid)
             {
                 if (square == null)
                     continue;

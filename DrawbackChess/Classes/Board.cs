@@ -14,8 +14,29 @@ namespace DrawbackChess
 {
     public class Board
     {
-        public static Square[,] grid;
-        public static string current_turn = "White"; //each player makes one move at a time, alternatively
+        public static Dictionary<string, string> AbbToFEN = new Dictionary<string, string>
+        {
+            { "King", "K" },
+            { "Queen", "Q" },
+            { "Rook", "R" },
+            { "Bishop", "B" },
+            { "Knight", "N" },
+            { "Pawn", "P" } // Pawns have abbreviations in fen
+        };
+
+        public static Dictionary<string, string> AbbFromFEN= new Dictionary<string, string>
+        {
+            { "K", "King" },
+            { "Q", "Queen" },
+            { "R", "Rook" },
+            { "B", "Bishop" },
+            { "N", "Knight" },
+            { "P", "Pawn" } // Pawns have abbreviations in fen
+        };
+
+        //vreau sa pot creea mai multe instante de tabla
+        public Square[,] grid;
+        //dar doar un meci ruleaza simultan
         public static Action refreshUI;
         public Board()
         {
@@ -61,7 +82,7 @@ namespace DrawbackChess
             }
         }
 
-        public static void PrintCurrentState()
+        public void PrintCurrentState()
         {
             for (int row = 1; row <= 8; row++)
             {
@@ -70,13 +91,13 @@ namespace DrawbackChess
                     if (grid[row, col].piece != null)
                         Console.Write(grid[row, col].piece.type.ToString() + " ");
                     else
-                        Console.Write(" ");
+                        Console.Write("e ");
                 }
                 Console.WriteLine(Environment.NewLine);
             }
         }
 
-        public static Square? GetSquareAt(int row, int col)
+        public Square? GetSquareAt(int row, int col)
         {
             return IsWithinBounds(row, col) ? grid[row, col] : null;
         }
@@ -87,14 +108,7 @@ namespace DrawbackChess
         }
 
 
-        public static void SwitchTurn()
-        {
-            if (current_turn == "White")
-                current_turn = "Black";
-            else
-                current_turn = "White";
-        }
-        public static Square GetKingPosition(string color)
+        public Square GetKingPosition(string color)
         {
             for (int row = 1; row <= 8; row++)
             {
@@ -107,7 +121,7 @@ namespace DrawbackChess
             }
             return null;
         }
-        public static  bool KingIsInCheck(string color)
+        public bool KingIsInCheck(string color)
         {
             
             Square kingposition = GetKingPosition(color);
@@ -120,7 +134,7 @@ namespace DrawbackChess
                 {
                     if (ChessRange.Contains(kingposition))
                     {
-                        Console.WriteLine(String.Format("Check to {0} king.", current_turn));
+                        Console.WriteLine(String.Format("Check to {0} king.", Session.current_turn));
                         return true;
                         
                     }
@@ -128,13 +142,13 @@ namespace DrawbackChess
             }
             return false;
         }
-        public static bool Mate()
+        public bool Mate()
         {
             foreach (Square square in grid)
             {
                 if (square == null || square.piece==null)
                     continue;
-                if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+                if (square.piece.color == Session.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
                 {
                     HashSet<Square> possibilities = square.piece.GetPossibleMoves(square);
                     foreach (Square destination in possibilities)
@@ -148,7 +162,7 @@ namespace DrawbackChess
             }
             return true ;
         }
-        public static int GetNumberOfPieces(string color)
+        public int GetNumberOfPieces(string color)
         {
             int nr = 0;
             foreach (Square square in grid)
@@ -157,7 +171,7 @@ namespace DrawbackChess
                 {
                     if (square.piece != null)
                     {
-                        if(square.piece.color == current_turn)
+                        if(square.piece.color == Session.current_turn)
                         {
                             nr++;
                         }
@@ -167,13 +181,82 @@ namespace DrawbackChess
             return nr;
         }
 
-        public static bool Draw()
+        public bool Draw()
         {
-            if(GetKingPosition(current_turn).piece.GetPossibleMoves(GetKingPosition(current_turn))==null && GetNumberOfPieces(current_turn)==1)
+            if(GetKingPosition(Session.current_turn).piece.GetPossibleMoves(GetKingPosition(Session.current_turn))==null && GetNumberOfPieces(Session.current_turn)==1)
             {
                 return true;
             }
             return false;
+        }
+
+        public string ToFEN() //vreau sa mearga si pt alte forme/dimensiuni de tabla(nu neaparat 8*8)
+        {
+            string result = "";
+            int empty_squares = 0;
+            foreach (Square s in grid)
+            {
+                if (s==null || !IsWithinBounds(s.row, s.col)) continue;
+                if (s.piece == null)//square is empty, increment
+                    empty_squares++;
+                else//square is not empty,write piece
+                {
+                    if (empty_squares != 0)//write how many aempty squares were before this piece
+                    {
+                        result += empty_squares.ToString();
+                        empty_squares = 0;
+                    }
+                    if (s.piece.color == "Black")
+                        result += AbbToFEN[s.piece.type].ToLower();
+                    else
+                        result += AbbToFEN[s.piece.type];
+                }
+                if (s.col == 8) //end of line,write any empty squares
+                {
+                    if (empty_squares != 0)
+                    {
+                        result += empty_squares.ToString();
+                        empty_squares = 0;
+                    }
+                }
+                if(s.col==8)//end of line,write separator
+                    result += "/";
+            }
+            return result;
+        }
+
+        public Board FromFEN(string fen)
+        {
+            Board result = new Board();
+            string[] rows = fen.Split('/');
+            int i = 1;
+            int j = 1;
+            foreach (string row in rows)
+            {
+                foreach (char c in row)
+                {
+                    if (Char.IsLetter(c))
+                    {
+                        string piece_type = AbbFromFEN[c.ToString().ToUpper()];
+                        if(Char.IsLower(c)) //black piece
+                        {
+                            result.grid[i, j].piece = Piece.CreatePiece("Black", piece_type);
+                        }
+                        else //white piece
+                        {
+                            result.grid[i, j].piece = Piece.CreatePiece("White", piece_type);
+                        }
+                        j++;
+                    }
+                    else
+                    {
+                        j += Convert.ToInt32(c.ToString());
+                    }
+                }
+                i++;
+                j = 1;
+            }
+            return result;
         }
 
     }

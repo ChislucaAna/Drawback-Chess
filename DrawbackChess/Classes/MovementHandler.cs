@@ -29,7 +29,7 @@ namespace DrawbackChess.Classes
         {
             if (s.piece == null)
                 return false; //there is no piece to select on this square
-            if (Board.current_turn != s.get_piece_color())
+            if (Session.current_turn != s.get_piece_color())
                 return false; //it s not this player's turn yet
             return true; //all is good
         }
@@ -61,7 +61,7 @@ namespace DrawbackChess.Classes
             MoveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
             MovePiece();
             ClearMovementData();
-            if (Board.KingIsInCheck(Board.current_turn))
+            if (Session.board.KingIsInCheck(Session.current_turn))
                 successful = false;
             ReverseLastMove();
             MoveHistory.RemoveLastFromHistory();
@@ -132,14 +132,15 @@ namespace DrawbackChess.Classes
                 Console.WriteLine(MoveHistory.PrintMoveHistory());
                 MovePiece();
                 ClearMovementData();
-                if (Board.KingIsInCheck(Board.current_turn))
+                if (Session.board.KingIsInCheck(Session.current_turn))
                 {
                     ReverseLastMove();
                     return false;
                 }
                 else
                 {
-                    Board.SwitchTurn();
+                    Session.SwitchTurn();
+                    Session.Save();
                     return true;
                 }
             }

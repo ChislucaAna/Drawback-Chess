@@ -34,6 +34,26 @@ namespace DrawbackChess
                 Console.WriteLine($"({move.row}, {move.col})");
             }
         }
+        public static Piece CreatePiece(string color, string pieceType)
+        {
+            switch (pieceType.ToLower())
+            {
+                case "pawn":
+                    return new Pawn(color);
+                case "knight":
+                    return new Knight(color);
+                case "bishop":
+                    return new Bishop(color);
+                case "rook":
+                    return new Rook(color);
+                case "queen":
+                    return new Queen(color);
+                case "king":
+                    return new King(color);
+                default:
+                    throw new ArgumentException("Invalid piece type: " + pieceType);
+            }
+        }
 
     }
 }

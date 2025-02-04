@@ -25,12 +25,12 @@
 
             @for (int col = 1; col <= 8; col++)
             {
-                var square = Board.grid[row, col];
+                var square = Session.board.grid[row, col];
                 var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
 
                 <div class="square @(square.IsBlackSquare() ? "black" : "white")
                     @(square == MovementHandler.StartSquare ? "selected" : "")
-                    @(Board.KingIsInCheck(Board.current_turn) &&  square==Board.GetKingPosition(Board.current_turn)? "red" : "")
+                    @(Session.board.KingIsInCheck(Session.current_turn) &&  square==Session.board.GetKingPosition(Session.current_turn)? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
                 @onclick="() => OnSquareClick(square)">
                     @if (square.piece != null)
@@ -91,7 +91,7 @@
         }
 
         //Clicked on owned piece, try to move selection to new piece
-        if (clicked.get_piece_color() == Session.GetTurnPlayerColor())
+        if (clicked.get_piece_color() == Session.current_turn)
         {
             MovementHandler.DeselectPiece();
             MovementHandler.TrySelectPieceOn(clicked);

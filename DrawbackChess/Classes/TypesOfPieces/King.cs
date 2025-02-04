@@ -23,7 +23,7 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = Board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = Session.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null && (targetSquare.piece == null || targetSquare.piece.color != color))
                     {
                         if (!targetSquare.IsDangerousForKing(this.color))
@@ -56,7 +56,7 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = Board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = Session.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null)
                     {
                          chessrange.Add(targetSquare);

@@ -23,7 +23,7 @@ namespace DrawbackChess {
 
                 while (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Board.GetSquareAt(row, col);
+                    var targetSquare = Session.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece != null)
                     {
@@ -54,7 +54,7 @@ namespace DrawbackChess {
 
                 while (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Board.GetSquareAt(row, col);
+                    var targetSquare = Session.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece != null)
                     {

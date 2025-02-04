@@ -1049,3 +1049,10 @@ C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\andr
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\assets\arm64-v8a\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\assets\arm64-v8a\Microsoft.Extensions.Features.dll
 C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\android\assets\arm64-v8a\System.Net.ServerSentEvents.dll
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\PlayerInfo.css.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\PlayerInfo.css.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\wwwroot\css\PlayerInfo.css
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\hn6ftqz26e-3r8b2a0bt1.gz
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\compressed\publish\hn6ftqz26e-3r8b2a0bt1.br
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\OldGameBoard.txt
+C:\Users\anach\Desktop\DrawbackChess\DrawbackChess\obj\Debug\net9.0-android\assets\OldGameInfo.txt

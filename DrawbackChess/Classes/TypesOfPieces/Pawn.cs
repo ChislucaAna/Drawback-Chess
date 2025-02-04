@@ -19,7 +19,7 @@ namespace DrawbackChess
             int col = currentSquare.col;
 
             // Forward move
-            var forwardSquare = Board.GetSquareAt(row + direction, col);
+            var forwardSquare = Session.board.GetSquareAt(row + direction, col);
             if (forwardSquare != null && forwardSquare.piece == null)
             {
                 possibleMoves.Add(forwardSquare);
@@ -27,7 +27,7 @@ namespace DrawbackChess
                 bool isFirstMove = (color == "White" && row == 2) || (color == "Black" && row == 7); //first move of the pawn is 2 squares
                 if (isFirstMove)
                 {
-                    var twoSquareForward = Board.GetSquareAt(row + 2 * direction, col);
+                    var twoSquareForward = Session.board.GetSquareAt(row + 2 * direction, col);
                     if (twoSquareForward != null && twoSquareForward.piece == null)
                     {
                         possibleMoves.Add(twoSquareForward);
@@ -38,7 +38,7 @@ namespace DrawbackChess
             // Diagonal capture
             foreach (var offset in new[] { -1, 1 })
             {
-                var diagonalSquare = Board.GetSquareAt(row + direction, col + offset);
+                var diagonalSquare = Session.board.GetSquareAt(row + direction, col + offset);
                 if (diagonalSquare != null && diagonalSquare.piece != null && diagonalSquare.piece.color != color)
                 {
                     possibleMoves.Add(diagonalSquare);
@@ -57,7 +57,7 @@ namespace DrawbackChess
             int col = currentSquare.col;
             foreach (var offset in new[] { -1, 1 })
             {
-                var diagonalSquare = Board.GetSquareAt(row + direction, col + offset);
+                var diagonalSquare = Session.board.GetSquareAt(row + direction, col + offset);
                 if (diagonalSquare != null)
                 {
                     chessrange.Add(diagonalSquare);

@@ -14,6 +14,7 @@ namespace DrawbackChess
     public class Session
     {
         public static Board board;
+        public static string current_turn = "White";
         public static Player player1;
         public static Player player2;
         public static Player? winner;
@@ -31,12 +32,13 @@ namespace DrawbackChess
         {
             winner = null;
             typeofwin = null;
-            Board.current_turn = "White";
+            current_turn = "White";
+            MoveHistory.contents.Clear();
         }
 
         public static void SwitchTimer()
         {
-            switch (Board.current_turn)
+            switch (current_turn)
             {
                 case "White":
                     BlackTimer.PauseTimer();
@@ -56,15 +58,10 @@ namespace DrawbackChess
 
         public static Player GetLastThatMoved()
         {
-            if (Board.current_turn == "white")
+            if (current_turn == "white")
                 return player2;
             else
                 return player1;
-        }
-
-        public static string GetTurnPlayerColor()
-        {
-            return Board.current_turn;
         }
 
         //
@@ -97,9 +94,9 @@ namespace DrawbackChess
 
         public static Player GetBasicWinner()
         {
-            if (Board.KingIsInCheck(Board.current_turn)) //Current player is in check. We check for mate.
+            if (board.KingIsInCheck(current_turn)) //Current player is in check. We check for mate.
             {
-                if(Board.Mate())
+                if(board.Mate())
                 {
                     typeofwin = "mate";
                     return GetLastThatMoved();
@@ -108,7 +105,7 @@ namespace DrawbackChess
             }
             else //Current player is not in check. We check for draws.
             {
-                if(Board.Draw())
+                if(board.Draw())
                 {
                     typeofwin = "draw";
                     return player1; //we wont display this anyways,  but it shows that game has ended
@@ -120,9 +117,17 @@ namespace DrawbackChess
         //
         //Game state functions:
         //
+
+        public static void SwitchTurn()
+        {
+            if (current_turn == "White")
+                current_turn = "Black";
+            else
+                current_turn = "White";
+        }
         public static bool GameHasStarted()
         {
-            return MoveHistory.contents != null;
+            return MoveHistory.contents.Any();
         }
 
         public static bool GameHasEnded()
@@ -135,6 +140,14 @@ namespace DrawbackChess
             WhiteTimer.EndTimer();
             BlackTimer.EndTimer();
             refreshUI();
+        }
+
+        public static void Save()
+        {
+            string boardToFen = board.ToFEN();
+            Console.WriteLine(boardToFen);
+            Board boardFromFen = board.FromFEN(board.ToFEN());
+            boardFromFen.PrintCurrentState();
         }
     }
 }
