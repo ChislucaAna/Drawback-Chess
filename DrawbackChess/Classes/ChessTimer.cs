@@ -62,10 +62,10 @@ namespace DrawbackChess.Classes
             {
                 EndTimer();
                 if (color == "White")
-                    Session.winner = Session.player2;
+                    GamePage.currentGame.winner = GamePage.currentGame.player2;
                 else
-                    Session.winner = Session.player1;
-                Session.typeofwin = "time limit";
+                    GamePage.currentGame.winner = GamePage.currentGame.player1;
+                GamePage.currentGame.typeofwin = "time limit";
             }
             _refreshUI.Invoke();
         }

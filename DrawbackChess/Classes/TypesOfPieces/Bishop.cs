@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess {
     internal class Bishop : Piece
@@ -23,7 +25,7 @@ namespace DrawbackChess {
 
                 while (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Session.board.GetSquareAt(row, col);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece != null)
                     {
@@ -54,7 +56,7 @@ namespace DrawbackChess {
 
                 while (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Session.board.GetSquareAt(row, col);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece != null)
                     {

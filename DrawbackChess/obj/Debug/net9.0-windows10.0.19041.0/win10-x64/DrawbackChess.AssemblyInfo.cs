@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DrawbackChess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+75406a25074d39d4e264d30300a83a405aafb782")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0a560cd12ab102888646d0e28c182feef7b4ba32")]
 [assembly: System.Reflection.AssemblyProductAttribute("DrawbackChess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrawbackChess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

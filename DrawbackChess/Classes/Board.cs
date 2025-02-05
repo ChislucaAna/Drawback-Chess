@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Classes;
 using Microsoft.Maui.ApplicationModel.DataTransfer;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -37,7 +38,7 @@ namespace DrawbackChess
         //vreau sa pot creea mai multe instante de tabla
         public Square[,] grid;
         //dar doar un meci ruleaza simultan
-        public static Action refreshUI;
+        public Action refreshUI;
         public Board()
         {
             grid = new Square[9, 9];
@@ -134,7 +135,7 @@ namespace DrawbackChess
                 {
                     if (ChessRange.Contains(kingposition))
                     {
-                        Console.WriteLine(String.Format("Check to {0} king.", Session.current_turn));
+                        Console.WriteLine(String.Format("Check to {0} king.", GamePage.currentGame.current_turn));
                         return true;
                         
                     }
@@ -148,7 +149,7 @@ namespace DrawbackChess
             {
                 if (square == null || square.piece==null)
                     continue;
-                if (square.piece.color == Session.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+                if (square.piece.color == GamePage.currentGame.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
                 {
                     HashSet<Square> possibilities = square.piece.GetPossibleMoves(square);
                     foreach (Square destination in possibilities)
@@ -171,7 +172,7 @@ namespace DrawbackChess
                 {
                     if (square.piece != null)
                     {
-                        if(square.piece.color == Session.current_turn)
+                        if(square.piece.color == GamePage.currentGame.current_turn)
                         {
                             nr++;
                         }
@@ -183,18 +184,19 @@ namespace DrawbackChess
 
         public bool Draw()
         {
-            if(GetKingPosition(Session.current_turn).piece.GetPossibleMoves(GetKingPosition(Session.current_turn))==null && GetNumberOfPieces(Session.current_turn)==1)
+            if(GetKingPosition(GamePage.currentGame.current_turn).piece.GetPossibleMoves(GetKingPosition(GamePage.currentGame.current_turn))==null 
+                && GetNumberOfPieces(GamePage.currentGame.current_turn)==1)
             {
                 return true;
             }
             return false;
         }
 
-        public string ToFEN() //vreau sa mearga si pt alte forme/dimensiuni de tabla(nu neaparat 8*8)
+        public static string ToFEN(Board b) //vreau sa mearga si pt alte forme/dimensiuni de tabla(nu neaparat 8*8)
         {
             string result = "";
             int empty_squares = 0;
-            foreach (Square s in grid)
+            foreach (Square s in b.grid)
             {
                 if (s==null || !IsWithinBounds(s.row, s.col)) continue;
                 if (s.piece == null)//square is empty, increment
@@ -225,7 +227,7 @@ namespace DrawbackChess
             return result;
         }
 
-        public Board FromFEN(string fen)
+        public static Board FromFEN(string fen)
         {
             Board result = new Board();
             string[] rows = fen.Split('/');
@@ -238,7 +240,7 @@ namespace DrawbackChess
                     if (Char.IsLetter(c))
                     {
                         string piece_type = AbbFromFEN[c.ToString().ToUpper()];
-                        if(Char.IsLower(c)) //black piece
+                        if (Char.IsLower(c)) //black piece
                         {
                             result.grid[i, j].piece = Piece.CreatePiece("Black", piece_type);
                         }

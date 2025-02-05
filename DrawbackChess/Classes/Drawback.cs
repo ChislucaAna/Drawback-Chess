@@ -15,17 +15,18 @@ namespace DrawbackChess.Classes
         public string type; //key for the function dictionary
         public string parameter; //parameter for the handler function
 
-        public Drawback(string fileContents)
+        public Drawback()
         {
-            generateRandomDrawback(fileContents);
+            generateRandomDrawback();
         }
 
-        private void generateRandomDrawback(string fileContents) 
+        private async void generateRandomDrawback() 
         {
             Random rnd = new Random();
             int index = rnd.Next(1, 75);
 
-            string[] lines = fileContents
+            string contents = await DrawbackHandler.GetDrawbackFileContents();
+            string[] lines = contents
                 .Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(line => line.TrimEnd('\r'))
                 .ToArray();

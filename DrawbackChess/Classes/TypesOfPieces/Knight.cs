@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -30,7 +31,7 @@ namespace DrawbackChess
 
                 if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Session.board.GetSquareAt(row, col);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(row, col);
 
                     if (targetSquare.piece == null || targetSquare.piece.color != color)
                     {
@@ -62,7 +63,7 @@ namespace DrawbackChess
 
                 if (Board.IsWithinBounds(row, col))
                 {
-                    var targetSquare = Session.board.GetSquareAt(row, col);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(row, col);
 
                     if (targetSquare!=null)
                     {

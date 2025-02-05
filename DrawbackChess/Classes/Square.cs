@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -50,7 +51,7 @@ namespace DrawbackChess
 
         public bool IsDangerousForKing(string color)
         {
-            foreach (var square in Session.board.grid)
+            foreach (var square in GamePage.currentGame.board.grid)
             {
                 if (square == null)
                     continue;

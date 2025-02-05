@@ -1,4 +1,5 @@
 ﻿@using DrawbackChess.Classes
+@using DrawbackChess.Components.Pages;
 @code {
     [Parameter] public DrawbackChess.Classes.Player? player { get; set; }
     [Parameter] public DrawbackChess.Classes.ChessTimer? timer { get; set; }
@@ -15,7 +16,7 @@
         <button @onclick="ToggleDrawbackVisibility" class="toggle-drawback-btn">
             <i class="fa @(isDrawbackVisible ? "fal  fa-eye-slash" : "fal  fa-eye")"></i>
         </button>
-        <button @onclick="ReverseLastMove" class="toggle-drawback-btn" disabled="@(player.color==Session.current_turn || !Session.GameHasStarted() || Session.GameHasEnded())">
+        <button @onclick="ReverseLastMove" class="toggle-drawback-btn" disabled="@(player.color==GamePage.currentGame.current_turn || !GamePage.currentGame.GameHasStarted() || GamePage.currentGame.GameHasEnded())">
             <i class="fa fal fa-arrow-left"></i>
         </button>
         <p class="drawback-text" style="@(isDrawbackVisible ? "" : "display: none;")">
@@ -35,11 +36,11 @@
     private void ReverseLastMove()
     {
         MovementHandler.ReverseLastMoveOfPlayer(player.color);
-        MoveHistory.RemoveLastMoveOfPlayer(player.color);
-        Session.board.PrintCurrentState();
+        GamePage.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
+        GamePage.currentGame.board.PrintCurrentState();
 
-        Session.SwitchTurn();
-        Session.SwitchTimer();
-        Board.refreshUI();
+        GamePage.currentGame.SwitchTurn();
+        GamePage.currentGame.SwitchTimer();
+        GamePage.currentGame.board.refreshUI();
     }
 }

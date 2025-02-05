@@ -8,22 +8,20 @@ namespace DrawbackChess.Classes
 {
     public class MoveHistory
     {
-        public static List<Move> contents = new List<Move>();
+        public List<Move> contents = new List<Move>();
 
-        public static void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
+        public void AddMoveToHistory(Piece piece, Square startpoint, Square endpoint)
         {
             contents.Add(new Move(piece, startpoint, endpoint, endpoint.piece));
         }
 
-        public static void RemoveLastFromHistory()
+        public void RemoveLastFromHistory()
         {
             if(contents.Count == 0) return;
             contents.RemoveAt(contents.Count - 1);
-            Console.WriteLine("Removed last move from histroy.This is the current state:");
-            MoveHistory.PrintMoveHistory();
         }
 
-        public static string PrintMoveHistory()//inca mai trebuie implementat pentru rocada si checkmate
+        public string PrintMoveHistory()//inca mai trebuie implementat pentru rocada si checkmate
         {
             string tostring="";
             if (contents.Count == 0)
@@ -34,12 +32,12 @@ namespace DrawbackChess.Classes
             for (int i = 0; i < contents.Count; i++)
             {
                 tostring += (i+1).ToString()+".";
-                tostring += GetLastMove().ToString();
+                tostring += contents[i].ToString();
                 tostring += System.Environment.NewLine;
             }
             return tostring;
         }
-        public static Move GetLastMove()
+        public Move GetLastMove()
         {
             if (contents.Count >= 1)
                 return contents[contents.Count - 1];
@@ -47,7 +45,7 @@ namespace DrawbackChess.Classes
                 return null;
         }
 
-        public static Move GetLastMoveOfPlayer(string color)
+        public Move GetLastMoveOfPlayer(string color)
         {
             for (int i = contents.Count - 1; i >= 0; i--)
             {
@@ -59,7 +57,7 @@ namespace DrawbackChess.Classes
             return null;
         }
 
-        public static void RemoveLastMoveOfPlayer(string color)
+        public void RemoveLastMoveOfPlayer(string color)
         {
             for (int i = contents.Count - 1; i >= 0; i--)
             {
@@ -70,12 +68,12 @@ namespace DrawbackChess.Classes
             };
         }
 
-        public static int GetNumberOfMoves(string color)
+        public int GetNumberOfMoves(string color)
         {
             int nr = 0;
-            for (int i = MoveHistory.contents.Count - 1; i >= 0; i--)
+            for (int i = contents.Count - 1; i >= 0; i--)
             {
-                if (MoveHistory.contents[i].piece.color == color)
+                if (contents[i].piece.color == color)
                 {
                     nr++;
                 }

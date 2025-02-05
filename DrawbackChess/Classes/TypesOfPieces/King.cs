@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -23,7 +24,7 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = Session.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null && (targetSquare.piece == null || targetSquare.piece.color != color))
                     {
                         if (!targetSquare.IsDangerousForKing(this.color))
@@ -56,7 +57,7 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = Session.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = GamePage.currentGame.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null)
                     {
                          chessrange.Add(targetSquare);

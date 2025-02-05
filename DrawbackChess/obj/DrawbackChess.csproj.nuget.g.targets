@@ -109,6 +109,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui\9.0.0\build\Microsoft.AspNetCore.Components.WebView.Maui.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui\9.0.0\build\Microsoft.AspNetCore.Components.WebView.Maui.targets')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net9.0-maccatalyst' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3\2.1.2\buildTransitive\net7.0\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3\2.1.2\buildTransitive\net7.0\SQLitePCLRaw.lib.e_sqlite3.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.maui.resizetizer\9.0.21\buildTransitive\Microsoft.Maui.Resizetizer.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.maui.resizetizer\9.0.21\buildTransitive\Microsoft.Maui.Resizetizer.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.options\9.0.0\buildTransitive\net8.0\Microsoft.Extensions.Options.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.options\9.0.0\buildTransitive\net8.0\Microsoft.Extensions.Options.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\9.0.0\buildTransitive\net8.0\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.logging.abstractions\9.0.0\buildTransitive\net8.0\Microsoft.Extensions.Logging.Abstractions.targets')" />
@@ -119,6 +120,7 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui\9.0.0\build\Microsoft.AspNetCore.Components.WebView.Maui.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.components.webview.maui\9.0.0\build\Microsoft.AspNetCore.Components.WebView.Maui.targets')" />
   </ImportGroup>
   <ImportGroup Condition=" '$(TargetFramework)' == 'net9.0-windows10.0.19041.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3\2.1.2\buildTransitive\net7.0\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('$(NuGetPackageRoot)sqlitepclraw.lib.e_sqlite3\2.1.2\buildTransitive\net7.0\SQLitePCLRaw.lib.e_sqlite3.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.756\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windows.sdk.buildtools\10.0.22621.756\buildTransitive\Microsoft.Windows.SDK.BuildTools.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.web.webview2\1.0.2792.45\buildTransitive\Microsoft.Web.WebView2.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.web.webview2\1.0.2792.45\buildTransitive\Microsoft.Web.WebView2.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.windowsappsdk\1.6.241114003\buildTransitive\Microsoft.WindowsAppSDK.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.windowsappsdk\1.6.241114003\buildTransitive\Microsoft.WindowsAppSDK.targets')" />

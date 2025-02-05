@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess.Classes
 {
@@ -16,6 +17,14 @@ namespace DrawbackChess.Classes
            
         }
 
+        public static async Task<string> GetDrawbackFileContents() //loads all drawbacks possible
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
+            using var reader = new StreamReader(stream);
+            return reader.ReadToEnd();
+
+        }
+
         public static void InitDrawbacks()
         {
             handle["location_not_allowed"] = location_not_allowed;
@@ -25,23 +34,23 @@ namespace DrawbackChess.Classes
 
         public static bool location_not_allowed(string playercolor, string DrawbackParameter)
         {
-            if (MoveHistory.GetLastMoveOfPlayer(playercolor) != null)
-                if (MoveHistory.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
+            if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
+                if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
                     return true;
             return false;
         }
 
         public static bool piece_not_allowed(string playercolor, string DrawbackParameter)
         {
-            if (MoveHistory.GetLastMoveOfPlayer(playercolor) != null)
-                if (MoveHistory.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
+            if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
+                if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
                     return true;
             return false;
         }
 
         public static bool limited_number_of_moves(string playercolor, string DrawbackParameter)
         {
-            if (MoveHistory.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
+            if (GamePage.currentGame.moveHistory.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
                 return true;
             return false;
         }
