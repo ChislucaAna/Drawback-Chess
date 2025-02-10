@@ -49,9 +49,9 @@ namespace DrawbackChess
             return $"{colLetter}{row}";
         }
 
-        public bool IsDangerousForKing(string color)
+        public bool IsDangerousForKing(string color,Board board)
         {
-            foreach (var square in GamePage.currentGame.board.grid)
+            foreach (var square in board.grid)
             {
                 if (square == null)
                     continue;
@@ -59,7 +59,7 @@ namespace DrawbackChess
                 var piece = square.piece;
                 if (piece != null && piece.color != color)
                 {
-                    var chessRange = piece.GetChessRange(square);
+                    var chessRange = piece.GetChessRange(square,board);
                     if (chessRange?.Contains(this) == true)
                     {
                         return true;

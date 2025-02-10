@@ -30,7 +30,7 @@
                 var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
 
                 <div class="square @(square.IsBlackSquare() ? "black" : "white")
-                    @(square == MovementHandler.StartSquare ? "selected" : "")
+                    @(square == StartSquare ? "selected" : "")
                     @(GamePage.currentGame.board.KingIsInCheck(GamePage.currentGame.current_turn) 
                     &&  square==GamePage.currentGame.board.GetKingPosition(GamePage.currentGame.current_turn)? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
@@ -71,42 +71,70 @@
         GamePage.currentGame.board.refreshUI = StateHasChanged;
     }
 
+    public static Square StartSquare;
+    public static Square EndSquare;
+
     private void OnSquareClick(Square clicked)
     {
         //No pieces can be moved after ending of game
         if (GamePage.currentGame.GameHasEnded())
         {
-            Console.WriteLine("The game has already ended");
             return;
         }
 
         //Clicked on same piece deselect it.
-        if (MovementHandler.StartSquare == clicked)
+        if (StartSquare == clicked)
         {
-            MovementHandler.DeselectPiece();
+            DeselectPiece();
         }
 
         //Nothing previously clicked so select new piece
-        if (MovementHandler.StartSquare == null)
+        if (StartSquare == null)
         {
-            MovementHandler.TrySelectPieceOn(clicked);
+            TrySelectPieceOn(clicked);;
         }
 
         //Clicked on owned piece, try to move selection to new piece
         if (clicked.get_piece_color() == GamePage.currentGame.current_turn)
         {
-            MovementHandler.DeselectPiece();
-            MovementHandler.TrySelectPieceOn(clicked);
+            DeselectPiece();
+            TrySelectPieceOn(clicked);
         }
 
         //Clicked on possible move with selected piece try to execute move
-        MovementHandler.EndSquare = clicked;
-        if (MovementHandler.Try_Execute_Move())
-        {
-            GamePage.currentGame.LookForWinner();
-            if (GamePage.currentGame.winner == null)
-                GamePage.currentGame.SwitchTimer();
-        }
+        EndSquare = clicked;
+        if(MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GamePage.currentGame))
+            ChessBoard.ClearMovementData();
         StateHasChanged();
     }
+
+    public static void DeselectPiece()
+    {
+        StartSquare = null;
+        MovementHandler.PossibleMoves.Clear();
+    }
+
+    public static void TrySelectPieceOn(Square s)
+    {
+        if (CanSelect(s))
+        {
+            StartSquare = s;
+        }
+    }
+
+    public static bool CanSelect(Square s)
+    {
+        if (s.piece == null)
+            return false; //there is no piece to select on this square
+        if (GamePage.currentGame.current_turn != s.get_piece_color())
+            return false; //it s not this player's turn yet
+        return true; //all is good
+    }
+    public static void ClearMovementData()
+    {
+        Console.WriteLine("Movement data has been cleaned");
+        StartSquare = null;
+        EndSquare = null;
+    }
+
 }

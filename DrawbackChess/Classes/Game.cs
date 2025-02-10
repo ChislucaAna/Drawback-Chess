@@ -120,16 +120,16 @@ namespace DrawbackChess
             winner = GetSpecialWinner() ?? GetBasicWinner();
 
             if (winner != null)
-            {
                 EndGame();
-            }
+            else
+                SwitchTimer();
         }
         public Player GetSpecialWinner()
         {
-            Console.WriteLine("this has been called");
+            Console.WriteLine("Looking for special winner");
             foreach (var player in new[] { player1, player2 })
             {
-                if (DrawbackHandler.handle[player.drawback.type](player.color, player.drawback.parameter))
+                if (DrawbackHandler.handle[player.drawback.type](player.color, player.drawback.parameter,this))
                 {
                     Console.WriteLine("broke drawback");
                     typeofwin = "drawback rules";
@@ -143,7 +143,7 @@ namespace DrawbackChess
         {
             if (board.KingIsInCheck(current_turn)) //Current player is in check. We check for mate.
             {
-                if(board.Mate())
+                if(Mate())
                 {
                     typeofwin = "mate";
                     return GetLastThatMoved();
@@ -152,13 +152,46 @@ namespace DrawbackChess
             }
             else //Current player is not in check. We check for draws.
             {
-                if(board.Draw())
+                if(Draw())
                 {
                     typeofwin = "draw";
                     return player1; //we wont display this anyways,  but it shows that game has ended
                 }
                 return null;
             }
+        }
+
+        public bool Mate()
+        {
+            foreach (Square square in board.grid)
+            {
+                if (square == null || square.piece == null)
+                    continue;
+                if (square.piece.color == GamePage.currentGame.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+                {
+                    HashSet<Square> possibilities = square.piece.GetPossibleMoves(square, board);
+                    foreach (Square destination in possibilities)
+                    {
+                        if (MovementHandler.SimulateMove(square, destination,this)) //exista mutare care se poate face
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        public bool Draw()
+        {
+            Square kingPosition = board.GetKingPosition(current_turn);
+            King king = kingPosition.piece as King;
+            if (king.GetPossibleMoves(kingPosition, board) == null
+                && board.GetNumberOfPieces(current_turn) == 1)
+            {
+                return true;
+            }
+            return false;
         }
 
         //

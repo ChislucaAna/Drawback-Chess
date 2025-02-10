@@ -11,7 +11,7 @@ namespace DrawbackChess
     {
         public King(string color) : base(color, "King") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -24,10 +24,10 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = GamePage.currentGame.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null && (targetSquare.piece == null || targetSquare.piece.color != color))
                     {
-                        if (!targetSquare.IsDangerousForKing(this.color))
+                        if (!targetSquare.IsDangerousForKing(this.color,board))
                         {
                             possibleMoves.Add(targetSquare);
                         }
@@ -45,7 +45,7 @@ namespace DrawbackChess
         }
 
         //the other king must keep a 1 square distance at all times so we treat this rule as a pseudo chess
-        public override HashSet<Square> GetChessRange(Square currentSquare)
+        public override HashSet<Square> GetChessRange(Square currentSquare,Board board)
         {
             var chessrange = new HashSet<Square>();
             int[] rowOffsets = { -1, 0, 1 };
@@ -57,7 +57,7 @@ namespace DrawbackChess
                 {
                     if (rowOffset == 0 && colOffset == 0) continue; // Skip the current square
 
-                    var targetSquare = GamePage.currentGame.board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
+                    var targetSquare = board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null)
                     {
                          chessrange.Add(targetSquare);

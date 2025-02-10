@@ -3,86 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.IndividualComponents;
 using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess.Classes
 {
     public class MovementHandler
     {
-
-        public static Square? StartSquare = null;
-        public static Square? EndSquare = null;
         public static HashSet<Square> PossibleMoves { get; set; } = new();
         public MovementHandler()
         { 
 
         }
 
-        public static void TrySelectPieceOn(Square s)
+        public static bool Move_Is_Possible(Square s) //According to basic chess movement rules
         {
-            if (CanSelect(s))
-            {
-                StartSquare = s;
-            }
-        }
-
-        public static bool CanSelect(Square s)
-        {
-            if (s.piece == null)
-                return false; //there is no piece to select on this square
-            if (GamePage.currentGame.current_turn != s.get_piece_color())
-                return false; //it s not this player's turn yet
-            return true; //all is good
-        }
-
-        public static bool Move_Is_Possible()
-        {
-            if (PossibleMoves.Contains(EndSquare))
+            if (PossibleMoves.Contains(s))
                 return true;
             return false;
         }
-        public static void DeselectPiece()
-        {
-            StartSquare = null;
-            PossibleMoves.Clear();
-        }
 
-        static void MovePiece()
+        static void MovePiece(Square StartSquare, Square EndSquare)
         {
             EndSquare.piece = StartSquare.piece;
             StartSquare.piece = null;
         }
 
-        public static bool SimulateMove(Square start, Square end)
+        public static bool SimulateMove(Square StartSquare, Square EndSquare,Game game) //only use this for mate checking
         {
             bool successful = true;
-            StartSquare = start;
-            EndSquare = end;
 
-            GamePage.currentGame.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-            MovePiece();
-            ClearMovementData();
-            if (GamePage.currentGame.board.KingIsInCheck(GamePage.currentGame.current_turn))
+            game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
+            MovePiece(StartSquare,EndSquare);
+            PossibleMoves.Clear();
+            if (game.board.KingIsInCheck(GamePage.currentGame.current_turn))
                 successful = false;
-            ReverseLastMove();
-            GamePage.currentGame.moveHistory.RemoveLastFromHistory();
+            ReverseLastMove(game);
+            game.moveHistory.RemoveLastFromHistory();
 
             return successful;
         }
 
-        public static void ReverseLastMove()
+        public static void ReverseLastMove(Game game)
         {
-            if (!GamePage.currentGame.moveHistory.contents.Any())
+            if (!game.moveHistory.contents.Any())
             {
                 Console.WriteLine("No moves to reverse.");
                 return;
             }
 
-            var lastMove = GamePage.currentGame.moveHistory.GetLastMove();
+            var lastMove = game.moveHistory.GetLastMove();
 
             // Restore the piece to the starting square
-            StartSquare = lastMove.startpoint;
-            EndSquare = lastMove.endpoint;
+            Square StartSquare = lastMove.startpoint;
+            Square EndSquare = lastMove.endpoint;
 
             // Move the piece back to the starting square
             StartSquare.piece = lastMove.piece;
@@ -94,14 +68,14 @@ namespace DrawbackChess.Classes
             Console.WriteLine(lastMove.ToString());
         }
 
-        public static void ReverseLastMoveOfPlayer(string playercolor)
+        public static void ReverseLastMoveOfPlayer(string playercolor,Game game)
         {
-            var lastMove = GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor);
+            var lastMove = game.moveHistory.GetLastMoveOfPlayer(playercolor);
             if (lastMove == null)
                 return;
             // Restore the piece to the starting square
-            StartSquare = lastMove.startpoint;
-            EndSquare = lastMove.endpoint;
+            Square StartSquare = lastMove.startpoint;
+            Square EndSquare = lastMove.endpoint;
 
             // Move the piece back to the starting square
             StartSquare.piece = lastMove.piece;
@@ -113,37 +87,33 @@ namespace DrawbackChess.Classes
             Console.WriteLine(lastMove.ToString());
         }
 
-        public static void ClearMovementData()
-        {
-            StartSquare = null;
-            EndSquare = null;
-            PossibleMoves.Clear();
-        }
 
-        public static bool Try_Execute_Move()
+        public static bool Try_Execute_Move(Square StartSquare, Square EndSquare, Game game)
         {
             if (StartSquare == null)
                 return false;
 
-            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare);
-            if (Move_Is_Possible())
+            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare,game.board);
+            if (Move_Is_Possible(EndSquare))
             {
-                GamePage.currentGame.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-                Console.WriteLine("MoveHistory:");
-                Console.WriteLine(GamePage.currentGame.moveHistory.PrintMoveHistory());
-                MovePiece();
-                ClearMovementData();
-                if (GamePage.currentGame.board.KingIsInCheck(GamePage.currentGame.current_turn))
+                game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
+                MovePiece(StartSquare, EndSquare);
+                game.board.PrintCurrentState();
+
+                Console.WriteLine(EndSquare.piece);
+                PossibleMoves.Clear();
+                if (game.board.KingIsInCheck(game.current_turn))
                 {
-                    ReverseLastMove();
+                    ReverseLastMove(game);
                     return false;
                 }
                 else
                 {
-                    GamePage.currentGame.SwitchTurn();
+                    game.SwitchTurn();
 
                     //Save current state to db
-                    GamePage.currentGame.Save();
+                    game.Save();
+                    game.LookForWinner();
                     return true;
                 }
             }
@@ -153,13 +123,7 @@ namespace DrawbackChess.Classes
                 EndSquare = null;
                 return false;
             }
-        }
-
-        public static bool ParameterMove(Square start, Square End) //The star of the show :D
-        {
-            StartSquare = start;
-            EndSquare = End;
-            return Try_Execute_Move();
+            
         }
     }
 }

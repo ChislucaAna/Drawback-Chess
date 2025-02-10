@@ -35,7 +35,7 @@
 
     private void ReverseLastMove()
     {
-        MovementHandler.ReverseLastMoveOfPlayer(player.color);
+        MovementHandler.ReverseLastMoveOfPlayer(player.color,GamePage.currentGame);
         GamePage.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
         GamePage.currentGame.board.PrintCurrentState();
 

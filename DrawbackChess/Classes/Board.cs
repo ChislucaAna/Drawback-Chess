@@ -124,45 +124,26 @@ namespace DrawbackChess
         }
         public bool KingIsInCheck(string color)
         {
-            
+
             Square kingposition = GetKingPosition(color);
             foreach (Square s in grid)
             {
-                if (s == null || s.piece==null) continue;
+                if (s == null || s.piece == null) continue;
                 if (s.piece.color == color) continue;
-                HashSet<Square> ChessRange = s.piece.GetChessRange(s);
+                HashSet<Square> ChessRange = s.piece.GetChessRange(s, this);
                 if (kingposition != null)
                 {
                     if (ChessRange.Contains(kingposition))
                     {
                         Console.WriteLine(String.Format("Check to {0} king.", GamePage.currentGame.current_turn));
                         return true;
-                        
+
                     }
                 }
             }
             return false;
         }
-        public bool Mate()
-        {
-            foreach (Square square in grid)
-            {
-                if (square == null || square.piece==null)
-                    continue;
-                if (square.piece.color == GamePage.currentGame.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
-                {
-                    HashSet<Square> possibilities = square.piece.GetPossibleMoves(square);
-                    foreach (Square destination in possibilities)
-                    {
-                        if (MovementHandler.SimulateMove(square, destination)) //exista mutare care se poate face
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            return true ;
-        }
+
         public int GetNumberOfPieces(string color)
         {
             int nr = 0;
@@ -172,7 +153,7 @@ namespace DrawbackChess
                 {
                     if (square.piece != null)
                     {
-                        if(square.piece.color == GamePage.currentGame.current_turn)
+                        if (square.piece.color == GamePage.currentGame.current_turn)
                         {
                             nr++;
                         }
@@ -180,16 +161,6 @@ namespace DrawbackChess
                 }
             }
             return nr;
-        }
-
-        public bool Draw()
-        {
-            if(GetKingPosition(GamePage.currentGame.current_turn).piece.GetPossibleMoves(GetKingPosition(GamePage.currentGame.current_turn))==null 
-                && GetNumberOfPieces(GamePage.currentGame.current_turn)==1)
-            {
-                return true;
-            }
-            return false;
         }
 
         public static string ToFEN(Board b) //vreau sa mearga si pt alte forme/dimensiuni de tabla(nu neaparat 8*8)

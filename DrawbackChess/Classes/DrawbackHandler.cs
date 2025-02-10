@@ -9,8 +9,8 @@ namespace DrawbackChess.Classes
 {
     public class DrawbackHandler
     {
-        public static Dictionary<string, Func<string,string, bool>> handle =
-            new Dictionary<string, Func<string,string, bool>>();
+        public static Dictionary<string, Func<string,string,Game, bool>> handle =
+            new Dictionary<string, Func<string,string,Game, bool>>();
 
         public DrawbackHandler() 
         {
@@ -32,25 +32,25 @@ namespace DrawbackChess.Classes
             handle["limited_number_of_moves"] = limited_number_of_moves;
         }
 
-        public static bool location_not_allowed(string playercolor, string DrawbackParameter)
+        public static bool location_not_allowed(string playercolor, string DrawbackParameter,Game game)
         {
-            if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
-                if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
+            if (game.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
+                if (game.moveHistory.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)
                     return true;
             return false;
         }
 
-        public static bool piece_not_allowed(string playercolor, string DrawbackParameter)
+        public static bool piece_not_allowed(string playercolor, string DrawbackParameter, Game game)
         {
-            if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
-                if (GamePage.currentGame.moveHistory.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
+            if (game.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
+                if (game.moveHistory.GetLastMoveOfPlayer(playercolor).piece.type == DrawbackParameter)
                     return true;
             return false;
         }
 
-        public static bool limited_number_of_moves(string playercolor, string DrawbackParameter)
+        public static bool limited_number_of_moves(string playercolor, string DrawbackParameter, Game game)
         {
-            if (GamePage.currentGame.moveHistory.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
+            if (game.moveHistory.GetNumberOfMoves(playercolor) == Convert.ToInt32(DrawbackParameter))
                 return true;
             return false;
         }
