@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -10,7 +11,7 @@ namespace DrawbackChess
     {
         public Knight(string color) : base(color, "Knight") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -28,7 +29,7 @@ namespace DrawbackChess
                 int row = currentSquare.row + offset[0];
                 int col = currentSquare.col + offset[1];
 
-                if (board.IsWithinBounds(row, col))
+                if (Board.IsWithinBounds(row, col))
                 {
                     var targetSquare = board.GetSquareAt(row, col);
 
@@ -42,7 +43,7 @@ namespace DrawbackChess
             return possibleMoves;
         }
 
-        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        public override HashSet<Square> GetChessRange(Square currentSquare,Board board)
         {
             var chessrange = new HashSet<Square>();
 
@@ -60,7 +61,7 @@ namespace DrawbackChess
                 int row = currentSquare.row + offset[0];
                 int col = currentSquare.col + offset[1];
 
-                if (board.IsWithinBounds(row, col))
+                if (Board.IsWithinBounds(row, col))
                 {
                     var targetSquare = board.GetSquareAt(row, col);
 

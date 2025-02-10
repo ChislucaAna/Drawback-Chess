@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -10,18 +11,18 @@ namespace DrawbackChess
     {
         public Queen(string color) : base(color, "Queen") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
             // Combine Rook and Bishop movement logic
-            possibleMoves.UnionWith(GetLinearMoves(currentSquare, board, true, true)); // Horizontal and Vertical
-            possibleMoves.UnionWith(GetLinearMoves(currentSquare, board, false, true)); // Diagonals
+            possibleMoves.UnionWith(GetLinearMoves(currentSquare, true, true,board)); // Horizontal and Vertical
+            possibleMoves.UnionWith(GetLinearMoves(currentSquare, false, true,board)); // Diagonals
 
             return possibleMoves;
         }
 
-        private HashSet<Square> GetLinearMoves(Square currentSquare, Board board, bool isStraight, bool isDiagonal)
+        private HashSet<Square> GetLinearMoves(Square currentSquare, bool isStraight, bool isDiagonal,Board board)
         {
             var moves = new HashSet<Square>();
             int[][] directions = isStraight
@@ -33,7 +34,7 @@ namespace DrawbackChess
                 int row = currentSquare.row + dir[0];
                 int col = currentSquare.col + dir[1];
 
-                while (board.IsWithinBounds(row, col))
+                while (Board.IsWithinBounds(row, col))
                 {
                     var targetSquare = board.GetSquareAt(row, col);
 
@@ -56,18 +57,18 @@ namespace DrawbackChess
         }
 
 
-        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        public override HashSet<Square> GetChessRange(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
             // Combine Rook and Bishop movement logic
-            possibleMoves.UnionWith(GetLinearChess(currentSquare, board, true, true)); // Horizontal and Vertical
-            possibleMoves.UnionWith(GetLinearChess(currentSquare, board, false, true)); // Diagonals
+            possibleMoves.UnionWith(GetLinearChess(currentSquare, true, true,board)); // Horizontal and Vertical
+            possibleMoves.UnionWith(GetLinearChess(currentSquare, false, true,board)); // Diagonals
 
             return possibleMoves;
         }
 
-        private HashSet<Square> GetLinearChess(Square currentSquare, Board board, bool isStraight, bool isDiagonal)
+        private HashSet<Square> GetLinearChess(Square currentSquare, bool isStraight, bool isDiagonal,Board board)
         {
             var moves = new HashSet<Square>();
             int[][] directions = isStraight
@@ -79,7 +80,7 @@ namespace DrawbackChess
                 int row = currentSquare.row + dir[0];
                 int col = currentSquare.col + dir[1];
 
-                while (board.IsWithinBounds(row, col))
+                while (Board.IsWithinBounds(row, col))
                 {
                     var targetSquare = board.GetSquareAt(row, col);
                     if (targetSquare != null)

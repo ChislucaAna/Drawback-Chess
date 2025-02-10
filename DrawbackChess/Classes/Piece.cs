@@ -15,12 +15,12 @@ namespace DrawbackChess
             this.color = color;
             this.type = type;
         }
-        public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
+        public abstract HashSet<Square> GetPossibleMoves(Square currentSquare,Board board);
 
-        public abstract HashSet<Square> GetChessRange(Square currentSquare, Board board);
+        public abstract HashSet<Square> GetChessRange(Square currentSquare,Board board);
         public void PrintPossibleMoves(Square currentSquare, Board board)
         {
-            var possibleMoves = GetPossibleMoves(currentSquare, board);
+            var possibleMoves = GetPossibleMoves(currentSquare,board);
 
             if (possibleMoves.Count == 0)
             {
@@ -32,6 +32,26 @@ namespace DrawbackChess
             foreach (var move in possibleMoves)
             {
                 Console.WriteLine($"({move.row}, {move.col})");
+            }
+        }
+        public static Piece CreatePiece(string color, string pieceType)
+        {
+            switch (pieceType.ToLower())
+            {
+                case "pawn":
+                    return new Pawn(color);
+                case "knight":
+                    return new Knight(color);
+                case "bishop":
+                    return new Bishop(color);
+                case "rook":
+                    return new Rook(color);
+                case "queen":
+                    return new Queen(color);
+                case "king":
+                    return new King(color);
+                default:
+                    throw new ArgumentException("Invalid piece type: " + pieceType);
             }
         }
 

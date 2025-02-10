@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -10,7 +11,7 @@ namespace DrawbackChess
     {
         public Pawn(string color) : base(color, "Pawn") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -19,6 +20,10 @@ namespace DrawbackChess
             int col = currentSquare.col;
 
             // Forward move
+            if(board==null)
+            {
+                Console.WriteLine("uwu");
+            }
             var forwardSquare = board.GetSquareAt(row + direction, col);
             if (forwardSquare != null && forwardSquare.piece == null)
             {

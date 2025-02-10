@@ -1,15 +1,16 @@
 ﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
 @using DrawbackChess.Classes
 @using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
 @using CommunityToolkit.Maui.Views;
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@Session.GameHasEnded()">
-        @if (Session.typeofwin != "draw")
+    <GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
+        @if (currentGame.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @Session.winner.name by @Session.typeofwin.
+                Game over! Game was won by @currentGame.winner.name by @currentGame.typeofwin.
             </p>
         }
         else
@@ -21,12 +22,12 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player1" timer="@Session.WhiteTimer" rotate="true">
+        <PlayerInfo GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1" timer="@currentGame.WhiteTimer" rotate="true">
         </PlayerInfo>
 
         <ChessBoard></ChessBoard>
 
-        <PlayerInfo GameHasStarted="@Session.GameHasStarted()" player="@Session.player2" timer="@Session.BlackTimer" rotate="false">
+        <PlayerInfo GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2" timer="@currentGame.BlackTimer" rotate="false">
         </PlayerInfo>
     </div>
 </div>
@@ -36,40 +37,46 @@
     [Parameter] public string Player1Name { get; set; }
     [Parameter] public string Player2Name { get; set; }
     [Parameter] public int PlayTime { get; set; }
-    string contents;
+    //current game
+    public static Game currentGame;
 
     protected override async void OnInitialized()
     {
-        Console.WriteLine(Player1Name);
-        LoadMauiAsset();
+        DrawbackHandler.InitDrawbacks();
+        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
         if (GameMenu.is_new_game)
         {
-            Session.RemoveOldGameData();
-            Session.handler = new DrawbackHandler();
-            Session.board = new Board();
-            Session current_session = new Session();
-            TimeSpan timeSpan = TimeSpan.FromMinutes(PlayTime);
-            Session.player1 = new Player(Player1Name, "White", new Drawback(contents));
-            Session. player2 = new Player(Player2Name, "Black", new Drawback(contents));
-            Session.refreshUI = async () => await InvokeAsync(StateHasChanged);
-            Session.WhiteTimer = new ChessTimer(PlayTime,"White", () =>
+            Board board = new Board();
+            Player player1 = new Player(Player1Name, "White", new Drawback());
+            Player player2 = new Player(Player2Name, "Black", new Drawback());
+            ChessTimer WhiteTimer = new ChessTimer(PlayTime,"White", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
-            Session.BlackTimer = new ChessTimer(PlayTime,"Black", () =>
+            ChessTimer BlackTimer = new ChessTimer(PlayTime,"Black", () =>
             {
                 InvokeAsync(StateHasChanged);
             });
+
+            currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer, refreshUI);
+        }
+        else
+        {
+            List<Game> games = await DatabaseService.Instance.GetGamesAsync();
+            if(games.Any())
+            {
+                Game lastGame = games.Last();
+                lastGame.Deserialize();
+                currentGame = new Game(lastGame.board, lastGame.player1, lastGame.player2, lastGame.WhiteTimer, lastGame.BlackTimer, refreshUI);
+            }
+            else
+            {
+                Console.WriteLine("There arent any previous games");
+            }
+
         }
     }
 
-    public async void LoadMauiAsset() //loads all drawbacks possible
-    {
-        using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
-        using var reader = new StreamReader(stream);
-
-        contents = reader.ReadToEnd();
-    }
 
 }
 

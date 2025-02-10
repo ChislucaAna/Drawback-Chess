@@ -27,6 +27,7 @@
     </div>
 
     <button @onclick="StartGame" class="menu-button">Start New Game</button>
+    <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
 </div>
 
 <div class="modal-overlay">
@@ -74,11 +75,17 @@
 
         if (player1Name.Length >= 1)
             Navigation.NavigateTo($"/Game/{player1Name}/{"Black"}/{playTime}");
-        
+
         if (player2Name.Length >= 1)
             Navigation.NavigateTo($"/Game/{"White"}/{player2Name}/{playTime}");
 
         Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
+    }
+
+    public void ContinueGame()
+    {
+        is_new_game = false;
+        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{0}");
     }
 
 

@@ -1,0 +1,140 @@
+﻿@using DrawbackChess.Classes
+@using DrawbackChess.Components.Pages;
+<div class="column-labels">
+    @for (char colName = 'A'; colName <= 'H'; colName++)
+    {
+        <div class="column-label">
+            <span class="rotated">@colName</span>
+        </div>
+    }
+</div>
+<div class="chessarea">
+
+    <div class="row-labels">
+        @for (int row = 1; row <= 8; row++)
+        {
+            <div class="row-label">
+                <label>@row</label>
+            </div>
+        }
+    </div>
+
+    <div class="chessboard">
+
+        @for (int row = 1; row <= 8; row++)
+        {
+
+            @for (int col = 1; col <= 8; col++)
+            {
+                var square = GamePage.currentGame.board.grid[row, col];
+                var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
+
+                <div class="square @(square.IsBlackSquare() ? "black" : "white")
+                    @(square == StartSquare ? "selected" : "")
+                    @(GamePage.currentGame.board.KingIsInCheck(GamePage.currentGame.current_turn) 
+                    &&  square==GamePage.currentGame.board.GetKingPosition(GamePage.currentGame.current_turn)? "red" : "")
+                    @(isHighlighted ? "highlight" : "")"
+                @onclick="() => OnSquareClick(square)">
+                    @if (square.piece != null)
+                    {
+                        <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                        alt="@square.piece.type"
+                        class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                    }
+                </div>
+            }
+        }
+    </div>
+
+    <div class="row-labels">
+        @for (int row = 1; row <= 8; row++)
+        {
+            <div class="row-label rotated">
+                <label>@row</label>
+            </div>
+        }
+    </div>
+
+
+</div>
+
+<div class="column-labels">
+    @for (char colName = 'A'; colName <= 'H'; colName++)
+    {
+        <div class="column-label">@colName</div>
+    }
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        GamePage.currentGame.board.refreshUI = StateHasChanged;
+    }
+
+    public static Square StartSquare;
+    public static Square EndSquare;
+
+    private void OnSquareClick(Square clicked)
+    {
+        //No pieces can be moved after ending of game
+        if (GamePage.currentGame.GameHasEnded())
+        {
+            return;
+        }
+
+        //Clicked on same piece deselect it.
+        if (StartSquare == clicked)
+        {
+            DeselectPiece();
+        }
+
+        //Nothing previously clicked so select new piece
+        if (StartSquare == null)
+        {
+            TrySelectPieceOn(clicked);;
+        }
+
+        //Clicked on owned piece, try to move selection to new piece
+        if (clicked.get_piece_color() == GamePage.currentGame.current_turn)
+        {
+            DeselectPiece();
+            TrySelectPieceOn(clicked);
+        }
+
+        //Clicked on possible move with selected piece try to execute move
+        EndSquare = clicked;
+        if(MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GamePage.currentGame))
+            ChessBoard.ClearMovementData();
+        StateHasChanged();
+    }
+
+    public static void DeselectPiece()
+    {
+        StartSquare = null;
+        MovementHandler.PossibleMoves.Clear();
+    }
+
+    public static void TrySelectPieceOn(Square s)
+    {
+        if (CanSelect(s))
+        {
+            StartSquare = s;
+        }
+    }
+
+    public static bool CanSelect(Square s)
+    {
+        if (s.piece == null)
+            return false; //there is no piece to select on this square
+        if (GamePage.currentGame.current_turn != s.get_piece_color())
+            return false; //it s not this player's turn yet
+        return true; //all is good
+    }
+    public static void ClearMovementData()
+    {
+        Console.WriteLine("Movement data has been cleaned");
+        StartSquare = null;
+        EndSquare = null;
+    }
+
+}

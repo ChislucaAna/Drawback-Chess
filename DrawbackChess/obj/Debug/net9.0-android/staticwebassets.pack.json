@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\Home.css"
     },
     {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\PlayerInfo.css",
+      "PackagePath": "staticwebassets\\css\\PlayerInfo.css"
+    },
+    {
       "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

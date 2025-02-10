@@ -62,26 +62,20 @@
 
     <ItemGroup>
       <AndroidResource Remove="Components\NewFolder1\**" />
-      <AndroidResource Remove="Components\NewFolder\**" />
       <AndroidResource Remove="NewFolder\**" />
       <AndroidResource Remove="wwwroot\NewFolder\**" />
       <Compile Remove="Components\NewFolder1\**" />
-      <Compile Remove="Components\NewFolder\**" />
       <Compile Remove="NewFolder\**" />
       <Compile Remove="wwwroot\NewFolder\**" />
       <Content Remove="Components\NewFolder1\**" />
-      <Content Remove="Components\NewFolder\**" />
       <Content Remove="NewFolder\**" />
       <Content Remove="wwwroot\NewFolder\**" />
       <EmbeddedResource Remove="Components\NewFolder1\**" />
-      <EmbeddedResource Remove="Components\NewFolder\**" />
       <EmbeddedResource Remove="NewFolder\**" />
       <EmbeddedResource Remove="wwwroot\NewFolder\**" />
       <MauiXaml Remove="Components\NewFolder1\**" />
-      <MauiXaml Remove="Components\NewFolder\**" />
       <MauiXaml Remove="NewFolder\**" />
       <None Remove="Components\NewFolder1\**" />
-      <None Remove="Components\NewFolder\**" />
       <None Remove="NewFolder\**" />
       <None Remove="wwwroot\NewFolder\**" />
     </ItemGroup>
@@ -92,6 +86,8 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.21" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
     </ItemGroup>
 
     <ItemGroup>

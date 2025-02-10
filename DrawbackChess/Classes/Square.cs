@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -44,11 +45,11 @@ namespace DrawbackChess
         }
         public override string ToString()
         {
-            char colLetter = (char)('A' + (col - 1));
+            char colLetter = (char)('a' + (col - 1));
             return $"{colLetter}{row}";
         }
 
-        public bool IsDangerous(Board board, string color)
+        public bool IsDangerousForKing(string color,Board board)
         {
             foreach (var square in board.grid)
             {
@@ -58,7 +59,7 @@ namespace DrawbackChess
                 var piece = square.piece;
                 if (piece != null && piece.color != color)
                 {
-                    var chessRange = piece.GetChessRange(square, board);
+                    var chessRange = piece.GetChessRange(square,board);
                     if (chessRange?.Contains(this) == true)
                     {
                         return true;

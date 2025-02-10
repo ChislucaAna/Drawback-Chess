@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Components.Pages;
 
 namespace DrawbackChess
 {
@@ -10,7 +11,7 @@ namespace DrawbackChess
     {
         public King(string color) : base(color, "King") { }
 
-        public override HashSet<Square> GetPossibleMoves(Square currentSquare, Board board)
+        public override HashSet<Square> GetPossibleMoves(Square currentSquare,Board board)
         {
             var possibleMoves = new HashSet<Square>();
 
@@ -26,7 +27,7 @@ namespace DrawbackChess
                     var targetSquare = board.GetSquareAt(currentSquare.row + rowOffset, currentSquare.col + colOffset);
                     if (targetSquare != null && (targetSquare.piece == null || targetSquare.piece.color != color))
                     {
-                        if (!targetSquare.IsDangerous(board,this.color))
+                        if (!targetSquare.IsDangerousForKing(this.color,board))
                         {
                             possibleMoves.Add(targetSquare);
                         }
@@ -44,7 +45,7 @@ namespace DrawbackChess
         }
 
         //the other king must keep a 1 square distance at all times so we treat this rule as a pseudo chess
-        public override HashSet<Square> GetChessRange(Square currentSquare, Board board)
+        public override HashSet<Square> GetChessRange(Square currentSquare,Board board)
         {
             var chessrange = new HashSet<Square>();
             int[] rowOffsets = { -1, 0, 1 };
@@ -65,12 +66,5 @@ namespace DrawbackChess
             }
             return chessrange;
         }
-
-        
-
-        /*private bool ContainsSquare(HashSet<Square> chessRange, Square targetSquare)
-        {
-            return chessRange.Any(square => square.row == targetSquare.row && square.col == targetSquare.col);
-        }*/
     }
 }
