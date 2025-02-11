@@ -16,7 +16,9 @@
         <button @onclick="ToggleDrawbackVisibility" class="toggle-drawback-btn">
             <i class="fa @(isDrawbackVisible ? "fal  fa-eye-slash" : "fal  fa-eye")"></i>
         </button>
-        <button @onclick="ReverseLastMove" class="toggle-drawback-btn" disabled="@(player.color==GamePage.currentGame.current_turn || !GamePage.currentGame.GameHasStarted() || GamePage.currentGame.GameHasEnded())">
+        <button @onclick="ReverseLastMove" class="toggle-drawback-btn"
+                disabled="@(player.color==GameMenu.currentGame.current_turn || 
+            !GameMenu.currentGame.GameHasStarted() || GameMenu.currentGame.GameHasEnded())">
             <i class="fa fal fa-arrow-left"></i>
         </button>
         <p class="drawback-text" style="@(isDrawbackVisible ? "" : "display: none;")">
@@ -35,12 +37,12 @@
 
     private void ReverseLastMove()
     {
-        MovementHandler.ReverseLastMoveOfPlayer(player.color,GamePage.currentGame);
-        GamePage.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
-        GamePage.currentGame.board.PrintCurrentState();
+        MovementHandler.ReverseLastMoveOfPlayer(player.color, GameMenu.currentGame);
+        GameMenu.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
+        GameMenu.currentGame.board.PrintCurrentState();
 
-        GamePage.currentGame.SwitchTurn();
-        GamePage.currentGame.SwitchTimer();
-        GamePage.currentGame.board.refreshUI();
+        GameMenu.currentGame.SwitchTurn();
+        GameMenu.currentGame.SwitchTimer();
+        GameMenu.currentGame.board.refreshUI();
     }
 }

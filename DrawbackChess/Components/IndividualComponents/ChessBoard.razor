@@ -26,13 +26,13 @@
 
             @for (int col = 1; col <= 8; col++)
             {
-                var square = GamePage.currentGame.board.grid[row, col];
+                var square = GameMenu.currentGame.board.grid[row, col];
                 var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
 
                 <div class="square @(square.IsBlackSquare() ? "black" : "white")
                     @(square == StartSquare ? "selected" : "")
-                    @(GamePage.currentGame.board.KingIsInCheck(GamePage.currentGame.current_turn) 
-                    &&  square==GamePage.currentGame.board.GetKingPosition(GamePage.currentGame.current_turn)? "red" : "")
+                    @(GameMenu.currentGame.board.KingIsInCheck(GameMenu.currentGame.current_turn)
+                    &&  square==GameMenu.currentGame.board.GetKingPosition(GameMenu.currentGame.current_turn)? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
                 @onclick="() => OnSquareClick(square)">
                     @if (square.piece != null)
@@ -68,7 +68,7 @@
 @code {
     protected override void OnInitialized()
     {
-        GamePage.currentGame.board.refreshUI = StateHasChanged;
+        GameMenu.currentGame.board.refreshUI = StateHasChanged;
     }
 
     public static Square StartSquare;
@@ -77,7 +77,7 @@
     private void OnSquareClick(Square clicked)
     {
         //No pieces can be moved after ending of game
-        if (GamePage.currentGame.GameHasEnded())
+        if (GameMenu.currentGame.GameHasEnded())
         {
             return;
         }
@@ -95,7 +95,7 @@
         }
 
         //Clicked on owned piece, try to move selection to new piece
-        if (clicked.get_piece_color() == GamePage.currentGame.current_turn)
+        if (clicked.get_piece_color() == GameMenu.currentGame.current_turn)
         {
             DeselectPiece();
             TrySelectPieceOn(clicked);
@@ -103,7 +103,7 @@
 
         //Clicked on possible move with selected piece try to execute move
         EndSquare = clicked;
-        if(MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GamePage.currentGame))
+        if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
             ChessBoard.ClearMovementData();
         StateHasChanged();
     }
@@ -126,7 +126,7 @@
     {
         if (s.piece == null)
             return false; //there is no piece to select on this square
-        if (GamePage.currentGame.current_turn != s.get_piece_color())
+        if (GameMenu.currentGame.current_turn != s.get_piece_color())
             return false; //it s not this player's turn yet
         return true; //all is good
     }

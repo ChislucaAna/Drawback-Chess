@@ -1,4 +1,8 @@
 ﻿@page "/menu"
+@using DrawbackChess.Classes
+@using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
+@using CommunityToolkit.Maui.Views;
 <link href="css/gamemenu.css" rel="stylesheet" />
 
 <div class="modal-overlay">
@@ -6,12 +10,12 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="player1Name" placeholder="White" />
+        <input @bind="player1Name"/>
     </div>
 
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="player2Name" placeholder="Black" />
+        <input @bind="player2Name"/>
     </div>
 
     <!-- Play Time Dropdown -->
@@ -26,7 +30,7 @@
         </select>
     </div>
 
-    <button @onclick="StartGame" class="menu-button">Start New Game</button>
+    <button @onclick="StartNewGame" class="menu-button">Start New Game</button>
     <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
 </div>
 
@@ -35,7 +39,7 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="player1Name" placeholder="White" readonly="true" style="pointer-events: none;" />
+        <input @bind="player1Name" readonly="true" style="pointer-events: none;" />
     </div>
 
     <button @onclick="PlayOnline" class="menu-button">Play Online</button>
@@ -46,12 +50,21 @@
 
     [Inject] private NavigationManager Navigation { get; set; }
     [Inject] private IJSRuntime JS { get; set; }
-
     private bool showNewGamePopup = true;
-    private string player1Name = "";
-    private string player2Name = "";
+
+    //Game creation settings
+    private string player1Name = "White";
+    private string player2Name = "Black";
     private int playTime = 5;
     public static bool is_new_game = false;
+
+    //Game instance
+    public static Game currentGame;
+
+    protected override async void OnInitialized()
+    {
+        DrawbackHandler.InitDrawbacks();
+    }
 
     // Open the New Game popup
     private void OpenNewGamePopup()
@@ -66,28 +79,35 @@
     }
 
     // Start the game logic
-    private void StartGame()
+    private void StartNewGame()
     {
         is_new_game = true;
         showNewGamePopup = false;
-        if (player1Name.Length >= 1 && player2Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
-
-        if (player1Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{player1Name}/{"Black"}/{playTime}");
-
-        if (player2Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{"White"}/{player2Name}/{playTime}");
-
-        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
+        Board board = new Board();
+        Player player1 = new Player(player1Name, "White", new Drawback());
+        Player player2 = new Player(player1Name, "Black", new Drawback());
+        ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
+        ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
+        currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+        Navigation.NavigateTo("/Game");
     }
 
-    public void ContinueGame()
+    public async void ContinueGame()
     {
         is_new_game = false;
-        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{0}");
+        List<Game> games = await DatabaseService.Instance.GetGamesAsync();
+        if (games.Any())
+        {
+            Game lastGame = games.Last();
+            lastGame.Deserialize();
+            currentGame = new Game(lastGame.board, lastGame.player1, lastGame.player2, lastGame.WhiteTimer, lastGame.BlackTimer);
+        }
+        else
+        {
+            Console.WriteLine("There arent any previous games");
+        }
+        Navigation.NavigateTo("/Game");
     }
-
 
     private async void PlayOnline()
     {

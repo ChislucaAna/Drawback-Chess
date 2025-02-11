@@ -1,4 +1,4 @@
-﻿@page "/game/{Player1Name}/{Player2Name}/{PlayTime:int}"
+﻿@page "/game"
 @using DrawbackChess.Classes
 @using DrawbackChess.Components
 @using DrawbackChess.Components.IndividualComponents
@@ -6,11 +6,11 @@
 <link href="css/Game.css" rel="stylesheet" />
 <div class="content">
 
-    <GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
-        @if (currentGame.typeofwin != "draw")
+    <GameEndedPopup Title="Game Over" IsVisible="@GameMenu.currentGame.GameHasEnded()">
+        @if (GameMenu.currentGame.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @currentGame.winner.name by @currentGame.typeofwin.
+                Game over! Game was won by @GameMenu.currentGame.winner.name by @GameMenu.currentGame.typeofwin.
             </p>
         }
         else
@@ -22,62 +22,25 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerInfo GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1" timer="@currentGame.WhiteTimer" rotate="true">
+        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1" 
+        timer="@GameMenu.currentGame.WhiteTimer" rotate="true">
         </PlayerInfo>
 
         <ChessBoard></ChessBoard>
 
-        <PlayerInfo GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2" timer="@currentGame.BlackTimer" rotate="false">
+        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
+        timer="@GameMenu.currentGame.BlackTimer" rotate="false">
         </PlayerInfo>
     </div>
 </div>
 
-@code {
-    //parametrii luati de la meniul de creare a jocului
-    [Parameter] public string Player1Name { get; set; }
-    [Parameter] public string Player2Name { get; set; }
-    [Parameter] public int PlayTime { get; set; }
-    //current game
-    public static Game currentGame;
-
-    protected override async void OnInitialized()
+@code
+{
+    protected override void OnInitialized()
     {
-        DrawbackHandler.InitDrawbacks();
         Action refreshUI = async () => await InvokeAsync(StateHasChanged);
-        if (GameMenu.is_new_game)
-        {
-            Board board = new Board();
-            Player player1 = new Player(Player1Name, "White", new Drawback());
-            Player player2 = new Player(Player2Name, "Black", new Drawback());
-            ChessTimer WhiteTimer = new ChessTimer(PlayTime,"White", () =>
-            {
-                InvokeAsync(StateHasChanged);
-            });
-            ChessTimer BlackTimer = new ChessTimer(PlayTime,"Black", () =>
-            {
-                InvokeAsync(StateHasChanged);
-            });
-
-            currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer, refreshUI);
-        }
-        else
-        {
-            List<Game> games = await DatabaseService.Instance.GetGamesAsync();
-            if(games.Any())
-            {
-                Game lastGame = games.Last();
-                lastGame.Deserialize();
-                currentGame = new Game(lastGame.board, lastGame.player1, lastGame.player2, lastGame.WhiteTimer, lastGame.BlackTimer, refreshUI);
-            }
-            else
-            {
-                Console.WriteLine("There arent any previous games");
-            }
-
-        }
+        GameMenu.currentGame.refreshUI = refreshUI;
     }
-
-
 }
 
 

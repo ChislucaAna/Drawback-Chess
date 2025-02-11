@@ -36,7 +36,7 @@ namespace DrawbackChess.Classes
             game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
             MovePiece(StartSquare,EndSquare);
             PossibleMoves.Clear();
-            if (game.board.KingIsInCheck(GamePage.currentGame.current_turn))
+            if (game.board.KingIsInCheck(game.current_turn))
                 successful = false;
             ReverseLastMove(game);
             game.moveHistory.RemoveLastFromHistory();
