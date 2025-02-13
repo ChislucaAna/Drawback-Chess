@@ -7,12 +7,16 @@
       "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\classes\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\classes\\movementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\classes\\movementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\components\\individualcomponents\\chessboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\components\\individualcomponents\\chessboard.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\classes\\movementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\classes\\movementhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\components\\individualcomponents\\playerinfo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\components\\individualcomponents\\playerinfo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\components\\pages\\gamepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\components\\individualcomponents\\playerinfo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|solutionrelative:drawbackchess\\components\\individualcomponents\\playerinfo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ECCC3167-B093-4E98-9B4A-EAAB313716DD}|DrawbackChess\\DrawbackChess.csproj|c:\\users\\anach\\desktop\\drawbackchess\\drawbackchess\\classes\\board.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +54,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MauiProgram.cs",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\MauiProgram.cs",
               "RelativeDocumentMoniker": "DrawbackChess\\MauiProgram.cs",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "PlayerInfo.razor",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\IndividualComponents\\PlayerInfo.razor",
               "RelativeDocumentMoniker": "DrawbackChess\\Components\\IndividualComponents\\PlayerInfo.razor",
@@ -80,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChessBoard.razor",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\IndividualComponents\\ChessBoard.razor",
               "RelativeDocumentMoniker": "DrawbackChess\\Components\\IndividualComponents\\ChessBoard.razor",
@@ -93,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MovementHandler.cs",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Classes\\MovementHandler.cs",
               "RelativeDocumentMoniker": "DrawbackChess\\Classes\\MovementHandler.cs",
@@ -112,14 +112,14 @@
               "RelativeDocumentMoniker": "DrawbackChess\\Classes\\Game.cs",
               "ToolTip": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Classes\\Game.cs",
               "RelativeToolTip": "DrawbackChess\\Classes\\Game.cs",
-              "ViewState": "AgIAAMgAAAAAAAAAAAAjwNsAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAMAAAAAAAAAAAAAWwNsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T14:03:54.654Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ChessTimer.cs",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Classes\\ChessTimer.cs",
               "RelativeDocumentMoniker": "DrawbackChess\\Classes\\ChessTimer.cs",
@@ -145,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "GameMenu.razor",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\Pages\\GameMenu.razor",
               "RelativeDocumentMoniker": "DrawbackChess\\Components\\Pages\\GameMenu.razor",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "GamePage.razor",
               "DocumentMoniker": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\Components\\Pages\\GamePage.razor",
               "RelativeDocumentMoniker": "DrawbackChess\\Components\\Pages\\GamePage.razor",

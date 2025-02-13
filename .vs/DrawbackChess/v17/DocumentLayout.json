@@ -62,8 +62,7 @@
               "RelativeToolTip": "DrawbackChess\\MauiProgram.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T14:09:49.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:09:49.012Z"
             },
             {
               "$type": "Document",
@@ -75,8 +74,7 @@
               "RelativeToolTip": "DrawbackChess\\Components\\IndividualComponents\\PlayerInfo.razor",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-11T14:04:43.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:04:43.378Z"
             },
             {
               "$type": "Document",
@@ -88,8 +86,7 @@
               "RelativeToolTip": "DrawbackChess\\Components\\IndividualComponents\\ChessBoard.razor",
               "ViewState": "AgIAADwAAAAAAAAAAAAhwEcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-11T14:04:14.951Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:04:14.951Z"
             },
             {
               "$type": "Document",
@@ -101,8 +98,7 @@
               "RelativeToolTip": "DrawbackChess\\Classes\\MovementHandler.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAjwCYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T14:04:08.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:04:08.952Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "DrawbackChess\\Classes\\ChessTimer.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAD4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T14:01:16.743Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:01:16.743Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "DrawbackChess\\Classes\\Board.cs",
               "ViewState": "AgIAALEAAAAAAAAAAAASwJcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T14:00:44.048Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T14:00:44.048Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "DrawbackChess\\Components\\Pages\\GameMenu.razor",
               "ViewState": "AgIAAEwAAAAAAAAAAAASwFgAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-11T13:55:39.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T13:55:39.19Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "DrawbackChess\\wwwroot\\css\\gamemenu.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-02-11T13:55:35.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-11T13:55:35.388Z"
             },
             {
               "$type": "Document",
@@ -179,8 +171,11 @@
               "RelativeToolTip": "DrawbackChess\\Components\\Pages\\GamePage.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-02-10T17:51:42.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T17:51:42.581Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             }
           ]
         }
