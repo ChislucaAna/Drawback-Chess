@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "O9/4/dvZVUSFQMBZThgOZ+pEZrrFL5zgz7Zv6TbKtPw=",
+=======
+  "Hash": "H5723wtkbD/Xlm/0E972de34vzr+1lr3rI9HZ6EZ46c=",
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
   "Source": "DrawbackChess",
   "BasePath": "/",
   "Mode": "Root",
@@ -2608,7 +2612,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",
@@ -2669,7 +2677,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",
@@ -2714,7 +2726,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",
@@ -2769,7 +2785,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",
@@ -2822,7 +2842,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",
@@ -2859,7 +2883,11 @@
         },
         {
           "Name": "Last-Modified",
+<<<<<<< HEAD
           "Value": "Wed, 05 Feb 2025 17:49:59 GMT"
+=======
+          "Value": "Tue, 11 Feb 2025 13:54:15 GMT"
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         },
         {
           "Name": "Cache-Control",

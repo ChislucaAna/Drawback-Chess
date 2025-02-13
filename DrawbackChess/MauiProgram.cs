@@ -20,7 +20,7 @@ namespace DrawbackChess
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
-            //builder.Logging.SetMinimumLevel(LogLevel.Debug);
+            builder.Logging.SetMinimumLevel(LogLevel.Debug);
             builder.Logging.AddDebug();
 #endif
             return builder.Build();

@@ -15,59 +15,66 @@ namespace DrawbackChess.Classes
         public TimeSpan TimeLeft;
         string color;
 
-        public ChessTimer(int minutes,string color, Action refreshUI)
+        public ChessTimer(int minutes,string color)
         {
-            _refreshUI = refreshUI;
             TimeLeft = TimeSpan.FromMinutes(minutes);
             this.color = color;
         }
 
-        public void StartTimer()
+        public void StartTimer(Game game)
         {
             if (timer == null) //Start a new Timer
             {
-                timer = new Timer(UpdateTimer, null, 1000, 1000);
+                timer = new Timer(UpdateTimer,game, 1000, 1000);
                 isPaused = false;
             }
             else if (isPaused) //Unpause
             {
                 isPaused = false;
             }
-            _refreshUI.Invoke();
+            game.refreshUI.Invoke();
         }
-        public void PauseTimer()
+        public void PauseTimer(Game game)
         {
             if (timer != null)
             {
                 isPaused = true;
             }
-            _refreshUI.Invoke();
+            game.refreshUI.Invoke();
         }
-        public void EndTimer()
+        public void EndTimer(Game game)
         {
             timer?.Dispose();
             timer = null;
             isPaused = false; ;
             TimeLeft = TimeSpan.Zero;
-            _refreshUI.Invoke();
+            game.refreshUI.Invoke();
         }
 
         private void UpdateTimer(object? state)
         {
+            Game game = (Game)state!;
             if (TimeLeft > TimeSpan.Zero && !isPaused)
             {
                 TimeLeft = TimeLeft.Subtract(TimeSpan.FromSeconds(1));
             }
             else if (TimeLeft <= TimeSpan.Zero)
             {
-                EndTimer();
+                EndTimer(game);
                 if (color == "White")
+<<<<<<< HEAD
                     GamePage.currentGame.winner = GamePage.currentGame.player2;
                 else
                     GamePage.currentGame.winner = GamePage.currentGame.player1;
                 GamePage.currentGame.typeofwin = "time limit";
+=======
+                    game.winner = game.player2;
+                else
+                    game.winner = game.player1;
+                game.typeofwin = "time limit";
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
             }
-            _refreshUI.Invoke();
+            game.refreshUI.Invoke();
         }
     }
 }
