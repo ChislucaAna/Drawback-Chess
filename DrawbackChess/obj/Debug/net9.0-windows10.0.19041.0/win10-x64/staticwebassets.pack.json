@@ -1,0 +1,125 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\DrawbackChess.styles.css",
+      "PackagePath": "staticwebassets\\DrawbackChess.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Game.css",
+      "PackagePath": "staticwebassets\\css\\Game.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\PlayerInfo.css",
+      "PackagePath": "staticwebassets\\css\\PlayerInfo.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\css\\gamemenu.css",
+      "PackagePath": "staticwebassets\\css\\gamemenu.css"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_bishop.png",
+      "PackagePath": "staticwebassets\\images\\black_bishop.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_king.png",
+      "PackagePath": "staticwebassets\\images\\black_king.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_knight.png",
+      "PackagePath": "staticwebassets\\images\\black_knight.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_pawn.png",
+      "PackagePath": "staticwebassets\\images\\black_pawn.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_queen.png",
+      "PackagePath": "staticwebassets\\images\\black_queen.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\black_rook.png",
+      "PackagePath": "staticwebassets\\images\\black_rook.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\dotnet_bot.svg",
+      "PackagePath": "staticwebassets\\images\\dotnet_bot.svg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo2.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\homelogo3.jpg",
+      "PackagePath": "staticwebassets\\images\\homelogo3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_bishop.png",
+      "PackagePath": "staticwebassets\\images\\white_bishop.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_king.png",
+      "PackagePath": "staticwebassets\\images\\white_king.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_knight.png",
+      "PackagePath": "staticwebassets\\images\\white_knight.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_pawn.png",
+      "PackagePath": "staticwebassets\\images\\white_pawn.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_queen.png",
+      "PackagePath": "staticwebassets\\images\\white_queen.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\images\\white_rook.png",
+      "PackagePath": "staticwebassets\\images\\white_rook.png"
+    },
+    {
+      "Id": "C:\\Users\\anach\\Desktop\\DrawbackChess\\DrawbackChess\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.DrawbackChess.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.DrawbackChess.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.DrawbackChess.props",
+      "PackagePath": "build\\DrawbackChess.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.DrawbackChess.props",
+      "PackagePath": "buildMultiTargeting\\DrawbackChess.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.DrawbackChess.props",
+      "PackagePath": "buildTransitive\\DrawbackChess.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -30,11 +30,7 @@
         </select>
     </div>
 
-<<<<<<< HEAD
-    <button @onclick="StartGame" class="menu-button">Start New Game</button>
-=======
     <button @onclick="StartNewGame" class="menu-button">Start New Game</button>
->>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
     <button @onclick="ContinueGame" class="menu-button">Continue Game</button>
 </div>
 
@@ -87,26 +83,6 @@
     {
         is_new_game = true;
         showNewGamePopup = false;
-<<<<<<< HEAD
-        if (player1Name.Length >= 1 && player2Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{player1Name}/{player2Name}/{playTime}");
-
-        if (player1Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{player1Name}/{"Black"}/{playTime}");
-
-        if (player2Name.Length >= 1)
-            Navigation.NavigateTo($"/Game/{"White"}/{player2Name}/{playTime}");
-
-        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{playTime}");
-    }
-
-    public void ContinueGame()
-    {
-        is_new_game = false;
-        Navigation.NavigateTo($"/Game/{"White"}/{"Black"}/{0}");
-    }
-
-=======
         Board board = new Board();
         Player player1 = new Player(player1Name, "White", new Drawback());
         Player player2 = new Player(player1Name, "Black", new Drawback());
@@ -132,7 +108,6 @@
         }
         Navigation.NavigateTo("/Game");
     }
->>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
 
     private async void PlayOnline()
     {
