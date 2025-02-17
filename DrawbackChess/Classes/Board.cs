@@ -135,11 +135,7 @@ namespace DrawbackChess
                 {
                     if (ChessRange.Contains(kingposition))
                     {
-<<<<<<< HEAD
-                        Console.WriteLine(String.Format("Check to {0} king.", GamePage.currentGame.current_turn));
-=======
                         Console.WriteLine(String.Format("Check to {0} king.", color));
->>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
                         return true;
 
                     }
@@ -157,11 +153,7 @@ namespace DrawbackChess
                 {
                     if (square.piece != null)
                     {
-<<<<<<< HEAD
-                        if (square.piece.color == GamePage.currentGame.current_turn)
-=======
                         if (square.piece.color == color)
->>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
                         {
                             nr++;
                         }
