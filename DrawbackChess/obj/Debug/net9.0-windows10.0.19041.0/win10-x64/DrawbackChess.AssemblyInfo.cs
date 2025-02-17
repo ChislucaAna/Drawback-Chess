@@ -19,10 +19,14 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+645374ffd95742fe84f70c21978399d5aeed569e")]
 =======
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+d1e31464bcda8290994b137c725aa22c8f189075")]
 >>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+469fd6c56a394779a4a9171ab83f671cd6bee456")]
+>>>>>>> fd630eb3016721e61a69c701ceac8c01b54673e3
 [assembly: System.Reflection.AssemblyProductAttribute("DrawbackChess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DrawbackChess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

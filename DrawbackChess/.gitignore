@@ -1,0 +1,15 @@
+# Visual Studio specific
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+out/
+
+# MAUI specific
+AppPackages/
+.nuget/
