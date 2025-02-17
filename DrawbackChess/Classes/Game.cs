@@ -37,13 +37,21 @@ namespace DrawbackChess
         public string WhiteTimerJson { get; set; }
         public string BlackTimerJson { get; set; }
 
+<<<<<<< HEAD
+        public Game(Board board, Player player1, Player player2, ChessTimer whiteTimer, ChessTimer blackTimer, Action refreshUI)
+=======
         public Game(Board board, Player player1, Player player2, ChessTimer whiteTimer, ChessTimer blackTimer)
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
         {
             this.board = board;
             this.player1 = player1;
             this.player2 = player2;
             this.WhiteTimer = whiteTimer;
             this.BlackTimer = blackTimer;
+<<<<<<< HEAD
+            this.refreshUI = refreshUI;
+=======
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
             moveHistory = new MoveHistory();
         }
 
@@ -87,6 +95,15 @@ namespace DrawbackChess
             switch (current_turn)
             {
                 case "White":
+<<<<<<< HEAD
+                    BlackTimer.PauseTimer();
+                    WhiteTimer.StartTimer();
+                    Console.WriteLine("White timer started");
+                    break;
+                case "Black":
+                    WhiteTimer.PauseTimer();
+                    BlackTimer.StartTimer();
+=======
                     BlackTimer.PauseTimer(this);
                     WhiteTimer.StartTimer(this);
                     Console.WriteLine("White timer started");
@@ -94,6 +111,7 @@ namespace DrawbackChess
                 case "Black":
                     WhiteTimer.PauseTimer(this);
                     BlackTimer.StartTimer(this);
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
                     Console.WriteLine("Black timer started");
                     break;
                 default:
@@ -166,7 +184,11 @@ namespace DrawbackChess
             {
                 if (square == null || square.piece == null)
                     continue;
+<<<<<<< HEAD
+                if (square.piece.color == GamePage.currentGame.current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+=======
                 if (square.piece.color == current_turn) //vezi daca cel la rand poate face vreo mutare care sa-l scoata din sah
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
                 {
                     HashSet<Square> possibilities = square.piece.GetPossibleMoves(square, board);
                     foreach (Square destination in possibilities)
@@ -216,8 +238,13 @@ namespace DrawbackChess
 
         public void EndGame()
         {
+<<<<<<< HEAD
+            WhiteTimer.EndTimer();
+            BlackTimer.EndTimer();
+=======
             WhiteTimer.EndTimer(this);
             BlackTimer.EndTimer(this);
+>>>>>>> 0b28d9be5a8283241a830a6b3ac1aa4b14f5b755
             refreshUI();
         }
 
