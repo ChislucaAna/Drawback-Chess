@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DrawbackChess.Classes.GameClasses
 {
@@ -21,7 +22,7 @@ namespace DrawbackChess.Classes.GameClasses
             contents.RemoveAt(contents.Count - 1);
         }
 
-        public string PrintMoveHistory()//inca mai trebuie implementat pentru rocada si checkmate
+        public override string ToString()//inca mai trebuie implementat pentru rocada si checkmate
         {
             string tostring = "";
             if (contents.Count == 0)
@@ -33,7 +34,7 @@ namespace DrawbackChess.Classes.GameClasses
             {
                 tostring += (i + 1).ToString() + ".";
                 tostring += contents[i].ToString();
-                tostring += Environment.NewLine;
+                tostring += ";";
             }
             return tostring;
         }

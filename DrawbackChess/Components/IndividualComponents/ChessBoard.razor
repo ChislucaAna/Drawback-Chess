@@ -1,6 +1,7 @@
 ﻿@using DrawbackChess.Classes
 @using DrawbackChess.Components.Pages;
 @using DrawbackChess.Classes.GameClasses;
+@using DrawbackChess.Classes.DatabaseClasses
 <div class="column-labels">
     @for (char colName = 'A'; colName <= 'H'; colName++)
     {
@@ -105,8 +106,22 @@
         //Clicked on possible move with selected piece try to execute move
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
-            ChessBoard.ClearMovementData();
+        {
+            Save();
+            ClearMovementData();
+        }
         StateHasChanged();
+    }
+
+    public async void Save()
+    {
+        var g = GameMenu.currentGame;
+        GameObject currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
+            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString());
+        DatabaseService db = new DatabaseService();
+        await db.SaveGameAsync(currentState);
+
+        Console.WriteLine("GameSaved");
     }
 
     public static void DeselectPiece()

@@ -112,8 +112,11 @@ namespace DrawbackChess.Classes.GameClasses
                     game.SwitchTurn();
 
                     //Save current state to db
-                    game.Save();
-                    game.LookForWinner();
+                    if (game.LookForWinner() == null)
+                        game.SwitchTimer();
+                    else
+                        game.EndGame();
+
                     return true;
                 }
             }

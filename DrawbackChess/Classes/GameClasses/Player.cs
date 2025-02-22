@@ -24,5 +24,17 @@ namespace DrawbackChess.Classes.GameClasses
             this.name = name;
             this.drawback = drawback;
         }
+
+        public override string ToString()
+        {
+            return name + ";" + color + ";" + drawback.ToString(); ;
+        }
+
+        public static Player FromString(string str)
+        {
+            string[] fields = str.Split(';');
+            Player result = new Player(fields[0], fields[1], new Drawback(fields[2], fields[3], fields[4]));
+            return result;
+        }
     }
 }

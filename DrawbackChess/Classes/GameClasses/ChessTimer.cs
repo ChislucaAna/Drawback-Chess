@@ -60,11 +60,7 @@ namespace DrawbackChess.Classes.GameClasses
             }
             else if (TimeLeft <= TimeSpan.Zero)
             {
-                EndTimer(game);
-                if (color == "White")
-                    game.winner = game.player2;
-                else
-                    game.winner = game.player1;
+                game.EndGame();
                 game.typeofwin = "time limit";
             }
             game.refreshUI.Invoke();

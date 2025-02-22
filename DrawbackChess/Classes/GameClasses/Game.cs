@@ -10,12 +10,11 @@ using static System.Collections.Specialized.BitVector32;
 using SQLite;
 using Newtonsoft.Json;
 using DrawbackChess.Components.Pages;
+using DrawbackChess.Classes.DatabaseClasses;
 namespace DrawbackChess.Classes.GameClasses
 {
     public class Game
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
         public string current_turn { get; set; } = "White";
         public string? typeofwin { get; set; } = null;
 
@@ -23,7 +22,6 @@ namespace DrawbackChess.Classes.GameClasses
         public Board board { get; set; }
         public Player player1 { get; set; }
         public Player player2 { get; set; }
-        public Player? winner { get; set; } = null;
         public ChessTimer WhiteTimer { get; set; }
         public ChessTimer BlackTimer { get; set; }
         public Action refreshUI { get; set; }
@@ -78,14 +76,19 @@ namespace DrawbackChess.Classes.GameClasses
         //Win checkker functions:
         //
 
-        public void LookForWinner()
+        public string LookForWinner()
         {
-            winner = GetSpecialWinner() ?? GetBasicWinner();
+            if(typeofwin=="timelimit")
+                return current_turn;
 
-            if (winner != null)
-                EndGame();
-            else
-                SwitchTimer();
+            var winner = GetSpecialWinner() ?? GetBasicWinner();
+            if (winner == null) return null;
+            return winner.name;
+        }
+
+        public bool GameHasEnded()
+        {
+            return typeofwin != null;
         }
         public Player GetSpecialWinner()
         {
@@ -173,11 +176,6 @@ namespace DrawbackChess.Classes.GameClasses
             return moveHistory.contents.Any();
         }
 
-        public bool GameHasEnded()
-        {
-            return winner != null;
-        }
-
         public void EndGame()
         {
             WhiteTimer.EndTimer(this);
@@ -185,10 +183,5 @@ namespace DrawbackChess.Classes.GameClasses
             refreshUI();
         }
 
-        public async void Save()
-        {
-
-            Console.WriteLine("GameSaved");
-        }
     }
 }

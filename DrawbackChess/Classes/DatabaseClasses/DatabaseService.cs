@@ -16,19 +16,19 @@ namespace DrawbackChess.Classes.DatabaseClasses
                 return;
 
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            var result = await Database.CreateTableAsync<Test>();
+            var result = await Database.CreateTableAsync<GameObject>();
         }
 
-        public async Task<List<Test>> GetItemsAsync()
+        public async Task<List<GameObject>> GetGamesAsync()
         {
             await Init();
-            return await Database.Table<Test>().ToListAsync();
+            return await Database.Table<GameObject>().ToListAsync();
         }
 
-        public async Task<int> SaveItemAsync(Test item)
+        public async Task<int> SaveGameAsync(GameObject item)
         {
             await Init();
-            if (item.TestId != 0)
+            if (item.Id != 0)
                 return await Database.UpdateAsync(item);
             else
                 return await Database.InsertAsync(item);

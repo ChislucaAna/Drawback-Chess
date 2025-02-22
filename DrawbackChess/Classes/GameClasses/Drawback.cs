@@ -21,6 +21,18 @@ namespace DrawbackChess.Classes
             generateRandomDrawback();
         }
 
+        public Drawback(string text, string type, string parameter)
+        {
+            this.text = text;
+            this.type = type;
+            this.parameter = parameter;
+        }
+
+        public override string ToString()
+        {
+            return text+";"+type+";"+parameter;
+        }
+
         private async void generateRandomDrawback() 
         {
             Random rnd = new Random();

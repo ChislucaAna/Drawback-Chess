@@ -10,7 +10,7 @@
         @if (GameMenu.currentGame.typeofwin != "draw")
         {
             <p class="message">
-                Game over! Game was won by @GameMenu.currentGame.winner.name by @GameMenu.currentGame.typeofwin.
+                Game over! Game was won by @GameMenu.currentGame.LookForWinner() by @GameMenu.currentGame.typeofwin.
             </p>
         }
         else
