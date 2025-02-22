@@ -86,9 +86,6 @@
         db = new DatabaseService();
         test();
 
-        // Note: This sample requires the database to be created before running.
-        Console.WriteLine($"Database path: {db.DbPath}.");
-
         showNewGamePopup = false;
         Board board = new Board();
         Player player1 = new Player(player1Name, "White", new Drawback());
@@ -104,15 +101,12 @@
         try
         {
             Console.WriteLine("Inserting a new blog");
-            db.Add(new  Test(1,"Primul test"));
-            await db.SaveChangesAsync();
-
-            Console.WriteLine("Querying for a blog");
-            var Query = from blog in db.Tests
-                        select blog;
-            foreach (var uwu in Query)
+            db = new DatabaseService();
+            await db.SaveItemAsync(new Test("salut"));
+            List<Test> list = await db.GetItemsAsync();
+            foreach(var item in list)
             {
-                Console.WriteLine(uwu.Message);
+                Console.WriteLine(item.Message);
             }
         }
         catch(Exception ex)

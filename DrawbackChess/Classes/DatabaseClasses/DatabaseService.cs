@@ -1,26 +1,37 @@
 ﻿using DrawbackChess.Classes.GameClasses;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
+using SQLite;
 
 namespace DrawbackChess.Classes.DatabaseClasses
 {
-    public class DatabaseService : DbContext
+    public class DatabaseService
     {
-        public DbSet<Test> Tests { get; set; }
-        public string DbPath { get; }
+        SQLiteAsyncConnection Database;
 
-        public DatabaseService()
+        async Task Init()
         {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "app.db");
+            if (Database is not null)
+                return;
+
+            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            var result = await Database.CreateTableAsync<Test>();
         }
 
-        // The following configures EF to create a Sqlite database file in the
-        // special "local" folder for your platform.
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlite($"Data Source={DbPath}");
+        public async Task<List<Test>> GetItemsAsync()
+        {
+            await Init();
+            return await Database.Table<Test>().ToListAsync();
+        }
+
+        public async Task<int> SaveItemAsync(Test item)
+        {
+            await Init();
+            if (item.TestId != 0)
+                return await Database.UpdateAsync(item);
+            else
+                return await Database.InsertAsync(item);
+        }
     }
 }
