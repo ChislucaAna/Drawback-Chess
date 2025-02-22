@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class MoveHistory
     {
@@ -17,23 +17,23 @@ namespace DrawbackChess.Classes
 
         public void RemoveLastFromHistory()
         {
-            if(contents.Count == 0) return;
+            if (contents.Count == 0) return;
             contents.RemoveAt(contents.Count - 1);
         }
 
         public string PrintMoveHistory()//inca mai trebuie implementat pentru rocada si checkmate
         {
-            string tostring="";
+            string tostring = "";
             if (contents.Count == 0)
             {
-               return "No moves have been made yet.";
+                return "No moves have been made yet.";
             }
 
             for (int i = 0; i < contents.Count; i++)
             {
-                tostring += (i+1).ToString()+".";
+                tostring += (i + 1).ToString() + ".";
                 tostring += contents[i].ToString();
-                tostring += System.Environment.NewLine;
+                tostring += Environment.NewLine;
             }
             return tostring;
         }

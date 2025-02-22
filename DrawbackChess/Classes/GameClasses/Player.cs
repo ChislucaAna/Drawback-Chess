@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class Player
     {

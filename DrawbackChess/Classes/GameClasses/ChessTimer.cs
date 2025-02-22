@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Components.Pages;
 
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class ChessTimer
     {
@@ -15,7 +15,7 @@ namespace DrawbackChess.Classes
         public TimeSpan TimeLeft;
         string color;
 
-        public ChessTimer(int minutes,string color)
+        public ChessTimer(int minutes, string color)
         {
             TimeLeft = TimeSpan.FromMinutes(minutes);
             this.color = color;
@@ -25,7 +25,7 @@ namespace DrawbackChess.Classes
         {
             if (timer == null) //Start a new Timer
             {
-                timer = new Timer(UpdateTimer,game, 1000, 1000);
+                timer = new Timer(UpdateTimer, game, 1000, 1000);
                 isPaused = false;
             }
             else if (isPaused) //Unpause

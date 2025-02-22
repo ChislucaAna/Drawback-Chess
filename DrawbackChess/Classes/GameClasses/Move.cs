@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class Move
     {
@@ -23,12 +23,12 @@ namespace DrawbackChess.Classes
             { "Pawn", "" } // Pawns have no abbreviation in movement notation
         };
 
-        public Move(Piece piece, Square startpoint,Square endpoint, Piece capture)
+        public Move(Piece piece, Square startpoint, Square endpoint, Piece capture)
         {
-            this.piece = piece; 
+            this.piece = piece;
             this.endpoint = endpoint;
             this.startpoint = startpoint;
-            this.capturedPiece = capture;
+            capturedPiece = capture;
         }
 
         public bool IsCapture()

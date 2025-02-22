@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using DrawbackChess.Classes;
 using Microsoft.Maui.ApplicationModel.DataTransfer;
 using DrawbackChess.Components.Pages;
+using DrawbackChess.Classes.GameClasses;
 
 namespace DrawbackChess
 {

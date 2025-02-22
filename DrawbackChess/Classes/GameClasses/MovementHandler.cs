@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using DrawbackChess.Components.IndividualComponents;
 using DrawbackChess.Components.Pages;
 
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class MovementHandler
     {
         public static HashSet<Square> PossibleMoves { get; set; } = new();
         public MovementHandler()
-        { 
+        {
 
         }
 
@@ -29,12 +29,12 @@ namespace DrawbackChess.Classes
             StartSquare.piece = null;
         }
 
-        public static bool SimulateMove(Square StartSquare, Square EndSquare,Game game) //only use this for mate checking
+        public static bool SimulateMove(Square StartSquare, Square EndSquare, Game game) //only use this for mate checking
         {
             bool successful = true;
 
             game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-            MovePiece(StartSquare,EndSquare);
+            MovePiece(StartSquare, EndSquare);
             PossibleMoves.Clear();
             if (game.board.KingIsInCheck(game.current_turn))
                 successful = false;
@@ -68,7 +68,7 @@ namespace DrawbackChess.Classes
             Console.WriteLine(lastMove.ToString());
         }
 
-        public static void ReverseLastMoveOfPlayer(string playercolor,Game game)
+        public static void ReverseLastMoveOfPlayer(string playercolor, Game game)
         {
             var lastMove = game.moveHistory.GetLastMoveOfPlayer(playercolor);
             if (lastMove == null)
@@ -93,7 +93,7 @@ namespace DrawbackChess.Classes
             if (StartSquare == null)
                 return false;
 
-            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare,game.board);
+            PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare, game.board);
             if (Move_Is_Possible(EndSquare))
             {
                 game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
@@ -123,7 +123,7 @@ namespace DrawbackChess.Classes
                 EndSquare = null;
                 return false;
             }
-            
+
         }
     }
 }

@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Components.Pages;
 
-namespace DrawbackChess.Classes
+namespace DrawbackChess.Classes.GameClasses
 {
     public class DrawbackHandler
     {
-        public static Dictionary<string, Func<string,string,Game, bool>> handle =
-            new Dictionary<string, Func<string,string,Game, bool>>();
+        public static Dictionary<string, Func<string, string, Game, bool>> handle =
+            new Dictionary<string, Func<string, string, Game, bool>>();
 
-        public DrawbackHandler() 
+        public DrawbackHandler()
         {
-           
+
         }
 
         public static async Task<string> GetDrawbackFileContents() //loads all drawbacks possible
@@ -32,7 +32,7 @@ namespace DrawbackChess.Classes
             handle["limited_number_of_moves"] = limited_number_of_moves;
         }
 
-        public static bool location_not_allowed(string playercolor, string DrawbackParameter,Game game)
+        public static bool location_not_allowed(string playercolor, string DrawbackParameter, Game game)
         {
             if (game.moveHistory.GetLastMoveOfPlayer(playercolor) != null)
                 if (game.moveHistory.GetLastMoveOfPlayer(playercolor).endpoint.ToString() == DrawbackParameter)

@@ -3,6 +3,8 @@
 @using DrawbackChess.Components
 @using DrawbackChess.Components.IndividualComponents
 @using CommunityToolkit.Maui.Views;
+@using DrawbackChess.Classes.DatabaseClasses;
+@using DrawbackChess.Classes.GameClasses;
 <link href="css/gamemenu.css" rel="stylesheet" />
 
 <div class="modal-overlay">
@@ -56,7 +58,7 @@
     private string player1Name = "White";
     private string player2Name = "Black";
     private int playTime = 5;
-    public static bool is_new_game = false;
+    DatabaseService db;
 
     //Game instance
     public static Game currentGame;
@@ -81,7 +83,12 @@
     // Start the game logic
     private void StartNewGame()
     {
-        is_new_game = true;
+        db = new DatabaseService();
+        test();
+
+        // Note: This sample requires the database to be created before running.
+        Console.WriteLine($"Database path: {db.DbPath}.");
+
         showNewGamePopup = false;
         Board board = new Board();
         Player player1 = new Player(player1Name, "White", new Drawback());
@@ -92,10 +99,36 @@
         Navigation.NavigateTo("/Game");
     }
 
+    public async void test()
+    {
+        try
+        {
+            Console.WriteLine("Inserting a new blog");
+            db.Add(new  Test(1,"Primul test"));
+            await db.SaveChangesAsync();
+
+            Console.WriteLine("Querying for a blog");
+            var Query = from blog in db.Tests
+                        select blog;
+            foreach (var uwu in Query)
+            {
+                Console.WriteLine(uwu.Message);
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
+        }
+
+    }
+
     public async void ContinueGame()
     {
-        is_new_game = false;
-        List<Game> games = await DatabaseService.Instance.GetGamesAsync();
+        /*List<Game> games = await DatabaseService.Instance.GetGamesAsync();
         if (games.Any())
         {
             Game lastGame = games.Last();
@@ -106,7 +139,7 @@
         {
             Console.WriteLine("There arent any previous games");
         }
-        Navigation.NavigateTo("/Game");
+        Navigation.NavigateTo("/Game");*/
     }
 
     private async void PlayOnline()
