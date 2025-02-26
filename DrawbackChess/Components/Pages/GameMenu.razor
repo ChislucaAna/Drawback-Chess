@@ -39,7 +39,7 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="player1Name" readonly="true" style="pointer-events: none;" />
+        <input @bind="playOnlineName" />
     </div>
 
     <button @onclick="PlayOnline" class="menu-button">Play Online</button>
@@ -55,6 +55,7 @@
     //Game creation settings
     private string player1Name = "White";
     private string player2Name = "Black";
+    private string playOnlineName = "Guest";
     private int playTime = 5;
     public static bool is_new_game = false;
 
@@ -111,6 +112,11 @@
 
     private async void PlayOnline()
     {
-        await JS.InvokeVoidAsync("alert", "This feature is currently not available.");
+        is_new_game = true;
+        showNewGamePopup = false;
+        Board board = new Board();
+
+        string result = await Matchmaking.TryConnect(playOnlineName);
+        await JS.InvokeVoidAsync("alert", result);
     }
 }
