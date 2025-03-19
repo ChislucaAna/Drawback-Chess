@@ -1,8 +1,9 @@
 ﻿@using DrawbackChess.Classes
 @using DrawbackChess.Components.Pages;
+@using DrawbackChess.Classes.GameClasses;
 @code {
-    [Parameter] public DrawbackChess.Classes.Player? player { get; set; }
-    [Parameter] public DrawbackChess.Classes.ChessTimer? timer { get; set; }
+    [Parameter] public Player? player { get; set; }
+    [Parameter] public ChessTimer? timer { get; set; }
     [Parameter] public bool rotate { get; set; }
     [Parameter] public bool GameHasStarted { get; set; }
 }

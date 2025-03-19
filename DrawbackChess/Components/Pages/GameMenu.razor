@@ -3,6 +3,8 @@
 @using DrawbackChess.Components
 @using DrawbackChess.Components.IndividualComponents
 @using CommunityToolkit.Maui.Views;
+@using DrawbackChess.Classes.DatabaseClasses;
+@using DrawbackChess.Classes.GameClasses;
 <link href="css/gamemenu.css" rel="stylesheet" />
 
 <div class="modal-overlay">
@@ -56,7 +58,6 @@
     private string player1Name = "White";
     private string player2Name = "Black";
     private int playTime = 5;
-    public static bool is_new_game = false;
 
     //Game instance
     public static Game currentGame;
@@ -81,7 +82,6 @@
     // Start the game logic
     private void StartNewGame()
     {
-        is_new_game = true;
         showNewGamePopup = false;
         Board board = new Board();
         Player player1 = new Player(player1Name, "White", new Drawback());
@@ -94,13 +94,19 @@
 
     public async void ContinueGame()
     {
-        is_new_game = false;
-        List<Game> games = await DatabaseService.Instance.GetGamesAsync();
+        DatabaseService db = new DatabaseService();
+        List<GameObject> games = await db.GetGamesAsync();
         if (games.Any())
         {
-            Game lastGame = games.Last();
-            lastGame.Deserialize();
-            currentGame = new Game(lastGame.board, lastGame.player1, lastGame.player2, lastGame.WhiteTimer, lastGame.BlackTimer);
+            GameObject lastGame = games.Last();
+            Board board = Board.FromFEN(lastGame.board);
+            Player player1 = Player.FromString(lastGame.player1);
+            Player player2 = Player.FromString(lastGame.player2);
+            ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
+            ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
+            currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+            currentGame.current_turn = lastGame.current_turn;
+            Navigation.NavigateTo("/Game");
         }
         else
         {

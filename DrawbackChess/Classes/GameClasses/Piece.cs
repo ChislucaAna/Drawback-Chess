@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DrawbackChess
+namespace DrawbackChess.Classes.GameClasses
 {
     public abstract class Piece
     {
@@ -15,12 +15,12 @@ namespace DrawbackChess
             this.color = color;
             this.type = type;
         }
-        public abstract HashSet<Square> GetPossibleMoves(Square currentSquare,Board board);
+        public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
 
-        public abstract HashSet<Square> GetChessRange(Square currentSquare,Board board);
+        public abstract HashSet<Square> GetChessRange(Square currentSquare, Board board);
         public void PrintPossibleMoves(Square currentSquare, Board board)
         {
-            var possibleMoves = GetPossibleMoves(currentSquare,board);
+            var possibleMoves = GetPossibleMoves(currentSquare, board);
 
             if (possibleMoves.Count == 0)
             {

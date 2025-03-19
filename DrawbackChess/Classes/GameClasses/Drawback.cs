@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Classes.GameClasses;
 using static System.Collections.Specialized.BitVector32;
 
 namespace DrawbackChess.Classes
@@ -18,6 +19,18 @@ namespace DrawbackChess.Classes
         public Drawback()
         {
             generateRandomDrawback();
+        }
+
+        public Drawback(string text, string type, string parameter)
+        {
+            this.text = text;
+            this.type = type;
+            this.parameter = parameter;
+        }
+
+        public override string ToString()
+        {
+            return text+";"+type+";"+parameter;
         }
 
         private async void generateRandomDrawback() 

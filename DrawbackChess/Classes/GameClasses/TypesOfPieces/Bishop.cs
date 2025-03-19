@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DrawbackChess.Classes.GameClasses;
 using DrawbackChess.Components.Pages;
 using DrawbackChess.Components.Pages;
 
-namespace DrawbackChess {
+namespace DrawbackChess
+{
     internal class Bishop : Piece
     {
         public Bishop(string color) : base(color, "Bishop") { }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DrawbackChess.Classes;
 using Microsoft.AspNetCore.Components;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.IO;
@@ -11,75 +10,38 @@ using static System.Collections.Specialized.BitVector32;
 using SQLite;
 using Newtonsoft.Json;
 using DrawbackChess.Components.Pages;
-namespace DrawbackChess
+using DrawbackChess.Classes.DatabaseClasses;
+namespace DrawbackChess.Classes.GameClasses
 {
     public class Game
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string boardInFEN { get; set; }
         public string current_turn { get; set; } = "White";
         public string? typeofwin { get; set; } = null;
 
-        //These fields cannot be added into the db. They must be serialised first
-        [Ignore]public Board board { get; set; }
-        [Ignore] public Player player1 { get; set; }
-        [Ignore] public Player player2 { get; set; }
-        [Ignore] public Player? winner { get; set; } = null;
-        [Ignore] public ChessTimer WhiteTimer { get; set; }
-        [Ignore] public ChessTimer BlackTimer { get; set; }
-        [Ignore] public Action refreshUI { get; set; }
-
-        [Ignore] public MoveHistory moveHistory { get; set; }
-        public string Player1Json { get; set; }
-        public string Player2Json { get; set; }
-        public string WinnerJson { get; set; }
-        public string WhiteTimerJson { get; set; }
-        public string BlackTimerJson { get; set; }
+        //These fields cannot be added into the db. They must be serialised first:
+        public Board board { get; set; }
+        public Player player1 { get; set; }
+        public Player player2 { get; set; }
+        public ChessTimer WhiteTimer { get; set; }
+        public ChessTimer BlackTimer { get; set; }
+        public Action refreshUI { get; set; }
+        public MoveHistory moveHistory { get; set; }
 
         public Game(Board board, Player player1, Player player2, ChessTimer whiteTimer, ChessTimer blackTimer)
         {
             this.board = board;
             this.player1 = player1;
             this.player2 = player2;
-            this.WhiteTimer = whiteTimer;
-            this.BlackTimer = blackTimer;
+            WhiteTimer = whiteTimer;
+            BlackTimer = blackTimer;
             moveHistory = new MoveHistory();
         }
 
 
         //Pt sqllite:
-        public Game() 
+        public Game()
         {
 
-        }
-
-        public void Serialize()
-        {
-            boardInFEN = Board.ToFEN(board);
-            Player1Json = JsonConvert.SerializeObject(player1);
-            Player2Json = JsonConvert.SerializeObject(player2);
-            WinnerJson = winner != null ? JsonConvert.SerializeObject(winner) : null;
-            WhiteTimerJson = JsonConvert.SerializeObject(WhiteTimer);
-            BlackTimerJson = JsonConvert.SerializeObject(BlackTimer);
-        }
-
-        public void Deserialize()
-        {
-            try
-            {
-                board = Board.FromFEN(boardInFEN); //Chestia asta cauzeaza eroarea
-                player1 = JsonConvert.DeserializeObject<Player>(Player1Json);
-                player2 = JsonConvert.DeserializeObject<Player>(Player2Json);
-                winner = !string.IsNullOrEmpty(WinnerJson) ? JsonConvert.DeserializeObject<Player>(WinnerJson) : null;
-                WhiteTimer = JsonConvert.DeserializeObject<ChessTimer>(WhiteTimerJson);
-                BlackTimer = JsonConvert.DeserializeObject<ChessTimer>(BlackTimerJson);
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine($"Exception: {ex.InnerException?.Message}");
-                Console.WriteLine($"StackTrace: {ex.InnerException?.StackTrace}");
-            }
         }
 
         public void SwitchTimer()
@@ -114,21 +76,26 @@ namespace DrawbackChess
         //Win checkker functions:
         //
 
-        public void LookForWinner()
+        public string LookForWinner()
         {
-            winner = GetSpecialWinner() ?? GetBasicWinner();
+            if(typeofwin=="timelimit")
+                return current_turn;
 
-            if (winner != null)
-                EndGame();
-            else
-                SwitchTimer();
+            var winner = GetSpecialWinner() ?? GetBasicWinner();
+            if (winner == null) return null;
+            return winner.name;
+        }
+
+        public bool GameHasEnded()
+        {
+            return typeofwin != null;
         }
         public Player GetSpecialWinner()
         {
             Console.WriteLine("Looking for special winner");
             foreach (var player in new[] { player1, player2 })
             {
-                if (DrawbackHandler.handle[player.drawback.type](player.color, player.drawback.parameter,this))
+                if (DrawbackHandler.handle[player.drawback.type](player.color, player.drawback.parameter, this))
                 {
                     Console.WriteLine("broke drawback");
                     typeofwin = "drawback rules";
@@ -142,7 +109,7 @@ namespace DrawbackChess
         {
             if (board.KingIsInCheck(current_turn)) //Current player is in check. We check for mate.
             {
-                if(Mate())
+                if (Mate())
                 {
                     typeofwin = "mate";
                     return GetLastThatMoved();
@@ -151,7 +118,7 @@ namespace DrawbackChess
             }
             else //Current player is not in check. We check for draws.
             {
-                if(Draw())
+                if (Draw())
                 {
                     typeofwin = "draw";
                     return player1; //we wont display this anyways,  but it shows that game has ended
@@ -171,7 +138,7 @@ namespace DrawbackChess
                     HashSet<Square> possibilities = square.piece.GetPossibleMoves(square, board);
                     foreach (Square destination in possibilities)
                     {
-                        if (MovementHandler.SimulateMove(square, destination,this)) //exista mutare care se poate face
+                        if (MovementHandler.SimulateMove(square, destination, this)) //exista mutare care se poate face
                         {
                             return false;
                         }
@@ -209,11 +176,6 @@ namespace DrawbackChess
             return moveHistory.contents.Any();
         }
 
-        public bool GameHasEnded()
-        {
-            return winner!= null;
-        }
-
         public void EndGame()
         {
             WhiteTimer.EndTimer(this);
@@ -221,11 +183,5 @@ namespace DrawbackChess
             refreshUI();
         }
 
-        public async void Save()
-        {
-            Serialize();
-            await DatabaseService.Instance.AddGameAsync(this);
-            Console.WriteLine("GameSaved");
-        }
     }
 }
