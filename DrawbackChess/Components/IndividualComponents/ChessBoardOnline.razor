@@ -107,10 +107,8 @@
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
-            //send move to database
             Save();
             ClearMovementData();
-            
         }
         StateHasChanged();
     }

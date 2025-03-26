@@ -27,7 +27,6 @@ namespace DrawbackChess.Classes
             this.type = type;
             this.parameter = parameter;
         }
-
         public override string ToString()
         {
             return text+";"+type+";"+parameter;
