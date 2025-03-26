@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading;
-using Android.Widget;
 
 namespace DrawbackChess.Classes.GameClasses
 {
@@ -16,12 +15,16 @@ namespace DrawbackChess.Classes.GameClasses
         public string player2;
         public string drawback2;
         public string parameter2;
-        public Online (string username, string drawback, string parameter)
+        public Online(string username, string drawback, string parameter)
         {
-            const string connectionUri = "mongodb+srv://rapsyjigo:oybmFIyCs7XxxVpV@cluster0.el5cb.mongodb.net/?appName=Cluster0";
+            const string connectionUri = "mongodb://rapsyjigo:oybmFIyCs7XxxVpV@cluster0-shard-00-00.el5cb.mongodb.net:27017,cluster0-shard-00-01.el5cb.mongodb.net:27017,cluster0-shard-00-02.el5cb.mongodb.net:27017/?replicaSet=atlas-ts8hui-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0";
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
-            client = new MongoClient(settings);
+
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            // Create a new client and connect to the server
+            var client = new MongoClient(settings);
+            // Send a ping to confirm a successful connection
+
 
             var database = client.GetDatabase("chess_games");
             var collection = database.GetCollection<BsonDocument>("matchmaking");
@@ -43,7 +46,7 @@ namespace DrawbackChess.Classes.GameClasses
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
                 document = collection.Find(filter).FirstOrDefault();
 
-                while (document["username2"] == null)
+                while (document.Contains("username2"))
                 {
                     Thread.Sleep(5000);
                     document = collection.Find(filter).FirstOrDefault();
@@ -69,7 +72,7 @@ namespace DrawbackChess.Classes.GameClasses
 
                 firstDocument = collection.Find(filter).FirstOrDefault();
 
-                while (firstDocument["alive"] == null)
+                while (firstDocument.Contains("alive"))
                 {
                     Thread.Sleep(5000);
                     firstDocument = collection.Find(filter).FirstOrDefault();
