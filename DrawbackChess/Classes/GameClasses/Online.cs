@@ -68,39 +68,52 @@ namespace DrawbackChess.Classes.GameClasses
             var client = new MongoClient(settings);
             // Send a ping to confirm a successful connection
 
+            Random rnd = new Random();
+            int UID = rnd.Next(10000000, 99999999);
+
 
             var database = client.GetDatabase("chess_games");
-            var collection = database.GetCollection<BsonDocument>("matchmaking");
+            var matchmakeCollection = database.GetCollection<BsonDocument>("matchmaking");
+            var boardCollection = database.GetCollection<BsonDocument>("boards");
 
 
-            var firstDocument = collection.Find(new BsonDocument()).FirstOrDefault();
+            var firstDocument = matchmakeCollection.Find(new BsonDocument()).FirstOrDefault();
             if (firstDocument == null)
             {
                 var document = new BsonDocument
                 {
                     { "username1", username },
                     { "drawback1", drawback },
-                    { "parameter1", parameter }
+                    { "parameter1", parameter },
+                    { "UID1", UID }
                 };
 
-                collection.InsertOne(document);
+                matchmakeCollection.InsertOne(document);
 
                 ObjectId insertedId = document["_id"].AsObjectId;
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
-                document = collection.Find(filter).FirstOrDefault();
+                document = matchmakeCollection.Find(filter).FirstOrDefault();
 
-                while (document.Contains("username2"))
+                while (!document.Contains("username2"))
                 {
                     Thread.Sleep(5000);
-                    document = collection.Find(filter).FirstOrDefault();
+                    document = matchmakeCollection.Find(filter).FirstOrDefault();
                 }
 
                 player2 = document["username2"].ToString();
                 drawback2 = document["drawback2"].ToString();
                 parameter2 = document["parameter2"].ToString();
 
+                var newGameBoard = new BsonDocument
+                {
+                    { "UID1", UID },
+                    { "UID2", document["UID2"].ToString() }
+                };
+
+                boardCollection.InsertOne(newGameBoard);
+
                 var update = Builders<BsonDocument>.Update.Set("alive", username);
-                collection.UpdateOne(filter, update);
+                matchmakeCollection.UpdateOne(filter, newGameBoard["_id"].AsObjectId.ToString());
 
                 Console.WriteLine("Everything OK!");
             }
@@ -110,15 +123,15 @@ namespace DrawbackChess.Classes.GameClasses
                 ObjectId insertedId = firstDocument["_id"].AsObjectId;
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
 
-                var update = Builders<BsonDocument>.Update.Set("username2", username).Set("drawback2", drawback).Set("parameter2", parameter);
-                collection.UpdateOne(filter, update);
+                var update = Builders<BsonDocument>.Update.Set("username2", username).Set("drawback2", drawback).Set("parameter2", parameter).Set("UID2", UID);
+                matchmakeCollection.UpdateOne(filter, update);
 
-                firstDocument = collection.Find(filter).FirstOrDefault();
+                firstDocument = matchmakeCollection.Find(filter).FirstOrDefault();
 
-                while (firstDocument.Contains("alive"))
+                while (!firstDocument.Contains("alive"))
                 {
                     Thread.Sleep(5000);
-                    firstDocument = collection.Find(filter).FirstOrDefault();
+                    firstDocument = matchmakeCollection.Find(filter).FirstOrDefault();
                 }
 
                 Console.WriteLine("Everything OK!");
