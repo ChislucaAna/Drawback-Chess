@@ -107,13 +107,13 @@ namespace DrawbackChess.Classes.GameClasses
                 var newGameBoard = new BsonDocument
                 {
                     { "UID1", UID },
-                    { "UID2", document["UID2"].ToString() }
+                    { "UID2", document["UID2"] }
                 };
 
                 boardCollection.InsertOne(newGameBoard);
 
-                var update = Builders<BsonDocument>.Update.Set("alive", username);
-                matchmakeCollection.UpdateOne(filter, newGameBoard["_id"].AsObjectId.ToString());
+                var update = Builders<BsonDocument>.Update.Set("alive", newGameBoard["_id"].AsObjectId.ToString());
+                matchmakeCollection.UpdateOne(filter, update);
 
                 Console.WriteLine("Everything OK!");
             }
