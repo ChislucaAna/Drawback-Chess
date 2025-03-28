@@ -1,0 +1,65 @@
+﻿<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    margin:1rem;
+    display: flex;
+    padding:1rem;
+    justify-content:center;
+    align-items: space-between;
+    background-color: #0A0A0A;
+    padding: 1rem;;
+    width: 80vw;
+        box-shadow: 0 0 10px #F8F8FF, 0 0 10px #F8F8FF, 0 0 10px #F8F8FF, 0 0 10px #F8F8FF;
+        border-radius:4rem;
+}
+
+.navbar button:hover {
+    color: #00FFFF;
+}
+
+.navbar button i {
+    font-size: 20px;
+}
+
+button
+{
+    color: #F8F8FF;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left:1rem;
+    margin-right:1rem;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    transition: color 0.3s;;
+}
+</style>
+
+<div class="navbar">
+    <button><i class="fas fa-home"></i></button>
+    <button @onclick="OpenGameMenu"><i class="fas fa-gamepad"></i></button>
+    <button><i class="fas fa-history"></i></button>
+</div>
+
+
+@code {
+    [Inject] private NavigationManager Navigation { get; set; }
+
+    private void OpenGameMenu()
+    {
+        Navigation.NavigateTo($"/menu");
+    }
+}

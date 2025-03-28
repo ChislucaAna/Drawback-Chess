@@ -48,6 +48,13 @@
 </div>
 
 
+<div class="overlay" id="popup" style="@(lookingForMatch==true && matchFound==false ? "" : "display: none;")">
+    <div class="popup-content">
+        <p>Searching for a match...</p>
+    </div>
+</div>
+
+
 @code {
 
     [Inject] private NavigationManager Navigation { get; set; }
@@ -59,6 +66,11 @@
     private string player2Name = "Black";
     private string playerNameOnline = "Chess Prodigy";
     private int playTime = 5;
+
+    //for Showing popup
+    public static bool lookingForMatch = false;
+    public static bool matchFound = false;
+
 
     //Game instance
     public static Game currentGame;

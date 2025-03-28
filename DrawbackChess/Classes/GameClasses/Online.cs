@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using DrawbackChess.Components.Pages;
 using MongoDB.Bson;
 using System.Threading;
 
@@ -17,6 +18,7 @@ namespace DrawbackChess.Classes.GameClasses
         public string parameter2;
         public Online(string username, string drawback, string parameter)
         {
+            GameMenu.lookingForMatch = true;
             const string connectionUri = "mongodb://rapsyjigo:oybmFIyCs7XxxVpV@cluster0-shard-00-00.el5cb.mongodb.net:27017,cluster0-shard-00-01.el5cb.mongodb.net:27017,cluster0-shard-00-02.el5cb.mongodb.net:27017/?replicaSet=atlas-ts8hui-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0";
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
 
@@ -60,6 +62,7 @@ namespace DrawbackChess.Classes.GameClasses
                 collection.UpdateOne(filter, update);
 
                 Console.WriteLine("Everything OK!");
+                GameMenu.matchFound = true;
             }
             else
             {
@@ -79,6 +82,7 @@ namespace DrawbackChess.Classes.GameClasses
                 }
 
                 Console.WriteLine("Everything OK!");
+                GameMenu.matchFound = true;
             }
         }
     }

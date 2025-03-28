@@ -1,26 +1,18 @@
 ﻿@page "/"
+@using DrawbackChess.Components.IndividualComponents;
 <link href="css/Home.css" rel="stylesheet" />
-<div class="content">
 
-    <div class="info">
-            <h1>Drawback Chess</h1>
-            <p>Experience the twist of Drawback Chess, where every player faces a unique random disadvantage, turning strategy and adaptability into the ultimate keys to victory!</p>
-            <button class="start" @onclick="OpenGameMenu">
-                Start playing
-            </button>
+    <div class="content">
+        <div class="logoimage">
+        <img src="\images\logo.jpg"
+             alt="Notfound"
+             class="image" />
+        </div>
+               
     </div>
 
-    <img src="\images\homelogo3.jpg"
-         alt="Notfound"
-         class="image" />
-</div>
 
 @code
 {
-    [Inject] private NavigationManager Navigation { get; set; }
 
-    private void OpenGameMenu()
-    {
-       Navigation.NavigateTo($"/menu");
-    }
 }
