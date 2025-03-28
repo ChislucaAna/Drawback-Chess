@@ -7,20 +7,61 @@ using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading;
 using System.IO;
-
+using System.Configuration;
+using System.Collections.Specialized;
+using Microsoft.Extensions.Configuration;
+using System.Reflection;
+using System.Text.Json;
+using System.Reflection.Metadata;
 namespace DrawbackChess.Classes.GameClasses
 {
+
+
     public class Online
     {
         public MongoClient client;
         public string player2;
         public string drawback2;
         public string parameter2;
+        public static string apiKey;
+        public static AppConfig config;
+        public class AppConfig
+        {
+            public AppSettings AppSettings { get; set; }
+        }
+
+        public class AppSettings
+        {
+            public string APIKey { get; set; }
+        }
+
+        public static class ConfigService
+        {
+            public static async Task<AppConfig> LoadConfigAsync()
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourceName = "DrawbackChess.appsettings.json"; // Replace with your actual namespace
+
+                using Stream stream = assembly.GetManifestResourceStream(resourceName);
+                if (stream == null)
+                    throw new FileNotFoundException($"Resource '{resourceName}' not found.");
+
+                using StreamReader reader = new StreamReader(stream);
+                string json = await reader.ReadToEndAsync();
+
+                return JsonSerializer.Deserialize<AppConfig>(json);
+            }
+        }
         public Online(string username, string drawback, string parameter)
         {
-            StreamReader stream = new StreamReader("../APIKey.env");
-            string connectionUri = stream.ReadLine();
-            var settings = MongoClientSettings.FromConnectionString(connectionUri);
+            // Read API Key
+            string apiKey = config.AppSettings.APIKey.ToString();
+           Console.WriteLine(apiKey);  
+            var settings = MongoClientSettings.FromConnectionString(apiKey);
+
+            //StreamReader sr = new StreamReader("APIKey.env");
+
+            //var settings = MongoClientSettings.FromConnectionString(sr.ReadLine());
 
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             // Create a new client and connect to the server
@@ -82,6 +123,13 @@ namespace DrawbackChess.Classes.GameClasses
 
                 Console.WriteLine("Everything OK!");
             }
+        }
+
+        public static async Task<string> wait()
+        {
+            config =await ConfigService.LoadConfigAsync();
+            Console.WriteLine(config.AppSettings.APIKey.ToString());
+            return "uwu";
         }
     }
 }

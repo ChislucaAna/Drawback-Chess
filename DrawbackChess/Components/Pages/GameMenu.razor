@@ -119,6 +119,8 @@
 
     private async void PlayOnline()
     {
+        string uwu =await Online.wait();
+        Console.WriteLine(uwu);
         showNewGamePopup = false;
         Board board = new Board();
         Drawback player1Drawback = new Drawback();
