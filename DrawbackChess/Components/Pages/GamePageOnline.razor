@@ -1,0 +1,46 @@
+﻿@page "/gameonline"
+@using DrawbackChess.Classes
+@using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
+@using CommunityToolkit.Maui.Views;
+<link href="css/Game.css" rel="stylesheet" />
+<div class="content">
+
+    <GameEndedPopup Title="Game Over" IsVisible="@GameMenu.currentGame.GameHasEnded()">
+        @if (GameMenu.currentGame.typeofwin != "draw")
+        {
+            <p class="message">
+                Game over! Game was won by @GameMenu.currentGame.LookForWinner() by @GameMenu.currentGame.typeofwin.
+            </p>
+        }
+        else
+        {
+            <p class="message">
+                Game over! The game ended in a draw.
+            </p>
+        }
+    </GameEndedPopup>
+
+    <div class="gamearea">
+        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1" 
+        timer="@GameMenu.currentGame.WhiteTimer" rotate="true">
+        </PlayerInfo>
+
+        <ChessBoard></ChessBoard>
+
+        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
+        timer="@GameMenu.currentGame.BlackTimer" rotate="false">
+        </PlayerInfo>
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+        GameMenu.currentGame.refreshUI = refreshUI;
+    }
+}
+
+

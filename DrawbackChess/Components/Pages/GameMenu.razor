@@ -41,7 +41,7 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="player1Name" readonly="true" style="pointer-events: none;" />
+        <input @bind="playerNameOnline" readonly="true" style="pointer-events: none;" />
     </div>
 
     <button @onclick="PlayOnline" class="menu-button">Play Online</button>
@@ -57,10 +57,12 @@
     //Game creation settings
     private string player1Name = "White";
     private string player2Name = "Black";
+    private string playerNameOnline = "Chess Prodigy";
     private int playTime = 5;
 
     //Game instance
     public static Game currentGame;
+    public static Online session;
 
     protected override async void OnInitialized()
     {
@@ -117,6 +119,21 @@
 
     private async void PlayOnline()
     {
-        await JS.InvokeVoidAsync("alert", "This feature is currently not available.");
+        showNewGamePopup = false;
+        Board board = new Board();
+        Drawback player1Drawback = new Drawback();
+        Player player1 = new Player(player1Name, "White", player1Drawback);
+
+        ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
+        ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
+
+        session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
+
+
+        Drawback player2Drawback = new Drawback(null, session.drawback2, session.parameter2);
+        Player player2 = new Player(session.player2, "Black", player2Drawback);
+
+        currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+        Navigation.NavigateTo("/gameonline");
     }
 }

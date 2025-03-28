@@ -29,6 +29,11 @@ namespace DrawbackChess.Classes.GameClasses
             StartSquare.piece = null;
         }
 
+        public static async Task<bool> SendMoveToOpponet (Square StartSquare, Square EndSquare)
+        {
+            return true;
+        }
+
         public static bool SimulateMove(Square StartSquare, Square EndSquare, Game game) //only use this for mate checking
         {
             bool successful = true;
