@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Threading;
+using System.IO;
 
 namespace DrawbackChess.Classes.GameClasses
 {
@@ -17,7 +18,8 @@ namespace DrawbackChess.Classes.GameClasses
         public string parameter2;
         public Online(string username, string drawback, string parameter)
         {
-            const string connectionUri = "mongodb://rapsyjigo:oybmFIyCs7XxxVpV@cluster0-shard-00-00.el5cb.mongodb.net:27017,cluster0-shard-00-01.el5cb.mongodb.net:27017,cluster0-shard-00-02.el5cb.mongodb.net:27017/?replicaSet=atlas-ts8hui-shard-0&ssl=true&authSource=admin&retryWrites=true&w=majority&appName=Cluster0";
+            StreamReader stream = new StreamReader("../APIKey.env");
+            string connectionUri = stream.ReadLine();
             var settings = MongoClientSettings.FromConnectionString(connectionUri);
 
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
