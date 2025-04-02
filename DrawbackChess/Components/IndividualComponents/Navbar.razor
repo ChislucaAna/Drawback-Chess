@@ -1,0 +1,31 @@
+﻿<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="css/Navbar.css" rel="stylesheet" />
+
+<div class="navbar">
+    <button @onclick="GoToHome"><i class="fas fa-home"></i></button>
+    <button @onclick="OpenGameMenu"><i class="fas fa-gamepad"></i></button>
+    <button @onclick="OpenGameHistory"><i class="fas fa-history"></i></button>
+</div>
+
+
+@code {
+    [Inject] private NavigationManager Navigation { get; set; }
+
+    private void OpenGameMenu()
+    {
+        Navigation.NavigateTo($"/menu");
+    }
+    private void GoToHome()
+    {
+        Navigation.NavigateTo($"/");
+    }
+
+    private void OpenGameHistory()
+    {
+        Navigation.NavigateTo($"/gamehistory");
+    }
+
+}

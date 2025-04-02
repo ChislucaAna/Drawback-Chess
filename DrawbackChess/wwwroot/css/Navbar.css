@@ -1,0 +1,35 @@
+﻿.navbar {
+    margin: 1rem;
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    background-color: #01010E;
+    padding: 1rem;
+    width: 80vw;
+    box-shadow: 0 0 20px #B28ABD;
+    border-radius: 4rem;
+}
+
+    .navbar button:hover {
+        color: #00FFFF;
+    }
+
+    .navbar button i {
+        font-size: 20px;
+    }
+
+button {
+    color: #F8F8FF;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    transition: color 0.3s;
+}

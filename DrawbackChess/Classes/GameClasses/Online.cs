@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using DrawbackChess.Components.Pages;
 using MongoDB.Bson;
 using System.Threading;
 using System.IO;
@@ -25,6 +26,10 @@ namespace DrawbackChess.Classes.GameClasses
         public string parameter2;
         public static string apiKey;
         public static AppConfig config;
+        public Online()
+        {
+
+        }
         public class AppConfig
         {
             public AppSettings AppSettings { get; set; }
@@ -52,34 +57,32 @@ namespace DrawbackChess.Classes.GameClasses
                 return JsonSerializer.Deserialize<AppConfig>(json);
             }
         }
-        public Online(string username, string drawback, string parameter)
+
+        public async Task OnlineAsync(string username, string drawback, string parameter)
         {
             // Read API Key
             string apiKey = config.AppSettings.APIKey.ToString();
-           Console.WriteLine(apiKey);  
+            Console.WriteLine(apiKey);
+
             var settings = MongoClientSettings.FromConnectionString(apiKey);
-
-            //StreamReader sr = new StreamReader("APIKey.env");
-
-            //var settings = MongoClientSettings.FromConnectionString(sr.ReadLine());
-
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+
             // Create a new client and connect to the server
             var client = new MongoClient(settings);
-            // Send a ping to confirm a successful connection
 
             Random rnd = new Random();
             int UID = rnd.Next(10000000, 99999999);
-
 
             var database = client.GetDatabase("chess_games");
             var matchmakeCollection = database.GetCollection<BsonDocument>("matchmaking");
             var boardCollection = database.GetCollection<BsonDocument>("boards");
 
+            var firstDocument = await matchmakeCollection.Find(new BsonDocument()).FirstOrDefaultAsync();
 
-            var firstDocument = matchmakeCollection.Find(new BsonDocument()).FirstOrDefault();
             if (firstDocument == null)
             {
+                Console.WriteLine("No one in the queue. Entering queue...");
+
                 var document = new BsonDocument
                 {
                     { "username1", username },
@@ -88,21 +91,24 @@ namespace DrawbackChess.Classes.GameClasses
                     { "UID1", UID }
                 };
 
-                matchmakeCollection.InsertOne(document);
+                await matchmakeCollection.InsertOneAsync(document);
 
                 ObjectId insertedId = document["_id"].AsObjectId;
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
-                document = matchmakeCollection.Find(filter).FirstOrDefault();
+
+                document = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
 
                 while (!document.Contains("username2"))
                 {
-                    Thread.Sleep(5000);
-                    document = matchmakeCollection.Find(filter).FirstOrDefault();
+                    await Task.Delay(5000); // Non-blocking delay
+                    document = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
+                    Console.WriteLine("Waiting for second player to join...");
                 }
 
-                player2 = document["username2"].ToString();
-                drawback2 = document["drawback2"].ToString();
-                parameter2 = document["parameter2"].ToString();
+                Console.WriteLine("Second player joined!");
+                string player2 = document["username2"].ToString();
+                string drawback2 = document["drawback2"].ToString();
+                string parameter2 = document["parameter2"].ToString();
 
                 var newGameBoard = new BsonDocument
                 {
@@ -110,37 +116,48 @@ namespace DrawbackChess.Classes.GameClasses
                     { "UID2", document["UID2"] }
                 };
 
-                boardCollection.InsertOne(newGameBoard);
+                await boardCollection.InsertOneAsync(newGameBoard);
 
                 var update = Builders<BsonDocument>.Update.Set("alive", newGameBoard["_id"].AsObjectId.ToString());
-                matchmakeCollection.UpdateOne(filter, update);
+                await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                Console.WriteLine("Everything OK!");
+                Console.WriteLine("Alive was set to true!");
+                Console.WriteLine("Entered Match");
+                GameMenu.matchFound = true;
             }
             else
             {
+                Console.WriteLine("Someone is in the queue. Checking for alive...");
 
                 ObjectId insertedId = firstDocument["_id"].AsObjectId;
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
 
-                var update = Builders<BsonDocument>.Update.Set("username2", username).Set("drawback2", drawback).Set("parameter2", parameter).Set("UID2", UID);
-                matchmakeCollection.UpdateOne(filter, update);
+                var update = Builders<BsonDocument>.Update
+                    .Set("username2", username)
+                    .Set("drawback2", drawback)
+                    .Set("parameter2", parameter)
+                    .Set("UID2", UID);
 
-                firstDocument = matchmakeCollection.Find(filter).FirstOrDefault();
+                await matchmakeCollection.UpdateOneAsync(filter, update);
+
+                firstDocument = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
 
                 while (!firstDocument.Contains("alive"))
                 {
-                    Thread.Sleep(5000);
-                    firstDocument = matchmakeCollection.Find(filter).FirstOrDefault();
+                    await Task.Delay(5000); // Non-blocking delay
+                    firstDocument = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
+                    Console.WriteLine("Looking for alive!");
                 }
 
-                Console.WriteLine("Everything OK!");
+                Console.WriteLine("Alive found!");
+                Console.WriteLine("Entered match!");
+                GameMenu.matchFound = true;
             }
         }
 
         public static async Task<string> wait()
         {
-            config =await ConfigService.LoadConfigAsync();
+            config = await ConfigService.LoadConfigAsync();
             Console.WriteLine(config.AppSettings.APIKey.ToString());
             return "uwu";
         }

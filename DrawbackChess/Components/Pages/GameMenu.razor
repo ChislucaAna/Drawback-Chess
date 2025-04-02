@@ -41,10 +41,17 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="playerNameOnline" readonly="true" style="pointer-events: none;" />
+        <input @bind="playerNameOnline"/>
     </div>
 
     <button @onclick="PlayOnline" class="menu-button">Play Online</button>
+</div>
+
+
+<div class="searching" id="popup" style="@(lookingForMatch == true && matchFound == false ? "" : "display: none;")">
+    <div class="popup-content">
+        <p class="searchingText">Searching for a match...</p>
+    </div>
 </div>
 
 
@@ -59,6 +66,11 @@
     private string player2Name = "Black";
     private string playerNameOnline = "Chess Prodigy";
     private int playTime = 5;
+
+    //for Showing popup
+    public static bool lookingForMatch = false;
+    public static bool matchFound = false;
+
 
     //Game instance
     public static Game currentGame;
@@ -119,6 +131,8 @@
 
     private async void PlayOnline()
     {
+        if (lookingForMatch == true) return;
+
         string uwu =await Online.wait();
         Console.WriteLine(uwu);
         showNewGamePopup = false;
@@ -129,7 +143,10 @@
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
 
-        session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
+        lookingForMatch = true;
+        session = new Online();
+        await session.OnlineAsync(playerNameOnline,player1Drawback.type,player1Drawback.parameter);
+        //session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
 
 
         Drawback player2Drawback = new Drawback(null, session.drawback2, session.parameter2);
