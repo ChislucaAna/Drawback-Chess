@@ -1,8 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 body {
     margin: 0;
-    padding: 0 ;
-    overflow:hidden;
+    padding: 0;
+    overflow: hidden;
 }
 
 .content {
@@ -36,7 +36,6 @@ h1 {
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     font-size: 2rem;
-    text-shadow: 0 0 16px #165775, 0 0 20px #165775, 0 0 30px #165775, 0 0 40px #165775;
 }
 
 p {
@@ -52,5 +51,5 @@ p {
 }
 
 .logoimage{
-    margin-top:1rem;
+    margin-top:3rem;
 }

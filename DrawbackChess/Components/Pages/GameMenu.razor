@@ -41,7 +41,7 @@
     <!-- Player Name Input -->
     <div class="form_field">
         <label>Player Name:</label>
-        <input @bind="playerNameOnline" readonly="true" style="pointer-events: none;" />
+        <input @bind="playerNameOnline"/>
     </div>
 
     <button @onclick="PlayOnline" class="menu-button">Play Online</button>
@@ -140,7 +140,8 @@
 
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
-
+        
+        lookingForMatch = true;
         session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
 
 

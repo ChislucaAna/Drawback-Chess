@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using DrawbackChess.Components.Pages;
 using MongoDB.Bson;
 using System.Threading;
 using System.IO;
@@ -56,12 +57,9 @@ namespace DrawbackChess.Classes.GameClasses
         {
             // Read API Key
             string apiKey = config.AppSettings.APIKey.ToString();
-           Console.WriteLine(apiKey);  
+            Console.WriteLine(apiKey); 
+            
             var settings = MongoClientSettings.FromConnectionString(apiKey);
-
-            //StreamReader sr = new StreamReader("APIKey.env");
-
-            //var settings = MongoClientSettings.FromConnectionString(sr.ReadLine());
 
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
             // Create a new client and connect to the server
@@ -76,10 +74,11 @@ namespace DrawbackChess.Classes.GameClasses
             var matchmakeCollection = database.GetCollection<BsonDocument>("matchmaking");
             var boardCollection = database.GetCollection<BsonDocument>("boards");
 
-
             var firstDocument = matchmakeCollection.Find(new BsonDocument()).FirstOrDefault();
             if (firstDocument == null)
             {
+                Console.WriteLine("first document was null. Threre is nobody in the quque. Entering queue...");
+
                 var document = new BsonDocument
                 {
                     { "username1", username },
@@ -98,8 +97,9 @@ namespace DrawbackChess.Classes.GameClasses
                 {
                     Thread.Sleep(5000);
                     document = matchmakeCollection.Find(filter).FirstOrDefault();
+                    Console.WriteLine("Waiting for second player to join...");
                 }
-
+                Console.WriteLine("Second player joined!");
                 player2 = document["username2"].ToString();
                 drawback2 = document["drawback2"].ToString();
                 parameter2 = document["parameter2"].ToString();
@@ -114,11 +114,14 @@ namespace DrawbackChess.Classes.GameClasses
 
                 var update = Builders<BsonDocument>.Update.Set("alive", newGameBoard["_id"].AsObjectId.ToString());
                 matchmakeCollection.UpdateOne(filter, update);
+                Console.WriteLine("Alive was set to true!");
 
-                Console.WriteLine("Everything OK!");
+                Console.WriteLine("Entered Match");
+                GameMenu.matchFound = true;
             }
             else
             {
+                Console.WriteLine("first document was not null. Threre is somebody in the queue. Checking for alive...");
 
                 ObjectId insertedId = firstDocument["_id"].AsObjectId;
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", insertedId);
@@ -132,9 +135,11 @@ namespace DrawbackChess.Classes.GameClasses
                 {
                     Thread.Sleep(5000);
                     firstDocument = matchmakeCollection.Find(filter).FirstOrDefault();
+                    Console.WriteLine("looking for alive!");
                 }
-
-                Console.WriteLine("Everything OK!");
+                Console.WriteLine("Alive found!");
+                Console.WriteLine("Entered match!");
+                GameMenu.matchFound = true;
             }
         }
 

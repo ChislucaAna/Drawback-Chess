@@ -1,20 +1,20 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #0D0924;
+    overflow: hidden;
 }
 
 .content {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
     font-family: 'DM Sans', sans-serif;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    background-color: #0D0924;
+    align-items: center;
+    align-content: center;
+    background-color: #01010E;
 }
 
 .menu-button {
