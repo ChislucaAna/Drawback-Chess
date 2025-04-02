@@ -48,9 +48,9 @@
 </div>
 
 
-<div class="overlay" id="popup" style="@(lookingForMatch==true && matchFound==false ? "" : "display: none;")">
+<div class="searching" id="popup" style="@(lookingForMatch == true && matchFound == false ? "" : "display: none;")">
     <div class="popup-content">
-        <p>Searching for a match...</p>
+        <p class="searchingText">Searching for a match...</p>
     </div>
 </div>
 
@@ -131,6 +131,8 @@
 
     private async void PlayOnline()
     {
+        if (lookingForMatch == true) return;
+
         string uwu =await Online.wait();
         Console.WriteLine(uwu);
         showNewGamePopup = false;
@@ -140,9 +142,11 @@
 
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
-        
+
         lookingForMatch = true;
-        session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
+        session = new Online();
+        await session.OnlineAsync(playerNameOnline,player1Drawback.type,player1Drawback.parameter);
+        //session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
 
 
         Drawback player2Drawback = new Drawback(null, session.drawback2, session.parameter2);

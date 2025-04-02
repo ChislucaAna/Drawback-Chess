@@ -63,3 +63,12 @@ h3 {
 .modal-button {
     text-align: center;
 }
+
+.searching {
+    background-color: #3C0056;
+}
+
+.searchingText
+{
+    color:white;
+}
