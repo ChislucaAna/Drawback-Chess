@@ -8,12 +8,13 @@
     [Parameter] public bool GameHasStarted { get; set; }
 }
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="css/PlayerInfo.css" rel="stylesheet">
 <div class="session_info @(rotate ? "rotated" : "")">
     <p>@player.name</p>
     <p class="digital-timer @(GameHasStarted && !timer.isPaused ? "timer-glow" : "")">
         @timer.TimeLeft
     </p>
-    <div>
+    <div class="options">
         <button @onclick="ToggleDrawbackVisibility" class="toggle-drawback-btn">
             <i class="fa @(isDrawbackVisible ? "fal  fa-eye-slash" : "fal  fa-eye")"></i>
         </button>

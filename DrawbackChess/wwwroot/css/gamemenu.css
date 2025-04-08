@@ -24,19 +24,20 @@ body {
     color: #F8F8FF;
     border-radius: 1rem;
     margin: auto;
-    text-align:center;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 .modal-overlay {
     display: flex;
     border-radius: 2rem;
     padding: 1rem;
     flex-direction: column;
-    background-color: #3A3668;
+    box-shadow: 0 0 20px #B28ABD;
     justify-content: center;
     align-items: center;
     margin: 1.5rem;
     margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 label {

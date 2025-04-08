@@ -99,7 +99,7 @@
         showNewGamePopup = false;
         Board board = new Board();
         Player player1 = new Player(player1Name, "White", new Drawback());
-        Player player2 = new Player(player1Name, "Black", new Drawback());
+        Player player2 = new Player(player2Name, "Black", new Drawback());
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
@@ -153,6 +153,6 @@
         Player player2 = new Player(session.player2, "Black", player2Drawback);
 
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
-        Navigation.NavigateTo("/gameonline");
+        Navigation.NavigateTo("/Game");
     }
 }

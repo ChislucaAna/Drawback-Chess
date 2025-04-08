@@ -22,14 +22,21 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1" 
+        <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1"
         timer="@GameMenu.currentGame.WhiteTimer" rotate="true">
         </PlayerInfo>
 
-        <ChessBoard></ChessBoard>
+        @if(GameMenu.session==null)
+        {
+            <ChessBoard></ChessBoard>
+        }
+        else
+        {
+            <ChessBoardOnline></ChessBoardOnline>
+        }
 
         <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
-        timer="@GameMenu.currentGame.BlackTimer" rotate="false">
+                    timer="@GameMenu.currentGame.BlackTimer" rotate="false">
         </PlayerInfo>
     </div>
 </div>
@@ -42,5 +49,3 @@
         GameMenu.currentGame.refreshUI = refreshUI;
     }
 }
-
-
