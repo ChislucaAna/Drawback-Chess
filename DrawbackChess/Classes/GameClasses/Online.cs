@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Text.Json;
 using System.Reflection.Metadata;
 using System.Security;
+using Android.Util;
 namespace DrawbackChess.Classes.GameClasses
 {
 
@@ -22,6 +23,7 @@ namespace DrawbackChess.Classes.GameClasses
     public class Online
     {
         public MongoClient client;
+        public string id;
 
         public string player1;
         public string drawback1;
@@ -42,19 +44,52 @@ namespace DrawbackChess.Classes.GameClasses
         {
         }
 
-        public void sendMove (string move)
+        public void sendMove (string start, string end)
         {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            var update = Builders<BsonDocument>.Update.Set("startSquare", start).Set("endSquare", end);
+            boardCollection.UpdateOne(filter, update);
+        }
+
+        public void switchTurn()
+        {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+            
+            var update = Builders<BsonDocument>.Update.Set("currentTurn", document["currentTurn"] == "White" ? "Black" : "White");
+            boardCollection.UpdateOne(filter, update);
+        }
+
+        public (string, string) waitEnemyTurn ()
+        {
+            while (getMyColor() != getCurrentTurn())
+            {
+                Thread.Sleep(5000);
+            }
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            return (document["startSquare"].ToString(), document["endSquare"].ToString());
+        }
+
+        public string getMyColor ()
+        {
+            if (playerNumber == "UID1")
+                return "White";
+            else
+                return "Black";
         }
 
         public string getCurrentTurn ()
         {
-            string id = Preferences.Get("app_unique_id", null);
-            if (id == null)
-            {
-                id = Guid.NewGuid().ToString();
-                Preferences.Set("app_unique_id", id);
-            }
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
             var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
@@ -124,7 +159,7 @@ namespace DrawbackChess.Classes.GameClasses
                 id = Guid.NewGuid().ToString();
                 Preferences.Set("app_unique_id", id);
             }
-
+            self.id = id;
             var settings = MongoClientSettings.FromConnectionString(apiKey);
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
 
