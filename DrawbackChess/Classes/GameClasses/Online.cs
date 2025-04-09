@@ -15,7 +15,8 @@ using System.Reflection;
 using System.Text.Json;
 using System.Reflection.Metadata;
 using System.Security;
-using Android.Util;
+
+
 namespace DrawbackChess.Classes.GameClasses
 {
 
@@ -44,21 +45,31 @@ namespace DrawbackChess.Classes.GameClasses
         {
         }
 
-        public void sendMove (string start, string end)
+        public Board getBoard ()
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
             var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
             var document = boardCollection.Find(filter).FirstOrDefault();
 
-            var update = Builders<BsonDocument>.Update.Set("startSquare", start).Set("endSquare", end);
+            return Board.FromFEN(document["board"].ToString());
+        }
+
+        public void sendMove (Board board)
+        {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            var update = Builders<BsonDocument>.Update.Set("board", Board.ToFEN(board));
             boardCollection.UpdateOne(filter, update);
         }
 
         public void switchTurn()
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
-
+            
             var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
             var document = boardCollection.Find(filter).FirstOrDefault();
             
@@ -66,18 +77,12 @@ namespace DrawbackChess.Classes.GameClasses
             boardCollection.UpdateOne(filter, update);
         }
 
-        public (string, string) waitEnemyTurn ()
+        public async void waitEnemyTurn ()
         {
             while (getMyColor() != getCurrentTurn())
             {
-                Thread.Sleep(5000);
+                await Task.Delay(5000);
             }
-            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
-
-            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
-            var document = boardCollection.Find(filter).FirstOrDefault();
-
-            return (document["startSquare"].ToString(), document["endSquare"].ToString());
         }
 
         public string getMyColor ()
@@ -310,7 +315,7 @@ namespace DrawbackChess.Classes.GameClasses
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                setVariables(firstDocument, ref self);
+                setVariables(document, ref self);
                 return self;
             }
             return null;

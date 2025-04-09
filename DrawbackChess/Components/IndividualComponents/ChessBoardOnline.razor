@@ -68,15 +68,24 @@
 </div>
 
 @code {
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
+        GameMenu.currentGame.board = Game.session.getBoard();
+        if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor())
+        {
+            await GameMenu.session.waitEnemyTurn();
+            GameMenu.currentGame.board = Game.session.getBoard();
+            GameMenu.currentGame.SwitchTurn();
+            GameMenu.currentGame.SwitchTimer();
+        }
+        StateHasChanged();
     }
 
     public static Square StartSquare;
     public static Square EndSquare;
 
-    private void OnSquareClick(Square clicked)
+    private async void OnSquareClick(Square clicked)
     {
         if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor()) return;
         //No pieces can be moved after ending of game
@@ -108,14 +117,16 @@
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
-            Save();
+            //Save();
+            GameMenu.session.sendMove(GameMenu.currentGame.board);
             ClearMovementData();
-            GameMenu.session.sendMove(StartSquare.ToString(), EndSquare.ToString());
             GameMenu.session.switchTurn();
             StateHasChanged();
-            string enemyStart, enemyEnd;
-            (enemyStart, enemyEnd) = GameMenu.session.waitEnemyTurn();
-            MovementHandler.Try_Execute_Move(new Square(enemyStart), new Square(enemyEnd), GameMenu.currentGame);
+
+            await GameMenu.session.waitEnemyTurn();
+            GameMenu.currentGame.board = Game.session.getBoard();
+            GameMenu.currentGame.SwitchTurn();
+            GameMenu.currentGame.SwitchTimer();
         }
         StateHasChanged();
     }
