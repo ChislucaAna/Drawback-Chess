@@ -22,9 +22,15 @@ namespace DrawbackChess.Classes.GameClasses
     public class Online
     {
         public MongoClient client;
+
+        public string player1;
+        public string drawback1;
+        public string parameter1;
+
         public string player2;
         public string drawback2;
         public string parameter2;
+
         public static string apiKey;
         public static AppConfig config;
         public Online()
@@ -96,6 +102,15 @@ namespace DrawbackChess.Classes.GameClasses
                 //If the match you found is alive just get to it
                 if (firstDocument.Contains("alive"))
                 {
+                    player2 = firstDocument["username2"].ToString();
+                    drawback2 = firstDocument["drawback2"].ToString();
+                    parameter2 = firstDocument["parameter2"].ToString();
+
+                    player1 = firstDocument["usrename1"].ToString();
+                    drawback1 = firstDocument["drawback1"].ToString();
+                    parameter1 = firstDocument["parameter1"].ToString();
+                    Console.WriteLine("Alive was set to true!");
+                    Console.WriteLine("Entered Match");
                     GameMenu.matchFound = true;
                     return;
                 }
@@ -119,6 +134,13 @@ namespace DrawbackChess.Classes.GameClasses
                 await boardCollection.InsertOneAsync(newGameBoard);                
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
+                player2 = firstDocument["username2"].ToString();
+                drawback2 = firstDocument["drawback2"].ToString();
+                parameter2 = firstDocument["parameter2"].ToString();
+
+                player1 = firstDocument["usrename1"].ToString();
+                drawback1 = firstDocument["drawback1"].ToString();
+                parameter1 = firstDocument["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
                 Console.WriteLine("Entered Match");
                 GameMenu.matchFound = true;
@@ -139,8 +161,15 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                Console.WriteLine("Alive found!");
-                Console.WriteLine("Entered match!");
+                player2 = firstDocument["username2"].ToString();
+                drawback2 = firstDocument["drawback2"].ToString();
+                parameter2 = firstDocument["parameter2"].ToString();
+
+                player1 = firstDocument["usrename1"].ToString();
+                drawback1 = firstDocument["drawback1"].ToString();
+                parameter1 = firstDocument["parameter1"].ToString();
+                Console.WriteLine("Alive was set to true!");
+                Console.WriteLine("Entered Match");
                 GameMenu.matchFound = true;
                 return;
             }
@@ -176,8 +205,15 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                Console.WriteLine("Alive found!");
-                Console.WriteLine("Entered match!");
+                player2 = firstDocument["username2"].ToString();
+                drawback2 = firstDocument["drawback2"].ToString();
+                parameter2 = firstDocument["parameter2"].ToString();
+
+                player1 = firstDocument["usrename1"].ToString();
+                drawback1 = firstDocument["drawback1"].ToString();
+                parameter1 = firstDocument["parameter1"].ToString();
+                Console.WriteLine("Alive was set to true!");
+                Console.WriteLine("Entered Match");
                 GameMenu.matchFound = true;
                 return;
             }
@@ -201,23 +237,20 @@ namespace DrawbackChess.Classes.GameClasses
                 filter = Builders<BsonDocument>.Filter.Eq("UID1", id);
 
                 //If 2nd player is not present (AKA no ALIVE)
-                while (!firstDocument.Contains("username2"))
+                while (!document.Contains("username2"))
                 {
                     //Wait for 2nd player
                     await Task.Delay(5000); // Non-blocking delay
-                    firstDocument = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
+                    document = await matchmakeCollection.Find(filter).FirstOrDefaultAsync();
                     Console.WriteLine("Waiting for second player to join...");
                 }
 
                 Console.WriteLine("Second player joined!");
-                string player2 = document["username2"].ToString();
-                string drawback2 = document["drawback2"].ToString();
-                string parameter2 = document["parameter2"].ToString();
 
                 newGameBoard = new BsonDocument
                 {
                     { "UID1", id },
-                    { "UID2", firstDocument["UID2"] }
+                    { "UID2", document["UID2"] }
                 };
 
                 await boardCollection.InsertOneAsync(newGameBoard);
@@ -225,6 +258,13 @@ namespace DrawbackChess.Classes.GameClasses
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
+                player2 = document["username2"].ToString();
+                drawback2 = document["drawback2"].ToString();
+                parameter2 = document["parameter2"].ToString();
+
+                player1 = document["usrename1"].ToString();
+                drawback1 = document["drawback1"].ToString();
+                parameter1 = document["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
                 Console.WriteLine("Entered Match");
                 GameMenu.matchFound = true;

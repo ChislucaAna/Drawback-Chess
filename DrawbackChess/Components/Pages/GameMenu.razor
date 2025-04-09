@@ -138,19 +138,16 @@
         showNewGamePopup = false;
         Board board = new Board();
         Drawback player1Drawback = new Drawback();
-        Player player1 = new Player(player1Name, "White", player1Drawback);
-
-        ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
-        ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
-
         lookingForMatch = true;
         session = new Online();
         await session.OnlineAsync(playerNameOnline,player1Drawback.type,player1Drawback.parameter);
         //session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
 
+        Player player1 = new Player(session.player1, "White", new Drawback(null, session.drawback1, session.parameter1));
+        Player player2 = new Player(session.player2, "Black", new Drawback(null, session.drawback2, session.parameter2));
 
-        Drawback player2Drawback = new Drawback(null, session.drawback2, session.parameter2);
-        Player player2 = new Player(session.player2, "Black", player2Drawback);
+        ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
+        ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
 
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
         Navigation.NavigateTo("/Game");
