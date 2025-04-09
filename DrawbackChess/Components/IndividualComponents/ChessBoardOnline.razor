@@ -71,11 +71,11 @@
     protected override async void OnInitialized()
     {
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
-        GameMenu.currentGame.board = Game.session.getBoard();
+        GameMenu.currentGame.board = GameMenu.session.getBoard();
         if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor())
         {
             await GameMenu.session.waitEnemyTurn();
-            GameMenu.currentGame.board = Game.session.getBoard();
+            GameMenu.currentGame.board = GameMenu.session.getBoard();
             GameMenu.currentGame.SwitchTurn();
             GameMenu.currentGame.SwitchTimer();
         }
@@ -124,7 +124,7 @@
             StateHasChanged();
 
             await GameMenu.session.waitEnemyTurn();
-            GameMenu.currentGame.board = Game.session.getBoard();
+            GameMenu.currentGame.board = GameMenu.session.getBoard();
             GameMenu.currentGame.SwitchTurn();
             GameMenu.currentGame.SwitchTimer();
         }

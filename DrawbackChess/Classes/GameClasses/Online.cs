@@ -77,12 +77,14 @@ namespace DrawbackChess.Classes.GameClasses
             boardCollection.UpdateOne(filter, update);
         }
 
-        public async void waitEnemyTurn ()
+        public async Task<string> waitEnemyTurn ()
         {
             while (getMyColor() != getCurrentTurn())
             {
                 await Task.Delay(5000);
             }
+
+            return "Waited enough";
         }
 
         public string getMyColor ()
