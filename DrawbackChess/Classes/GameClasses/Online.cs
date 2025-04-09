@@ -106,7 +106,7 @@ namespace DrawbackChess.Classes.GameClasses
                     drawback2 = firstDocument["drawback2"].ToString();
                     parameter2 = firstDocument["parameter2"].ToString();
 
-                    player1 = firstDocument["usrename1"].ToString();
+                    player1 = firstDocument["username1"].ToString();
                     drawback1 = firstDocument["drawback1"].ToString();
                     parameter1 = firstDocument["parameter1"].ToString();
                     Console.WriteLine("Alive was set to true!");
@@ -138,7 +138,7 @@ namespace DrawbackChess.Classes.GameClasses
                 drawback2 = firstDocument["drawback2"].ToString();
                 parameter2 = firstDocument["parameter2"].ToString();
 
-                player1 = firstDocument["usrename1"].ToString();
+                player1 = firstDocument["username1"].ToString();
                 drawback1 = firstDocument["drawback1"].ToString();
                 parameter1 = firstDocument["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
@@ -165,7 +165,7 @@ namespace DrawbackChess.Classes.GameClasses
                 drawback2 = firstDocument["drawback2"].ToString();
                 parameter2 = firstDocument["parameter2"].ToString();
 
-                player1 = firstDocument["usrename1"].ToString();
+                player1 = firstDocument["username1"].ToString();
                 drawback1 = firstDocument["drawback1"].ToString();
                 parameter1 = firstDocument["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
@@ -209,7 +209,7 @@ namespace DrawbackChess.Classes.GameClasses
                 drawback2 = firstDocument["drawback2"].ToString();
                 parameter2 = firstDocument["parameter2"].ToString();
 
-                player1 = firstDocument["usrename1"].ToString();
+                player1 = firstDocument["username1"].ToString();
                 drawback1 = firstDocument["drawback1"].ToString();
                 parameter1 = firstDocument["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
@@ -262,7 +262,7 @@ namespace DrawbackChess.Classes.GameClasses
                 drawback2 = document["drawback2"].ToString();
                 parameter2 = document["parameter2"].ToString();
 
-                player1 = document["usrename1"].ToString();
+                player1 = document["username1"].ToString();
                 drawback1 = document["drawback1"].ToString();
                 parameter1 = document["parameter1"].ToString();
                 Console.WriteLine("Alive was set to true!");
