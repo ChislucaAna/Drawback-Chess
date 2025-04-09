@@ -148,6 +148,9 @@
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
 
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+
+        Thread.Sleep(1000); //Avoid race conditions
+
         Navigation.NavigateTo("/Game");
     }
 }

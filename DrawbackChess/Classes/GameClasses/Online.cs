@@ -22,7 +22,6 @@ namespace DrawbackChess.Classes.GameClasses
     public class Online
     {
         public MongoClient client;
-        public IMongoDatabase database;
 
         public string player1;
         public string drawback1;
@@ -55,7 +54,7 @@ namespace DrawbackChess.Classes.GameClasses
                 id = Guid.NewGuid().ToString();
                 Preferences.Set("app_unique_id", id);
             }
-            var boardCollection = database.GetCollection<BsonDocument>("boards");
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
             var filter = Builders<BsonDocument>.Filter.Eq("UID1", id);
             var document = boardCollection.Find(filter).FirstOrDefault();
@@ -88,7 +87,7 @@ namespace DrawbackChess.Classes.GameClasses
             }
         }
 
-        private static Online setVariables(BsonDocument document)
+        private static Online setVariables(BsonDocument document, MongoClient client)
         {
             Online self = new Online();
 
@@ -101,6 +100,7 @@ namespace DrawbackChess.Classes.GameClasses
             self.drawback1 = document["drawback1"].ToString();
             self.parameter1 = document["parameter1"].ToString();
             self.drawbackText1 = document["drawbackText1"].ToString();
+            self.client = client;
 
             Console.WriteLine("Alive was set to true!");
             Console.WriteLine("Entered Match");
@@ -127,11 +127,11 @@ namespace DrawbackChess.Classes.GameClasses
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
 
             // Create a new client and connect to the server
-            var client = new MongoClient(settings);
+            self.client = new MongoClient(settings);
 
-            self.database = client.GetDatabase("chess_games");
-            var matchmakeCollection = self.database.GetCollection<BsonDocument>("matchmaking");
-            var boardCollection = self.database.GetCollection<BsonDocument>("boards");
+            var database = self.client.GetDatabase("chess_games");
+            var matchmakeCollection = database.GetCollection<BsonDocument>("matchmaking");
+            var boardCollection = database.GetCollection<BsonDocument>("boards");
             BsonDocument newGameBoard;
 
             //Search if you are already first player
@@ -146,7 +146,7 @@ namespace DrawbackChess.Classes.GameClasses
                 //If the match you found is alive just get to it
                 if (firstDocument.Contains("alive"))
                 {
-                    self = setVariables(firstDocument);
+                    self = setVariables(firstDocument, self.client);
                     return self;
                 }
 
@@ -169,7 +169,7 @@ namespace DrawbackChess.Classes.GameClasses
                 await boardCollection.InsertOneAsync(newGameBoard);                
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                self = setVariables(firstDocument);
+                self = setVariables(firstDocument, self.client);
                 return self;
             }
 
@@ -187,7 +187,7 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                self = setVariables(firstDocument);
+                self = setVariables(firstDocument, self.client);
                 return self;
             }
 
@@ -223,7 +223,7 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                self = setVariables(firstDocument);
+                self = setVariables(firstDocument, self.client);
                 return self;
             }
 
@@ -269,7 +269,7 @@ namespace DrawbackChess.Classes.GameClasses
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                self = setVariables(firstDocument);
+                self = setVariables(firstDocument, self.client);
                 return self;
             }
             return null;
