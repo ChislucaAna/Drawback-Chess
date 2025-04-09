@@ -22,32 +22,55 @@ namespace DrawbackChess.Classes.GameClasses
     public class Online
     {
         public MongoClient client;
+        public IMongoDatabase database;
 
         public string player1;
         public string drawback1;
         public string parameter1;
+        public string drawbackText1;
 
         public string player2;
         public string drawback2;
         public string parameter2;
+        public string drawbackText2;
 
-        public static string apiKey;
-        public static AppConfig config;
-        public Online()
+        public string currentTurn;
+
+        private static string apiKey;
+        private static AppConfig config;
+        private Online()
+        {
+        }
+
+        public void sendMove (string move)
         {
 
         }
-        public class AppConfig
+
+        public string getCurrentTurn ()
+        {
+            string id = Preferences.Get("app_unique_id", null);
+            if (id == null)
+            {
+                id = Guid.NewGuid().ToString();
+                Preferences.Set("app_unique_id", id);
+            }
+            var boardCollection = database.GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq("UID1", id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+            return document["currentTurn"].ToString();
+        }
+
+        private class AppConfig
         {
             public AppSettings AppSettings { get; set; }
         }
-
-        public class AppSettings
+        private class AppSettings
         {
             public string APIKey { get; set; }
         }
-
-        public static class ConfigService
+        private static class ConfigService
         {
             public static async Task<AppConfig> LoadConfigAsync()
             {
@@ -65,11 +88,34 @@ namespace DrawbackChess.Classes.GameClasses
             }
         }
 
-        public async Task OnlineAsync(string username, string drawback, string parameter)
+        private static Online setVariables(BsonDocument document)
+        {
+            Online self = new Online();
+
+            self.player2 = document["username2"].ToString();
+            self.drawback2 = document["drawback2"].ToString();
+            self.parameter2 = document["parameter2"].ToString();
+            self.drawbackText2 = document["drawbackText2"].ToString();
+
+            self.player1 = document["username1"].ToString();
+            self.drawback1 = document["drawback1"].ToString();
+            self.parameter1 = document["parameter1"].ToString();
+            self.drawbackText1 = document["drawbackText1"].ToString();
+
+            Console.WriteLine("Alive was set to true!");
+            Console.WriteLine("Entered Match");
+            GameMenu.matchFound = true;
+            return self;
+        }
+
+        public static async Task<Online> Create(string username, string drawback, string parameter, string drawbackText)
         {
             // Read API Key
+            Online self = new Online();
             string apiKey = config.AppSettings.APIKey.ToString();
             Console.WriteLine(apiKey);
+
+            //Get unique ID per device to avoid making accounts
             string id = Preferences.Get("app_unique_id", null);
             if (id == null)
             {
@@ -83,11 +129,9 @@ namespace DrawbackChess.Classes.GameClasses
             // Create a new client and connect to the server
             var client = new MongoClient(settings);
 
-            Random rnd = new Random();
-
-            var database = client.GetDatabase("chess_games");
-            var matchmakeCollection = database.GetCollection<BsonDocument>("matchmaking");
-            var boardCollection = database.GetCollection<BsonDocument>("boards");
+            self.database = client.GetDatabase("chess_games");
+            var matchmakeCollection = self.database.GetCollection<BsonDocument>("matchmaking");
+            var boardCollection = self.database.GetCollection<BsonDocument>("boards");
             BsonDocument newGameBoard;
 
             //Search if you are already first player
@@ -102,17 +146,8 @@ namespace DrawbackChess.Classes.GameClasses
                 //If the match you found is alive just get to it
                 if (firstDocument.Contains("alive"))
                 {
-                    player2 = firstDocument["username2"].ToString();
-                    drawback2 = firstDocument["drawback2"].ToString();
-                    parameter2 = firstDocument["parameter2"].ToString();
-
-                    player1 = firstDocument["username1"].ToString();
-                    drawback1 = firstDocument["drawback1"].ToString();
-                    parameter1 = firstDocument["parameter1"].ToString();
-                    Console.WriteLine("Alive was set to true!");
-                    Console.WriteLine("Entered Match");
-                    GameMenu.matchFound = true;
-                    return;
+                    self = setVariables(firstDocument);
+                    return self;
                 }
 
                 //If 2nd player is not present (no uername2), we wait for them
@@ -134,17 +169,8 @@ namespace DrawbackChess.Classes.GameClasses
                 await boardCollection.InsertOneAsync(newGameBoard);                
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                player2 = firstDocument["username2"].ToString();
-                drawback2 = firstDocument["drawback2"].ToString();
-                parameter2 = firstDocument["parameter2"].ToString();
-
-                player1 = firstDocument["username1"].ToString();
-                drawback1 = firstDocument["drawback1"].ToString();
-                parameter1 = firstDocument["parameter1"].ToString();
-                Console.WriteLine("Alive was set to true!");
-                Console.WriteLine("Entered Match");
-                GameMenu.matchFound = true;
-                return;
+                self = setVariables(firstDocument);
+                return self;
             }
 
             filter = Builders<BsonDocument>.Filter.Eq("UID2", id);
@@ -161,17 +187,8 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                player2 = firstDocument["username2"].ToString();
-                drawback2 = firstDocument["drawback2"].ToString();
-                parameter2 = firstDocument["parameter2"].ToString();
-
-                player1 = firstDocument["username1"].ToString();
-                drawback1 = firstDocument["drawback1"].ToString();
-                parameter1 = firstDocument["parameter1"].ToString();
-                Console.WriteLine("Alive was set to true!");
-                Console.WriteLine("Entered Match");
-                GameMenu.matchFound = true;
-                return;
+                self = setVariables(firstDocument);
+                return self;
             }
 
             filter = Builders<BsonDocument>.Filter.Eq("username2", BsonNull.Value);
@@ -205,17 +222,8 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                player2 = firstDocument["username2"].ToString();
-                drawback2 = firstDocument["drawback2"].ToString();
-                parameter2 = firstDocument["parameter2"].ToString();
-
-                player1 = firstDocument["username1"].ToString();
-                drawback1 = firstDocument["drawback1"].ToString();
-                parameter1 = firstDocument["parameter1"].ToString();
-                Console.WriteLine("Alive was set to true!");
-                Console.WriteLine("Entered Match");
-                GameMenu.matchFound = true;
-                return;
+                self = setVariables(firstDocument);
+                return self;
             }
 
             //If you don't yet have a matchmaking request and there is no one else, make one
@@ -250,7 +258,8 @@ namespace DrawbackChess.Classes.GameClasses
                 newGameBoard = new BsonDocument
                 {
                     { "UID1", id },
-                    { "UID2", document["UID2"] }
+                    { "UID2", document["UID2"] },
+                    { "currentTurn", "White" }
                 };
 
                 await boardCollection.InsertOneAsync(newGameBoard);
@@ -258,18 +267,10 @@ namespace DrawbackChess.Classes.GameClasses
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                player2 = document["username2"].ToString();
-                drawback2 = document["drawback2"].ToString();
-                parameter2 = document["parameter2"].ToString();
-
-                player1 = document["username1"].ToString();
-                drawback1 = document["drawback1"].ToString();
-                parameter1 = document["parameter1"].ToString();
-                Console.WriteLine("Alive was set to true!");
-                Console.WriteLine("Entered Match");
-                GameMenu.matchFound = true;
-                return;
+                self = setVariables(firstDocument);
+                return self;
             }
+            return null;
         }
 
         public static async Task<string> wait()

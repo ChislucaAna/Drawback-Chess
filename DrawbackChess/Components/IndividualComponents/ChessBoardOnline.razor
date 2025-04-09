@@ -71,6 +71,10 @@
     protected override void OnInitialized()
     {
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
+        while (GameMenu.session.getCurrentTurn() != GameMenu.currentGame.current_turn)
+        {
+            Thread.Sleep(500);
+        }
     }
 
     public static Square StartSquare;
@@ -78,6 +82,7 @@
 
     private void OnSquareClick(Square clicked)
     {
+        if (GameMenu.session.getCurrentTurn() != GameMenu.currentGame.current_turn) return;
         //No pieces can be moved after ending of game
         if (GameMenu.currentGame.GameHasEnded())
         {
@@ -109,7 +114,7 @@
         {
             Save();
             ClearMovementData();
-            //Send to database
+            //GameMenu.session.sendMove();
 
             //Wait for enemy
 

@@ -139,12 +139,10 @@
         Board board = new Board();
         Drawback player1Drawback = new Drawback();
         lookingForMatch = true;
-        session = new Online();
-        await session.OnlineAsync(playerNameOnline,player1Drawback.type,player1Drawback.parameter);
-        //session = new Online(playerNameOnline, player1Drawback.type, player1Drawback.parameter);
+        session = await Online.Create(playerNameOnline, player1Drawback.type, player1Drawback.parameter, player1Drawback.text);
 
-        Player player1 = new Player(session.player1, "White", new Drawback(null, session.drawback1, session.parameter1));
-        Player player2 = new Player(session.player2, "Black", new Drawback(null, session.drawback2, session.parameter2));
+        Player player1 = new Player(session.player1, "White", new Drawback(session.drawbackText1, session.drawback1, session.parameter1));
+        Player player2 = new Player(session.player2, "Black", new Drawback(session.drawbackText2, session.drawback2, session.parameter2));
 
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
