@@ -309,7 +309,8 @@ namespace DrawbackChess.Classes.GameClasses
                 {
                     { "UID1", id },
                     { "UID2", document["UID2"] },
-                    { "currentTurn", "White" }
+                    { "currentTurn", "White" },
+                    { "board", "RNBQKBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbqkbnr" }
                 };
 
                 await boardCollection.InsertOneAsync(newGameBoard);

@@ -50,7 +50,7 @@ namespace DrawbackChess
                     grid[row, col] = new Square(col, row);
                 }
             }
-            SetupPieces();
+            //SetupPieces();
         }
 
         public void SetupPieces()
@@ -193,9 +193,11 @@ namespace DrawbackChess
                         empty_squares = 0;
                     }
                 }
-                if(s.col==8)//end of line,write separator
+                if(s.col==8 && s.row != 8)//end of line,write separator
                     result += "/";
             }
+            Console.WriteLine("ToFEN");
+            Console.WriteLine(result);
             return result;
         }
 
@@ -230,6 +232,8 @@ namespace DrawbackChess
                 i++;
                 j = 1;
             }
+            Console.WriteLine("FromFEN");
+            Console.WriteLine(result.ToString());
             return result;
         }
 
