@@ -207,6 +207,7 @@ namespace DrawbackChess.Classes.GameClasses
                     .Set("username2", username)
                     .Set("drawback2", drawback)
                     .Set("parameter2", parameter)
+                    .Set("drawbackText2", drawbackText)
                     .Set("UID2", id);
 
                 //Add yourself to the matchmaaking
@@ -236,6 +237,7 @@ namespace DrawbackChess.Classes.GameClasses
                     { "username1", username },
                     { "drawback1", drawback },
                     { "parameter1", parameter },
+                    { "drawbackText1", drawbackText },
                     { "UID1", id },
                     { "expireAfterSeconds", 10000 }
                 };
