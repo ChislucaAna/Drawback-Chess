@@ -121,10 +121,4 @@
       <Folder Include="wwwroot\NewFolder1\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Update="APIKey.env">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
 </Project>
