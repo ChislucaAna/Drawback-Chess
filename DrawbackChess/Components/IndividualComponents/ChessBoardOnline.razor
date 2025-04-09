@@ -113,8 +113,9 @@
             GameMenu.session.sendMove(StartSquare.ToString(), EndSquare.ToString());
             GameMenu.session.switchTurn();
             StateHasChanged();
-            enemyStart, enemyEnd = GameMenu.session.waitEnemyTurn();
-            MovementHandler.Try_Execute_Move(enemyStart, enemyEnd, GameMenu.currentGame)
+            string enemyStart, enemyEnd;
+            (enemyStart, enemyEnd) = GameMenu.session.waitEnemyTurn();
+            MovementHandler.Try_Execute_Move(new Square(enemyStart), new Square(enemyEnd), GameMenu.currentGame);
         }
         StateHasChanged();
     }

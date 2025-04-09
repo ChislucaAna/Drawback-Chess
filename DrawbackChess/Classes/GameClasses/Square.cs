@@ -20,6 +20,12 @@ namespace DrawbackChess
             this.col = column;
             this.row = row;
         }
+
+        public Square(string position)
+        {
+            this.col = position[0] - 'a' + 1;
+            this.row = position[1];
+        }
         public bool is_occupied()
         {
             return piece != null;
