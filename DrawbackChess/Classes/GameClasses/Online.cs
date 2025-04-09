@@ -34,6 +34,7 @@ namespace DrawbackChess.Classes.GameClasses
         public string drawbackText2;
 
         public string currentTurn;
+        public string playerNumber;
 
         private static string apiKey;
         private static AppConfig config;
@@ -56,8 +57,13 @@ namespace DrawbackChess.Classes.GameClasses
             }
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
-            var filter = Builders<BsonDocument>.Filter.Eq("UID1", id);
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
             var document = boardCollection.Find(filter).FirstOrDefault();
+            while (!document.Contains("currentTurn"))
+            {
+                document = boardCollection.Find(filter).FirstOrDefault();
+                Thread.Sleep(5000);
+            }
             return document["currentTurn"].ToString();
         }
 
@@ -87,10 +93,8 @@ namespace DrawbackChess.Classes.GameClasses
             }
         }
 
-        private static Online setVariables(BsonDocument document, MongoClient client)
+        private static void setVariables(BsonDocument document, ref Online self)
         {
-            Online self = new Online();
-
             self.player2 = document["username2"].ToString();
             self.drawback2 = document["drawback2"].ToString();
             self.parameter2 = document["parameter2"].ToString();
@@ -100,12 +104,10 @@ namespace DrawbackChess.Classes.GameClasses
             self.drawback1 = document["drawback1"].ToString();
             self.parameter1 = document["parameter1"].ToString();
             self.drawbackText1 = document["drawbackText1"].ToString();
-            self.client = client;
 
             Console.WriteLine("Alive was set to true!");
             Console.WriteLine("Entered Match");
             GameMenu.matchFound = true;
-            return self;
         }
 
         public static async Task<Online> Create(string username, string drawback, string parameter, string drawbackText)
@@ -141,12 +143,13 @@ namespace DrawbackChess.Classes.GameClasses
             //If you are first player
             if (firstDocument != null) 
             {
+                self.playerNumber = "UID1";
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes"); //Set global used everywhere
 
                 //If the match you found is alive just get to it
                 if (firstDocument.Contains("alive"))
                 {
-                    self = setVariables(firstDocument, self.client);
+                    setVariables(firstDocument, ref self);
                     return self;
                 }
 
@@ -169,7 +172,7 @@ namespace DrawbackChess.Classes.GameClasses
                 await boardCollection.InsertOneAsync(newGameBoard);                
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                self = setVariables(firstDocument, self.client);
+                setVariables(firstDocument, ref self);
                 return self;
             }
 
@@ -179,6 +182,7 @@ namespace DrawbackChess.Classes.GameClasses
             //If we are 2nd player
             if (firstDocument != null)
             {
+                self.playerNumber = "UID2";
                 //Wait for alive
                 while (!firstDocument.Contains("alive"))
                 {
@@ -187,7 +191,7 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                self = setVariables(firstDocument, self.client);
+                setVariables(firstDocument, ref self);
                 return self;
             }
 
@@ -197,6 +201,7 @@ namespace DrawbackChess.Classes.GameClasses
             //If you found somene else waiting for a match
             if (firstDocument != null)
             {
+                self.playerNumber = "UID2";
                 Console.WriteLine("Someone is in the queue. Checking for alive...");
 
                 //Get _id of the matchmaking request
@@ -223,13 +228,14 @@ namespace DrawbackChess.Classes.GameClasses
                     Console.WriteLine("Looking for alive!");
                 }
 
-                self = setVariables(firstDocument, self.client);
+                setVariables(firstDocument, ref self);
                 return self;
             }
 
             //If you don't yet have a matchmaking request and there is no one else, make one
             if (firstDocument == null)
             {
+                self.playerNumber = "UID1";
                 Console.WriteLine("No one in the queue. Entering queue...");
 
                 var document = new BsonDocument
@@ -269,7 +275,7 @@ namespace DrawbackChess.Classes.GameClasses
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 await matchmakeCollection.UpdateOneAsync(filter, update);
 
-                self = setVariables(firstDocument, self.client);
+                setVariables(firstDocument, ref self);
                 return self;
             }
             return null;
