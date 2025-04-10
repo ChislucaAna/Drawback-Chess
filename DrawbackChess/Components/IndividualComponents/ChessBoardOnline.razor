@@ -131,7 +131,10 @@
 
             //aici ar trebui sa se fixeze winchecku
             if (GameMenu.currentGame.LookForWinner() != null)
+            {    
                 GameMenu.currentGame.EndGame();
+                GameMenu.session.endGame();
+            }
             else
             {
                 GameMenu.currentGame.SwitchTurn();

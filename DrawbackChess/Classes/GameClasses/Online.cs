@@ -55,6 +55,16 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
+        public void endGame()
+        {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+            var matchmakingCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("matchmaking");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            boardCollection.DeleteMany(filter);
+            matchmakingCollection.DeleteMany(filter);
+        }
+
         public void sendMove (Board board)
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
