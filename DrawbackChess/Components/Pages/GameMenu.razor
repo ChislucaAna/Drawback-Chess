@@ -93,11 +93,12 @@
         showNewGamePopup = false;
     }
 
-    // Start the game logic
+    // Offline game
     private void StartNewGame()
     {
         showNewGamePopup = false;
         Board board = new Board();
+        board.SetupPieces();
         Player player1 = new Player(player1Name, "White", new Drawback());
         Player player2 = new Player(player2Name, "Black", new Drawback());
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
@@ -106,6 +107,8 @@
         Navigation.NavigateTo("/Game");
     }
 
+
+    //continue last offline game
     public async void ContinueGame()
     {
         DatabaseService db = new DatabaseService();
@@ -129,6 +132,7 @@
         Navigation.NavigateTo("/Game");
     }
 
+    //create new online game
     private async void PlayOnline()
     {
         if (lookingForMatch == true) return;
