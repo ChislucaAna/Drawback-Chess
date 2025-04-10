@@ -38,11 +38,11 @@
                     @(GameMenu.currentGame.board.KingIsInCheck(GameMenu.currentGame.current_turn)
                     &&  square==GameMenu.currentGame.board.GetKingPosition(GameMenu.currentGame.current_turn)? "red" : "")
                     @(isHighlighted ? "highlight" : "")"
-                         @onclick="() => OnSquareClick(square)">
+                    @onclick="() => OnSquareClick(square)">
                         @if (square.piece != null)
                         {
                             <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                                 alt="@square.piece.type" class="piece @(GameMenu.session.getMyColor() == "White" ? "rotated" : "")" />
+                            alt="@square.piece.type" class="piece @(GameMenu.session.getMyColor() == "White" ? "rotated" : "")" />
                             //no rotated pieces in online game mode
                         }
                     </div>
@@ -69,7 +69,7 @@
         }
     </div>
 </div>
-    
+
 @code {
     protected override async void OnInitialized()
     {
@@ -130,13 +130,13 @@
             GameMenu.currentGame.board = GameMenu.session.getBoard();
 
             //aici ar trebui sa se fixeze winchecku
-            if (GameMenu.currentGame.LookForWinner() == null)
-                GameMenu.currentGame.SwitchTimer();
-            else
+            if (GameMenu.currentGame.LookForWinner() != null)
                 GameMenu.currentGame.EndGame();
-
-            GameMenu.currentGame.SwitchTurn();
-            GameMenu.currentGame.SwitchTimer();
+            else
+            {
+                GameMenu.currentGame.SwitchTurn();
+                GameMenu.currentGame.SwitchTimer();
+            }
         }
         StateHasChanged();
     }
