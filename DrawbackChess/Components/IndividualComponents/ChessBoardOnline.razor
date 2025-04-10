@@ -123,7 +123,7 @@
             //Save();
             if (GameMenu.currentGame.winner != null)
             {
-                GameMenu.session.declareWinner(GameMenu.currentGame.winner.color));
+                GameMenu.session.declareWinner(GameMenu.currentGame.winner.color);
                 GameMenu.session.switchTurn();
                 await GameMenu.session.endGame();
             }
@@ -135,12 +135,12 @@
                 StateHasChanged();
 
                 string result = await GameMenu.session.waitEnemyTurn();
+                GameMenu.currentGame.board = GameMenu.session.getBoard();
                 if (result == "won")
                 {
                     GameMenu.currentGame.EndGame();
                     //End game locally
                 }
-                GameMenu.currentGame.board = GameMenu.session.getBoard();
 
                 GameMenu.currentGame.SwitchTurn();
                 GameMenu.currentGame.SwitchTimer();
