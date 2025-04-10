@@ -126,7 +126,7 @@ namespace DrawbackChess.Classes.GameClasses
                 //Declara winner online
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes");
                 boardCollection.UpdateOne(filter, update);
-                return "won";
+                return document["winner"].ToString();
             }
 
             return "none";

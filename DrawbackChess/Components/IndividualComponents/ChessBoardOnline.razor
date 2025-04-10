@@ -138,8 +138,9 @@
 
                 string result = await GameMenu.session.waitEnemyTurn();
                 GameMenu.currentGame.board = GameMenu.session.getBoard();
-                if (result == "won")
+                if (result != "none")
                 {
+                    GameMenu.currentGame.winner.color = result;
                     GameMenu.currentGame.EndGame();
                     //End game locally
                 }
