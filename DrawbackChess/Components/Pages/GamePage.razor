@@ -23,17 +23,10 @@
 
     <div class="gamearea">
         <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1"
-        timer="@GameMenu.currentGame.WhiteTimer" rotate="roteste()">
+        timer="@GameMenu.currentGame.WhiteTimer" rotate="true">
         </PlayerInfo>
 
-        @if(GameMenu.session==null)
-        {
-            <ChessBoard></ChessBoard>
-        }
-        else
-        {
-            <ChessBoardOnline></ChessBoardOnline>
-        }
+        <ChessBoard></ChessBoard>
 
         <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
         timer="@GameMenu.currentGame.BlackTimer" rotate="false">
@@ -47,17 +40,5 @@
     {
         Action refreshUI = async () => await InvokeAsync(StateHasChanged);
         GameMenu.currentGame.refreshUI = refreshUI;
-    }
-
-    public bool roteste() //pe offline nu se roteste, pe online da
-    {
-        if(GameMenu.session==null)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

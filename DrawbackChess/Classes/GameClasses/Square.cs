@@ -32,7 +32,7 @@ namespace DrawbackChess
         }
         public bool IsBlackSquare()
         {
-            return (row + col) % 2 != 0;
+            return (row + col) % 2 == 0;
         }
 
         public string getSquareColor()

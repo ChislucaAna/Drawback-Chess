@@ -75,6 +75,7 @@
     {
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
         GameMenu.currentGame.board = GameMenu.session.getBoard();
+        GameMenu.currentGame.current_turn = GameMenu.session.getCurrentTurn();
         if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor())
         {
             await GameMenu.session.waitEnemyTurn();
@@ -123,6 +124,7 @@
             //Save();
             if (GameMenu.currentGame.winner != null)
             {
+                GameMenu.session.sendMove(GameMenu.currentGame.board);
                 GameMenu.session.declareWinner(GameMenu.currentGame.winner.color);
                 GameMenu.session.switchTurn();
                 await GameMenu.session.endGame();
