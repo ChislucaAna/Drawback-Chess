@@ -152,8 +152,7 @@
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
 
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
-        
         lookingForMatch = false;
-        Navigation.NavigateTo("/Game");
+        Navigation.NavigateTo("/gameOnline");
     }
 }

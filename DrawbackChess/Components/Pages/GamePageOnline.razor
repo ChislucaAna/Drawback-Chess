@@ -1,0 +1,74 @@
+﻿@page "/gameOnline"
+@using DrawbackChess.Classes
+@using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
+@using CommunityToolkit.Maui.Views;
+<link href="css/Game.css" rel="stylesheet" />
+<div class="content">
+
+    <GameEndedPopup Title="Game Over" IsVisible="@GameMenu.currentGame.GameHasEnded()">
+        @if (GameMenu.currentGame.typeofwin != "draw")
+        {
+            <p class="message">
+                Game over! Game was won by @GameMenu.currentGame.LookForWinner() by @GameMenu.currentGame.typeofwin.
+            </p>
+        }
+        else
+        {
+            <p class="message">
+                Game over! The game ended in a draw.
+            </p>
+        }
+    </GameEndedPopup>
+
+    <div class="gamearea">
+        @if (GameMenu.session.getMyColor() == "Black") //oposite player up
+        {
+            <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1"
+                        timer="@GameMenu.currentGame.WhiteTimer" rotate="roteste()">
+            </PlayerInfo>
+        }
+        else
+        {
+            <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
+                        timer="@GameMenu.currentGame.BlackTimer" rotate="false">
+            </PlayerInfo>
+        }
+
+        <ChessBoardOnline></ChessBoardOnline>
+
+        @if (GameMenu.session.getMyColor()=="Black") //im down always
+        {
+            <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
+            timer="@GameMenu.currentGame.BlackTimer" rotate="false">
+            </PlayerInfo>
+        }
+        else
+        {
+            <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1"
+                        timer="@GameMenu.currentGame.WhiteTimer" rotate="roteste()">
+            </PlayerInfo>
+        }
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+        GameMenu.currentGame.refreshUI = refreshUI;
+    }
+
+    public bool roteste() //pe offline nu se roteste, pe online da
+    {
+        if (GameMenu.session == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
