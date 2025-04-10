@@ -7,11 +7,20 @@
 <div class="content">
 
     <GameEndedPopup Title="Game Over" IsVisible="@GameMenu.currentGame.GameHasEnded()">
-        @if (GameMenu.currentGame.typeofwin != "draw")
+        @if (GameMenu.currentGame.typeofwin != "draw")  //someone won
         {
-            <p class="message">
-                Game over! Game was won by @GameMenu.currentGame.LookForWinner() by @GameMenu.currentGame.typeofwin.
-            </p>
+            @if(@GameMenu.currentGame.winner.color == GameMenu.session.getMyColor()) //if i won make it green
+            {
+                <p class="message green">
+                    Game won!
+                </p>
+            }
+            else //esle red
+            {
+                <p class="message red">
+                    Game lost!
+                </p>
+            }
         }
         else
         {

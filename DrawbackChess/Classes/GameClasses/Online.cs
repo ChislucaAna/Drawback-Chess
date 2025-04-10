@@ -140,6 +140,14 @@ namespace DrawbackChess.Classes.GameClasses
                 return "Black";
         }
 
+        public string getMyName()
+        {
+            if (playerNumber == "UID1")
+                return player1;
+            else
+                return player2;
+        }
+
         public string getCurrentTurn ()
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
