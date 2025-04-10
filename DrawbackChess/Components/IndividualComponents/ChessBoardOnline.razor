@@ -123,7 +123,8 @@
             //Save();
             if (GameMenu.currentGame.winner != null)
             {
-                GameMenu.session.declareWinner(GameMenu.currentGame.winner.ToString());
+                GameMenu.session.declareWinner(GameMenu.currentGame.winner.color));
+                GameMenu.session.switchTurn();
                 await GameMenu.session.endGame();
             }
             else
