@@ -231,6 +231,7 @@ namespace DrawbackChess.Classes.GameClasses
             if (firstDocument != null) 
             {
                 self.playerNumber = "UID1";
+                Console.WriteLine(self.playerNumber);
                 var update = Builders<BsonDocument>.Update.Set("alive", "yes"); //Set global used everywhere
 
                 //If the match you found is alive just get to it
@@ -270,6 +271,7 @@ namespace DrawbackChess.Classes.GameClasses
             if (firstDocument != null)
             {
                 self.playerNumber = "UID2";
+                Console.WriteLine(self.playerNumber);
                 //Wait for alive
                 while (!firstDocument.Contains("alive"))
                 {
@@ -289,6 +291,7 @@ namespace DrawbackChess.Classes.GameClasses
             if (firstDocument != null)
             {
                 self.playerNumber = "UID2";
+                Console.WriteLine(self.playerNumber);
                 Console.WriteLine("Someone is in the queue. Checking for alive...");
 
                 //Get _id of the matchmaking request
@@ -323,6 +326,7 @@ namespace DrawbackChess.Classes.GameClasses
             if (firstDocument == null)
             {
                 self.playerNumber = "UID1";
+                Console.WriteLine(self.playerNumber);
                 Console.WriteLine("No one in the queue. Entering queue...");
 
                 var document = new BsonDocument
