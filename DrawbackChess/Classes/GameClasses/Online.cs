@@ -55,14 +55,36 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
-        public void endGame()
+        public async Task<string> endGame()
         {
+
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
             var matchmakingCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("matchmaking");
 
             var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            while (!document.Contains("alive"))
+            {
+                await Task.Delay(5000);
+                document = boardCollection.Find(filter).FirstOrDefault();
+            }
+
             boardCollection.DeleteMany(filter);
             matchmakingCollection.DeleteMany(filter);
+
+            return "uwu";
+        }
+
+        public void declareWinner(string winner)
+        {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            var update = Builders<BsonDocument>.Update.Set("winner", winner);
+            boardCollection.UpdateOne(filter, update);
         }
 
         public void sendMove (Board board)
@@ -94,7 +116,19 @@ namespace DrawbackChess.Classes.GameClasses
                 await Task.Delay(5000);
             }
 
-            return "Waited enough";
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            if (document.Contains("winner"))
+            {
+                //Declara winner online
+                var update = Builders<BsonDocument>.Update.Set("alive", "yes");
+                return "won";
+            }
+
+            return "none";
         }
 
         public string getMyColor ()

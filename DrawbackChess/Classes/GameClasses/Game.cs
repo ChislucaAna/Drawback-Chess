@@ -18,6 +18,8 @@ namespace DrawbackChess.Classes.GameClasses
         public string current_turn { get; set; } = "White";
         public string? typeofwin { get; set; } = null;
 
+        public Player winner;
+
         //These fields cannot be added into the db. They must be serialised first:
         public Board board { get; set; }
         public Player player1 { get; set; }
@@ -81,7 +83,7 @@ namespace DrawbackChess.Classes.GameClasses
             if(typeofwin=="timelimit")
                 return current_turn;
 
-            var winner = GetSpecialWinner() ?? GetBasicWinner();
+            winner = GetSpecialWinner() ?? GetBasicWinner();
             if (winner == null) return null;
             return winner.name;
         }

@@ -121,22 +121,26 @@
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
             //Save();
-            GameMenu.session.sendMove(GameMenu.currentGame.board);
-            ClearMovementData();
-            GameMenu.session.switchTurn();
-            StateHasChanged();
-
-            await GameMenu.session.waitEnemyTurn();
-            GameMenu.currentGame.board = GameMenu.session.getBoard();
-
-            //aici ar trebui sa se fixeze winchecku
-            if (GameMenu.currentGame.LookForWinner() != null)
-            {    
-                GameMenu.currentGame.EndGame();
-                GameMenu.session.endGame();
+            if (GameMenu.currentGame.winner != null)
+            {
+                GameMenu.session.declareWinner(GameMenu.currentGame.winner.ToString());
+                await GameMenu.session.endGame();
             }
             else
             {
+                GameMenu.session.sendMove(GameMenu.currentGame.board);
+                ClearMovementData();
+                GameMenu.session.switchTurn();
+                StateHasChanged();
+
+                string result = await GameMenu.session.waitEnemyTurn();
+                if (result == "won")
+                {
+                    GameMenu.currentGame.EndGame();
+                    //End game locally
+                }
+                GameMenu.currentGame.board = GameMenu.session.getBoard();
+
                 GameMenu.currentGame.SwitchTurn();
                 GameMenu.currentGame.SwitchTimer();
             }
