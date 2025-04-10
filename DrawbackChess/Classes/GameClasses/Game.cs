@@ -85,7 +85,7 @@ namespace DrawbackChess.Classes.GameClasses
 
             winner = GetSpecialWinner() ?? GetBasicWinner();
             if (winner == null) return null;
-            return winner.name;
+            return winner.color;
         }
 
         public bool GameHasEnded()
