@@ -140,7 +140,10 @@
                 GameMenu.currentGame.board = GameMenu.session.getBoard();
                 if (result != "none")
                 {
-                    GameMenu.currentGame.winner.color = result;
+                    if (result == "White")
+                        GameMenu.currentGame.winner = GameMenu.currentGame.player1;
+                    else
+                        GameMenu.currentGame.winner = GameMenu.currentGame.player2;
                     GameMenu.currentGame.EndGame();
                     //End game locally
                 }
