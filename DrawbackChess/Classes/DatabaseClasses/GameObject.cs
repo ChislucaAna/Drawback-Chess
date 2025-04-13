@@ -17,13 +17,13 @@ namespace DrawbackChess.Classes.DatabaseClasses
         public string player2 { get; set; } //CSV:name;color;drawback
         public string? winner { get; set; } = null; //CSV:name;color;drawback
 
-        public string MoveHistory; //CSV
+        public string MoveHistory { get; set; } = null;//CSV
 
-        //TO implement: timestamps list(cand s-a facut fiecare mutare ca sa poti reviziona jocul)
+        public string TimeStamps { get; set; } = null;//csv-dupa fiecare mutare salvezi cele 2 inturi de time remaining de la cei doi jucatori.
 
         public GameObject() { } //sqllite convention
 
-        public GameObject(string current_turn, string? typeofwin, string board, string player1, string player2, string? winner, string moveHistory)
+        public GameObject(string current_turn, string? typeofwin, string board, string player1, string player2, string? winner, string MoveHistory,string TimeStamps)
         {
             this.current_turn = current_turn;
             this.typeofwin = typeofwin;
@@ -31,7 +31,13 @@ namespace DrawbackChess.Classes.DatabaseClasses
             this.player1 = player1;
             this.player2 = player2;
             this.winner = winner;
-            MoveHistory = moveHistory;
+            this.MoveHistory = MoveHistory;
+            this.TimeStamps = TimeStamps;
+        }
+
+        public override string ToString()//inca mai trebuie implementat pentru rocada si checkmate
+        {
+            return this.Id + ";" + this.current_turn;
         }
     }
 }

@@ -233,7 +233,7 @@ namespace DrawbackChess
                 j = 1;
             }
             Console.WriteLine("FromFEN");
-            Console.WriteLine(result.ToString());
+            result.PrintCurrentState();
             return result;
         }
 

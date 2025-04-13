@@ -88,6 +88,7 @@
 
     public static Square StartSquare;
     public static Square EndSquare;
+    public GameObject currentState;
 
     private async void OnSquareClick(Square clicked)
     {
@@ -121,7 +122,6 @@
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
-            //Save();
             if (GameMenu.currentGame.winner != null)
             {
                 GameMenu.session.sendMove(GameMenu.currentGame.board);
@@ -150,20 +150,41 @@
 
                 GameMenu.currentGame.SwitchTurn();
                 GameMenu.currentGame.SwitchTimer();
+                Save();
             }
         }
         StateHasChanged();
     }
 
     public async void Save()
-    {
+    {   
+        //Save to online db
         var g = GameMenu.currentGame;
-        GameObject currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
-            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString());
-        DatabaseService db = new DatabaseService();
-        await db.SaveGameAsync(currentState);
+        //save timestamps first because this method is called after every move
+        g.TimeStamps += g.WhiteTimer.TimeLeft.TotalSeconds.ToString();
+        g.TimeStamps += ";";
+        g.TimeStamps += g.BlackTimer.TimeLeft.TotalSeconds.ToString();
+        g.TimeStamps += ";";
 
-        Console.WriteLine("GameSaved");
+        DatabaseService db = new DatabaseService();
+        if (g.moveHistory.contents.Count() == 1) //game has just started. Create a new game instance.
+        {
+            currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
+            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(), g.TimeStamps);
+
+            Console.WriteLine(await GameMenu.session.SaveRemote(currentState));
+        }
+        else //game is in progress. Update the current game instance
+        {
+            currentState.current_turn = g.current_turn;
+            currentState.typeofwin = g.typeofwin;
+            currentState.board = Board.ToFEN(g.board);
+            currentState.winner = g.LookForWinner();
+            currentState.MoveHistory = g.moveHistory.ToString();
+            currentState.TimeStamps = g.TimeStamps;
+
+            Console.WriteLine(await GameMenu.session.UpdateRemote(currentState));
+        }
     }
 
     public static void DeselectPiece()

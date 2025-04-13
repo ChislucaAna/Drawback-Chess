@@ -5,7 +5,6 @@
 <link href="css/Navbar.css" rel="stylesheet" />
 
 <div class="navbar">
-    <button @onclick="GoToHome"><i class="fas fa-home"></i></button>
     <button @onclick="OpenGameMenu"><i class="fas fa-gamepad"></i></button>
     <button @onclick="OpenGameHistory"><i class="fas fa-history"></i></button>
 </div>
@@ -15,10 +14,6 @@
     [Inject] private NavigationManager Navigation { get; set; }
 
     private void OpenGameMenu()
-    {
-        Navigation.NavigateTo($"/menu");
-    }
-    private void GoToHome()
     {
         Navigation.NavigateTo($"/");
     }
