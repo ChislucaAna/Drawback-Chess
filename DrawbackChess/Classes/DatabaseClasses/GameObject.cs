@@ -17,9 +17,9 @@ namespace DrawbackChess.Classes.DatabaseClasses
         public string player2 { get; set; } //CSV:name;color;drawback
         public string? winner { get; set; } = null; //CSV:name;color;drawback
 
-        public string MoveHistory; //CSV
+        public string MoveHistory { get; set; } = null;//CSV
 
-        public string TimeStamps; //csv-dupa fiecare mutare salvezi cele 2 inturi de time remaining de la cei doi jucatori.
+        public string TimeStamps { get; set; } = null;//csv-dupa fiecare mutare salvezi cele 2 inturi de time remaining de la cei doi jucatori.
 
         public GameObject() { } //sqllite convention
 
@@ -34,7 +34,6 @@ namespace DrawbackChess.Classes.DatabaseClasses
             this.MoveHistory = MoveHistory;
             this.TimeStamps = TimeStamps;
         }
-
 
         public override string ToString()//inca mai trebuie implementat pentru rocada si checkmate
         {

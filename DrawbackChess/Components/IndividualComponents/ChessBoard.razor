@@ -75,6 +75,7 @@
 
     public static Square StartSquare;
     public static Square EndSquare;
+    public GameObject currentState;
 
     private void OnSquareClick(Square clicked)
     {
@@ -123,18 +124,27 @@
         g.TimeStamps += ";";
         g.TimeStamps += g.BlackTimer.TimeLeft.TotalSeconds.ToString();
         g.TimeStamps += ";";
-
-        Console.WriteLine("Timestamps:");
         Console.WriteLine(g.TimeStamps);
-        //create new currentstate
-        Console.WriteLine(g.current_turn);
-        GameObject currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
-            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(),g.TimeStamps);
 
         DatabaseService db = new DatabaseService();
-        await db.SaveGameAsync(currentState);
-
-        Console.WriteLine("GameSaved");
+        if(g.moveHistory.contents.Count()==1) //game has just started. Create a new game instance.
+        {    
+            currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
+            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(), g.TimeStamps);
+            await db.SaveGameAsync(currentState);
+        }
+        else //game is in progress. Update the current game instance
+        {
+            currentState.current_turn = g.current_turn;
+            currentState.typeofwin = g.typeofwin;
+            currentState.board = Board.ToFEN(g.board);
+            currentState.winner = g.LookForWinner();
+            currentState.MoveHistory = g.moveHistory.ToString();
+            currentState.TimeStamps = g.TimeStamps;
+            Console.WriteLine(currentState.TimeStamps);
+            int x =await db.UpdateGameAsync(currentState);
+            Console.WriteLine(x);
+        }
         db.PrintAllGames();
     }
 

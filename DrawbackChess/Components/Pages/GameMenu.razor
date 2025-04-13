@@ -94,8 +94,12 @@
     }
 
     // Offline game
-    private void StartNewGame()
+    private async void StartNewGame()
     {
+        DatabaseService db = new DatabaseService();
+        var cols = await db.GetGamesTableInfoAsync();
+        foreach (var col in cols)
+            Console.WriteLine($"Column: {col.Name}");
 
         showNewGamePopup = false;
         Board board = new Board();
@@ -118,18 +122,26 @@
         {
             GameObject lastGame = games.Last();
             Board board = Board.FromFEN(lastGame.board);
+
+            Console.WriteLine("Last game players");
+            Console.WriteLine(lastGame.player1);
+            Console.WriteLine(lastGame.player2);
             Player player1 = Player.FromString(lastGame.player1);
             Player player2 = Player.FromString(lastGame.player2);
             ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
             ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
 
             //set the reamining time to the last timestamps added in the db
-            Console.WriteLine(lastGame.TimeStamps);
-            string[] stamps = lastGame.TimeStamps.Split(";");
-            string timeWhite = stamps[stamps.Length - 2];
-            string timeBlack = stamps[stamps.Length - 1];
-            WhiteTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeWhite));
-            BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
+            if(lastGame.TimeStamps!=null)
+            {
+                Console.WriteLine(lastGame.MoveHistory);
+                Console.WriteLine(lastGame.TimeStamps);
+                string[] stamps = lastGame.TimeStamps.Split(";");
+                string timeWhite = stamps[stamps.Length - 3];
+                string timeBlack = stamps[stamps.Length - 2];
+                WhiteTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeWhite));
+                BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
+            }
 
             currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
             currentGame.current_turn = lastGame.current_turn;

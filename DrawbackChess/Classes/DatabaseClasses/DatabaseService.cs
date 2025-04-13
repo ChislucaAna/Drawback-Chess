@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using SQLite;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace DrawbackChess.Classes.DatabaseClasses
 {
@@ -35,6 +36,12 @@ namespace DrawbackChess.Classes.DatabaseClasses
             }
         }
 
+        public async Task<List<SQLiteConnection.ColumnInfo>> GetGamesTableInfoAsync()
+        {
+            await Init();
+            return await Database.GetTableInfoAsync("GameObject");
+        }
+
         public void DeleteDatabaseAsync()
         { 
 
@@ -52,22 +59,15 @@ namespace DrawbackChess.Classes.DatabaseClasses
         public async Task<int> SaveGameAsync(GameObject item)
         {
             await Init();
+            Console.WriteLine("GameSaved");
+            return await Database.InsertAsync(item);
+        }
 
-            // Get the record with the highest ID
-            var latestGame = await Database.Table<GameObject>()
-                                           .OrderByDescending(g => g.Id)
-                                           .FirstOrDefaultAsync();
-
-            var maxId = latestGame?.Id ?? 0;
-
-            if (item.Id > maxId)
-            {
-                return await Database.InsertAsync(item);
-            }
-            else
-            {
-                return await Database.UpdateAsync(item);
-            }
+        public async Task<int> UpdateGameAsync(GameObject item)
+        {
+            await Init();
+            Console.WriteLine("GameUpdated");
+            return await Database.UpdateAsync(item);
         }
 
     }

@@ -1,6 +1,41 @@
 ﻿@page "/gamehistory"
-<h3>GameHistoryPage:not implemented yet</h3>
+@using DrawbackChess.Classes
+@using DrawbackChess.Components.Pages;
+@using DrawbackChess.Classes.GameClasses;
+@using DrawbackChess.Classes.DatabaseClasses
+
+<h1 class="text-2xl font-bold mb-4">Previous Games</h1>
+
+@if (games == null)
+{
+    <p>Loading...</p>
+}
+else if (!games.Any())
+{
+    <p>No previous games found.</p>
+}
+else
+{
+    <ul class="space-y-2">
+        @foreach (var game in games)
+        {
+            <li class="p-3 border rounded shadow">
+                <strong>Game #@game.Id</strong><br />
+                CurrentBoardstate: @game.board<br />
+            </li>
+        }
+    </ul>
+}
 
 @code {
+    private List<GameObject> games;
 
+    protected override async Task OnInitializedAsync()
+    {
+        DatabaseService db = new DatabaseService();
+        games = await db.GetGamesAsync();
+        db.PrintAllGames();
+        Console.WriteLine("games fetched");
+        StateHasChanged();
+    }
 }
