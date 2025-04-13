@@ -96,6 +96,7 @@
     // Offline game
     private void StartNewGame()
     {
+
         showNewGamePopup = false;
         Board board = new Board();
         board.SetupPieces();
@@ -121,6 +122,15 @@
             Player player2 = Player.FromString(lastGame.player2);
             ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
             ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
+
+            //set the reamining time to the last timestamps added in the db
+            Console.WriteLine(lastGame.TimeStamps);
+            string[] stamps = lastGame.TimeStamps.Split(";");
+            string timeWhite = stamps[stamps.Length - 2];
+            string timeBlack = stamps[stamps.Length - 1];
+            WhiteTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeWhite));
+            BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
+
             currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
             currentGame.current_turn = lastGame.current_turn;
             Navigation.NavigateTo("/Game");

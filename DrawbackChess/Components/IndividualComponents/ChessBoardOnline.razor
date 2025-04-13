@@ -121,7 +121,6 @@
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
-            //Save();
             if (GameMenu.currentGame.winner != null)
             {
                 GameMenu.session.sendMove(GameMenu.currentGame.board);
@@ -157,13 +156,7 @@
 
     public async void Save()
     {
-        var g = GameMenu.currentGame;
-        GameObject currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
-            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString());
-        DatabaseService db = new DatabaseService();
-        await db.SaveGameAsync(currentState);
-
-        Console.WriteLine("GameSaved");
+        Console.WriteLine("Game was saved to remote db");
     }
 
     public static void DeselectPiece()

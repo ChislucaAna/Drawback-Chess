@@ -25,13 +25,50 @@ namespace DrawbackChess.Classes.DatabaseClasses
             return await Database.Table<GameObject>().ToListAsync();
         }
 
+        public async void PrintAllGames()
+        {
+            await Init();
+            var table = await Database.Table<GameObject>().ToListAsync();
+            foreach (var game in table)
+            {
+                Console.WriteLine(game.ToString());    
+            }
+        }
+
+        public void DeleteDatabaseAsync()
+        { 
+
+            if (File.Exists(Constants.DatabasePath))
+            {
+                File.Delete(Constants.DatabasePath);
+                Console.WriteLine("Database was deleted.");
+            }
+            else
+            {
+                Console.WriteLine("Database was not found.");
+            }
+        }
+
         public async Task<int> SaveGameAsync(GameObject item)
         {
             await Init();
-            if (item.Id != 0)
-                return await Database.UpdateAsync(item);
-            else
+
+            // Get the record with the highest ID
+            var latestGame = await Database.Table<GameObject>()
+                                           .OrderByDescending(g => g.Id)
+                                           .FirstOrDefaultAsync();
+
+            var maxId = latestGame?.Id ?? 0;
+
+            if (item.Id > maxId)
+            {
                 return await Database.InsertAsync(item);
+            }
+            else
+            {
+                return await Database.UpdateAsync(item);
+            }
         }
+
     }
 }

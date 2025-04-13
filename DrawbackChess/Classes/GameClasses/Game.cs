@@ -29,6 +29,8 @@ namespace DrawbackChess.Classes.GameClasses
         public Action refreshUI { get; set; }
         public MoveHistory moveHistory { get; set; }
 
+        public string TimeStamps;
+
         public Game(Board board, Player player1, Player player2, ChessTimer whiteTimer, ChessTimer blackTimer)
         {
             this.board = board;

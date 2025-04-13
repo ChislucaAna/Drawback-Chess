@@ -107,10 +107,10 @@
         EndSquare = clicked;
         if (MovementHandler.Try_Execute_Move(StartSquare, EndSquare, GameMenu.currentGame))
         {
-            //send move to database
+            //save game to local database
             Save();
             ClearMovementData();
-            
+
         }
         StateHasChanged();
     }
@@ -118,12 +118,24 @@
     public async void Save()
     {
         var g = GameMenu.currentGame;
+        //save timestamps first because this method is called after every move
+        g.TimeStamps += g.WhiteTimer.TimeLeft.TotalSeconds.ToString();
+        g.TimeStamps += ";";
+        g.TimeStamps += g.BlackTimer.TimeLeft.TotalSeconds.ToString();
+        g.TimeStamps += ";";
+
+        Console.WriteLine("Timestamps:");
+        Console.WriteLine(g.TimeStamps);
+        //create new currentstate
+        Console.WriteLine(g.current_turn);
         GameObject currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
-            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString());
+            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(),g.TimeStamps);
+
         DatabaseService db = new DatabaseService();
         await db.SaveGameAsync(currentState);
 
         Console.WriteLine("GameSaved");
+        db.PrintAllGames();
     }
 
     public static void DeselectPiece()
