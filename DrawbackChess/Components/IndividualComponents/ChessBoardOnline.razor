@@ -166,25 +166,10 @@
         g.TimeStamps += g.BlackTimer.TimeLeft.TotalSeconds.ToString();
         g.TimeStamps += ";";
 
-        DatabaseService db = new DatabaseService();
-        if (g.moveHistory.contents.Count() == 1) //game has just started. Create a new game instance.
-        {
-            currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
-            g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(), g.TimeStamps);
+        currentState = new GameObject(g.current_turn, g.typeofwin, Board.ToFEN(g.board),
+        g.player1.ToString(), g.player2.ToString(), g.LookForWinner(), g.moveHistory.ToString(), g.TimeStamps);
 
-            Console.WriteLine(await GameMenu.session.SaveRemote(currentState));
-        }
-        else //game is in progress. Update the current game instance
-        {
-            currentState.current_turn = g.current_turn;
-            currentState.typeofwin = g.typeofwin;
-            currentState.board = Board.ToFEN(g.board);
-            currentState.winner = g.LookForWinner();
-            currentState.MoveHistory = g.moveHistory.ToString();
-            currentState.TimeStamps = g.TimeStamps;
-
-            Console.WriteLine(await GameMenu.session.UpdateRemote(currentState));
-        }
+        Console.WriteLine(await GameMenu.session.SaveRemote(currentState));
     }
 
     public static void DeselectPiece()

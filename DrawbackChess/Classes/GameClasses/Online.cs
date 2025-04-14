@@ -61,40 +61,40 @@ namespace DrawbackChess.Classes.GameClasses
         public async Task<string> SaveRemote(GameObject game)
         {
             var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
-            var filter = Builders<BsonDocument>.Filter.Eq("Id", game.Id);
+            var filter = Builders<BsonDocument>.Filter.Eq("Id", id);
 
-            var document = new BsonDocument
+            var firstDocument = await gameCollection.Find(filter).FirstOrDefaultAsync();
+            if (firstDocument == null)
             {
-                { "Id", game.Id },
-                { "current_turn", game.current_turn },
-                { "typeofwin", game.typeofwin },
-                { "board", game.board },
-                { "player1", game.player1 },
-                { "player2", game.player2 },
-                { "winner", game.winner },
-                { "movehistory", game.MoveHistory },
-                { "timestamps", game.TimeStamps },
-            };
+                    var document = new BsonDocument
+                {
+                    { "Id", id }, //in remote folosesc tot id -ul device-ului ca sa salvez jocul
+                    { "current_turn", game.current_turn },
+                    { "typeofwin", game.typeofwin },
+                    { "board", game.board },
+                    { "player1", game.player1 },
+                    { "player2", game.player2 },
+                    { "winner", game.winner },
+                    { "movehistory", game.MoveHistory },
+                    { "timestamps", game.TimeStamps },
+                };
 
                 await gameCollection.InsertOneAsync(document);
-            return "Game was saved to remote db";
-        }
+                return "Game was saved to remote db";
+            }
+            else
+            {
+                var update = Builders<BsonDocument>.Update
+                    .Set("current_turn", game.current_turn)
+                    .Set("typeofwin", game.typeofwin)
+                    .Set("board", game.board)
+                    .Set("winner", game.winner)
+                    .Set("movehistory", game.MoveHistory)
+                    .Set("timestamps", game.TimeStamps);
 
-        public async Task<string> UpdateRemote(GameObject game)
-        {
-            var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
-            var filter = Builders<BsonDocument>.Filter.Eq("Id", game.Id);
-
-            var update = Builders<BsonDocument>.Update
-                .Set("current_turn", game.current_turn)
-                .Set("typeofwin", game.typeofwin)
-                .Set("board", game.board)
-                .Set("winner", game.winner)
-                .Set("movehistory", game.MoveHistory)
-                .Set("timestamps", game.TimeStamps);
-
-            gameCollection.UpdateOne(filter, update);
-            return "Game was updated in remote db";
+                gameCollection.UpdateOne(filter, update);
+                return "Game was updated in remote db";
+            }
         }
         public async Task<string> endGame()
         {
