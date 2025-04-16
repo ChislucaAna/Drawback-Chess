@@ -3,14 +3,24 @@
 @media only screen and (max-width: 767px) {
     /*phone*/
     .chessboard { /*board element itself*/
-        width: 90%
+        width: 90%;
     }
-}
+
+    .chessboard_full { /*board element itself*/
+        height:50vh;
+    }
 
 @media only screen and (min-width: 768px) {
     /*pc*/
-    .chessboard { /*board element itself*/
-       height:65vh;
+
+    .chessboard {
+        height: 50vh;
+    }
+
+    .chessboard_full { /*board element itself*/
+        aspect-ratio: 1 / 1;
+        align-self: center;
+        margin: auto;
     }
 }
 
