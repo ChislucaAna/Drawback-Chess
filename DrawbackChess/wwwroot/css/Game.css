@@ -1,22 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
-.content {
-    height: 100vh;
-    margin: 0 !important;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #01010E;
-}
-
-.chessboard {
-    width:95%;
+.chessboard { /*board element itself*/
     aspect-ratio: 1 / 1;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(8, 1fr);
     border: 2px solid #000;
+    align-self: center;
 }
 
 .square {
@@ -103,8 +93,6 @@ p {
 }
 
 .row-labels {
-    margin-right: 0.5rem;
-    margin-left: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

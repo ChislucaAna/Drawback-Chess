@@ -58,20 +58,16 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
-        public async Task<string> SaveRemote(GameObject game)
+        public async Task<string> SaveRemote(GameObject game) //ai doar insert , playerul care da cleanup salveaza remote
         {
             var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
-            var filter = Builders<BsonDocument>.Filter.Eq("Id", id);
-
-            var firstDocument = await gameCollection.Find(filter).FirstOrDefaultAsync();
-            if (firstDocument == null)
-            {
-                    var document = new BsonDocument
+                var document = new BsonDocument
                 {
-                    { "Id", id }, //in remote folosesc tot id -ul device-ului ca sa salvez jocul
+                    //uid1 si 2 pt selectie in lista in gamehistory
                     { "current_turn", game.current_turn },
                     { "typeofwin", game.typeofwin },
-                    { "board", game.board },
+                    { "board", game.board }, 
+                    //serialize player to do
                     { "player1", game.player1 },
                     { "player2", game.player2 },
                     { "winner", game.winner },
@@ -81,20 +77,6 @@ namespace DrawbackChess.Classes.GameClasses
 
                 await gameCollection.InsertOneAsync(document);
                 return "Game was saved to remote db";
-            }
-            else
-            {
-                var update = Builders<BsonDocument>.Update
-                    .Set("current_turn", game.current_turn)
-                    .Set("typeofwin", game.typeofwin)
-                    .Set("board", game.board)
-                    .Set("winner", game.winner)
-                    .Set("movehistory", game.MoveHistory)
-                    .Set("timestamps", game.TimeStamps);
-
-                gameCollection.UpdateOne(filter, update);
-                return "Game was updated in remote db";
-            }
         }
         public async Task<string> endGame()
         {

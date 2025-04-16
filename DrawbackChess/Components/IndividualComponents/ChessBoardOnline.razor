@@ -127,6 +127,7 @@
                 GameMenu.session.sendMove(GameMenu.currentGame.board);
                 GameMenu.session.declareWinner(GameMenu.currentGame.winner.color);
                 GameMenu.session.switchTurn();
+                Save(); //salveaza remote
                 await GameMenu.session.endGame();
             }
             else
@@ -150,7 +151,6 @@
 
                 GameMenu.currentGame.SwitchTurn();
                 GameMenu.currentGame.SwitchTimer();
-                Save();
             }
         }
         StateHasChanged();
