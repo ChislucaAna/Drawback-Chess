@@ -3,7 +3,7 @@
 @using DrawbackChess.Classes.GameClasses;
 @using DrawbackChess.Classes.DatabaseClasses
 <!--we rotate the whole page if we are playing white-->
-<div class="@(GameMenu.session.getMyColor() == "White" ? "rotated" : "")">
+<div class="@(GameMenu.session.getMyColor() == "White" ? "rotated" : "") chessboard_full">
     <div class="column-labels">
         @for (char colName = 'A'; colName <= 'H'; colName++)
         {

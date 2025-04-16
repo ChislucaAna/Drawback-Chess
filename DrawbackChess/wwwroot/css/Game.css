@@ -50,7 +50,8 @@
     }
 
     .chessboard_full { /*board element itself*/
-        height: 60vh;
+        padding-top:10%;
+        height: 55vh;
         aspect-ratio: 1 / 1;
         align-self: center;
         margin: auto;
@@ -60,12 +61,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%;
     }
 
     .row-label {
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-top: 90%;
+        margin-bottom: 90%;
         color: antiquewhite;
         font-weight: bold;
     }
@@ -163,46 +163,6 @@ p {
 .chessarea{
     display:flex;
     margin:auto;
-}
-
-.digital-timer {
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for digital watch effect */
-    font-size: 1rem; /* Adjust font size as needed */
-    color: #F8F8FF; /* Text color */
-    background-color: black; /* Background color for the timer */
-    padding: 10px 20px; /* Padding around the text */
-    border: 2px solid #757486;
-    border-radius: 5px; /* Slightly rounded corners */
-    display: inline-block;
-    text-align: center; /* Center text inside the div */
-    box-shadow: 0 0 15px grey; /* Subtle shadow to make it look more like a digital display */
-    transition: all 0.2s ease; /* Smooth transition for changes */
-}
-
-@keyframes glowing {
-    0% {
-        text-shadow: 0 0 5px #800080, 0 0 10px #800080, 0 0 15px #800080, 0 0 20px #800080;
-    }
-
-    50% {
-        text-shadow: 0 0 20px #800080, 0 0 30px #800080, 0 0 40px #800080, 0 0 50px #800080;
-    }
-
-    100% {
-        text-shadow: 0 0 5px #800080, 0 0 10px #800080, 0 0 15px #800080, 0 0 20px #800080;
-    }
-}
-.timer-glow {
-    box-shadow: 0 0 1rem #5632D5; /* Subtle shadow to make it look more like a digital display */
-}
-
-
-
-.session_info
-{
-    width:100%;
-    padding:1rem;
-    margin:0;
 }
 
 .red
