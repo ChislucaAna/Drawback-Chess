@@ -1,5 +1,19 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
+@media only screen and (max-width: 767px) {
+    /*phone*/
+    .chessboard { /*board element itself*/
+        width: 90%
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /*pc*/
+    .chessboard { /*board element itself*/
+       height:65vh;
+    }
+}
+
 .chessboard { /*board element itself*/
     aspect-ratio: 1 / 1;
     display: grid;
