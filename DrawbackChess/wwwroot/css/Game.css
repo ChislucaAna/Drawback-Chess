@@ -2,25 +2,88 @@
 
 @media only screen and (max-width: 767px) {
     /*phone*/
-    .chessboard { /*board element itself*/
+    .chessboard {
         width: 90%;
     }
 
-    .chessboard_full { /*board element itself*/
-        height:50vh;
+    .chessboard_full {
+        height: 50vh;
     }
+
+    .row-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .row-label {
+        margin-top: 0.8rem;
+        margin-bottom: 0.5rem;
+        color: antiquewhite;
+        font-weight: bold;
+    }
+
+
+    .column-labels {
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        margin: auto;
+        margin-right: 1rem;
+        margin-left: 1.8rem;
+    }
+
+    .column-label {
+        width: 100%;
+        height: 100%;
+        color: antiquewhite;
+        font-weight: bold;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     /*pc*/
 
     .chessboard {
-        height: 50vh;
+        width:100%;
     }
 
     .chessboard_full { /*board element itself*/
+        height: 60vh;
         aspect-ratio: 1 / 1;
         align-self: center;
         margin: auto;
+    }
+
+    .row-labels {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .row-label {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: antiquewhite;
+        font-weight: bold;
+    }
+
+
+    .column-labels {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        margin: auto;
+    }
+
+    .column-label {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: antiquewhite;
+        font-weight: bold;
     }
 }
 
@@ -88,20 +151,6 @@ p {
     grid-template-rows: auto 1fr;
 }
 
-.column-labels {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    margin: auto;
-}
-
-.column-label {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color:antiquewhite;
-    font-weight: bold;
-}
 
 
 .rotated {
@@ -114,19 +163,6 @@ p {
 .chessarea{
     display:flex;
     margin:auto;
-}
-
-.row-labels {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    height: 100%;
-}
-
-.row-label {
-    color: antiquewhite;
-    font-weight: bold;
 }
 
 .digital-timer {
