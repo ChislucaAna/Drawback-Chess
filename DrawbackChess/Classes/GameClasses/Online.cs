@@ -58,43 +58,25 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
-        public async Task<string> SaveRemote(GameObject game)
+        public async Task<string> SaveRemote(GameObject game) //ai doar insert , playerul care da cleanup salveaza remote
         {
             var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
-            var filter = Builders<BsonDocument>.Filter.Eq("Id", game.Id);
-
-            var document = new BsonDocument
-            {
-                { "Id", game.Id },
-                { "current_turn", game.current_turn },
-                { "typeofwin", game.typeofwin },
-                { "board", game.board },
-                { "player1", game.player1 },
-                { "player2", game.player2 },
-                { "winner", game.winner },
-                { "movehistory", game.MoveHistory },
-                { "timestamps", game.TimeStamps },
-            };
+                var document = new BsonDocument
+                {
+                    //uid1 si 2 pt selectie in lista in gamehistory
+                    { "current_turn", game.current_turn },
+                    { "typeofwin", game.typeofwin },
+                    { "board", game.board }, 
+                    //serialize player to do
+                    { "player1", game.player1 },
+                    { "player2", game.player2 },
+                    { "winner", game.winner },
+                    { "movehistory", game.MoveHistory },
+                    { "timestamps", game.TimeStamps },
+                };
 
                 await gameCollection.InsertOneAsync(document);
-            return "Game was saved to remote db";
-        }
-
-        public async Task<string> UpdateRemote(GameObject game)
-        {
-            var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
-            var filter = Builders<BsonDocument>.Filter.Eq("Id", game.Id);
-
-            var update = Builders<BsonDocument>.Update
-                .Set("current_turn", game.current_turn)
-                .Set("typeofwin", game.typeofwin)
-                .Set("board", game.board)
-                .Set("winner", game.winner)
-                .Set("movehistory", game.MoveHistory)
-                .Set("timestamps", game.TimeStamps);
-
-            gameCollection.UpdateOne(filter, update);
-            return "Game was updated in remote db";
+                return "Game was saved to remote db";
         }
         public async Task<string> endGame()
         {
