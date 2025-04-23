@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using Microsoft.Maui.LifecycleEvents;
-using Microsoft.UI;
 
 #if WINDOWS
 using Microsoft.UI.Windowing;
+using Microsoft.UI;
 using WinRT.Interop;
 #endif
 

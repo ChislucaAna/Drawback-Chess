@@ -24,15 +24,15 @@
     </GameEndedPopup>
 
     <div class="gamearea">
-        <div style="top:0;position:absolute">
+        <div>
                   <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player1"
                 timer="@GameMenu.currentGame.WhiteTimer" rotate="true">
                 </PlayerInfo>
         </div>
 
-        <ChessBoard></ChessBoard>
+            <ChessBoard></ChessBoard>
 
-        <div style="bottom:5rem;position:absolute">
+        <div>
             <PlayerInfo GameHasStarted="@GameMenu.currentGame.GameHasStarted()" player="@GameMenu.currentGame.player2"
                         timer="@GameMenu.currentGame.BlackTimer" rotate="false">
             </PlayerInfo>
