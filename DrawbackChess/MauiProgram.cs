@@ -1,5 +1,12 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.LifecycleEvents;
+using Microsoft.UI;
+
+#if WINDOWS
+using Microsoft.UI.Windowing;
+using WinRT.Interop;
+#endif
 
 namespace DrawbackChess
 {
@@ -14,6 +21,26 @@ namespace DrawbackChess
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 })
+                 .ConfigureLifecycleEvents(lifecycle =>
+                 {
+#if WINDOWS
+                     lifecycle.AddWindows(windows =>
+                     {
+                         windows.OnWindowCreated(window =>
+                         {
+                             // 'window' is Microsoft.UI.Xaml.Window
+                             var hwnd = WindowNative.GetWindowHandle(window);
+                             var windowId = Win32Interop.GetWindowIdFromWindow(hwnd);
+                             var appWindow = AppWindow.GetFromWindowId(windowId);
+
+                             if (appWindow.Presenter is OverlappedPresenter presenter)
+                             {
+                                 presenter.IsResizable = false;
+                             }
+                         });
+                     });
+#endif
+                 })
                 .UseMauiApp<App>().UseMauiCommunityToolkit();
 
             builder.Services.AddMauiBlazorWebView();
@@ -24,6 +51,7 @@ namespace DrawbackChess
             //builder.Logging.SetMinimumLevel(LogLevel.Debug);
             builder.Logging.AddDebug();
 #endif
+
             return builder.Build();
         }
     }
