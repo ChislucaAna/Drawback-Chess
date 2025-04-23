@@ -285,7 +285,9 @@ namespace DrawbackChess.Classes.GameClasses
                 newGameBoard = new BsonDocument
                 {
                     { "UID1", id },
-                    { "UID2", firstDocument["UID2"] }
+                    { "UID2", firstDocument["UID2"] },
+                    { "currentTurn", "White" },
+                    { "board", "RNBQKBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbqkbnr" }
                 };
 
                 await boardCollection.InsertOneAsync(newGameBoard);                
