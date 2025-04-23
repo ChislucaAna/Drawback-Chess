@@ -10,6 +10,7 @@
     margin: auto;
     text-align: center;
     margin-bottom: 1rem;
+    font-size: inherit;
 }
 .modal-overlay {
     display: flex;
@@ -18,7 +19,7 @@
     flex-direction: column;
     box-shadow: 0 0 20px #B28ABD;
     align-items: center;
-    margin-top: 2rem;
+    margin:1rem;
     align-self: center;
     width: 80%;
 }

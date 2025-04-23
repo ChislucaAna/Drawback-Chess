@@ -1,0 +1,24 @@
+﻿/* Set root font size */
+html {
+    font-size: 18px;
+}
+
+/* Inherit font size on all elements */
+*, *::before, *::after {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+/* Small mobile devices */
+@media only screen and (max-width: 767px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}
