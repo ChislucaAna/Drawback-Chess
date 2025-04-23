@@ -1,7 +1,7 @@
 ﻿.nav {
     align-self: center;
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
 }
 
 body {
@@ -19,6 +19,7 @@ body {
 .content {
     display: flex;
     flex-direction: column;
+    overflow:hidden;
     margin: 0 !important;
     padding: 0 !important;
     width: 100vw;

@@ -53,7 +53,7 @@
     }
 
     .chessboard_full { /*board element itself*/
-        padding-top:10%;
+        padding-top:7.5%;
         height: 55vh;
         aspect-ratio: 1 / 1;
         align-self: center;
@@ -153,8 +153,6 @@ p {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
 }
-
-
 
 .rotated {
     display: inline-block;
