@@ -149,14 +149,10 @@ p {
     grid-template-columns: auto 1fr;
     grid-template-rows: auto 1fr;
 }
-
-/* Mobile-only: apply rotation */
-@media (max-width: 768px) {
-    .rotated {
-        transform: rotate(180deg);
-        transform-origin: center; /* Rotate around the center of the letter */
-        align-self: center;
-    }
+.rotated {
+    transform: rotate(180deg);
+    transform-origin: center; /* Rotate around the center of the letter */
+    align-self: center;
 }
 
 .chessarea{

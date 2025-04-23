@@ -3,12 +3,12 @@
 @using DrawbackChess.Classes.GameClasses;
 @using DrawbackChess.Classes.DatabaseClasses
 <!--we rotate the whole page if we are playing white-->
-<div class="chessboard_full">
+<div class="chessboard_full @((GameMenu.session.getMyColor()=="White") ? "rotated" : "") ">
     <div class="column-labels">
         @for (char colName = 'A'; colName <= 'H'; colName++)
         {
-            <div class="column-label">
-                <span class="rotated">@colName</span>
+            <div class="column-label rotated">
+                <span>@colName</span>
             </div>
         }
     </div>
@@ -18,12 +18,12 @@
             @for (int row = 1; row <= 8; row++)
             {
                 <div class="row-label">
-                    <label>@row</label>
+                    <span>@row</span>
                 </div>
             }
         </div>
 
-        <div class="chessboard  @(GameMenu.session.getMyColor() == "White" ? "rotated" : "")">
+        <div class="chessboard">
 
             @for (int row = 1; row <= 8; row++)
             {
@@ -54,7 +54,7 @@
             @for (int row = 1; row <= 8; row++)
             {
                 <div class="row-label rotated">
-                    <label>@row</label>
+                    <span>@row</span>
                 </div>
             }
         </div>
@@ -65,7 +65,11 @@
     <div class="column-labels">
         @for (char colName = 'A'; colName <= 'H'; colName++)
         {
-            <div class="column-label">@colName</div>
+            <div class="column-label">
+                <span>
+                    @colName
+                </span>
+            </div>
         }
     </div>
 </div>
