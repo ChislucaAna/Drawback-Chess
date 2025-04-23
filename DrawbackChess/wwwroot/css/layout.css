@@ -1,8 +1,7 @@
 ﻿.nav {
     align-self: center;
-    margin-top: auto;
-    position: absolute;
-    bottom: 0;
+    position: fixed;
+    bottom: 10px;
 }
 
 body {
@@ -20,6 +19,7 @@ body {
 .content {
     display: flex;
     flex-direction: column;
+    overflow:hidden;
     margin: 0 !important;
     padding: 0 !important;
     width: 100vw;

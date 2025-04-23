@@ -1,6 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 .menu-button {
     padding: 1rem;
     cursor: pointer;
@@ -10,6 +11,7 @@
     margin: auto;
     text-align: center;
     margin-bottom: 1rem;
+    font-size: inherit;
 }
 .modal-overlay {
     display: flex;
@@ -18,7 +20,7 @@
     flex-direction: column;
     box-shadow: 0 0 20px #B28ABD;
     align-items: center;
-    margin-top: 2rem;
+    margin:1rem;
     align-self: center;
     width: 80%;
 }

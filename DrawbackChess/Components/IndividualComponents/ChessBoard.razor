@@ -11,53 +11,53 @@
             <span class="rotated">@colName</span>
         </div>
     }
-</div>
-<div class="chessarea">
-
-    <div class="row-labels">
-        @for (int row = 1; row <= 8; row++)
-        {
-            <div class="row-label">
-                <label>@row</label>
-            </div>
-        }
     </div>
+    <div class="chessarea">
 
-    <div class="chessboard">
-
-        @for (int row = 1; row <= 8; row++)
-        {
-
-            @for (int col = 1; col <= 8; col++)
+        <div class="row-labels">
+            @for (int row = 1; row <= 8; row++)
             {
-                var square = GameMenu.currentGame.board.grid[row, col];
-                var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
-
-                <div class="square @(square.IsBlackSquare() ? "black" : "white")
-                    @(square == StartSquare ? "selected" : "")
-                    @(GameMenu.currentGame.board.KingIsInCheck(GameMenu.currentGame.current_turn)
-                    &&  square==GameMenu.currentGame.board.GetKingPosition(GameMenu.currentGame.current_turn)? "red" : "")
-                    @(isHighlighted ? "highlight" : "")"
-                @onclick="() => OnSquareClick(square)">
-                    @if (square.piece != null)
-                    {
-                        <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                        alt="@square.piece.type"
-                        class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
-                    }
+                <div class="row-label">
+                    <label>@row</label>
                 </div>
             }
-        }
-    </div>
+        </div>
 
-    <div class="row-labels">
-        @for (int row = 1; row <= 8; row++)
-        {
-            <div class="row-label rotated">
-                <label>@row</label>
-            </div>
-        }
-    </div>
+        <div class="chessboard">
+
+            @for (int row = 1; row <= 8; row++)
+            {
+
+                @for (int col = 1; col <= 8; col++)
+                {
+                    var square = GameMenu.currentGame.board.grid[row, col];
+                    var isHighlighted = MovementHandler.PossibleMoves.Contains(square); // Check if the square is a possible move for the currently selected piece
+
+                    <div class="square @(square.IsBlackSquare() ? "black" : "white")
+                        @(square == StartSquare ? "selected" : "")
+                        @(GameMenu.currentGame.board.KingIsInCheck(GameMenu.currentGame.current_turn)
+                        &&  square==GameMenu.currentGame.board.GetKingPosition(GameMenu.currentGame.current_turn)? "red" : "")
+                        @(isHighlighted ? "highlight" : "")"
+                    @onclick="() => OnSquareClick(square)">
+                        @if (square.piece != null)
+                        {
+                            <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                            alt="@square.piece.type"
+                            class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+        <div class="row-labels">
+            @for (int row = 1; row <= 8; row++)
+            {
+                <div class="row-label rotated">
+                    <label>@row</label>
+                </div>
+            }
+        </div>
 
 
 </div>

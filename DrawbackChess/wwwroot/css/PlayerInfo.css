@@ -21,7 +21,7 @@
     text-align: center; /* Center text inside the div */
     box-shadow: 0 0 15px grey; /* Subtle shadow to make it look more like a digital display */
     transition: all 0.2s ease; /* Smooth transition for changes */
-    width:10%;
+    width:7rem;
     height:5%;
 }
 
@@ -42,7 +42,6 @@
 .timer-glow {
     box-shadow: 0 0 1rem #5632D5; /* Subtle shadow to make it look more like a digital display */
 }
-
 
 
 .session_info {

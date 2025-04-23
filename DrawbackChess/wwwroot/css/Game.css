@@ -7,7 +7,6 @@
     }
 
     .chessboard_full {
-        height: 50vh;
     }
 
     .row-labels {
@@ -40,9 +39,6 @@
         color: antiquewhite;
         font-weight: bold;
     }
-    .chessboard_full { /*board element itself*/
-        padding-top: 35%;
-    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -53,8 +49,8 @@
     }
 
     .chessboard_full { /*board element itself*/
-        padding-top:10%;
-        height: 55vh;
+        
+        height: 50vh;
         aspect-ratio: 1 / 1;
         align-self: center;
         margin: auto;
@@ -154,13 +150,13 @@ p {
     grid-template-rows: auto 1fr;
 }
 
-
-
-.rotated {
-    display: inline-block;
-    transform: rotate(180deg);
-    transform-origin: center; /* Rotate around the center of the letter */
-    align-self:center;
+/* Mobile-only: apply rotation */
+@media (max-width: 768px) {
+    .rotated {
+        transform: rotate(180deg);
+        transform-origin: center; /* Rotate around the center of the letter */
+        align-self: center;
+    }
 }
 
 .chessarea{
