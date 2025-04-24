@@ -20,7 +20,6 @@ namespace DrawbackChess.Classes.GameClasses
 
         public Player winner;
 
-        //These fields cannot be added into the db. They must be serialised first:
         public Board board { get; set; }
         public Player player1 { get; set; }
         public Player player2 { get; set; }

@@ -16,7 +16,6 @@ namespace DrawbackChess.Classes.GameClasses
             this.type = type;
         }
         public abstract HashSet<Square> GetPossibleMoves(Square currentSquare, Board board);
-
         public abstract HashSet<Square> GetChessRange(Square currentSquare, Board board);
         public void PrintPossibleMoves(Square currentSquare, Board board)
         {

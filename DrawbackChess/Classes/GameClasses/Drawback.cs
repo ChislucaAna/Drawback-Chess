@@ -37,7 +37,7 @@ namespace DrawbackChess.Classes
             Random rnd = new Random();
             int index = rnd.Next(1, 75);
 
-            string contents = await DrawbackHandler.GetDrawbackFileContents();
+            string contents = await DrawbackHandler.GetDrawbackContents();
             string[] lines = contents
                 .Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(line => line.TrimEnd('\r'))

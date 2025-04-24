@@ -56,7 +56,7 @@ namespace DrawbackChess
             return $"{colLetter}{row}";
         }
 
-        public bool IsDangerousForKing(string color,Board board)
+        public bool IsDangerousForKing(string color, Board board)
         {
             foreach (var square in board.grid)
             {

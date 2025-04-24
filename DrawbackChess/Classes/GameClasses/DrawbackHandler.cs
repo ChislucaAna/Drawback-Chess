@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DrawbackChess.Components.Pages;
@@ -17,14 +18,10 @@ namespace DrawbackChess.Classes.GameClasses
 
         }
 
-        public static async Task<string> GetDrawbackFileContents() //loads all drawbacks possible
+        public static async Task<string> GetDrawbackContents()
         {
-            using var stream = await FileSystem.OpenAppPackageFileAsync("drawbacks.txt");
-            using var reader = new StreamReader(stream);
-            return reader.ReadToEnd();
-
+            return string.Join("\n", handle.Keys.ToArray());
         }
-
         public static void InitDrawbacks()
         {
             handle["location_not_allowed"] = location_not_allowed;
