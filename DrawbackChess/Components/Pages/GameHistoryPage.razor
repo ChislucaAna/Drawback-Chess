@@ -3,10 +3,12 @@
 @using DrawbackChess.Components.Pages;
 @using DrawbackChess.Classes.GameClasses;
 @using DrawbackChess.Classes.DatabaseClasses
-<link href="css/Game.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/layout.css">
+
+<link href="css/gamemenu.css" rel="stylesheet" />
+<link href="css/fonts.css" rel="stylesheet" />
+<link href="css/GameHistory.css" rel="stylesheet" />
+
 <div class="content">
-    <h1 class="heading">Previous Games</h1>
 
     @if (games == null)
     {
@@ -22,8 +24,9 @@
             @foreach (var game in games)
             {
                 <li class="item" style="color: white">
+
                     <strong>Game #@game.Id</strong><br />
-                    CurrentBoardstate: @game.board<br />
+
                     <button @onclick="() => Rewatch(game)"  class="menu-button">Rewatch Game</button>
                 </li>
             }
