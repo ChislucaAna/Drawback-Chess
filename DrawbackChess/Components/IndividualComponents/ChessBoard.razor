@@ -83,7 +83,7 @@
     private void OnSquareClick(Square clicked)
     {
         //No pieces can be moved after ending of game
-        if (GameMenu.currentGame.GameHasEnded())
+        if (GameMenu.currentGame.GameHasEnded() || GamePage.readOnly)
         {
             return;
         }

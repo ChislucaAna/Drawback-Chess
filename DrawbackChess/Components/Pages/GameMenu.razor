@@ -113,6 +113,8 @@
         ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
         ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+
+        GamePage.readOnly = false;
         Navigation.NavigateTo("/Game");
     }
 
@@ -149,13 +151,14 @@
 
             currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
             currentGame.current_turn = lastGame.current_turn;
+
+            GamePage.readOnly = false;
             Navigation.NavigateTo("/Game");
         }
         else
         {
             Console.WriteLine("There arent any previous games");
         }
-        Navigation.NavigateTo("/Game");
     }
 
     //create new online game
@@ -179,6 +182,8 @@
 
         currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
         lookingForMatch = false;
+
+        GamePage.readOnly = false;
         Navigation.NavigateTo("/gameOnline");
     }
 }

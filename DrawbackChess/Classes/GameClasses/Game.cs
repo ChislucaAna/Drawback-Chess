@@ -30,6 +30,8 @@ namespace DrawbackChess.Classes.GameClasses
 
         public string TimeStamps="";
 
+        public bool GameInProgress; //if the current game instance is a game in development or one we are just watching
+
         public Game(Board board, Player player1, Player player2, ChessTimer whiteTimer, ChessTimer blackTimer)
         {
             this.board = board;
@@ -37,7 +39,7 @@ namespace DrawbackChess.Classes.GameClasses
             this.player2 = player2;
             WhiteTimer = whiteTimer;
             BlackTimer = blackTimer;
-            moveHistory = new MoveHistory();
+            moveHistory = new MoveHistory();  
         }
 
 
