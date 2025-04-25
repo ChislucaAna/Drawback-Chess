@@ -29,15 +29,15 @@ namespace DrawbackChess.Classes
         }
         public override string ToString()
         {
-            return text+";"+type+";"+parameter;
+            return text + ";" + type + ";" + parameter;
         }
 
-        private async void generateRandomDrawback() 
+        private async void generateRandomDrawback()
         {
             Random rnd = new Random();
             int index = rnd.Next(1, 75);
 
-            string contents = await DrawbackHandler.GetDrawbackContents();
+            string contents = await DrawbackHandler.GetDrawbackFileContents();
             string[] lines = contents
                 .Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries)
                 .Select(line => line.TrimEnd('\r'))
