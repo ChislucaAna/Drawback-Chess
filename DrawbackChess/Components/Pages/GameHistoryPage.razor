@@ -24,6 +24,7 @@
                 <li class="item" style="color: white">
                     <strong>Game #@game.Id</strong><br />
                     CurrentBoardstate: @game.board<br />
+                    <button @onclick="() => Rewatch(game)"  class="menu-button">Rewatch Game</button>
                 </li>
             }
         </ul>
@@ -32,6 +33,9 @@
 
 @code {
     private List<GameObject> games;
+    [Inject] private NavigationManager Navigation { get; set; }
+    private int playTime = 5;
+    [Inject] private IJSRuntime JS { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -40,5 +44,35 @@
         db.PrintAllGames();
         Console.WriteLine("games fetched");
         StateHasChanged();
+    }
+
+    public async void Rewatch(GameObject game)
+    {
+        Board board = Board.FromFEN(game.board);
+
+        Console.WriteLine("Game players");
+        Console.WriteLine(game.player1);
+        Console.WriteLine(game.player2);
+        Player player1 = Player.FromString(game.player1);
+        Player player2 = Player.FromString(game.player2);
+        ChessTimer WhiteTimer = new ChessTimer(playTime, "White");
+        ChessTimer BlackTimer = new ChessTimer(playTime, "Black");
+
+        //set the reamining time to the last timestamps added in the db
+        if (game.TimeStamps != null)
+        {
+            Console.WriteLine(game.MoveHistory);
+            Console.WriteLine(game.TimeStamps);
+            string[] stamps = game.TimeStamps.Split(";");
+            string timeWhite = stamps[stamps.Length - 3];
+            string timeBlack = stamps[stamps.Length - 2];
+            WhiteTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeWhite));
+            BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
+        }
+
+        GameMenu.currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+        GameMenu.currentGame.current_turn = game.current_turn;
+        GamePage.readOnly = true; //we dont want the players to be able to make anuy moves
+        Navigation.NavigateTo("/Game");
     }
 }
