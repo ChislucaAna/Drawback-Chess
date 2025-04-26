@@ -39,3 +39,15 @@ body {
     padding: 0 !important;
     overflow:visible;
 }
+
+.showme {
+    display: none;
+    bottom: 5%;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px #B28ABD;
+    margin: 1rem;
+}
+
+.showhim:hover .showme {
+    display: block;
+}
