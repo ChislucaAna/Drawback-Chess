@@ -26,11 +26,20 @@
 </div>
 
 @code {
+
+    public static Action RefreshStaticChessboard;
     protected override void OnInitialized()
     {
+        //Console.WriteLine("FEN:" + FEN);
         board = Board.FromFEN(FEN);
+        RefreshStaticChessboard = async () => await InvokeAsync(StateHasChanged);
+    }
+
+    public static void refresh_page(Board b)
+    {
+        board = b;
     }
 
     [Parameter] public string FEN { get; set; }
-    private Board board;
+    public static Board board ;
 }

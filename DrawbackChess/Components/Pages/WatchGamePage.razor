@@ -12,100 +12,118 @@
 
 @code {
 
-    public static Game currentGame;
-    int index = currentGame.moveHistory.contents.Count();
+	public static Game currentGame;
+	int index; //initializeaza la ultima mutare
+	int directie = 0;
 }
 
 <div class="content">
 
-    <div class="navigation_buttons">
-        <div>
-            <button @onclick="GoToPreviousMove" class="toggle-drawback-btn">
-                <i class="fa fal fa-arrow-left"></i>
-            </button>
-        </div>
+	<div class="navigation_buttons">
+		<div>
+			<button @onclick="GoToPreviousMove" class="toggle-drawback-btn">
+				<i class="fa fal fa-arrow-left"></i>
+			</button>
+		</div>
 
-        <div>
-            <button @onclick="GoToNextMove" class="toggle-drawback-btn">
-                <i class="fa fal fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
+		<div>
+			<button @onclick="GoToNextMove" class="toggle-drawback-btn">
+				<i class="fa fal fa-arrow-right"></i>
+			</button>
+		</div>
+	</div>
 
-    <GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
-        @if (currentGame.typeofwin != "draw")
-        {
-            <p class="message">
-                Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
-            </p>
-        }
-        else
-        {
-            <p class="message">
-                Game over! The game ended in a draw.
-            </p>
-        }
-    </GameEndedPopup>
+	<GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
+		@if (currentGame.typeofwin != "draw")
+		{
+			<p class="message">
+				Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
+			</p>
+		}
+		else
+		{
+			<p class="message">
+				Game over! The game ended in a draw.
+			</p>
+		}
+	</GameEndedPopup>
 
-    <div class="gamearea">
-        <div>
-            <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
-            timer="@currentGame.WhiteTimer" rotate="true">
-            </PlayerControls>
-        </div>
+	<div class="gamearea">
+		<div>
+			<PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
+			timer="@currentGame.WhiteTimer" rotate="true">
+			</PlayerControls>
+		</div>
 
-        <ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
+		<ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
 
-        <div>
-            <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2"
-            timer="@currentGame.BlackTimer" rotate="false">
-            </PlayerControls>
-        </div>
+		<div>
+			<PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2"
+			timer="@currentGame.BlackTimer" rotate="false">
+			</PlayerControls>
+		</div>
 
-    </div>
+	</div>
 </div>
 
 @code
 {
+	protected override void OnInitialized()
+	{
+		index = currentGame.moveHistory.contents.Count() - 1;
+		Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+		WatchGamePage.currentGame.refreshUI = refreshUI;
 
-    private async void GoToNextMove()
-    {
-        if (index < currentGame.moveHistory.contents.Count())
-        {
-            index++;
-            MakeMove(currentGame.moveHistory.contents[index].startpoint,
-    currentGame.moveHistory.contents[index].startpoint, GameMenu.currentGame);
-        }
-        else
-        {
-            Console.WriteLine("cant do that");
-            Console.WriteLine(index);
-        }
-        await InvokeAsync(StateHasChanged);
-    }
+	}
 
-    private async void GoToPreviousMove()
-    {
-        if(index > 0)
-        {
-            index--;
-            MakeMove(currentGame.moveHistory.contents[index].startpoint,
-    currentGame.moveHistory.contents[index].startpoint, GameMenu.currentGame);
+	private async void GoToNextMove()
+	{
+		if (index < currentGame.moveHistory.contents.Count() - 1)
+		{
+			if (directie == -1)
+				index++;
 
-        }
-        else
-        {
-            Console.WriteLine("cant do that");
-            Console.WriteLine(index);
-        }
-        await InvokeAsync(StateHasChanged);
-    }
+			MakeMove(
+	currentGame.moveHistory.contents[index].startpoint, currentGame.moveHistory.contents[index].endpoint, currentGame);
+			currentGame.board.PrintCurrentState();
+			directie = 1;
+			index++;
+		}
+		else
+		{
+			Console.WriteLine("cant do that");
+			Console.WriteLine(index);
+		}
+		ChessBoardStatic.refresh_page(currentGame.board);
+		currentGame.refreshUI.Invoke();
+	}
 
-    public static void MakeMove(Square StartSquare, Square EndSquare, Game game)
-    {
-        var PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare, game.board);
-        game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
-        game.board.PrintCurrentState();
+	private async Task GoToPreviousMove()
+	{
+		if (index > 0)
+		{
+			if (directie == 1)
+				index--;
+			MakeMove(
+	currentGame.moveHistory.contents[index].endpoint, currentGame.moveHistory.contents[index].startpoint, currentGame);
+			currentGame.board.PrintCurrentState();
+			directie = -1;
+			index--;
 
-    }
+		}
+		else
+		{
+			Console.WriteLine("cant do that");
+			Console.WriteLine(index);
+		}
+		ChessBoardStatic.refresh_page(currentGame.board);
+		currentGame.refreshUI.Invoke();
+	}
+
+	public static void MakeMove(Square StartSquare, Square EndSquare, Game game)
+	{
+		EndSquare.piece = StartSquare.piece;
+		StartSquare.piece = null;
+
+	}
 }

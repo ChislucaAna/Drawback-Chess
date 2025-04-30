@@ -56,6 +56,14 @@ namespace DrawbackChess
             return $"{colLetter}{row}";
         }
 
+        public static Square FromString(string s)
+        {
+            char colChar = char.ToLower(s[0]);
+            int col = colChar - 'a' + 1;
+            int row = Convert.ToInt32(s[1].ToString()); 
+            return new Square(col, row);
+        }
+
         public bool IsDangerousForKing(string color, Board board)
         {
             foreach (var square in board.grid)

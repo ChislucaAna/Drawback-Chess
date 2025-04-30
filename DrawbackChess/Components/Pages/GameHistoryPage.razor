@@ -58,7 +58,6 @@
     public async void Watch(GameObject game)
     {
         Board board = Board.FromFEN(game.board);
-
         Console.WriteLine("Game players");
         Console.WriteLine(game.player1);
         Console.WriteLine(game.player2);
@@ -79,8 +78,42 @@
             BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
         }
 
+
+        //punem in pozitia initiala ca sa putem reconsittui jocul
+        board = new Board();
+        board.SetupPieces();
+
+
         WatchGamePage.currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
         WatchGamePage.currentGame.current_turn = game.current_turn;
+
+        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+        WatchGamePage.currentGame.refreshUI = refreshUI;
+
+        Console.WriteLine("trying to create movehistory from db");
+        RecreateMoveHistory(game.MoveHistory);
+        Console.WriteLine("printing recreated movehistory from db");
+        Console.WriteLine(WatchGamePage.currentGame.moveHistory.ToString());
         Navigation.NavigateTo("/watch");
+    }
+
+    private void RecreateMoveHistory(string s)
+    {
+        string[] mutari = s.Split(';');
+        foreach (string mutare in mutari)
+        {
+            string[] patrate = mutare.Split('.');
+            Square s1 = Square.FromString(patrate[0]);
+            Square s2 = Square.FromString(patrate[1]);
+            Console.WriteLine(patrate[0] + "=>" + s1.row + " " + s1.col);
+            Console.WriteLine(patrate[1] + "=>" + s2.row + " " + s2.col);
+            Square StartSquare = WatchGamePage.currentGame.board.GetSquareAt(s1.row, s1.col);
+            Square EndSquare = WatchGamePage.currentGame.board.GetSquareAt(s2.row, s2.col);
+            WatchGamePage.currentGame.board.PrintCurrentState();
+            if (MovementHandler.Try_Execute_Move(StartSquare,EndSquare,WatchGamePage.currentGame))
+            {
+                Console.WriteLine("recreated move");
+            }
+        }
     }
 }
