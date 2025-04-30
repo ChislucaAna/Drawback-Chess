@@ -1,0 +1,28 @@
+﻿.nav {
+    align-self: center;
+    position: fixed;
+    bottom: 10px;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    /*overflow: hidden;*/
+    background-color: #01010E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    /*overflow:hidden;*/
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100vw;
+    height: 100vh;
+}
+
