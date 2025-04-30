@@ -32,12 +32,26 @@ namespace DrawbackChess.Classes.GameClasses
 
             for (int i = 0; i < contents.Count; i++)
             {
-                tostring += (i + 1).ToString() + ".";
                 tostring += contents[i].ToString();
                 tostring += ";";
             }
+            tostring = tostring.Remove(tostring.Count() - 1);  
             return tostring;
         }
+
+        /*public static MoveHistory CreateFromString(string s)
+        {
+            MoveHistory result = new MoveHistory();
+            string[] mutari =s.Split(';');
+            foreach(string mutare in mutari)
+            {
+                string[] patrate = mutare.Split('.');
+                Square s1 = Square.FromString(patrate[0]);
+                Square s2 = Square.FromString(patrate[1]);
+                result.AddMoveToHistory(s1.piece, s1, s2);
+            }
+            return result;
+        }*/
         public Move GetLastMove()
         {
             if (contents.Count >= 1)

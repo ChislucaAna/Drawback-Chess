@@ -22,7 +22,7 @@
     box-shadow: 0 0 15px grey; /* Subtle shadow to make it look more like a digital display */
     transition: all 0.2s ease; /* Smooth transition for changes */
     width:7rem;
-    height:5%;
+    height:3%;
 }
 
 @keyframes glowing {
@@ -46,6 +46,6 @@
 
 .session_info {
     width: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 0;
 }

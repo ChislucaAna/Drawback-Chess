@@ -38,17 +38,7 @@ namespace DrawbackChess.Classes.GameClasses
 
         public override string ToString()
         {
-            string tostring = "";
-            tostring += MoveAbbreviations[piece.type];
-            if (IsCapture())
-            {
-                if (piece.type == "Pawn")
-                    tostring += startpoint.ToString();
-                tostring += "x" + endpoint.ToString();
-            }
-            else
-                tostring += endpoint.ToString();
-            return tostring;
+            return startpoint.ToString() + "." + endpoint.ToString();
         }
     }
 }

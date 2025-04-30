@@ -23,7 +23,7 @@ namespace DrawbackChess.Classes.GameClasses
             return false;
         }
 
-        static void MovePiece(Square StartSquare, Square EndSquare)
+        public static void MovePiece(Square StartSquare, Square EndSquare)
         {
             EndSquare.piece = StartSquare.piece;
             StartSquare.piece = null;

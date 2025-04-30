@@ -29,7 +29,6 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     background-color: #01010E;
-    overflow: visible;
 }
 
 .content {
@@ -37,7 +36,6 @@ body {
     flex-direction: column;
     margin: 0 !important;
     padding: 0 !important;
-    overflow:visible;
 }
 
 .showme {
@@ -49,5 +47,6 @@ body {
 }
 
 .showhim:hover .showme {
-    display: block;
+    display: flex;
+    align-items: center;
 }

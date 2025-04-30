@@ -39,27 +39,20 @@
 
     private void ReverseLastMove()
     {
-        if(GamePage.readOnly==false) //currently developing game
-        {
-            //we can only reverse a move after we made it and the turn has been switched, 
-            // we cannot reverse a move before the game has started or after it has ended
-            if (player.color == GameMenu.currentGame.current_turn ||
-            !GameMenu.currentGame.GameHasStarted() || GameMenu.currentGame.GameHasEnded()) return;
+        //we can only reverse a move after we made it and the turn has been switched, 
+        // we cannot reverse a move before the game has started or after it has ended
+        if (player.color == GameMenu.currentGame.current_turn ||
+        !GameMenu.currentGame.GameHasStarted() || GameMenu.currentGame.GameHasEnded()) return;
 
-            //in a currently developing game, we want the move to be taken out of the move history
-            //as if the player never made it, while in a game that we are just watching, we want to
-            //just skim through the game moves, not modify the movehistory of the game
-            MovementHandler.ReverseLastMoveOfPlayer(player.color, GameMenu.currentGame);
-            GameMenu.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
-            GameMenu.currentGame.board.PrintCurrentState();
+        //in a currently developing game, we want the move to be taken out of the move history
+        //as if the player never made it, while in a game that we are just watching, we want to
+        //just skim through the game moves, not modify the movehistory of the game
+        MovementHandler.ReverseLastMoveOfPlayer(player.color, GameMenu.currentGame);
+        GameMenu.currentGame.moveHistory.RemoveLastMoveOfPlayer(player.color);
+        GameMenu.currentGame.board.PrintCurrentState();
 
-            GameMenu.currentGame.SwitchTurn();
-            GameMenu.currentGame.SwitchTimer();
-            GameMenu.currentGame.board.refreshUI();
-        }
-        else //game we are just watching
-        {
-            Console.WriteLine("Lat move was reversed");
-        }
+        GameMenu.currentGame.SwitchTurn();
+        GameMenu.currentGame.SwitchTimer();
+        GameMenu.currentGame.board.refreshUI();
     }
 }
