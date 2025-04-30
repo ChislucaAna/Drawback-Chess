@@ -47,5 +47,6 @@ body {
 }
 
 .showhim:hover .showme {
-    display: block;
+    display: flex;
+    align-items: center;
 }

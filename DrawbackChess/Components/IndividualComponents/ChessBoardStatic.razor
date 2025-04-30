@@ -3,28 +3,25 @@
 @using DrawbackChess.Classes.GameClasses;
 @using DrawbackChess.Classes.DatabaseClasses
 
-<div class="chessboard_full">
+<div class="chessboard">
 
-        <div class="chessboard">
+    @for (int row = 1; row <= 8; row++)
+    {
 
-            @for (int row = 1; row <= 8; row++)
-            {
+        @for (int col = 1; col <= 8; col++)
+        {
+            var square = board.grid[row, col];
 
-                @for (int col = 1; col <= 8; col++)
+            <div class="square @(square.IsBlackSquare() ? "black" : "white")">
+                @if (square.piece !=null)
                 {
-                    var square = board.grid[row, col];
-
-                    <div class="square @(square.IsBlackSquare() ? "black" : "white")">
-                        @if (square.piece !=null)
-                        {
-                            <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
-                            alt="@square.piece.type"
-                            class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
-                        }
-                    </div>
+                    <img src="\images\@(square.piece.color.ToLower())_@(square.piece.type.ToLower()).png"
+                    alt="@square.piece.type"
+                    class="piece @(square.piece.color.ToLower() == "white" ? "rotated" : "")" />
                 }
-            }
-        </div>
+            </div>
+        }
+    }
 
 </div>
 

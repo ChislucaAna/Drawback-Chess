@@ -8,43 +8,57 @@
 <link href="css/Game.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/watch.css">
 
 @code {
 
     public static Game currentGame;
+    int index = currentGame.moveHistory.contents.Count();
 }
 
 <div class="content">
 
+    <div class="navigation_buttons">
+        <div>
+            <button @onclick="GoToPreviousMove" class="toggle-drawback-btn">
+                <i class="fa fal fa-arrow-left"></i>
+            </button>
+        </div>
+
+        <div>
+            <button @onclick="GoToNextMove" class="toggle-drawback-btn">
+                <i class="fa fal fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
     <GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
         @if (currentGame.typeofwin != "draw")
         {
-                <p class="message">
-                    Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
-                </p>
+            <p class="message">
+                Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
+            </p>
         }
         else
         {
-                <p class="message">
-                    Game over! The game ended in a draw.
-                </p>
+            <p class="message">
+                Game over! The game ended in a draw.
+            </p>
         }
     </GameEndedPopup>
 
     <div class="gamearea">
         <div>
-                  <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
-                timer="@currentGame.WhiteTimer" rotate="true">
-                </PlayerControls>
+            <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
+            timer="@currentGame.WhiteTimer" rotate="true">
+            </PlayerControls>
         </div>
 
-        <div>
-            <ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
-        </div>
+        <ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
 
         <div>
             <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2"
-                        timer="@currentGame.BlackTimer" rotate="false">
+            timer="@currentGame.BlackTimer" rotate="false">
             </PlayerControls>
         </div>
 
@@ -53,9 +67,45 @@
 
 @code
 {
-    protected override void OnInitialized()
+
+    private async void GoToNextMove()
     {
-        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
-        currentGame.refreshUI = refreshUI;
+        if (index < currentGame.moveHistory.contents.Count())
+        {
+            index++;
+            MakeMove(currentGame.moveHistory.contents[index].startpoint,
+    currentGame.moveHistory.contents[index].startpoint, GameMenu.currentGame);
+        }
+        else
+        {
+            Console.WriteLine("cant do that");
+            Console.WriteLine(index);
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async void GoToPreviousMove()
+    {
+        if(index > 0)
+        {
+            index--;
+            MakeMove(currentGame.moveHistory.contents[index].startpoint,
+    currentGame.moveHistory.contents[index].startpoint, GameMenu.currentGame);
+
+        }
+        else
+        {
+            Console.WriteLine("cant do that");
+            Console.WriteLine(index);
+        }
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public static void MakeMove(Square StartSquare, Square EndSquare, Game game)
+    {
+        var PossibleMoves = StartSquare.piece.GetPossibleMoves(StartSquare, game.board);
+        game.moveHistory.AddMoveToHistory(StartSquare.piece, StartSquare, EndSquare);
+        game.board.PrintCurrentState();
+
     }
 }
