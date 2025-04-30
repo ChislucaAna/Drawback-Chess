@@ -9,7 +9,6 @@
 <link href="css/fonts.css" rel="stylesheet" />
 <link href="css/GameHistory.css" rel="stylesheet" />
 <link href="css/Game.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/layout.css">
 
 <div class="content">
 
@@ -30,8 +29,8 @@
 
                     <strong>Game #@game.Id</strong><br />
 
-                    <button @onclick="() => Rewatch(game)"  class="menu-button">Rewatch Game</button>
-                     <div @onclick="() => Rewatch(game)" class="showme">
+                    <button @onclick="() => Watch(game)" class="menu-button">Rewatch Game</button>
+                    <div class="showme">
                         <ChessBoardStatic FEN="@game.board"></ChessBoardStatic>
                     </div>
                 </li>
@@ -55,7 +54,7 @@
         StateHasChanged();
     }
 
-    public async void Rewatch(GameObject game)
+    public async void Watch(GameObject game)
     {
         Board board = Board.FromFEN(game.board);
 
@@ -79,9 +78,8 @@
             BlackTimer.TimeLeft = TimeSpan.FromSeconds(Convert.ToInt64(timeBlack));
         }
 
-        GameMenu.currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
-        GameMenu.currentGame.current_turn = game.current_turn;
-        GamePage.readOnly = true; //we dont want the players to be able to make anuy moves
-        Navigation.NavigateTo("/Game");
+        WatchGamePage.currentGame = new Game(board, player1, player2, WhiteTimer, BlackTimer);
+        WatchGamePage.currentGame.current_turn = game.current_turn;
+        Navigation.NavigateTo("/watch");
     }
 }

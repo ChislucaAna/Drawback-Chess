@@ -1,0 +1,61 @@
+﻿@page "/watch"
+@using DrawbackChess.Classes.GameClasses;
+@using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
+@using CommunityToolkit.Maui.Views;
+
+
+<link href="css/Game.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/fonts.css">
+
+@code {
+
+    public static Game currentGame;
+}
+
+<div class="content">
+
+    <GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
+        @if (currentGame.typeofwin != "draw")
+        {
+                <p class="message">
+                    Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
+                </p>
+        }
+        else
+        {
+                <p class="message">
+                    Game over! The game ended in a draw.
+                </p>
+        }
+    </GameEndedPopup>
+
+    <div class="gamearea">
+        <div>
+                  <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
+                timer="@currentGame.WhiteTimer" rotate="true">
+                </PlayerControls>
+        </div>
+
+        <div>
+            <ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
+        </div>
+
+        <div>
+            <PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2"
+                        timer="@currentGame.BlackTimer" rotate="false">
+            </PlayerControls>
+        </div>
+
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+        currentGame.refreshUI = refreshUI;
+    }
+}

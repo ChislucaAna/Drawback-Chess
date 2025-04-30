@@ -9,10 +9,6 @@
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/fonts.css">
 
-@code {
-    public static bool readOnly = false; //if true, the game is just being watched
-}
-
 <div class="content">
 
     <GameEndedPopup Title="Game Over" IsVisible="@GameMenu.currentGame.GameHasEnded()">
