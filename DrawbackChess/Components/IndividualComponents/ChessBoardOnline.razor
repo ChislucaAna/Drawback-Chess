@@ -80,12 +80,25 @@
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
         GameMenu.currentGame.board = GameMenu.session.getBoard();
         GameMenu.currentGame.current_turn = GameMenu.session.getCurrentTurn();
+        GameMenu.session.updateTimer(GameMenu.currentGame);
         if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor())
         {
             await GameMenu.session.waitEnemyTurn();
             GameMenu.currentGame.board = GameMenu.session.getBoard();
+            GameMenu.session.updateTimer(GameMenu.currentGame);
             GameMenu.currentGame.SwitchTurn();
             GameMenu.currentGame.SwitchTimer();
+        }
+
+        if (GameMenu.session.getMyColor() == "White")
+        {
+            myTimer = GameMenu.currentGame.WhiteTimer;
+            myColor = "white";
+        }
+        else
+        {
+            myTimer = GameMenu.currentGame.BlackTimer;
+            myColor = "black";
         }
         StateHasChanged();
     }
@@ -93,6 +106,8 @@
     public static Square StartSquare;
     public static Square EndSquare;
     public GameObject currentState;
+    public ChessTimer myTimer;
+    public string myColor;
 
     private async void OnSquareClick(Square clicked)
     {
@@ -128,7 +143,8 @@
         {
             if (GameMenu.currentGame.winner != null)
             {
-                GameMenu.session.sendMove(GameMenu.currentGame.board);
+                GameMenu.session.sendMove(GameMenu.currentGame.board, myTimer, myColor);
+                GameMenu.session.updateTimer(GameMenu.currentGame);
                 GameMenu.session.declareWinner(GameMenu.currentGame.winner.color);
                 GameMenu.session.switchTurn();
                 Save(); //salveaza remote
@@ -136,7 +152,8 @@
             }
             else
             {
-                GameMenu.session.sendMove(GameMenu.currentGame.board);
+                GameMenu.session.sendMove(GameMenu.currentGame.board, myTimer, myColor);
+                GameMenu.session.updateTimer(GameMenu.currentGame);
                 ClearMovementData();
                 GameMenu.session.switchTurn();
                 StateHasChanged();

@@ -15,9 +15,12 @@ namespace DrawbackChess.Classes.GameClasses
         public TimeSpan TimeLeft;
         string color;
 
-        public ChessTimer(int minutes, string color)
+        public ChessTimer(int time, string color, bool fromSeconds = false)
         {
-            TimeLeft = TimeSpan.FromMinutes(minutes);
+            if (fromSeconds)
+                TimeLeft = TimeSpan.FromSeconds(time);
+            else
+                TimeLeft = TimeSpan.FromMinutes(time);
             this.color = color;
         }
 

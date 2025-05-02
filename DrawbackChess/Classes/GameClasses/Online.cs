@@ -58,6 +58,37 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
+        public void updateTimer (Game game)
+        {
+            var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
+
+            var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
+            var document = boardCollection.Find(filter).FirstOrDefault();
+
+            long timeWhite;
+            long timeBlack;
+
+            if (document.Contains("whiteTimeSet") && document.Contains("blackTimeSet"))
+            {
+                timeWhite = document["whiteTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["whiteTimeSet"].ToInt64());
+                timeBlack = document["blackTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["blackTimeSet"].ToInt64());
+
+                game.WhiteTimer = new ChessTimer((int)timeWhite, "White", true);
+                game.BlackTimer = new ChessTimer((int)timeBlack, "Black", true);
+
+                if (document["whiteTimePaused"].ToBoolean())
+                {
+                    game.WhiteTimer.PauseTimer(game);
+                    game.BlackTimer.StartTimer(game);
+                }
+                else
+                {
+                    game.BlackTimer.PauseTimer(game);
+                    game.WhiteTimer.StartTimer(game);
+                }
+            }
+        }
+
         public async Task<string> SaveRemote(GameObject game) //ai doar insert , playerul care da cleanup salveaza remote
         {
             var gameCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("PreviousGames");
@@ -110,14 +141,20 @@ namespace DrawbackChess.Classes.GameClasses
             boardCollection.UpdateOne(filter, update);
         }
 
-        public void sendMove (Board board)
+        public void sendMove (Board board, ChessTimer timer, string color)
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
             var filter = Builders<BsonDocument>.Filter.Eq(playerNumber, id);
             var document = boardCollection.Find(filter).FirstOrDefault();
 
-            var update = Builders<BsonDocument>.Update.Set("board", Board.ToFEN(board));
+            string enemyColor = (color == "white") ? ("black") : ("white");
+
+            var update = Builders<BsonDocument>.Update.Set("board", Board.ToFEN(board)).
+                Set(color + "TimeLeft", timer.TimeLeft.TotalSeconds).
+                Set(color + "TimeSet", DateTimeOffset.Now.ToUnixTimeSeconds()).
+                Set(color + "TimePaused", true).
+                Set(enemyColor + "TimePaused", false);
             boardCollection.UpdateOne(filter, update);
         }
 
@@ -392,7 +429,11 @@ namespace DrawbackChess.Classes.GameClasses
                     { "UID1", id },
                     { "UID2", document["UID2"] },
                     { "currentTurn", "White" },
-                    { "board", "RNBQKBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbqkbnr" }
+                    { "board", "RNBQKBNR/PPPPPPPP/8/8/8/8/pppppppp/rnbqkbnr" },
+                    { "whiteTimeLeft", 300 },
+                    { "whiteTimePaused", true},
+                    { "blackTimeLeft", 300 },
+                    { "blackTimePaused", true},
                 };
 
                 await boardCollection.InsertOneAsync(newGameBoard);
