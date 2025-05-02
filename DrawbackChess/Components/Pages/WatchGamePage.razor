@@ -1,0 +1,129 @@
+﻿@page "/watch"
+@using DrawbackChess.Classes.GameClasses;
+@using DrawbackChess.Components
+@using DrawbackChess.Components.IndividualComponents
+@using CommunityToolkit.Maui.Views;
+
+
+<link href="css/Game.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/watch.css">
+
+@code {
+
+	public static Game currentGame;
+	int index; //initializeaza la ultima mutare
+	int directie = 0;
+}
+
+<div class="content">
+
+	<div class="navigation_buttons">
+		<div>
+			<button @onclick="GoToPreviousMove" class="toggle-drawback-btn">
+				<i class="fa fal fa-arrow-left"></i>
+			</button>
+		</div>
+
+		<div>
+			<button @onclick="GoToNextMove" class="toggle-drawback-btn">
+				<i class="fa fal fa-arrow-right"></i>
+			</button>
+		</div>
+	</div>
+
+	<GameEndedPopup Title="Game Over" IsVisible="@currentGame.GameHasEnded()">
+		@if (currentGame.typeofwin != "draw")
+		{
+			<p class="message">
+				Game over! Game was won by @currentGame.LookForWinner() by @currentGame.typeofwin.
+			</p>
+		}
+		else
+		{
+			<p class="message">
+				Game over! The game ended in a draw.
+			</p>
+		}
+	</GameEndedPopup>
+
+	<div class="gamearea">
+		<div>
+			<PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player1"
+			timer="@currentGame.WhiteTimer" rotate="true">
+			</PlayerControls>
+		</div>
+
+		<ChessBoardStatic FEN="@Board.ToFEN(currentGame.board)"></ChessBoardStatic>
+
+		<div>
+			<PlayerControls GameHasStarted="@currentGame.GameHasStarted()" player="@currentGame.player2"
+			timer="@currentGame.BlackTimer" rotate="false">
+			</PlayerControls>
+		</div>
+
+	</div>
+</div>
+
+@code
+{
+	protected override void OnInitialized()
+	{
+		index = currentGame.moveHistory.contents.Count() - 1;
+		Action refreshUI = async () => await InvokeAsync(StateHasChanged);
+		WatchGamePage.currentGame.refreshUI = refreshUI;
+
+	}
+
+	private async void GoToNextMove()
+	{
+		if (index < currentGame.moveHistory.contents.Count() - 1)
+		{
+			if (directie == -1)
+				index++;
+
+			MakeMove(
+	currentGame.moveHistory.contents[index].startpoint, currentGame.moveHistory.contents[index].endpoint, currentGame);
+			currentGame.board.PrintCurrentState();
+			directie = 1;
+			index++;
+		}
+		else
+		{
+			Console.WriteLine("cant do that");
+			Console.WriteLine(index);
+		}
+		ChessBoardStatic.refresh_page(currentGame.board);
+		currentGame.refreshUI.Invoke();
+	}
+
+	private async Task GoToPreviousMove()
+	{
+		if (index > 0)
+		{
+			if (directie == 1)
+				index--;
+			MakeMove(
+	currentGame.moveHistory.contents[index].endpoint, currentGame.moveHistory.contents[index].startpoint, currentGame);
+			currentGame.board.PrintCurrentState();
+			directie = -1;
+			index--;
+
+		}
+		else
+		{
+			Console.WriteLine("cant do that");
+			Console.WriteLine(index);
+		}
+		ChessBoardStatic.refresh_page(currentGame.board);
+		currentGame.refreshUI.Invoke();
+	}
+
+	public static void MakeMove(Square StartSquare, Square EndSquare, Game game)
+	{
+		EndSquare.piece = StartSquare.piece;
+		StartSquare.piece = null;
+
+	}
+}
