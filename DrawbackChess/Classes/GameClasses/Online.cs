@@ -70,8 +70,15 @@ namespace DrawbackChess.Classes.GameClasses
 
             if (document.Contains("whiteTimeSet") && document.Contains("blackTimeSet"))
             {
-                timeWhite = document["whiteTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["whiteTimeSet"].ToInt64());
-                timeBlack = document["blackTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["blackTimeSet"].ToInt64());
+                if (!document["whiteTimePaused"].ToBoolean())
+                    timeWhite = document["whiteTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["whiteTimeSet"].ToInt64());
+                else
+                    timeWhite = document["whiteTimeLeft"].ToInt64();
+
+                if (!document["blackTimePaused"].ToBoolean())
+                    timeBlack = document["blackTimeLeft"].ToInt64() - (DateTimeOffset.Now.ToUnixTimeSeconds() - document["blackTimeSet"].ToInt64());
+                else
+                    timeBlack = document["blackTimeLeft"].ToInt64();
 
                 game.WhiteTimer = new ChessTimer((int)timeWhite, "White", true);
                 game.BlackTimer = new ChessTimer((int)timeBlack, "Black", true);
