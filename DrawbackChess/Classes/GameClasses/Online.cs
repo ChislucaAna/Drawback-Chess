@@ -83,6 +83,12 @@ namespace DrawbackChess.Classes.GameClasses
                 game.WhiteTimer = new ChessTimer((int)timeWhite, "White", true);
                 game.BlackTimer = new ChessTimer((int)timeBlack, "Black", true);
 
+                if (timeWhite <= 0)
+                    game.winner = game.player1;
+
+                if (timeBlack <= 0)
+                    game.winner = game.player2;
+
                 if (document["whiteTimePaused"].ToBoolean())
                 {
                     game.WhiteTimer.PauseTimer(game);
