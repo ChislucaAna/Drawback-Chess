@@ -58,7 +58,7 @@ namespace DrawbackChess.Classes.GameClasses
             return Board.FromFEN(document["board"].ToString());
         }
 
-        public void updateTimer (Game game)
+        public async Task<string> updateTimer (Game game)
         {
             var boardCollection = client.GetDatabase("chess_games").GetCollection<BsonDocument>("boards");
 
@@ -84,10 +84,16 @@ namespace DrawbackChess.Classes.GameClasses
                 game.BlackTimer = new ChessTimer((int)timeBlack, "Black", true);
 
                 if (timeWhite <= 0)
+                {
                     game.winner = game.player1;
+                    await endGame();
+                }
 
                 if (timeBlack <= 0)
+                {
                     game.winner = game.player2;
+                    await endGame();
+                }
 
                 if (document["whiteTimePaused"].ToBoolean())
                 {
@@ -100,6 +106,7 @@ namespace DrawbackChess.Classes.GameClasses
                     game.WhiteTimer.StartTimer(game);
                 }
             }
+            return "updated";
         }
 
         public async Task<string> SaveRemote(GameObject game) //ai doar insert , playerul care da cleanup salveaza remote

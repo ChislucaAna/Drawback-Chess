@@ -80,13 +80,13 @@
         GameMenu.currentGame.board.refreshUI = StateHasChanged;
         GameMenu.currentGame.board = GameMenu.session.getBoard();
         GameMenu.currentGame.current_turn = GameMenu.session.getCurrentTurn();
-        GameMenu.session.updateTimer(GameMenu.currentGame);
+        await GameMenu.session.updateTimer(GameMenu.currentGame);
 
         if (GameMenu.session.getCurrentTurn() != GameMenu.session.getMyColor())
         {
             await GameMenu.session.waitEnemyTurn();
             GameMenu.currentGame.board = GameMenu.session.getBoard();
-            GameMenu.session.updateTimer(GameMenu.currentGame);
+            await GameMenu.session.updateTimer(GameMenu.currentGame);
             GameMenu.currentGame.SwitchTurn();
             GameMenu.currentGame.SwitchTimer();
         }
